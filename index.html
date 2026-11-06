@@ -131,19 +131,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta content="index, follow" name="robots"/>
 <meta content="max-snippet:50, max-image-preview:large" name="robots"/>
 <style>
-  /* hide body scroll */
+  /* hide body scroll & prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html::-webkit-scrollbar,
   body::-webkit-scrollbar {
-  width: 0;
-}
-body::-webkit-scrollbar-thumb {
-  width: 0;
-  background: #fff;
-  border-radius: 2px;
-}
-body::-webkit-scrollbar-track {
-  background-color: transparent;
-  border: 0;
-}
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  html::-webkit-scrollbar-thumb,
+  body::-webkit-scrollbar-thumb {
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+  html::-webkit-scrollbar-track,
+  body::-webkit-scrollbar-track {
+    background-color: transparent;
+    border: 0;
+  }
   .overflow-ellipsis {text-overflow: ellipsis;}
   /* Lenis */
 html.lenis {height: auto;}

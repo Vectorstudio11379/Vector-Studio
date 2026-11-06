@@ -20,6 +20,26 @@
   --vs-mono: 'Roboto Mono', monospace;
 }
 
+/* Prevent horizontal overflow and hide horizontal/vertical scrollbars */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: transparent !important;
+}
+
 /* Base header container override */
 .vs-navbar {
   position: sticky !important;
