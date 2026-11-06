@@ -1,0 +1,383 @@
+<div class="navbar-4 site-header w-nav" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner">
+ <div class="ecosystem-code w-embed">
+  <style>
+   /* CSS for when overflow is detected in Our Ecosystem dropdown */
+.overflow-pproduct-menu-list {
+  width: 26rem;
+  right: 0;
+  left: unset;
+}
+  
+.overflow-pproduct-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+}
+
+[data-nnav-menu-open] {
+  display: flex !important;
+  justify-content: start;
+}
+  </style>
+ </div>
+ <div class="icon-hover-transform w-embed">
+  <style>
+   /* Default state (closed) */
+.header__icon-arrow {
+    transform: rotate(0deg);
+    transition: transform 0.1s ease-in-out; /* Fast reset */
+}
+
+/* Open state */
+.nav-link-5.w--open .header__icon-arrow {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out; /* Smooth opening */
+}
+
+/* Force faster transition when closing */
+.nav-link-5:not(.w--open) .header__icon-arrow {
+    transition: transform 0.1s ease-in-out !important; /* Ensure Webflow doesn't override */
+}
+  </style>
+ </div>
+ <div class="mobile-dropdown-setting w-embed">
+  <style>
+   @media screen and (max-width: 991px) {
+    nav.nav-menu-2.w-nav-menu {
+        overflow: visible;
+    }
+}
+  </style>
+ </div>
+ <div class="header-container">
+  <div class="header-side-part hsp--left">
+   <a aria-current="page" class="brand-2 w-nav-brand w--current" href="/">
+    <span style="display:inline-flex;align-items:center;gap:10px;">
+     <svg fill="none" height="34" style="width:34px;height:34px;margin:0;" viewbox="0 0 34 34" width="34" xmlns="http://www.w3.org/2000/svg">
+      <rect fill="#00ffa3" fill-opacity="0.12" height="34" rx="8" width="34">
+      </rect>
+      <path d="M9 10L17 25L25 10H20.5L17 18L13.5 10H9Z" fill="#00ffa3">
+      </path>
+      <circle cx="17" cy="8" fill="#ffffff" r="2">
+      </circle>
+     </svg>
+     <span style="font-size:22px;font-weight:800;letter-spacing:-0.5px;color:#ffffff;font-family:'Inter',sans-serif;">
+      Vector
+      <span style="color:#00ffa3;font-size:22px;font-weight:800;">
+       Studioz
+      </span>
+     </span>
+    </span>
+   </a>
+  </div>
+  <div class="header-mdl-part">
+   <nav class="nav-menu-2 w-nav-menu" role="navigation">
+    <div class="menu-2">
+     <div class="header-menu-block hmb-alt header-3-col-solution">
+      <div class="product-menu w-dropdown" data-delay="0" data-hover="false">
+       <div class="product-menu-toggle w-dropdown-toggle">
+        <div class="product-menu-icon">
+         <div class="product-menu-icon-dot pos-top-left">
+         </div>
+         <div class="product-menu-icon-dot pos-top-right">
+         </div>
+         <div class="product-menu-icon-dot pos-bottom-left">
+         </div>
+         <div class="product-menu-icon-dot pos-bottom-right">
+         </div>
+        </div>
+        <div class="product-menu-toggle-text">
+         Our Services
+        </div>
+        <div class="product-menu-line">
+        </div>
+        <img alt="" class="header__icon-arrow header-icon-arrow-tablet" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64491fa5649dfb767a0c35ee_arrow-down.svg"/>
+       </div>
+       <nav class="product-menu-list w-dropdown-list" data-lenis-prevent="">
+        <div class="product-box">
+         <div class="product-menu-item" id="w-node-_106b4f31-96dd-f050-04c2-25493433f6bc-730e3910">
+          <a aria-current="page" class="product-menu-link is-selected w-inline-block w--current" href="/">
+           <div class="product-menu-item-bg is-selected">
+           </div>
+           <div class="product-menu-link-box">
+            <div class="product-menu-item-logo-area">
+             <img alt="" class="product-menu-item-logo" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65490b8a07a8b7aa78eff4f1_logo-chainGPT-dark.svg"/>
+             <img alt="" class="product-menu-item-arrow is-selected" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65490b8aafd57d8ec5c22b86_selected-indicator.svg"/>
+            </div>
+            <div class="product-menu-link-text is-selected">
+             MAIN WEBSITE
+            </div>
+           </div>
+          </a>
+         </div>
+         <div class="product-menu-item">
+          <a class="product-menu-link w-inline-block" href="https://app.vectorstudioz.com/" rel="noopener noreferrer" target="_blank">
+           <div class="product-menu-item-bg">
+           </div>
+           <div class="product-menu-link-box">
+            <div class="product-menu-item-logo-area">
+             <img alt="" class="product-menu-item-logo-2 logo-ai-hub" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6613b25be8b895f732812334_logo-ai-hub.svg"/>
+             <img alt="Simple Link Arrow Icon" class="product-menu-item-arrow" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg"/>
+            </div>
+            <div class="product-menu-link-text">
+             WEB DESIGN &amp; UX/UI
+            </div>
+           </div>
+          </a>
+         </div>
+         <div class="product-menu-item">
+          <a class="product-menu-link w-inline-block" href="https://design.vectorstudioz.com/" rel="noopener noreferrer" target="_blank">
+           <div class="product-menu-item-bg">
+           </div>
+           <div class="product-menu-link-box">
+            <div class="product-menu-item-logo-area">
+             <img alt="" class="product-menu-item-logo-3" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65490b8a668f9f9f2645d7bb_logo-NFTGen.svg"/>
+             <img alt="Simple Link Arrow Icon" class="product-menu-item-arrow" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg"/>
+            </div>
+            <div class="product-menu-link-text">
+             3D &amp; WEBGL EXPERIENCES
+            </div>
+           </div>
+          </a>
+         </div>
+         <div class="product-menu-item">
+          <a class="product-menu-link w-inline-block" href="https://portal.vectorstudioz.com/" rel="noopener noreferrer" target="_blank">
+           <div class="product-menu-item-bg">
+           </div>
+           <div class="product-menu-link-box">
+            <div class="product-menu-item-logo-area">
+             <img alt="" class="product-menu-item-logo-3" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65490b8aeb8455bcc5cbf898_logo-Pad.svg"/>
+             <img alt="Simple Link Arrow Icon" class="product-menu-item-arrow" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg"/>
+            </div>
+            <div class="product-menu-link-text">
+             DESIGN SYSTEMS
+            </div>
+           </div>
+          </a>
+         </div>
+         <div class="product-menu-item">
+          <a class="product-menu-link w-inline-block" href="https://labs.vectorstudioz.com" rel="noopener noreferrer" target="_blank">
+           <div class="product-menu-item-bg">
+           </div>
+           <div class="product-menu-link-box">
+            <div class="product-menu-item-logo-area">
+             <img alt="" class="product-menu-item-logo-2 logo-labs" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/668d4452d209630013ad3f7d_chain-gpt-labs.svg"/>
+             <img alt="Simple Link Arrow Icon" class="product-menu-item-arrow" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg"/>
+            </div>
+            <div class="product-menu-link-text">
+             FULL-STACK SAAS &amp; WEB
+            </div>
+           </div>
+          </a>
+         </div>
+         <div class="product-menu-item">
+          <a class="product-menu-link w-inline-block" href="https://aivm.io/" rel="noopener noreferrer" target="_blank">
+           <div class="product-menu-item-bg">
+           </div>
+           <div class="product-menu-link-box">
+            <div class="product-menu-item-logo-area logo-crypto--guard">
+             <img alt="" class="product-menu-item-logo-2 logo-guard" loading="lazy" sizes="100vw" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a3498017fb06b6c97cc28af_aivm-logo-hd.webp" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a3498017fb06b6c97cc28af_aivm-logo-hd-p-500.webp 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a3498017fb06b6c97cc28af_aivm-logo-hd.webp 510w"/>
+             <img alt="Simple Link Arrow Icon" class="product-menu-item-arrow" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg"/>
+            </div>
+            <div class="product-menu-link-text">
+             CONVERSION (CRO) AUDITS
+            </div>
+           </div>
+          </a>
+         </div>
+         <div class="product-menu-item">
+          <a class="product-menu-link w-inline-block" href="https://fathom.vectorstudioz.com/" rel="noopener noreferrer" target="_blank">
+           <div class="product-menu-item-bg">
+           </div>
+           <div class="product-menu-link-box">
+            <div class="product-menu-item-logo-area logo-crypto--guard">
+             <img alt="" class="product-menu-item-logo-2 logo-guard" loading="lazy" sizes="100vw" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349b03774a38dff17f121c_fathom-ecosystem-logo.webp" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349b03774a38dff17f121c_fathom-ecosystem-logo-p-500.webp 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349b03774a38dff17f121c_fathom-ecosystem-logo.webp 780w"/>
+             <img alt="Simple Link Arrow Icon" class="product-menu-item-arrow" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg"/>
+            </div>
+            <div class="product-menu-link-text">
+             AGENCY OS PORTAL
+            </div>
+           </div>
+          </a>
+         </div>
+         <div class="product-menu-item">
+          <a class="product-menu-link w-inline-block" href="https://saleium.io/" rel="noopener noreferrer" target="_blank">
+           <div class="product-menu-item-bg">
+           </div>
+           <div class="product-menu-link-box">
+            <div class="product-menu-item-logo-area logo-crypto--guard">
+             <img alt="" class="product-menu-item-logo-2 logo-guard" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349f1bb5a6655552edf383_saleium-ecosystem-logo.webp"/>
+             <img alt="Simple Link Arrow Icon" class="product-menu-item-arrow" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg"/>
+            </div>
+            <div class="product-menu-link-text">
+             DESIGN SPRINTS
+            </div>
+           </div>
+          </a>
+         </div>
+         <div class="product-menu-item">
+          <a class="product-menu-link w-inline-block" href="https://docs.vectorstudioz.com/dev-docs-b2b-saas-api-and-sdk/introduction-to-chaingpts-developer-tools" rel="noopener noreferrer" target="_blank">
+           <div class="product-menu-item-bg">
+           </div>
+           <div class="product-menu-link-box">
+            <div class="product-menu-item-logo-area logo-crypto--guard">
+             <img alt="" class="product-menu-item-logo-2 logo-guard" loading="lazy" sizes="100vw" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349e2fd9ec9544a2972444_api-sdk-tech-stack-logo.webp" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349e2fd9ec9544a2972444_api-sdk-tech-stack-logo-p-500.webp 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349e2fd9ec9544a2972444_api-sdk-tech-stack-logo.webp 780w"/>
+             <img alt="Simple Link Arrow Icon" class="product-menu-item-arrow" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg"/>
+            </div>
+            <div class="product-menu-link-text">
+             TECH STACK
+            </div>
+           </div>
+          </a>
+         </div>
+         <div class="product-menu-item">
+          <a class="product-menu-link w-inline-block" href="https://github.com/Vector Studioz-org/chaingpt-claude-skill" rel="noopener noreferrer" target="_blank">
+           <div class="product-menu-item-bg">
+           </div>
+           <div class="product-menu-link-box">
+            <div class="product-menu-item-logo-area logo-crypto--guard">
+             <img alt="" class="product-menu-item-logo-2 logo-guard" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349ae01e150e5cd7378abe_claude-web3-skill-logo.webp"/>
+             <img alt="Simple Link Arrow Icon" class="product-menu-item-arrow" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg"/>
+            </div>
+            <div class="product-menu-link-text">
+             CLIENT SHOWCASE
+            </div>
+           </div>
+          </a>
+         </div>
+         <div class="product-menu-item">
+          <a class="product-menu-link w-inline-block" href="https://degenpad.com/" rel="noopener noreferrer" target="_blank">
+           <div class="product-menu-item-bg">
+           </div>
+           <div class="product-menu-link-box">
+            <div class="product-menu-item-logo-area">
+             <img alt="" class="product-menu-item-logo-2 logo-degen-pad" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67b6fd6c8515100d4ecc5b3c_CGPT%20Pad.svg"/>
+             <img alt="Simple Link Arrow Icon" class="product-menu-item-arrow" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg"/>
+            </div>
+            <div class="product-menu-link-text">
+             CREATIVE LABS
+            </div>
+           </div>
+          </a>
+         </div>
+         <div class="product-menu-item">
+          <a class="product-menu-link w-inline-block" href="https://www.cryptoguard.ai/" rel="noopener noreferrer" target="_blank">
+           <div class="product-menu-item-bg">
+           </div>
+           <div class="product-menu-link-box">
+            <div class="product-menu-item-logo-area logo-crypto--guard">
+             <img alt="" class="product-menu-item-logo-2 logo-guard" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65fabe9856a4dd78f7a11faf_CryptoGuardLogo.svg"/>
+             <img alt="Simple Link Arrow Icon" class="product-menu-item-arrow" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg"/>
+            </div>
+            <div class="product-menu-link-text">
+             PERFORMANCE AUDITS
+            </div>
+           </div>
+          </a>
+         </div>
+        </div>
+       </nav>
+      </div>
+      <div class="product-menu-line-tablet">
+      </div>
+      <div class="w-layout-hflex header-menu-dd-wrapper" style="display:flex;align-items:center;gap:24px;margin-left:12px;">
+       <a class="nav-link-5 w-inline-block" href="#solutions" scramble-link="" style="display:flex;align-items:center;">
+        <div class="drop-parent-text" scramble-text="" style="font-size:13.5px;font-weight:500;letter-spacing:0.02em;color:#e8e8e2;">
+         Capabilities
+        </div>
+       </a>
+       <a class="nav-link-5 w-inline-block" href="#cases" scramble-link="" style="display:flex;align-items:center;">
+        <div class="drop-parent-text" scramble-text="" style="font-size:13.5px;font-weight:500;letter-spacing:0.02em;color:#e8e8e2;">
+         Work
+        </div>
+       </a>
+       <a class="nav-link-5 w-inline-block" href="#ecosystem" scramble-link="" style="display:flex;align-items:center;">
+        <div class="drop-parent-text" scramble-text="" style="font-size:13.5px;font-weight:500;letter-spacing:0.02em;color:#e8e8e2;">
+         Architecture
+        </div>
+       </a>
+       <a class="nav-link-5 w-inline-block" href="#pricing" scramble-link="" style="display:flex;align-items:center;">
+        <div class="drop-parent-text" scramble-text="" style="font-size:13.5px;font-weight:500;letter-spacing:0.02em;color:#e8e8e2;">
+         Plans
+        </div>
+       </a>
+       <a class="nav-link-5 w-inline-block" href="#faq" scramble-link="" style="display:flex;align-items:center;">
+        <div class="drop-parent-text" scramble-text="" style="font-size:13.5px;font-weight:500;letter-spacing:0.02em;color:#e8e8e2;">
+         FAQ
+        </div>
+       </a>
+       <a class="nav-link-5 w-inline-block" href="#contact-us" scramble-link="" style="display:flex;align-items:center;">
+        <div class="drop-parent-text" scramble-text="" style="font-size:13.5px;font-weight:500;letter-spacing:0.02em;color:#e8e8e2;">
+         Contact
+        </div>
+       </a>
+      </div>
+     </div>
+     <div class="email-div-4" style="display:none;">
+      <div class="email-div-4">
+       <img alt="" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64354b8ce4872a4f4e1c7c21_botty.png"/>
+       <a class="link-5" href="https://app.vectorstudioz.com" rel="noopener noreferrer">
+        Try Our Prototype
+       </a>
+      </div>
+     </div>
+    </div>
+   </nav>
+   <div class="menu-button-3 w-nav-button">
+    <div class="icon-9 w-icon-nav-menu">
+    </div>
+    <div class="menu-icon-wrapper">
+     <div class="menu-icon-item mii-1">
+     </div>
+     <div class="menu-icon-item mii-2">
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="header-side-part">
+   <a class="btn-primary ml-auto w-inline-block" href="https://app.vectorstudioz.com/" rel="noopener noreferrer" scramble-link="" target="_blank">
+    <div class="btn-primary-lines btn-primary-lines-1">
+     <div class="btn-primary-lines btn-primary-lines-2">
+      <div class="btn-primary-text" scramble-text="">
+       Start now
+      </div>
+     </div>
+    </div>
+   </a>
+  </div>
+  <div class="vertical-line vertical-line--left vertical-line-header">
+  </div>
+  <div class="vertical-line vertical-line--right vertical-line-header">
+  </div>
+ </div>
+ <div class="additional-page-styles w-embed">
+  <style>
+   .product-menu-toggle.w--open .product-menu-icon {transform: rotate(45deg);}
+.product-menu-toggle.w--open .product-menu-icon .product-menu-icon-dot {
+transform: translate(0,0);
+}
+
+@media screen and (min-width: 1280px) {
+.product-menu-toggle:hover .product-menu-icon {transform: rotate(45deg);}
+.product-menu-toggle:hover .product-menu-icon .product-menu-icon-dot {
+transform: translate(0,0);
+}
+}
+
+@media screen and (min-width: 992px) {
+.w-dropdown-list.product-menu-list.w--open {
+    left: 0;
+}
+}
+.product-menu-link:hover .product-menu-item-bg,
+.product-menu-link:hover .product-menu-item-arrow,
+.product-menu-link:hover .product-menu-link-text {opacity: 1;}
+@media screen and (max-width: 767px) {
+.product-menu-list.w--open {
+    grid-column-gap: 2% !important;
+    grid-row-gap: 0.4375rem !important;
+}
+}
+  </style>
+ </div>
+</div>

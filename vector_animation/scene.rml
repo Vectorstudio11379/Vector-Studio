@@ -1,0 +1,419 @@
+<Rive version="1" kind="fragment">
+    <!-- Vector Studio - Quantum Core Animation
+         A high-precision, interactive cybernetic vector engine built with Rive CLI.
+         Features: Multi-axis gyroscopic geometry, laser trim-paths, dual-pass glow,
+         cubic/elastic physics, and multi-state interactive responses. -->
+    <Artboard defaultStateMachineId="0:7" styleId="0:5" width="600" height="600" name="VectorCore" id="0:2">
+        <LayoutComponentStyle name="Artboard Style" id="0:5"/>
+
+        <!-- Deep Obsidian Canvas Background -->
+        <Fill name="CanvasBg">
+            <SolidColor colorValue="FF070911" name="DarkVoid"/>
+        </Fill>
+
+        <!-- Ambient Center Vignette -->
+        <Shape x="300" y="300" name="AmbientGlow">
+            <Ellipse width="520" height="520" originX="0.5" originY="0.5" name="Path"/>
+            <Fill name="RadialFill">
+                <RadialGradient startX="0" startY="0" endX="260" endY="260" name="Radial">
+                    <GradientStop colorValue="301E293B" position="0"/>
+                    <GradientStop colorValue="00070911" position="1"/>
+                </RadialGradient>
+            </Fill>
+        </Shape>
+
+        <!-- HUD Corner Precision Brackets -->
+        <Shape x="40" y="40" name="CornerTL">
+            <PointsPath isClosed="false">
+                <StraightVertex x="0" y="24"/>
+                <StraightVertex x="0" y="0"/>
+                <StraightVertex x="24" y="0"/>
+            </PointsPath>
+            <Stroke thickness="1.5" name="Stroke">
+                <SolidColor colorValue="4438BDF8" name="CyanDim"/>
+            </Stroke>
+        </Shape>
+        <Shape x="560" y="40" name="CornerTR">
+            <PointsPath isClosed="false">
+                <StraightVertex x="0" y="24"/>
+                <StraightVertex x="0" y="0"/>
+                <StraightVertex x="-24" y="0"/>
+            </PointsPath>
+            <Stroke thickness="1.5" name="Stroke">
+                <SolidColor colorValue="4438BDF8" name="CyanDim"/>
+            </Stroke>
+        </Shape>
+        <Shape x="40" y="560" name="CornerBL">
+            <PointsPath isClosed="false">
+                <StraightVertex x="0" y="-24"/>
+                <StraightVertex x="0" y="0"/>
+                <StraightVertex x="24" y="0"/>
+            </PointsPath>
+            <Stroke thickness="1.5" name="Stroke">
+                <SolidColor colorValue="4438BDF8" name="CyanDim"/>
+            </Stroke>
+        </Shape>
+        <Shape x="560" y="560" name="CornerBR">
+            <PointsPath isClosed="false">
+                <StraightVertex x="0" y="-24"/>
+                <StraightVertex x="0" y="0"/>
+                <StraightVertex x="-24" y="0"/>
+            </PointsPath>
+            <Stroke thickness="1.5" name="Stroke">
+                <SolidColor colorValue="4438BDF8" name="CyanDim"/>
+            </Stroke>
+        </Shape>
+
+        <!-- Outer Coordinate Dashed Ring -->
+        <Shape x="300" y="300" name="OuterDashedRing" id="0:15">
+            <Ellipse width="480" height="480" originX="0.5" originY="0.5" name="Path"/>
+            <Stroke thickness="1" name="DashedStroke">
+                <SolidColor colorValue="2238BDF8" name="DimBlue"/>
+                <DashPath name="Dashes">
+                    <Dash length="4"/>
+                    <Dash length="8"/>
+                </DashPath>
+            </Stroke>
+        </Shape>
+
+        <!-- Laser Tracing Orbit Ring -->
+        <Shape x="300" y="300" name="LaserTrack">
+            <Ellipse width="400" height="400" originX="0.5" originY="0.5" name="TrackPath"/>
+            <Stroke thickness="1.5" name="FaintTrack">
+                <SolidColor colorValue="1A38BDF8" name="FaintColor"/>
+            </Stroke>
+            <!-- Glowing Laser Comet Packet -->
+            <Stroke thickness="4" name="LaserComet">
+                <SolidColor colorValue="FF00F0FF" name="BrightCyan"/>
+                <Feather strength="8" name="Glow"/>
+                <TrimPath start="0" end="0.18" modeValue="sequential" name="CometTrim" id="0:16"/>
+            </Stroke>
+            <Stroke thickness="2" name="LaserCore">
+                <SolidColor colorValue="FFFFFFFF" name="CrispWhite"/>
+                <TrimPath start="0" end="0.18" modeValue="sequential" name="CoreTrim" id="0:17"/>
+            </Stroke>
+        </Shape>
+
+        <!-- Master Interactive Container (Responds to Hover & Pulse) -->
+        <Node x="300" y="300" name="InteractiveCoreGroup" id="0:30">
+
+            <!-- Primary Gyroscopic Hexagon (Rotates Clockwise) -->
+            <Shape name="OuterHex" id="0:40">
+                <Polygon points="6" cornerRadius="28" originX="0.5" originY="0.5" width="310" height="310" name="HexPath"/>
+                <!-- Outer Bloom Glow -->
+                <Stroke thickness="10" name="OuterGlow">
+                    <SolidColor colorValue="3500F0FF" name="CyanBloom"/>
+                    <Feather strength="14" name="Bloom"/>
+                </Stroke>
+                <!-- Crisp Gradient Stroke -->
+                <Stroke thickness="2.5" name="CrispStroke">
+                    <LinearGradient startX="-155" startY="-155" endX="155" endY="155" name="CyanPurpleGrad">
+                        <GradientStop colorValue="FF00F0FF" position="0"/>
+                        <GradientStop colorValue="FF8B5CF6" position="0.5"/>
+                        <GradientStop colorValue="FF3B82F6" position="1"/>
+                    </LinearGradient>
+                </Stroke>
+            </Shape>
+
+            <!-- Counter-Rotating Inner Shield (Rotates Counter-Clockwise) -->
+            <Shape name="InnerShield" id="0:50">
+                <Polygon points="6" cornerRadius="16" originX="0.5" originY="0.5" width="220" height="220" name="ShieldPath"/>
+                <Stroke thickness="2" name="ShieldStroke">
+                    <LinearGradient startX="110" startY="110" endX="-110" endY="-110" name="ReverseGrad">
+                        <GradientStop colorValue="FFA855F7" position="0"/>
+                        <GradientStop colorValue="FF06B6D4" position="1"/>
+                    </LinearGradient>
+                </Stroke>
+                <!-- Subtle Radial Fill -->
+                <Fill name="ShieldFill">
+                    <RadialGradient startX="0" startY="0" endX="110" endY="110" name="ShieldGrad">
+                        <GradientStop colorValue="1500F0FF" position="0"/>
+                        <GradientStop colorValue="00070911" position="1"/>
+                    </RadialGradient>
+                </Fill>
+            </Shape>
+
+            <!-- 3 Orbiting Quantum Satellite Nodes (At 120° offsets) -->
+            <Node name="Satellites" id="0:60">
+                <!-- Satellite 1 (0°) -->
+                <Shape x="0" y="-135" name="Sat1">
+                    <Ellipse width="10" height="10" originX="0.5" originY="0.5" name="P1"/>
+                    <Fill name="F1">
+                        <SolidColor colorValue="FFFFFFFF" name="White"/>
+                    </Fill>
+                    <Stroke thickness="4" name="G1">
+                        <SolidColor colorValue="FF00F0FF" name="Cyan"/>
+                        <Feather strength="6" name="Glow"/>
+                    </Stroke>
+                </Shape>
+                <!-- Satellite 2 (120°) -->
+                <Shape x="116.9" y="67.5" name="Sat2">
+                    <Ellipse width="10" height="10" originX="0.5" originY="0.5" name="P2"/>
+                    <Fill name="F2">
+                        <SolidColor colorValue="FFFFFFFF" name="White"/>
+                    </Fill>
+                    <Stroke thickness="4" name="G2">
+                        <SolidColor colorValue="FFA855F7" name="Purple"/>
+                        <Feather strength="6" name="Glow"/>
+                    </Stroke>
+                </Shape>
+                <!-- Satellite 3 (240°) -->
+                <Shape x="-116.9" y="67.5" name="Sat3">
+                    <Ellipse width="10" height="10" originX="0.5" originY="0.5" name="P3"/>
+                    <Fill name="F3">
+                        <SolidColor colorValue="FFFFFFFF" name="White"/>
+                    </Fill>
+                    <Stroke thickness="4" name="G3">
+                        <SolidColor colorValue="FF3B82F6" name="Blue"/>
+                        <Feather strength="6" name="Glow"/>
+                    </Stroke>
+                </Shape>
+            </Node>
+
+            <!-- The Prismatic Vector Monogram Core ("V" Prism) -->
+            <Node name="PrismCore" id="0:70">
+                <!-- Faceted Chevron/Triangle Core -->
+                <Shape name="CoreChevron">
+                    <Polygon points="3" cornerRadius="14" originX="0.5" originY="0.5" width="115" height="115" name="VPoly"/>
+                    <!-- Deep Vibrant Core Gradient -->
+                    <Fill name="CoreFill">
+                        <LinearGradient startX="0" startY="-58" endX="0" endY="58" name="CoreGrad">
+                            <GradientStop colorValue="EE00F5FF" position="0"/>
+                            <GradientStop colorValue="DD7C3AED" position="1"/>
+                        </LinearGradient>
+                    </Fill>
+                    <!-- Incandescent Core Halo -->
+                    <Stroke thickness="6" name="CoreHalo">
+                        <SolidColor colorValue="8000F5FF" name="HaloColor"/>
+                        <Feather strength="10" name="CoreFeather"/>
+                    </Stroke>
+                    <!-- Crisp White Vector Rim -->
+                    <Stroke thickness="2.5" name="CrispRim">
+                        <SolidColor colorValue="FFFFFFFF" name="WhiteRim"/>
+                    </Stroke>
+                </Shape>
+
+                <!-- Inner Floating Diamond Jewel -->
+                <Shape name="Jewel">
+                    <Polygon points="3" cornerRadius="4" originX="0.5" originY="0.5" width="45" height="45" name="JewelPoly"/>
+                    <Fill name="JewelFill">
+                        <SolidColor colorValue="FFFFFFFF" name="WhiteJewel"/>
+                    </Fill>
+                </Shape>
+            </Node>
+
+            <!-- Invisible Hit Target for Precise Hover & Pointer Interaction -->
+            <Shape name="HitTarget" id="0:80">
+                <Ellipse width="340" height="340" originX="0.5" originY="0.5" name="HitPath"/>
+                <Fill name="TransparentHit">
+                    <SolidColor colorValue="00000000" name="Clear"/>
+                </Fill>
+            </Shape>
+
+        </Node>
+
+        <!-- State Machine & Interactivity Definition -->
+        <StateMachine name="State Machine 1" id="0:7">
+            <!-- State Machine Interactive Inputs -->
+            <StateMachineBool name="isHovered" value="false" id="0:100"/>
+            <StateMachineTrigger name="pulse" id="0:101"/>
+
+            <!-- Layer 1: Ambient Continuous Orbital Motion -->
+            <StateMachineLayer name="AmbientMotion" id="0:110">
+                <AnyState x="200" y="-120"/>
+                <ExitState x="400" y="-120"/>
+                <EntryState x="0" y="0">
+                    <StateTransition stateToId="0:112"/>
+                </EntryState>
+                <AnimationState x="220" y="0" animationId="0:200" id="0:112"/>
+            </StateMachineLayer>
+
+            <!-- Layer 2: Interaction State (Idle vs Hover/Warp) -->
+            <StateMachineLayer name="InteractionLayer" id="0:120">
+                <AnyState x="200" y="-120"/>
+                <ExitState x="500" y="-120"/>
+                <EntryState x="0" y="0">
+                    <StateTransition stateToId="0:122"/>
+                </EntryState>
+                <!-- Resting Idle State -->
+                <AnimationState x="200" y="0" animationId="0:210" id="0:122">
+                    <!-- Smooth Ease-In Transition to Hovered State when isHovered == true -->
+                    <StateTransition stateToId="0:124" duration="280">
+                        <TransitionBoolCondition inputId="0:100" opValue="equal"/>
+                    </StateTransition>
+                </AnimationState>
+                <!-- Energized Hovered / Warp State -->
+                <AnimationState x="450" y="0" animationId="0:220" id="0:124">
+                    <!-- Smooth Ease-Out Transition back to Idle when isHovered == false -->
+                    <StateTransition stateToId="0:122" duration="360">
+                        <TransitionBoolCondition inputId="0:100" opValue="notEqual"/>
+                    </StateTransition>
+                </AnimationState>
+            </StateMachineLayer>
+
+            <!-- Layer 3: Reactive Quantum Click Pulse -->
+            <StateMachineLayer name="ClickPulseLayer" id="0:130">
+                <AnyState x="200" y="-120"/>
+                <ExitState x="500" y="-120"/>
+                <EntryState x="0" y="0">
+                    <StateTransition stateToId="0:132"/>
+                </EntryState>
+                <AnimationState x="200" y="0" animationId="0:230" id="0:132">
+                    <!-- Fire pop on trigger -->
+                    <StateTransition stateToId="0:134">
+                        <TransitionTriggerCondition inputId="0:101"/>
+                    </StateTransition>
+                </AnimationState>
+                <!-- Burst pop animation with exit-time return -->
+                <AnimationState x="450" y="0" animationId="0:240" id="0:134">
+                    <StateTransition stateToId="0:132" enableExitTime="true" exitTimeIsPercetange="true" exitTime="100" duration="150"/>
+                </AnimationState>
+            </StateMachineLayer>
+
+            <!-- Interactive Listeners connected to HitTarget -->
+            <StateMachineListenerSingle targetId="0:80" listenerTypeValue="enter" name="OnHoverEnter">
+                <ListenerBoolChange inputId="0:100" value="true"/>
+            </StateMachineListenerSingle>
+            <StateMachineListenerSingle targetId="0:80" listenerTypeValue="exit" name="OnHoverExit">
+                <ListenerBoolChange inputId="0:100" value="false"/>
+            </StateMachineListenerSingle>
+            <StateMachineListenerSingle targetId="0:80" listenerTypeValue="click" name="OnClickPulse">
+                <ListenerTriggerChange inputId="0:101"/>
+            </StateMachineListenerSingle>
+
+        </StateMachine>
+
+        <!-- ANIMATIONS -->
+
+        <!-- Animation 1: Continuous Ambient 60fps Rotations & Laser Comet -->
+        <LinearAnimation loopValue="loop" duration="360" name="AmbientLoop" id="0:200">
+            <!-- 1. Outer Hexagon Clockwise Rotation (360° over 360 frames = 6s) -->
+            <KeyedObject objectId="0:40">
+                <KeyedProperty propertyKey="15">
+                    <KeyFrameDouble value="0" interpolationType="linear" frame="0"/>
+                    <KeyFrameDouble value="6.2831853" interpolationType="linear" frame="360"/>
+                </KeyedProperty>
+            </KeyedObject>
+
+            <!-- 2. Inner Shield Counter-Clockwise Rotation (-360° over 360 frames = 6s) -->
+            <KeyedObject objectId="0:50">
+                <KeyedProperty propertyKey="15">
+                    <KeyFrameDouble value="0" interpolationType="linear" frame="0"/>
+                    <KeyFrameDouble value="-6.2831853" interpolationType="linear" frame="360"/>
+                </KeyedProperty>
+            </KeyedObject>
+
+            <!-- 3. Satellites Orbit Rotation (720° over 360 frames = 3s per turn) -->
+            <KeyedObject objectId="0:60">
+                <KeyedProperty propertyKey="15">
+                    <KeyFrameDouble value="0" interpolationType="linear" frame="0"/>
+                    <KeyFrameDouble value="12.5663706" interpolationType="linear" frame="360"/>
+                </KeyedProperty>
+            </KeyedObject>
+
+            <!-- 4. Outer Dashed Ring Slow Majestic Spin -->
+            <KeyedObject objectId="0:15">
+                <KeyedProperty propertyKey="15">
+                    <KeyFrameDouble value="0" interpolationType="linear" frame="0"/>
+                    <KeyFrameDouble value="6.2831853" interpolationType="linear" frame="360"/>
+                </KeyedProperty>
+            </KeyedObject>
+
+            <!-- 5. Laser Comet TrimPath Offset Continuous Loop (0 to 1 twice over 360 frames) -->
+            <KeyedObject objectId="0:16">
+                <KeyedProperty propertyKey="116">
+                    <KeyFrameDouble value="0" interpolationType="linear" frame="0"/>
+                    <KeyFrameDouble value="1.0" interpolationType="linear" frame="180"/>
+                    <KeyFrameDouble value="0" interpolationType="linear" frame="181"/>
+                    <KeyFrameDouble value="1.0" interpolationType="linear" frame="360"/>
+                </KeyedProperty>
+            </KeyedObject>
+            <KeyedObject objectId="0:17">
+                <KeyedProperty propertyKey="116">
+                    <KeyFrameDouble value="0" interpolationType="linear" frame="0"/>
+                    <KeyFrameDouble value="1.0" interpolationType="linear" frame="180"/>
+                    <KeyFrameDouble value="0" interpolationType="linear" frame="181"/>
+                    <KeyFrameDouble value="1.0" interpolationType="linear" frame="360"/>
+                </KeyedProperty>
+            </KeyedObject>
+
+            <!-- 6. Harmonic Core Breathing (Subtle Cubic Pulse) -->
+            <KeyedObject objectId="0:70">
+                <KeyedProperty propertyKey="16">
+                    <KeyFrameDouble value="1.0" frame="0" interpolationType="cubic">
+                        <CubicEaseInterpolator x1="0.4" y1="0.0" x2="0.2" y2="1.0"/>
+                    </KeyFrameDouble>
+                    <KeyFrameDouble value="1.12" frame="180" interpolationType="cubic">
+                        <CubicEaseInterpolator x1="0.4" y1="0.0" x2="0.2" y2="1.0"/>
+                    </KeyFrameDouble>
+                    <KeyFrameDouble value="1.0" frame="360" interpolationType="cubic">
+                        <CubicEaseInterpolator x1="0.4" y1="0.0" x2="0.2" y2="1.0"/>
+                    </KeyFrameDouble>
+                </KeyedProperty>
+                <KeyedProperty propertyKey="17">
+                    <KeyFrameDouble value="1.0" frame="0" interpolationType="cubic">
+                        <CubicEaseInterpolator x1="0.4" y1="0.0" x2="0.2" y2="1.0"/>
+                    </KeyFrameDouble>
+                    <KeyFrameDouble value="1.12" frame="180" interpolationType="cubic">
+                        <CubicEaseInterpolator x1="0.4" y1="0.0" x2="0.2" y2="1.0"/>
+                    </KeyFrameDouble>
+                    <KeyFrameDouble value="1.0" frame="360" interpolationType="cubic">
+                        <CubicEaseInterpolator x1="0.4" y1="0.0" x2="0.2" y2="1.0"/>
+                    </KeyFrameDouble>
+                </KeyedProperty>
+            </KeyedObject>
+        </LinearAnimation>
+
+        <!-- Animation 2: Resting Idle Pose -->
+        <LinearAnimation loopValue="oneShot" duration="1" name="Idle" id="0:210">
+            <KeyedObject objectId="0:30">
+                <KeyedProperty propertyKey="16">
+                    <KeyFrameDouble value="1.0" frame="0"/>
+                </KeyedProperty>
+                <KeyedProperty propertyKey="17">
+                    <KeyFrameDouble value="1.0" frame="0"/>
+                </KeyedProperty>
+            </KeyedObject>
+        </LinearAnimation>
+
+        <!-- Animation 3: Energized Hover / Warp Pose (Dilated 1.15x) -->
+        <LinearAnimation loopValue="oneShot" duration="1" name="Hovered" id="0:220">
+            <KeyedObject objectId="0:30">
+                <KeyedProperty propertyKey="16">
+                    <KeyFrameDouble value="1.15" frame="0"/>
+                </KeyedProperty>
+                <KeyedProperty propertyKey="17">
+                    <KeyFrameDouble value="1.15" frame="0"/>
+                </KeyedProperty>
+            </KeyedObject>
+        </LinearAnimation>
+
+        <!-- Animation 4: Click Pulse Resting Pose -->
+        <LinearAnimation loopValue="oneShot" duration="1" name="PulseRestPose" id="0:230">
+            <KeyedObject objectId="0:70">
+                <KeyedProperty propertyKey="18">
+                    <KeyFrameDouble value="1.0" frame="0"/>
+                </KeyedProperty>
+            </KeyedObject>
+        </LinearAnimation>
+
+        <!-- Animation 5: Click Pulse Burst (Elastic Pop) -->
+        <LinearAnimation loopValue="oneShot" duration="30" name="BurstAnimation" id="0:240">
+            <KeyedObject objectId="0:70">
+                <KeyedProperty propertyKey="16">
+                    <KeyFrameDouble value="1.35" frame="0" interpolationType="elastic">
+                        <ElasticInterpolator easingValue="1" amplitude="1.2" period="0.3"/>
+                    </KeyFrameDouble>
+                    <KeyFrameDouble value="1.0" frame="30"/>
+                </KeyedProperty>
+                <KeyedProperty propertyKey="17">
+                    <KeyFrameDouble value="1.35" frame="0" interpolationType="elastic">
+                        <ElasticInterpolator easingValue="1" amplitude="1.2" period="0.3"/>
+                    </KeyFrameDouble>
+                    <KeyFrameDouble value="1.0" frame="30"/>
+                </KeyedProperty>
+            </KeyedObject>
+        </LinearAnimation>
+
+    </Artboard>
+</Rive>

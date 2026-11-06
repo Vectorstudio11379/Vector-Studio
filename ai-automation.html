@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+
+<html data-wf-domain="www.vectorstudioz.com" data-wf-page="693d7d6a593bdf05b27d8ec8" data-wf-site="64354b8ce4872ad8cd1c7b04" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Autonomous AI Workflows &amp; Intelligent Agent Engineering | Vector Studioz</title>
+<meta content="Deploy custom LLM agents, Retrieval-Augmented Generation (RAG) pipelines, and autonomous multi-agent workflows built by Vector Studioz." name="description"/>
+<meta content="Autonomous AI Workflows &amp; Intelligent Agent Engineering | Vector Studioz" property="og:title"/>
+<meta content="Deploy custom LLM agents, Retrieval-Augmented Generation (RAG) pipelines, and autonomous multi-agent workflows built by Vector Studioz." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="https://www.vectorstudioz.com/ai-automation.html" rel="canonical"/>
+<!-- Google Fonts Preconnect -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Roboto+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Webflow Core Shared CSS -->
+<link crossorigin="anonymous" href="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/css/chain-gpt.shared.a3558708c.min.css" rel="stylesheet" type="text/css"/>
+<link href="vector-nav.css" rel="stylesheet"/>
+<style>
+    body {
+      background-color: #08090c;
+      color: #efefe5;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+    }
+    .gradient-cyan-purple {
+      background: linear-gradient(135deg, #ffffff 0%, #00e5ff 50%, #7a00df 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .landing-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      background: rgba(0, 229, 255, 0.08);
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      color: #00e5ff;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .landing-faq-answer-wrapper {
+      overflow: hidden;
+      transition: height 0.3s ease;
+    }
+    .landing-faq-question-icon {
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .landing-faq-question-title-wrapper {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    /* Scoped 2x2 How It Works Grid Layout */
+    .landing-hiw-list-wrapper, .landing-hiw-list-wrapper.sca-hiw-list {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      grid-template-rows: auto auto !important;
+      gap: 24px !important;
+    }
+    .landing-hiw-item-wrapper {
+      grid-column: auto !important;
+      grid-row: auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+    }
+    .landing-hiw-item {
+      height: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+    }
+    .landing-hiw-item.chatbot-item-1 {
+      height: 100% !important;
+    }
+    .landing-hiw-item-content.item-width-75 {
+      width: 100% !important;
+    }
+    @media (max-width: 768px) {
+      .landing-hiw-list-wrapper, .landing-hiw-list-wrapper.sca-hiw-list {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+</head>
+<body class="landing-body page-ready">
+<header class="vs-navbar" id="vs-header">
+<div class="vs-nav-container">
+<a aria-label="Vector Studioz Home" class="vs-brand" href="index.html">
+<div class="vs-brand-logo" style="display:flex;align-items:center;justify-content:center;">
+<svg fill="none" height="34" viewbox="0 0 36 36" width="34" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="vs-grad1" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#ff007a"></stop>
+<stop offset="50%" stop-color="#7928ca"></stop>
+<stop offset="100%" stop-color="#00e1ff"></stop>
+</lineargradient>
+<lineargradient id="vs-grad2" x1="100%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#00e1ff"></stop>
+<stop offset="50%" stop-color="#00ffa3"></stop>
+<stop offset="100%" stop-color="#ffe600"></stop>
+</lineargradient>
+<filter height="140%" id="vs-glow" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="blur" stddeviation="2"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
+</filter>
+</defs>
+<!-- Geometric Multi-Faceted Vector Monogram -->
+<path d="M4 8L18 32L32 8L24 8L18 21L12 8L4 8Z" fill="url(#vs-grad1)" filter="url(#vs-glow)"></path>
+<path d="M12 8L18 20L24 8H28L18 27L8 8H12Z" fill="url(#vs-grad2)"></path>
+<circle cx="18" cy="14" fill="#ffffff" r="2.5"></circle>
+</svg>
+</div>
+<div class="vs-brand-text" style="font-family:'Inter',sans-serif;font-weight:800;font-size:21px;letter-spacing:-0.5px;color:#ffffff;display:flex;align-items:center;gap:3px;">
+        Vector Studioz<span style="color:#00e1ff;font-size:12px;font-weight:700;margin-left:4px;background:rgba(0,225,255,0.1);padding:2px 7px;border-radius:4px;border:1px solid rgba(0,225,255,0.3);letter-spacing:0.06em;text-transform:uppercase;">Agency</span>
+</div>
+</a>
+<ul class="vs-nav-menu">
+<!-- Capabilities Dropdown -->
+<li class="vs-nav-item">
+<a class="vs-nav-link" href="javascript:void(0);">
+          Services
+          <svg class="vs-nav-arrow" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg>
+</a>
+<div class="vs-dropdown-menu vs-mega-menu">
+<!-- Item 1: Web Design & UI/UX -->
+<a class="vs-dropdown-item" href="web-design.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Web Design &amp; UI/UX <span class="vs-dropdown-badge">Bespoke</span></div>
+<div class="vs-dropdown-desc">Scalable Figma design systems, interactive prototypes &amp; premium UX</div>
+</div>
+</a>
+<!-- Item 2: 3D & WebGL Studio -->
+<a class="vs-dropdown-item" href="webgl-3d.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">3D &amp; WebGL Studio <span class="vs-dropdown-badge">Spatial</span></div>
+<div class="vs-dropdown-desc">Interactive Three.js graphics, custom shaders &amp; 3D models</div>
+</div>
+</a>
+<!-- Item 3: Full-Stack Web Development -->
+<a class="vs-dropdown-item" href="web-development.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Full-Stack Web Development <span class="vs-dropdown-badge">High-Speed</span></div>
+<div class="vs-dropdown-desc">Ultra-fast web applications built on Next.js, React, Node &amp; Webflow</div>
+</div>
+</a>
+<!-- Item 4: Custom Software Engineering -->
+<a class="vs-dropdown-item" href="software-engineering.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Custom Software Engineering <span class="vs-dropdown-badge">Scalable</span></div>
+<div class="vs-dropdown-desc">Enterprise software architectures, robust APIs &amp; cloud systems</div>
+</div>
+</a>
+<!-- Item 5: AI Automation & Workflows -->
+<a class="vs-dropdown-item" href="ai-automation.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">AI Automation &amp; Workflows <span class="vs-dropdown-badge">Autonomous</span></div>
+<div class="vs-dropdown-desc">Intelligent agent workflows, custom LLM fine-tuning &amp; smart pipelines</div>
+</div>
+</a>
+<!-- Item 6: Mobile App Development -->
+<a class="vs-dropdown-item" href="mobile-development.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Mobile App Development <span class="vs-dropdown-badge">Cross-Platform</span></div>
+<div class="vs-dropdown-desc">Native performance iOS &amp; Android applications built with Flutter &amp; React Native</div>
+</div>
+</a>
+</div>
+</li>
+<!-- Projects -->
+<li class="vs-nav-item">
+<a class="vs-nav-link" href="projects.html">Projects</a>
+</li>
+<!-- Company Dropdown -->
+<li class="vs-nav-item">
+<a class="vs-nav-link" href="javascript:void(0);">
+          Company
+          <svg class="vs-nav-arrow" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg>
+</a>
+<div class="vs-dropdown-menu vs-standard-dropdown">
+<a class="vs-dropdown-item" href="about.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">About Studio</div>
+<div class="vs-dropdown-desc">Our mission, leadership, and craft philosophy</div>
+</div>
+</a>
+<a class="vs-dropdown-item" href="careers.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Careers <span class="vs-dropdown-badge">We're Hiring</span></div>
+<div class="vs-dropdown-desc">Join our distributed design &amp; engineering team</div>
+</div>
+</a>
+<a class="vs-dropdown-item" href="contact-us.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Contact Us</div>
+<div class="vs-dropdown-desc">Start a project or book a discovery call</div>
+</div>
+</a>
+</div>
+</li>
+</ul>
+<!-- Header Actions with Rainbow CTA Button -->
+<div class="vs-nav-actions">
+<a class="btn-primary ml-auto w-inline-block" href="contact-us.html" scramble-link="">
+<div class="btn-primary-lines btn-primary-lines-1">
+<div class="btn-primary-lines btn-primary-lines-2">
+<div class="btn-primary-text" scramble-text="">SUBMIT PROJECT BRIEF ↓</div>
+</div>
+</div>
+</a>
+<button aria-label="Toggle navigation menu" class="vs-mobile-toggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</div>
+<!-- Mobile Drawer Menu -->
+<div class="vs-mobile-drawer">
+<div class="vs-mobile-drawer-content">
+<div class="vs-mobile-section">
+<div class="vs-mobile-section-title">Capabilities</div>
+<div class="vs-mobile-accordion">
+<button class="vs-mobile-header-btn">
+            Services &amp; Solutions
+            <svg class="vs-nav-arrow" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg>
+</button>
+<div class="vs-mobile-subitems">
+<a class="vs-mobile-sublink" href="web-design.html">Web Design &amp; UI/UX</a>
+<a class="vs-mobile-sublink" href="webgl-3d.html">3D &amp; WebGL Studio</a>
+<a class="vs-mobile-sublink" href="web-development.html">Full-Stack Web Development</a>
+<a class="vs-mobile-sublink" href="software-engineering.html">Custom Software Engineering</a>
+<a class="vs-mobile-sublink" href="ai-automation.html">AI Automation &amp; Workflows</a>
+<a class="vs-mobile-sublink" href="mobile-development.html">Mobile App Development</a>
+</div>
+</div>
+</div>
+<div class="vs-mobile-section">
+<div class="vs-mobile-section-title">Quick Links</div>
+<a class="vs-mobile-single-link" href="projects.html">Projects</a>
+<a class="vs-mobile-single-link" href="about.html">About Studio</a>
+<a class="vs-mobile-single-link" href="careers.html">Careers (Hiring)</a>
+<a class="vs-mobile-single-link" href="contact-us.html">Contact Us</a>
+</div>
+<div class="vs-mobile-cta-wrapper" style="padding: 24px 0;">
+<a class="btn-primary w-inline-block" href="contact-us.html" scramble-link="" style="width: 100%;">
+<div class="btn-primary-lines btn-primary-lines-1" style="width: 100%;">
+<div class="btn-primary-lines btn-primary-lines-2" style="width: 100%; justify-content: center;">
+<div class="btn-primary-text" scramble-text="" style="width: 100%; text-align: center; justify-content: center;">SUBMIT PROJECT BRIEF ↓</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+</header>
+<main class="main-content">
+<!-- Section 0: Webflow Hero Section -->
+<section class="landing-hero-2 landing-hero-dots-top-left landing-hero-columns">
+<div class="landing-dark-gradient"></div>
+<div class="landing-dark-gradient landing-gradient-bottom landing-mobile-show"></div>
+<div class="landing-dark-gradient landing-gradient-left"></div>
+<div class="landing-dark-gradient landing-gradient-right"></div>
+<div class="landing-container landing-mobile-full-height">
+<div class="landing-hero-wrapper landing-columns">
+<!-- Left Column -->
+<div class="landing-hero-title-wrapper landing-column">
+<div class="landing-badge-pill section-title-bordered">AUTONOMOUS AI WORKFLOWS &amp; MULTI-AGENT SWARMS</div>
+<h1 class="landing-ai-alerts-heading">
+              Autonomous Multi-Agent AI. <br/><span class="gradient-cyan-purple">Intelligent Enterprise Automation.</span>
+</h1>
+<div class="landing-hero-description landing-hero-column">
+              Vector Studioz engineers custom LLM pipelines, autonomous multi-agent workflows, and enterprise Retrieval-Augmented Generation (RAG) systems. We turn unstructured proprietary data into real-time operational efficiency.
+            </div>
+<div class="landing-hero-button-wrapper landing-hero-column landing-mobile-hidden" style="display:flex;gap:12px;margin-top:28px;">
+<a class="btn-primary-4 ml-auto custom-button w-inline-block" href="projects.html">
+<div class="btn-primary-wrapper" data-scramble-text="">
+<div class="btn-primary-text-3" scramble-text="">Explore Client Work →</div>
+</div>
+</a>
+<a class="btn-secondary-4 w-inline-block" href="contact-us.html">
+<div class="btn-secondary-4-wrapper">
+<div class="btn-secondary-text-4" scramble-text="">Schedule Discovery Call</div>
+</div>
+</a>
+</div>
+</div>
+<!-- Right Column: Native Webflow Video Asset -->
+<div class="landing-hero-asset-wrapper hero-column">
+<div class="hero-assets-container w-embed">
+<video autoplay="" class="landing-hero-asset landing-hero-column" loop="" muted="" playsinline="">
+<source src="https://static.vectorstudioz.com/assets/Videos/ai-hub.mp4" type="video/mp4; codecs=hvc1"/>
+<source src="https://static.vectorstudioz.com/assets/Videos/ai-hub.webm" type="video/webm"/>
+</video>
+</div>
+</div>
+<div class="landing-hero-button-wrapper landing-hero-column desktop-hidden">
+<a class="btn-primary-4 ml-auto custom-button w-inline-block" href="projects.html">
+<div class="btn-primary-wrapper" data-scramble-text="">
+<div class="btn-primary-text-3" scramble-text="">Explore Client Work →</div>
+</div>
+</a>
+</div>
+</div>
+<!-- Hero Features Bar -->
+<div class="landing-hero-features">
+<div class="landing-section-border landing-border-top"></div>
+<div class="landing-section-border"></div>
+<div class="landing-hero-features-list">
+<div class="landing-hero-features-item">
+<img alt="" class="landing-hero-features-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a818f151d79fc314e3f50_hero%20features%20icon.svg"/>
+<div class="landing-hero-features-text">Enterprise RAG Knowledge Engines</div>
+</div>
+<div class="landing-hero-features-item">
+<img alt="" class="landing-hero-features-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a818f151d79fc314e3f50_hero%20features%20icon.svg"/>
+<div class="landing-hero-features-text">Autonomous Multi-Agent Swarms</div>
+</div>
+<div class="landing-hero-features-item">
+<img alt="" class="landing-hero-features-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a818f151d79fc314e3f50_hero%20features%20icon.svg"/>
+<div class="landing-hero-features-text">Zero Data Retention Privacy</div>
+</div>
+<div class="landing-hero-features-item">
+<img alt="" class="landing-hero-features-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a818f151d79fc314e3f50_hero%20features%20icon.svg"/>
+<div class="landing-hero-features-text">Sub-Second LLM Inference Latency</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 1: Webflow Why Section (Core Philosophy) -->
+<section class="landing-why">
+<div class="landing-container">
+<div class="landing-why-wrapper">
+<div class="landing-why-title-wrapper" style="text-align:center;max-width:800px;margin:0 auto 40px;">
+<div class="landing-badge-pill section-title-bordered">CORE PHILOSOPHY</div>
+<h2 class="landing-why-title">Why Ambitious Enterprises Deploy AI With Vector Studioz</h2>
+</div>
+<div class="landing-why-list why-list-wrap">
+<div class="landing-section-border landing-border-top"></div>
+<div block-corners-top="" class="landing-why-item item-50 feature-card pillar-card">
+<div class="landing-gradient-icon-wrapper">
+<div class="landing-gradient-icon-container">
+<img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693e7d5b2039a9b3ae1be0f6_Icon_chatbot_1.svg"/>
+</div>
+</div>
+<div class="landing-why-item-title-wrapper">
+<h3 class="landing-why-item-title">Retrieval-Augmented Generation (RAG)</h3>
+</div>
+<div class="landing-why-desc-wrapper">
+<div class="landing-col-row-gradient"></div>
+<div class="landing-why-desc">Connect foundational LLMs to your private documentation, databases, and files with semantic vector indexes.</div>
+</div>
+<div class="landing-why-desc-wrapper">
+<div class="landing-col-row-gradient"></div>
+<div class="landing-why-desc">Factual, source-cited responses that eliminate hallucinations and boost reliability.</div>
+</div>
+<div block-corners-bottom=""></div>
+</div>
+<div block-corners-top="" class="landing-why-item item-50 feature-card pillar-card no-br-right">
+<div class="landing-gradient-icon-wrapper">
+<div class="landing-gradient-icon-container">
+<img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693e7d5b2039a9b3ae1be0f6_Icon_chatbot_1.svg"/>
+</div>
+</div>
+<div class="landing-why-item-title-wrapper">
+<h3 class="landing-why-item-title">Autonomous Multi-Agent Systems</h3>
+</div>
+<div class="landing-why-desc-wrapper">
+<div class="landing-col-row-gradient"></div>
+<div class="landing-why-desc">Specialized AI agents coordinated via LangGraph and custom state machines to execute multi-step workflows.</div>
+</div>
+<div class="landing-why-desc-wrapper">
+<div class="landing-col-row-gradient"></div>
+<div class="landing-why-desc">Agents that research, verify, write, and execute tasks with automated human-in-the-loop approvals.</div>
+</div>
+<div block-corners-bottom=""></div>
+</div>
+<div block-corners-top="" class="landing-why-item item-50 feature-card pillar-card no-br-bottom">
+<div class="landing-gradient-icon-wrapper">
+<div class="landing-gradient-icon-container">
+<img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693e7d5b2039a9b3ae1be0f6_Icon_chatbot_1.svg"/>
+</div>
+</div>
+<div class="landing-why-item-title-wrapper">
+<h3 class="landing-why-item-title">Enterprise Privacy &amp; Data Security</h3>
+</div>
+<div class="landing-why-desc-wrapper">
+<div class="landing-col-row-gradient"></div>
+<div class="landing-why-desc">Zero data retention protocols and VPC deployments ensuring your proprietary data is never used for public model training.</div>
+</div>
+<div class="landing-why-desc-wrapper">
+<div class="landing-col-row-gradient"></div>
+<div class="landing-why-desc">Bank-grade compliance and encryption protecting every automated prompt and completion.</div>
+</div>
+<div block-corners-bottom=""></div>
+</div>
+<div block-corners-top="" class="landing-why-item item-50 feature-card pillar-card no-br-right no-br-bottom">
+<div class="landing-gradient-icon-wrapper">
+<div class="landing-gradient-icon-container">
+<img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693e7d5b2039a9b3ae1be0f6_Icon_chatbot_1.svg"/>
+</div>
+</div>
+<div class="landing-why-item-title-wrapper">
+<h3 class="landing-why-item-title">Real-Time Tool Calling &amp; APIs</h3>
+</div>
+<div class="landing-why-desc-wrapper">
+<div class="landing-col-row-gradient"></div>
+<div class="landing-why-desc">Agents equipped with structured JSON tool-calling capabilities to query internal databases and trigger webhooks.</div>
+</div>
+<div class="landing-why-desc-wrapper">
+<div class="landing-col-row-gradient"></div>
+<div class="landing-why-desc">Transform passive chat interfaces into autonomous operational execution engines.</div>
+</div>
+<div block-corners-bottom=""></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Webflow Features (Core Capabilities) -->
+<section class="landing-features" id="landing-features">
+<div class="w-layout-blockcontainer landing-container w-container">
+<div class="landing-features-wrapper">
+<div class="landing-features-title-wrapper">
+<h2 class="landing-features-title">AI Disciplines &amp; Autonomous Capabilities</h2>
+<div class="landing-features-desc-wrapper">
+<div class="landing-features-title-desc">From internal knowledge copilots to automated operational agents, we build practical AI systems that deliver measurable ROI.</div>
+<a class="btn-primary-4 ml-auto custom-button w-inline-block" href="projects.html">
+<div class="btn-primary-wrapper btn-features" data-scramble-text="">
+<div class="btn-primary-text-3" scramble-text="">View Featured Work</div>
+<img alt="" class="btn-primary-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a8238e7f07a24a861ed19_Icon16.svg"/>
+</div>
+</a>
+</div>
+</div>
+<div class="landing-features-list">
+<div class="landing-features-list-item feature-card pillar-card">
+<div class="landing-features-item-wrapper">
+<div class="landing-features-content-wrapper content-center">
+<div class="landing-features-icon-wrapper">
+<div class="landing-features-mobile-nav landing-nav-full-width">
+<div class="landing-features-navigation-text">01</div>
+<div class="landing-features-navigation-line"><div class="landing-line-gradient _50"></div></div>
+<div class="landing-features-navigation-text">02</div>
+</div>
+</div>
+<h3 class="landing-features-item-title">Enterprise RAG Knowledge Engines</h3>
+<div class="features-description">Semantic search and document synthesis engines that instantly answer complex operational questions.</div>
+<div class="landing-features-desc-list">
+<div class="landing-secondary-desc-item">
+<div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div>
+<div class="landing-secondary-desc-text">Hybrid search combining dense vector embeddings with sparse keyword BM25 retrieval.</div>
+</div>
+<div class="landing-secondary-desc-item">
+<div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div>
+<div class="landing-secondary-desc-text">Complete citation tracing with direct links to source documents.</div>
+</div>
+</div>
+</div>
+<div class="landing-features-banner-wrapper">
+<img alt="" class="landing-features-banner landing-desktop" loading="lazy" src="images/features/vector-ai-agents.png"/>
+</div>
+</div>
+</div>
+<div class="landing-features-list-item feature-card pillar-card">
+<div class="landing-features-item-wrapper">
+<div class="landing-features-content-wrapper content-center">
+<div class="landing-features-icon-wrapper">
+<div class="landing-features-mobile-nav landing-nav-full-width">
+<div class="landing-features-navigation-text">02</div>
+<div class="landing-features-navigation-line"><div class="landing-line-gradient _50"></div></div>
+<div class="landing-features-navigation-text">02</div>
+</div>
+</div>
+<h3 class="landing-features-item-title">Autonomous Operational Workflows</h3>
+<div class="features-description">Multi-agent workflows that triage customer support tickets, generate personalized sales collateral, and review documents.</div>
+<div class="landing-features-desc-list">
+<div class="landing-secondary-desc-item">
+<div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div>
+<div class="landing-secondary-desc-text">Human-in-the-loop review checkpoints for critical decision gates.</div>
+</div>
+<div class="landing-secondary-desc-item">
+<div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div>
+<div class="landing-secondary-desc-text">Integrated directly with Slack, HubSpot, Zendesk, and internal SQL databases.</div>
+</div>
+</div>
+</div>
+<div class="landing-features-banner-wrapper">
+<img alt="" class="landing-features-banner landing-desktop" loading="lazy" src="images/features/vector-cloud-architecture.png"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Webflow Who For Section -->
+<section class="landing-who-for">
+<div class="landing-container-4">
+<div class="landing-who-for-wrapper">
+<div class="landing-who-for-item landing-item-title">
+<div class="landing-who-for-title-wrapper">
+<h2 class="landing-heading">Who Our AI Automation Team Partners With</h2>
+</div>
+<div class="landing-landing-line landing-section-line landing-right"></div>
+<div class="landing-landing-line landing-section-line"></div>
+</div>
+<div class="landing-who-for-item">
+<img alt="" class="landing-who-for-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a828953e0dd9d1bce9156_icon_Traders.svg"/>
+<h3 class="landing-who-tor-item-title">Operational Scaleups</h3>
+<div class="landing-secondary-desc-item">
+<div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot-3"></div><div class="landing-btn-dot-3"></div></div>
+<div class="landing-secondary-desc-text landing-p-24-mob">Automate high-volume repetitive workflows to scale output without linearly growing headcount.</div>
+</div>
+</div>
+<div class="landing-who-for-item">
+<img alt="" class="landing-who-for-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a828953e0dd9d1bce9156_icon_Traders.svg"/>
+<h3 class="landing-who-tor-item-title">Knowledge-Intensive Enterprises</h3>
+<div class="landing-secondary-desc-item">
+<div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot-3"></div><div class="landing-btn-dot-3"></div></div>
+<div class="landing-secondary-desc-text landing-p-24-mob">Unlock institutional knowledge trapped inside PDFs, Notion pages, and Slack channels.</div>
+</div>
+</div>
+<div class="landing-who-for-item">
+<img alt="" class="landing-who-for-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a828953e0dd9d1bce9156_icon_Traders.svg"/>
+<h3 class="landing-who-tor-item-title">Customer Experience Leaders</h3>
+<div class="landing-secondary-desc-item">
+<div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot-3"></div><div class="landing-btn-dot-3"></div></div>
+<div class="landing-secondary-desc-text landing-p-24-mob">Deploy intelligent support copilots that resolve customer queries with human-level nuance.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Webflow Why Section (Second Why: Standards) -->
+<section class="landing-why">
+<div class="landing-container">
+<div class="landing-why-wrapper">
+<h2 class="landing-comparison-title width-80">
+            Vector Studioz Standards vs Fragile AI Wrappers
+          </h2>
+<div class="landing-why-list why-list-wrap">
+<div class="landing-section-border landing-border-top"></div>
+<div block-corners-top="" class="landing-why-item item-50 feature-card pillar-card">
+<div class="landing-gradient-icon-wrapper">
+<div class="landing-gradient-icon-container">
+<img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693abce6109ac59f8c14faee_icon_Founders.svg"/>
+</div>
+</div>
+<div class="landing-why-item-title-wrapper">
+<h3 class="landing-why-item-title">Rigorous Evaluation Benchmarks</h3>
+</div>
+<div class="landing-why-desc-wrapper">
+<div class="landing-col-row-gradient"></div>
+<div class="landing-why-desc">We test all agents against automated evaluation benchmarks (RAGAS) to guarantee accuracy.</div>
+</div>
+<div block-corners-bottom=""></div>
+</div>
+<div block-corners-top="" class="landing-why-item item-50 feature-card pillar-card no-br-right">
+<div class="landing-gradient-icon-wrapper">
+<div class="landing-gradient-icon-container">
+<img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693abce6109ac59f8c14faee_icon_Founders.svg"/>
+</div>
+</div>
+<div class="landing-why-item-title-wrapper">
+<h3 class="landing-why-item-title">Stateful Multi-Agent Graphs</h3>
+</div>
+<div class="landing-why-desc-wrapper">
+<div class="landing-col-row-gradient"></div>
+<div class="landing-why-desc">Engineered with LangGraph and deterministic state machines rather than brittle prompt chains.</div>
+</div>
+<div block-corners-bottom=""></div>
+</div>
+<div block-corners-top="" class="landing-why-item item-50 feature-card pillar-card no-br-bottom">
+<div class="landing-gradient-icon-wrapper">
+<div class="landing-gradient-icon-container">
+<img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693abce6109ac59f8c14faee_icon_Founders.svg"/>
+</div>
+</div>
+<div class="landing-why-item-title-wrapper">
+<h3 class="landing-why-item-title">Private VPC Deployment Options</h3>
+</div>
+<div class="landing-why-desc-wrapper">
+<div class="landing-col-row-gradient"></div>
+<div class="landing-why-desc">Deploy open-weights models (Llama 3, Mistral) within your private VPC for total data sovereignty.</div>
+</div>
+<div block-corners-bottom=""></div>
+</div>
+<div block-corners-top="" class="landing-why-item item-50 feature-card pillar-card no-br-right no-br-bottom">
+<div class="landing-gradient-icon-wrapper">
+<div class="landing-gradient-icon-container">
+<img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693abce6109ac59f8c14faee_icon_Founders.svg"/>
+</div>
+</div>
+<div class="landing-why-item-title-wrapper">
+<h3 class="landing-why-item-title">Live Observability &amp; Tracing</h3>
+</div>
+<div class="landing-why-desc-wrapper">
+<div class="landing-col-row-gradient"></div>
+<div class="landing-why-desc">Full prompt and latency tracing with LangSmith to continuously monitor token usage and quality.</div>
+</div>
+<div block-corners-bottom=""></div>
+</div>
+<div class="landing-section-border mobile-hidden"></div>
+</div>
+</div>
+</div>
+<div class="landing-dark-gradient"></div>
+<div class="landing-dark-gradient landing-gradient-bottom"></div>
+<div class="landing-dark-gradient landing-gradient-right"></div>
+<div class="landing-dark-gradient landing-gradient-left"></div>
+</section>
+<!-- Section 5: Webflow How It Works (4-Stage Sprint Journey - Clean 2x2 Grid) -->
+<section class="landing-hiw">
+<div class="landing-container">
+<div class="landing-hiw-wrapper">
+<div class="landing-hiw-title-wrapper">
+<h2 class="landing-hiw-title full-width">Our 4-Stage AI Deployment Lifecycle</h2>
+<div class="landing-hiw-desc-wrapper">
+<div class="landing-desc-color">From workflow audit to evaluation benchmarking, API integration, and continuous tuning.</div>
+</div>
+</div>
+<div class="landing-hiw-list-wrapper">
+<div class="landing-hiw-item-wrapper">
+<div class="landing-hiw-item landing-vertical">
+<div class="landing-hiw-item-content hiw-item-vertical">
+<div class="landing-hiw-item-title-wrapper">
+<div class="landing-gradient-icon-wrapper landing-hiw-icon">
+<div class="landing-gradient-icon-container landing-hiw-icon-container">
+<div class="landing-hiw-number-text">1</div>
+</div>
+</div>
+<h2 class="landing-hiw-item-title">Workflow Audit &amp; Feasibility Spec</h2>
+</div>
+<div class="landing-secondary-desc-text landing-no-padding">Mapping repetitive operational bottlenecks, identifying proprietary data sources, and establishing ROI metrics.</div>
+</div>
+</div>
+</div>
+<div class="landing-hiw-item-wrapper">
+<div class="landing-hiw-item landing-vertical">
+<div class="landing-hiw-item-content hiw-item-vertical">
+<div class="landing-hiw-item-title-wrapper">
+<div class="landing-gradient-icon-wrapper landing-hiw-icon">
+<div class="landing-gradient-icon-container landing-hiw-icon-container">
+<div class="landing-hiw-number-text">2</div>
+</div>
+</div>
+<h2 class="landing-hiw-item-title">RAG Architecture &amp; Benchmark Setup</h2>
+</div>
+<div class="landing-secondary-desc-text landing-no-padding">Ingesting documents into vector indexes, configuring chunking strategies, and building ground-truth benchmarks.</div>
+</div>
+</div>
+</div>
+<div class="landing-hiw-item-wrapper">
+<div class="landing-hiw-item landing-vertical">
+<div class="landing-hiw-item-content hiw-item-vertical">
+<div class="landing-hiw-item-title-wrapper">
+<div class="landing-gradient-icon-wrapper landing-hiw-icon">
+<div class="landing-gradient-icon-container landing-hiw-icon-container">
+<div class="landing-hiw-number-text">3</div>
+</div>
+</div>
+<h2 class="landing-hiw-item-title">Agent Tool Integration &amp; Guardrails</h2>
+</div>
+<div class="landing-secondary-desc-text landing-no-padding">Connecting agent tools to internal APIs, configuring hallucination filters, and testing fallbacks.</div>
+</div>
+</div>
+</div>
+<div class="landing-hiw-item-wrapper">
+<div class="landing-hiw-item landing-vertical">
+<div class="landing-hiw-item-content hiw-item-vertical">
+<div class="landing-hiw-item-title-wrapper">
+<div class="landing-gradient-icon-wrapper landing-hiw-icon">
+<div class="landing-gradient-icon-container landing-hiw-icon-container">
+<div class="landing-hiw-number-text">4</div>
+</div>
+</div>
+<h2 class="landing-hiw-item-title">Production Rollout &amp; Continuous Tuning</h2>
+</div>
+<div class="landing-secondary-desc-text landing-no-padding">Deploying to staging, enabling real-time LangSmith tracing, and iteratively refining prompt strategies.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Webflow Comparison Table -->
+<section class="landing-comparison">
+<div class="landing-container">
+<h2 class="landing-comparison-title width-80">Vector Studioz AI Engineering vs Generic AI Wrappers</h2>
+<div class="landing-comparison-table">
+<div class="landing-comparison-table-row">
+<div class="landing-comparison-table-text landing-table-title">Performance Metric</div>
+</div>
+<div class="landing-comparison-table-row">
+<div class="landing-comparison-table-text landing-table-title">Traditional Agency / Dev Shop</div>
+</div>
+<div class="landing-comparison-table-row landing-br-none">
+<div class="landing-comparison-table-text landing-table-title">Vector Studioz</div>
+</div>
+<div class="landing-comparison-table-row">
+<div class="landing-comparison-table-text">Accuracy &amp; Verification</div>
+</div>
+<div class="landing-comparison-table-row">
+<div class="landing-comparison-table-text landing-text-secondary">High hallucination rates with no source attribution</div>
+</div>
+<div class="landing-comparison-table-row landing-br-none">
+<div class="landing-comparison-table-text">Rigorous RAG evaluation with strict citation verification</div>
+</div>
+<div class="landing-comparison-table-row">
+<div class="landing-comparison-table-text">Data Privacy</div>
+</div>
+<div class="landing-comparison-table-row">
+<div class="landing-comparison-table-text landing-text-secondary">Public APIs logging prompt data for training</div>
+</div>
+<div class="landing-comparison-table-row landing-br-none">
+<div class="landing-comparison-table-text">Zero data retention enterprise APIs and private VPC options</div>
+</div>
+<div class="landing-comparison-table-row">
+<div class="landing-comparison-table-text">System Architecture</div>
+</div>
+<div class="landing-comparison-table-row">
+<div class="landing-comparison-table-text landing-text-secondary">Brittle single-prompt scripts that break on edge cases</div>
+</div>
+<div class="landing-comparison-table-row landing-br-none">
+<div class="landing-comparison-table-text">Stateful multi-agent graphs with automated error recovery</div>
+</div>
+<div class="landing-comparison-table-row">
+<div class="landing-comparison-table-text">Operational Value</div>
+</div>
+<div class="landing-comparison-table-row">
+<div class="landing-comparison-table-text landing-text-secondary">Gimmicky chat widgets that create frustration</div>
+</div>
+<div class="landing-comparison-table-row landing-br-none">
+<div class="landing-comparison-table-text">Autonomous workflow engines connected directly to production APIs</div>
+</div>
+<div class="landing-section-border landing-border-top"></div>
+<div class="landing-section-border"></div>
+</div>
+</div>
+</section>
+<!-- Section 7: Webflow Launch CTA Banner -->
+<section class="landing-launch">
+<div class="w-layout-blockcontainer landing-container w-container">
+<div class="landing-launch-wrapper">
+<div class="landing-section-border landing-border-top"></div>
+<div class="landing-section-border"></div>
+<div class="landing-launch-container">
+<h2 class="landing-launch-title">Deploy autonomous AI workflows that drive real operational velocity.</h2>
+<a class="btn-primary-4 ml-auto custom-button w-inline-block" href="contact-us.html">
+<div class="btn-primary-wrapper btn-features" data-scramble-text="">
+<div class="btn-primary-text-3" scramble-text="">Schedule Discovery Call →</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="landing-dark-gradient landing-gradient-left"></div>
+<div class="landing-dark-gradient landing-gradient-right"></div>
+</section>
+<!-- Section 8: Webflow Group Section (Operating Principles) -->
+<section class="landing-group">
+<div class="landing-container">
+<div class="landing-group-wrapper">
+<h2 class="landing-group-title">Studio AI Principles vs Fragile Wrappers</h2>
+<div class="landing-group-list">
+<div class="landing-group-item-wrapper">
+<div class="landing-group-item">
+<div class="landing-group-item-title-wrapper">
+<img alt="" class="landing-group-item-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a83613f60ebaed5c9c7fe_group%20Icon%201.svg"/>
+<div class="landing-group-item-title">Generic AI Wrapper Pitfalls</div>
+</div>
+<div class="landing-secondary-desc-item">
+<div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div>
+<div class="landing-secondary-desc-text">Using basic system prompts that hallucinate incorrect information to customers.</div>
+</div>
+<div class="landing-secondary-desc-item">
+<div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div>
+<div class="landing-secondary-desc-text">Sending proprietary customer data to unvetted third-party servers.</div>
+</div>
+<div class="landing-secondary-desc-item">
+<div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div>
+<div class="landing-secondary-desc-text">Failing to monitor token consumption, resulting in runaway operational expenses.</div>
+</div>
+</div>
+<div class="landing-landing-line landing-section-line landing-right"></div>
+</div>
+<div class="landing-group-item-wrapper right">
+<div class="landing-group-item landing-right">
+<div class="landing-group-item-title-wrapper">
+<img alt="" class="landing-group-item-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a83613f60ebaed5c9c80b_grout%20Icon2.svg"/>
+<div class="landing-group-item-title">Vector Studioz Model</div>
+</div>
+<div class="landing-secondary-desc-item">
+<div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div>
+<div class="landing-secondary-desc-text">Hybrid RAG search and multi-agent verification loops for strict accuracy.</div>
+</div>
+<div class="landing-secondary-desc-item">
+<div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div>
+<div class="landing-secondary-desc-text">Zero data retention commitments and optional on-premise model execution.</div>
+</div>
+<div class="landing-secondary-desc-item">
+<div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div>
+<div class="landing-secondary-desc-text">Granular telemetry and caching layers to minimize inference costs.</div>
+</div>
+</div>
+<div class="landing-landing-line landing-section-line"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 9: Webflow FAQ Section (Split Interactive Accordions) -->
+<section class="landing-faq">
+<div class="landing-container">
+<div class="landing-faq-wrapper">
+<div class="landing-faq-title-wrapper">
+<div class="landing-badge-pill section-title-bordered">QUESTIONS &amp; ANSWERS</div>
+<h2 class="landing-faq-title">Frequently Asked Questions</h2>
+<div class="landing-faq-desc">Everything you need to know about partnering with Vector Studioz for this discipline.</div>
+<div class="landing-faq-button-wrapper landing-mobile-hidden" style="margin-top:28px;">
+<a class="btn-primary-4 ml-auto custom-button w-inline-block" href="contact-us.html">
+<div class="btn-primary-wrapper" data-scramble-text="">
+<div class="btn-primary-text-3" scramble-text="">Have Another Question? →</div>
+</div>
+</a>
+</div>
+</div>
+<div class="landing-faq-questions-list">
+<div block-corners-top="" class="landing-faq-question-item faq-2">
+<div class="landing-faq-question-title-wrapper">
+<h3 class="landing-faq-question-title">How do you ensure AI agents do not generate inaccurate answers?</h3>
+<div class="landing-faq-question-icon">
+<div class="landing-faq-icon-line"></div>
+<div class="landing-faq-icon-line landing-horizontal"></div>
+</div>
+</div>
+<div class="landing-faq-answer-wrapper" style="height: auto;">
+<div class="landing-faq-answer">We implement Retrieval-Augmented Generation (RAG) with semantic similarity thresholds, ground-truth evaluation suites, and multi-agent verification steps that discard unverified claims.</div>
+</div>
+<div block-corners-bottom=""></div>
+</div>
+<div block-corners-top="" class="landing-faq-question-item faq-2">
+<div class="landing-faq-question-title-wrapper">
+<h3 class="landing-faq-question-title">Is our internal business data protected?</h3>
+<div class="landing-faq-question-icon">
+<div class="landing-faq-icon-line"></div>
+<div class="landing-faq-icon-line landing-horizontal"></div>
+</div>
+</div>
+<div class="landing-faq-answer-wrapper" style="height: 0px;">
+<div class="landing-faq-answer">Yes. We strictly use enterprise APIs with zero data retention policies or deploy self-hosted models in your private AWS/GCP cloud so your data is never used for training.</div>
+</div>
+<div block-corners-bottom=""></div>
+</div>
+<div block-corners-top="" class="landing-faq-question-item faq-2">
+<div class="landing-faq-question-title-wrapper">
+<h3 class="landing-faq-question-title">What frameworks do you use to build AI workflows?</h3>
+<div class="landing-faq-question-icon">
+<div class="landing-faq-icon-line"></div>
+<div class="landing-faq-icon-line landing-horizontal"></div>
+</div>
+</div>
+<div class="landing-faq-answer-wrapper" style="height: 0px;">
+<div class="landing-faq-answer">We develop with Python, LangGraph, LlamaIndex, OpenAI/Anthropic APIs, Pinecone, Qdrant, and LangSmith for telemetry.</div>
+</div>
+<div block-corners-bottom=""></div>
+</div>
+<div block-corners-top="" class="landing-faq-question-item faq-2">
+<div class="landing-faq-question-title-wrapper">
+<h3 class="landing-faq-question-title">How quickly can an AI workflow be deployed?</h3>
+<div class="landing-faq-question-icon">
+<div class="landing-faq-icon-line"></div>
+<div class="landing-faq-icon-line landing-horizontal"></div>
+</div>
+</div>
+<div class="landing-faq-answer-wrapper" style="height: 0px;">
+<div class="landing-faq-answer">A focused automated workflow or internal knowledge copilot typically transitions from prototype to production within 3 to 5 weeks.</div>
+</div>
+<div block-corners-bottom=""></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 10: Webflow Closing CTA Banner -->
+<section class="landing-cta cta-banner-wrapper cta-banner">
+<div class="landing-container landing-relative">
+<div class="cta-wrapper">
+<div class="landing-cta-asset-wrapper">
+<img alt="" class="landing-cta-asset" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a840e6c646ef67cae8ce9_cta%20asset.png"/>
+</div>
+<div class="landing-section-border landing-border-top"></div>
+<div class="landing-section-border"></div>
+<h2 class="cta-title-2">Automate Your Enterprise Operations</h2>
+<div class="cta-desc-2">Schedule an AI roadmap consultation with our AI Solutions Architects to identify your highest-ROI opportunities.</div>
+<div class="cta-button-wrapper-2" style="display:flex;justify-content:center;gap:12px;margin-top:24px;">
+<a class="btn-primary-4 btn-primary custom-button w-inline-block" href="contact-us.html">
+<div class="btn-primary-wrapper" data-scramble-text="">
+<div class="btn-primary-text-3" scramble-text="">Book AI Roadmap Consultation →</div>
+</div>
+</a>
+<a class="btn-secondary-4 w-inline-block" href="projects.html">
+<div class="btn-secondary-4-wrapper">
+<div class="btn-secondary-text-4" scramble-text="">Explore Projects</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="landing-dark-gradient landing-gradient-left"></div>
+<div class="landing-dark-gradient landing-gradient-right"></div>
+</section>
+</main>
+<footer class="footer site-footer" id="site-footer">
+<div class="footer-container" style="max-width:1400px;margin:0 auto;padding:60px 1.5rem 30px;font-family:'Inter',sans-serif;color:#9ca3af;">
+<div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;">
+<!-- Col 1: Brand & Mission -->
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+<div style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;">
+<svg fill="none" height="30" viewbox="0 0 36 36" width="30" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="vs-foot-grad1" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#ff007a"></stop>
+<stop offset="100%" stop-color="#00e1ff"></stop>
+</lineargradient>
+</defs>
+<path d="M4 8L18 32L32 8L24 8L18 21L12 8L4 8Z" fill="url(#vs-foot-grad1)"></path>
+</svg>
+</div>
+<span style="font-weight:800;font-size:20px;color:#ffffff;letter-spacing:-0.4px;">Vector Studioz</span>
+</div>
+<p style="font-size:14px;line-height:1.6;color:#9ca3af;max-width:320px;margin:0 0 20px;">
+          Elite digital experience agency crafting bespoke websites, scalable software architectures, and autonomous AI automation systems for ambitious global brands.
+        </p>
+<div style="display:flex;gap:12px;">
+<a aria-label="Twitter / X" href="https://x.com" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:#9ca3af;text-decoration:none;" target="_blank">
+<svg fill="currentColor" height="15" viewbox="0 0 24 24" width="15"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+</a>
+<a aria-label="GitHub" href="https://github.com" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:#9ca3af;text-decoration:none;" target="_blank">
+<svg fill="currentColor" height="16" viewbox="0 0 24 24" width="16"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+</a>
+<a aria-label="LinkedIn" href="https://linkedin.com" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:#9ca3af;text-decoration:none;" target="_blank">
+<svg fill="currentColor" height="15" viewbox="0 0 24 24" width="15"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2m1.4 9.74v-8.37H5.06v8.37h2.8z"></path></svg>
+</a>
+</div>
+</div>
+<!-- Col 2: Services -->
+<div>
+<div style="font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:#ffffff;margin-bottom:16px;">Capabilities</div>
+<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:14px;">
+<li><a href="web-design.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Web Design &amp; UI/UX</a></li>
+<li><a href="web-development.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Full-Stack Development</a></li>
+<li><a href="software-engineering.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Custom Software Engineering</a></li>
+<li><a href="ai-automation.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">AI Automation &amp; Workflows</a></li>
+<li><a href="webgl-3d.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">3D &amp; WebGL Studio</a></li>
+<li><a href="mobile-development.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Mobile App Development</a></li>
+</ul>
+</div>
+<!-- Col 3: Studio -->
+<div>
+<div style="font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:#ffffff;margin-bottom:16px;">Studio</div>
+<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:14px;">
+<li><a href="about.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">About Studio</a></li>
+<li><a href="projects.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Projects</a></li>
+<li><a href="careers.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Careers (We're Hiring)</a></li>
+<li><a href="contact-us.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Start a Project</a></li>
+</ul>
+</div>
+<!-- Col 4: Legal & Compliance -->
+<div>
+<div style="font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:#ffffff;margin-bottom:16px;">Legal</div>
+<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:14px;">
+<li><a href="privacy-policy.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Privacy Policy</a></li>
+<li><a href="tos.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Terms of Service</a></li>
+<li><a href="cookies.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:13px;">
+<div>© 2026 Vector Studioz. All rights reserved. Crafted with precision for forward-thinking brands.</div>
+<div style="display:flex;gap:20px;">
+<a href="privacy-policy.html" style="color:#9ca3af;text-decoration:none;">Privacy</a>
+<a href="tos.html" style="color:#9ca3af;text-decoration:none;">Terms</a>
+<a href="cookies.html" style="color:#9ca3af;text-decoration:none;">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="vector-nav.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqTitles = document.querySelectorAll('.landing-faq-question-title-wrapper');
+      faqTitles.forEach(title => {
+        title.addEventListener('click', function() {
+          const parent = this.closest('.landing-faq-question-item');
+          const answer = parent.querySelector('.landing-faq-answer-wrapper');
+          const icon = this.querySelector('.landing-faq-question-icon');
+          const isOpen = answer.style.height && answer.style.height !== '0px';
+
+          document.querySelectorAll('.landing-faq-question-item').forEach(item => {
+            const a = item.querySelector('.landing-faq-answer-wrapper');
+            const ic = item.querySelector('.landing-faq-question-icon');
+            if (a) a.style.height = '0px';
+            if (ic) ic.style.transform = 'rotate(0deg)';
+          });
+
+          if (!isOpen) {
+            answer.style.height = 'auto';
+            if (icon) icon.style.transform = 'rotate(45deg)';
+          }
+        });
+      });
+
+      const firstItem = document.querySelector('.landing-faq-question-item');
+      if (firstItem) {
+        const a = firstItem.querySelector('.landing-faq-answer-wrapper');
+        const ic = firstItem.querySelector('.landing-faq-question-icon');
+        if (a) a.style.height = 'auto';
+        if (ic) ic.style.transform = 'rotate(45deg)';
+      }
+    });
+  </script>
+</body>
+</html>

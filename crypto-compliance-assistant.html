@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+
+<!-- Last Published: Sat Aug 15 2026 00:15:09 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="www.coingpt.tech" data-wf-page="693c052ebe02504980c4a510" data-wf-site="64354b8ce4872ad8cd1c7b04" lang="en"><head><meta charset="utf-8"/><link crossorigin="anonymous" href="https://cdn.prod.website-files.com" rel="preconnect"/><title>AI Crypto Compliance Assistant | Vector Studioz</title><link href="https://www.coingpt.tech/crypto-compliance-assistant" hreflang="x-default" rel="alternate"/><link href="https://www.coingpt.tech/crypto-compliance-assistant" hreflang="en" rel="alternate"/><link href="https://www.coingpt.tech/ko/crypto-compliance-assistant" hreflang="ko" rel="alternate"/><meta content="Use CoinGPT’s AI Crypto Compliance Assistant for Blockchain compliance. Get jurisdiction-specific guidance on licensing, AML/KYC, taxation and blockchain compliance across 100+ countries." name="description"/><meta content="AI Crypto Compliance Assistant | CoinGPT" property="og:title"/><meta content="Use CoinGPT’s AI Crypto Compliance Assistant for Blockchain compliance. Get jurisdiction-specific guidance on licensing, AML/KYC, taxation and blockchain compliance across 100+ countries." property="og:description"/><meta content="AI Crypto Compliance Assistant | CoinGPT" name="twitter:title"/><meta content="Use CoinGPT’s AI Crypto Compliance Assistant for Blockchain compliance. Get jurisdiction-specific guidance on licensing, AML/KYC, taxation and blockchain compliance across 100+ countries." name="twitter:description"/><meta content="website" property="og:type"/><meta content="summary_large_image" name="twitter:card"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="xDyyV48PXV5s0V2irP4_yitW5RSBkCHaCgLGz_UB4TY" name="google-site-verification"/><link crossorigin="anonymous" href="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/css/chain-gpt.shared.a3558708c.min.css" integrity="sha384-o1WHCMrnJbbS0LfUpKSZppAv4pAvYlNYeJKbMRQ8arxTAWf4irz+ALXOnFDpslf+" rel="stylesheet" type="text/css"/><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Inter:300,400,500,600,700","Roboto Mono:300,400,500,600,700","Roboto Mono:300,400,500,600,700"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/66e9a1b24861e4af25ba59f3_CGPT%20Favicon%2032x32.png" rel="shortcut icon" type="image/x-icon"/><link href="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/66e9a1933a2b2e8f0db816a5_CGPT%20Favicon%20256x256.png" rel="apple-touch-icon"/><link href="https://www.coingpt.tech/crypto-compliance-assistant" rel="canonical"/><script>
+  
+  window.dataLayer = window.dataLayer || [];
+  
+  //User Country start
+  let userCountry = localStorage.getItem('userCountry');
+  const euCountries = new Set([
+    "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU",
+    "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES",
+    "SE", "IS", "LI", "NO", "GB"
+  ]);
+
+  function checkIsEUCountry(geoCountry) {
+    if (!geoCountry) return false;
+    return euCountries.has(geoCountry);
+  }
+
+  async function getUserCountry() {
+    let geoCountry = localStorage.getItem('userCountry');
+
+    if (!geoCountry) {
+      try {
+        const response = await fetch('https://ipinfo.io/json?token=4f0ee6fb59c3d1');
+        const data = await response.json();
+        geoCountry = data.country || null;
+
+        if (geoCountry) {
+          localStorage.setItem('userCountry', geoCountry);
+        } else {
+          return false;
+        }
+      } catch (error) {
+        console.error('Failed to fetch user country:', error);
+        return false;
+      }
+    }
+
+    return geoCountry;
+  }
+  function scriptEUModalPopup() {
+    let storageCookieName = 'userCookieSetting';
+    let userCookieModel = localStorage.getItem(storageCookieName);
+    if(userCookieModel === null){
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'personalization_storage': 'denied',
+        'functionality_storage': 'denied',
+        'security_storage': 'denied',
+      });
+    } else {
+      gtag('consent', 'update', {
+        "ad_storage": userCookieModel.marketing ? 'granted' : 'denied',
+        "ad_user_data":  userCookieModel.marketing ? 'granted' : 'denied',
+        "ad_personalization": userCookieModel.marketing ? 'granted' : 'denied',
+        "analytics_storage": userCookieModel.statistics ? 'granted' : 'denied',
+        "functionality_storage": userCookieModel.preferences ? 'granted' : 'denied',
+        "personalization_storage":  userCookieModel.marketing ? 'granted' : 'denied',
+        "security_storage": "granted",
+      });
+    }
+  }
+  
+  function scriptDefauldModalPopup() {
+    if(localStorage.getItem('consentMode') === null){
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'personalization_storage': 'denied',
+        'functionality_storage': 'denied',
+        'security_storage': 'denied',
+      });
+    } else {
+      gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+    }
+  }
+  //User Country End
+  
+  function gtag(){dataLayer.push(arguments);}
+  console.log(window.location.origin);
+  if(window.location.origin == 'https://chain-gpt.webflow.io') {
+    if(userCountry === null) {
+      console.log('line 87');
+        (async () => {
+          const country = await getUserCountry();
+          const isEU = checkIsEUCountry(country);
+          localStorage.setItem('userCountry', country);
+          console.log('isEU', isEU)
+          if(isEU) {
+            scriptEUModalPopup();
+          } else {
+            scriptDefauldModalPopup()
+          }
+        })();
+    } else {
+      if(checkIsEUCountry(userCountry)) {
+        scriptEUModalPopup();
+      } else {
+        scriptDefauldModalPopup();
+      }
+    }
+  } else {
+    if(localStorage.getItem('consentMode') === null){
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'personalization_storage': 'denied',
+        'functionality_storage': 'denied',
+        'security_storage': 'denied',
+      });
+    } else {
+      gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+    }
+  }
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K43K2ZQ');</script>
+<!-- End Google Tag Manager -->
+<meta content="index, follow" name="robots"/>
+<meta content="max-snippet:50, max-image-preview:large" name="robots"/>
+<style>
+  /* hide body scroll */
+  body::-webkit-scrollbar {
+  width: 0;
+}
+body::-webkit-scrollbar-thumb {
+  width: 0;
+  background: #fff;
+  border-radius: 2px;
+}
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: 0;
+}
+  .overflow-ellipsis {text-overflow: ellipsis;}
+  /* Lenis */
+html.lenis {height: auto;}
+.lenis.lenis-smooth {scroll-behavior: auto;}
+.lenis.lenis-smooth [data-lenis-prevent] {overscroll-behavior: contain;}
+.lenis.lenis-stopped {overflow: hidden;}
+  /* usefull classes */
+  .pointer-events-none {pointer-events: none;}
+  /* fluid fonts */
+  
+  .footer.site-footer:before,
+  .footer.site-footer:after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -21px;
+    border-bottom: 1px solid var(--divider);
+    background-color: var(--bg-dark);
+  }
+  .footer.site-footer:before {
+    left: -20px;
+    transform: rotate(-45deg);
+  }
+  .footer.site-footer:after {
+    right: -20px;
+    transform: rotate(45deg);
+  }
+  .date-shown {
+   	display: block; 
+  }
+  .date-create {
+   	display: none; 
+  }
+  .date-shown.w-dyn-bind-empty {
+   	display: none; 
+  }
+  .date-shown.w-dyn-bind-empty + .date-create {
+   	display: block; 
+  }
+  [block-corners-top],
+  [block-corners-bottom]{
+   	position: relative;
+    overflow: hidden;
+  }
+  
+  [block-corners-bottom]:before,
+  [block-corners-bottom]:after,
+  [block-corners-top]:before,
+  [block-corners-top]:after {
+    content: '';
+   	position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: var(--bg-dark);
+    z-index: 1;
+  }
+  [block-corners-top]:before {
+    top: -21px;
+    transform: rotate(45deg);
+    left: -24px;
+    border-right: 1px solid var(--divider);
+  }
+  [block-corners-top]:after {
+    top: -21px;
+    transform: rotate(-45deg);
+    right: -24px;
+    border-left: 1px solid var(--divider);
+  }
+  [block-corners-bottom]:before {
+    bottom: -21px;
+    transform: rotate(45deg);
+    left: -24px;
+    border-top: 1px solid var(--divider);
+  }
+  [block-corners-bottom]:after {
+    bottom: -21px;
+    transform: rotate(-45deg);
+    right: -24px;
+    border-top: 1px solid var(--divider);
+  }
+@media screen and (min-width: 1440px) {
+	html {font-size: calc(16px + 6 * ((100vw - 1440px) / 720));}
+}
+@media screen and (min-width: 320px) and (max-width: 1439px) {
+  html {font-size: calc(14px + 2 * ((100vw - 320px) / 1000));}
+}
+  body {
+   -webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+  }
+  .explore-link:hover .explore-link-icon > img {transform: translate(0, 20%);}
+  /* heading with lines */
+.section-title-bordered {
+	display: inline-block;
+  	padding: 8px 1.3125rem 2px;
+	margin: 0 0 8px;
+	position: relative;
+}
+  @media screen and (max-width: 767px) {.section-title-bordered {padding: 8px 0.57rem 2px;}}
+  .section-title-bordered:before,
+  .section-title-bordered:after {
+  	position: absolute;
+    width: 18px;
+    height: 1px;
+    background: #807f85;
+    content: "";
+  }
+  .section-title-bordered.section-title-bordered--lg:before,
+  .section-title-bordered.section-title-bordered--lg:after {height: 2px;}
+  .section-title-bordered:before {
+  	top:0;
+    left: -5px;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+  }
+  .section-title-bordered--gradient.section-title-bordered:before {background: linear-gradient(to right, #28efce 0%, #2ce7d2 100%);}
+  .section-title-bordered:after {
+  	bottom:0;
+    right: -5px;
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+  }
+  .section-title-bordered--gradient.section-title-bordered:after {background: linear-gradient(to right, #fb7c4f 0%, #fa7952 100%);}
+  .section-title-bordered-line-1:before,
+  .section-title-bordered-line-1:after {
+    position: absolute;
+    width: calc(100% - 13px);
+    height: 1px;
+    background: #807f85;
+    content: "";
+  }
+  .section-title-bordered--lg .section-title-bordered-line-1:before,
+  .section-title-bordered--lg .section-title-bordered-line-1:after {height: 2px;}
+  .section-title-bordered-line-1:before {
+    top: 0;
+    left: 13px;
+  }
+  .section-title-bordered--gradient .section-title-bordered-line-1:before {background: linear-gradient(to right, #2be6d1 0%, #6a59e5 100%);}
+  .section-title-bordered-line-1:after {
+  	bottom: 0;
+    right: 13px;
+  }
+  .section-title-bordered--gradient .section-title-bordered-line-1:after {background: linear-gradient(to right, #fc914d 0%, #fb7c4f 100%);}
+  .section-title-bordered-line-2:before,
+  .section-title-bordered-line-2:after {
+    position: absolute;
+    width: 1px;
+    height: calc(100% - 13px);
+    background: #807f85;
+    content: "";
+  }
+  .section-title-bordered--gradient .section-title-bordered-line-2:before {background: linear-gradient(to bottom, #28efce 0%, #69e79e 100%);}
+  .section-title-bordered--gradient .section-title-bordered-line-2:after {background: linear-gradient(to bottom, #6a59e5 0%, #fb7a52 100%);}
+  .section-title-bordered--lg .section-title-bordered-line-2:before,
+  .section-title-bordered--lg .section-title-bordered-line-2:after {width: 2px;}
+  .section-title-bordered-line-2:before {
+    bottom: 0;
+    left: 0;
+  }
+  .section-title-bordered-line-2:after {
+  	top: 0;
+    right: 0;
+  }
+  .section-title-bordered--partial .section-title-bordered-line-1:after {width: 67%;}
+  .section-title-bordered--partial .section-title-bordered-line-2:before {
+    bottom: auto;
+    top: 13px;
+    left: 0;
+    height: calc(100% - 30px);
+  }
+  .section-title-bordered--partial .section-title-bordered-line-2:after {display: none;}
+  /* button additional styles */
+  .btn-primary:before,
+  .btn-primary:after {
+  	position: absolute;
+    width: 10px;
+    height: 1px;
+    content: "";
+  }
+  .btn-primary:before {
+  	top:0;
+    left: -3px;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+    background: linear-gradient(to right, #fb6e53 0%, #fb7454 100%); 
+  }
+  .btn-primary:after {
+  	bottom:0;
+    right: -3px;
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+    background: linear-gradient(to right, #74e79a 0%, #74e79a 100%); 
+  }
+  .btn-primary-lines-1:before,
+  .btn-primary-lines-1:after {
+    position: absolute;
+    width: calc(100% - 8px);
+    height: 1px;
+    content: "";
+  }
+  .btn-primary-lines-1:before {
+    top: 0;
+    left: 7px;
+    background: linear-gradient(to right, #fb7454 0%, #bcda68 100%); 
+  }
+  .btn-primary-lines-1:after {
+  	bottom: 0;
+    right: 7px;
+    background: linear-gradient(to right, #6072e2 0%, #74e79a 100%);
+  }
+  .btn-primary-lines-2:before,
+  .btn-primary-lines-2:after {
+    position: absolute;
+    width: 1px;
+    content: "";
+  }
+  .btn-primary-lines-2:before {
+    bottom: 0;
+    left: 0;
+    height: 56%;
+    background: linear-gradient(to bottom, #6e52e5 0%, #6072e2 100%);
+  }
+  .btn-primary-lines-2:after {
+  	top: 0;
+    right: 0;
+    height: calc(100% - 7px);
+    background: linear-gradient(to bottom, #bcda68 0%, #74e79a 100%);
+  }
+  .btn-primary--grey:before,
+  .btn-primary--grey:after,
+  .btn-primary--grey .btn-primary-lines-2:after,
+  .btn-primary--grey .btn-primary-lines-2:before,
+  .btn-primary--grey .btn-primary-lines-1:before,
+  .btn-primary--grey .btn-primary-lines-1:after {background: #595959;}
+  .btn-primary-text:before,
+  .btn-primary-text:after {
+  	position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    width: 0.25rem;
+    height: 0.25rem;
+    background-color: #efefe5;
+    border-radius: 50%;
+    content: "";
+  }
+  .btn-primary-text:before {left: 0;}
+  .btn-primary-text:after {left: 0.4375rem;}
+  .btn-primary--dropdown .btn-primary-text, .btn-primary--no-icon .btn-primary-text, .btn-primary--custom-icon .btn-primary-text {padding-left: 0;}
+  .btn-primary--dropdown .btn-primary-text:before, .btn-primary--dropdown .btn-primary-text:after,
+  .btn-primary--no-icon .btn-primary-text:before, .btn-primary--no-icon .btn-primary-text:after,
+  .btn-primary--custom-icon .btn-primary-text:before, .btn-primary--custom-icon .btn-primary-text:after {display: none;}
+  /* custom slider arrows */
+  .custom-slider-arrow.w-slider-arrow-left,
+  .custom-slider-arrow.w-slider-arrow-right,
+  .custom-slider-arrow .w-icon-slider-left,
+  .custom-slider-arrow .w-icon-slider-right {
+  	width: 3.25rem;
+    height: 3.25rem;
+    z-index: 4;
+  }
+  .custom-slider-arrow .w-icon-slider-left:before,
+  .custom-slider-arrow .w-icon-slider-right:before {display: none;}
+  .custom-slider-arrow[style*="display: none;"] {
+  	display: block !important;
+    pointer-events: none;
+  }
+  .custom-slider-arrow[style*="display: none;"] > div {opacity: 0.3;}
+  .custom-slider-arrow .w-icon-slider-left,
+  .custom-slider-arrow .w-icon-slider-right {
+  	background: url(https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6446951576624313547bb1bd_arrow-next.svg) no-repeat 50% 50% / contain;
+    transition: opacity .3s;
+  }
+  .custom-slider-arrow .w-icon-slider-left {transform: rotate(-180deg);}
+  .custom-slider-arrow--bottom.w-slider-arrow-left {
+    top: auto;
+    bottom: 9vh;
+    left: 2.2%;
+  }
+  .custom-slider-arrow--bottom.w-slider-arrow-right {
+    top: auto;
+    bottom: 9vh;
+    left: calc(2.2% + 4.125rem);
+    right: auto;
+  }
+  .custom-slider-arrow--top.w-slider-arrow-left {
+    bottom: auto;
+    top: 0;
+    left: -44%;
+    right: auto;
+  }
+  .custom-slider-arrow--top.w-slider-arrow-right {
+    bottom: auto;
+    top: 0;
+    left: calc(-44% + 4.125rem);
+    right: auto;
+  }
+  .custom-slider-arrow .w-icon-slider-left:hover,
+  .custom-slider-arrow .w-icon-slider-right:hover {opacity: .7;}
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+  	.custom-slider-arrow--bottom.w-slider-arrow-left {left: 6vw;}
+  	.custom-slider-arrow--bottom.w-slider-arrow-right {left: calc(6vw + 4.125rem);}
+    .custom-slider-arrow--top.w-slider-arrow-left,
+    .custom-slider-arrow--top.w-slider-arrow-right {
+      width: 100%;
+      height: 70px;
+    }
+  	.custom-slider-arrow--top.w-slider-arrow-right {left: 100%;}
+  }
+  @media screen and (max-width: 991px) {
+    .footer.site-footer:before {
+      left: -24px;
+    }
+    .footer.site-footer:after {
+      right: -24px;
+    }
+    .custom-slider-arrow--top.w-slider-arrow-left,
+    .custom-slider-arrow--top.w-slider-arrow-right {
+      top: 100%;
+      border-bottom: 1px solid #353539;
+    }
+    .custom-slider-arrow--top.w-slider-arrow-left {left: 0;}
+  }
+  @media screen and (max-width: 767px) {
+  	.custom-slider-arrow.w-slider-arrow-left, .custom-slider-arrow.w-slider-arrow-right, 
+    .custom-slider-arrow .w-icon-slider-left, .custom-slider-arrow .w-icon-slider-right {
+      width: 27px;
+      height: 27px;
+	}
+    .custom-slider-arrow--bottom.w-slider-arrow-right {
+        top: 15px;
+        bottom: auto;
+        left: auto;
+        right: 15px;
+    }
+    .custom-slider-arrow--bottom.w-slider-arrow-left {
+        top: 15px;
+        bottom: auto;
+        left: auto;
+        right: 54px;
+    }
+    .custom-slider-arrow--top.w-slider-arrow-left,
+    .custom-slider-arrow--top.w-slider-arrow-right {
+      width: 50%;
+      height: 60px;
+    }
+  	.custom-slider-arrow--top.w-slider-arrow-right {left: 50%;}
+  }
+  /* hover effect */
+  .btn-secondary *,
+  .btn-primary *,
+  .link-more * {pointer-events: none;}
+  .btn-primary input,
+  .btn-primary button {pointer-events: auto;}
+  /* ai model tabs */ 
+  .ai-model-content-head:not(.active) .ai-model-title-h3.ai-model-title-tab {background: none;}
+  /*Zalyva styles*/
+  .top-banner.hidden {
+    max-height: 0;
+    padding: 0;
+    translate: 0 -200%;
+    transition: all .2s ease-in-out;
+  }
+  .site-header {
+  	position: sticky;
+    top: 0;
+  }
+  .faq-2 .miscellaneous-2 {transition: all .2s ease-in-out;}
+  .faq-2 .miscellaneous-2[aria-selected="true"] * {color: #EFEFE5;}
+  .faq-answer-2 {
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+  }
+  .plus-wrap-2 {transition: transform 0.3s ease-in-out;}
+  .rotate {transform: rotate(45deg);}
+  .custom-tabs .w--current .articles-bg,
+  .latest-items .w--current .articles-bg {display: block;}
+  /*Mobile menu*/
+  .w-dropdown-list.w--open .w-dropdown-link {margin: 0;}
+  @media screen and (max-width: 991px) {  
+    .w-nav[data-collapse=medium] .w-nav-button {display: flex !important;}
+    .w-dropdown-toggle.w--open .header__icon-arrow {transform: scaleY(-1);}
+    .nav-menu-2 {
+    	max-height: 86vh;
+      	overflow: auto;
+    }
+  }
+  
+  @media screen and (min-width: 992px) {
+    .menu-2 .nav-link-5:after {
+    	position: absolute;
+      	left:0;
+      	right: 0;
+      	top: 100%;
+        margin: 0 auto;
+		width: 0;
+        height: 1px;
+        background: #EFEFE5;
+      	transition: width .2s;
+        content: "";
+        z-index: 91;
+      }
+    .menu-2 .nav-link-5:hover:after,
+    .menu-2 .nav-link-5.w--current:after {width: 100%;}
+    .menu-2 .w-dropdown-list.w--open {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: absolute;
+      left: 1px;
+      right: 1px;
+      top: 100%;
+      bottom: auto;
+      margin-left: 0;
+    }
+    .menu-2 .dropdown-2.hide-on-stage .w-dropdown-list.w--open.mega-menu-update {
+        left: calc(-15.125rem - 16.9vw);
+    }
+    .menu-2 .dropdown-2 .w-dropdown-list.w--open.mega-menu-update {
+      left: -15.125rem;
+    }
+    .w-dropdown-list.product-menu-list.w--open {
+      position: absolute;
+      bottom: auto;
+    }
+  }
+  .menu-button-3.w--open .menu-icon-item.mii-1 {
+    top: 50%;
+  	transform: rotate(45deg);
+  }
+  .menu-button-3.w--open .menu-icon-item.mii-2 {
+    top: 50%;
+  	transform: rotate(-45deg);
+  }
+  /* responsive adjustments */
+  @media screen and (max-width: 991px) {
+    .hero-bottom-center br{display: none;}
+  }
+  @media screen and (min-width: 1440px) {
+    .body-no-banner .container.hero-flex-container {min-height: 91vh;}
+  }
+  /* team */
+  .team-card-bio {width: 100% !important;}
+  .team-card-avatar img {
+  	clip-path: polygon(7% 0, 93% 0, 100% 7%, 100% 93%, 93% 100%, 7% 100%, 0 93%, 0 7%);
+    filter: grayscale(1);
+  }
+  .profile-image img {
+  	clip-path: polygon(15% 0, 85% 0, 100% 0%, 100% 85%, 85% 100%, 15% 100%, 0 100%, 0 0%);
+    filter: grayscale(1);
+  }
+  /* pricing tabs */
+  .pricing-tab-link:not(.w--current) .pricing-tab-text {background: none;}
+  /* custom form */
+  
+  .form-field {resize: vertical;}
+  .form-field:required {
+    background-image: url(https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645a3c7ba47fbd79366e7ccb_asterisk.svg);
+    background-position: 100% 1.15rem;
+    background-repeat: no-repeat;
+  }
+.form-label {
+	pointer-events: none;
+	transition: opacity .2s, transform .2s;
+}
+.label-moved .form-label  {
+	transform: translate(0, -90%);
+  font-size: .8125rem;
+  opacity: .6;
+}
+.w-form-fail,
+.w-form-done {background: transparent;}
+  input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+   -webkit-transition-delay: 9999s;
+   transition-delay: 9999s;
+}
+  /* marquee */
+  @keyframes marqueeScroll {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-100%, 0);
+    }
+  }
+  .soliutions-image-track {pointer-events: none;}
+  .top-banner-content:not(:first-child) {display:none !important;}
+  /* youtube */
+.youtube-video img,
+  .youtube-video iframe {
+	position: absolute;
+  	top: 0;
+  	left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .youtube-video iframe {z-index: 4;}
+  .youtube-video:before,
+  .youtube-video:after {
+  	position: absolute;
+    top: 50%;
+	left: 50%;
+	transform: translate3d( -50%, -50%, 0 );
+	content: "";
+  }
+.youtube-video:before {
+	width: 4.2rem;
+	height: 3rem;
+	background-color: #353539;
+	z-index: 1;
+	opacity: 0.8;
+	border-radius: 0.75rem;
+  transition: opacity .3s;
+}
+.youtube-video:hover:before {opacity: 1;}
+.youtube-video:after {
+  z-index: 2;
+	border-style: solid;
+	border-width: 0.625rem 0 0.625rem 1.125rem;
+	border-color: transparent transparent transparent #fff;
+}
+.twolines-ellipsis {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: pre-wrap;
+}
+  body:not(.korean-language) .korean-language {
+    display: none !important; 
+  }
+  body.korean-language .main-language {
+    display: none;
+  }
+  body.korean-language .korean-language {
+    display: block;
+  }
+  body.korean-language .korean-language.korean-language-flex {
+    display: flex;
+  }
+  
+</style>
+<!-- CoinGPT.org nav hotfix v1 --- 2026-07-16
+     Source: QA audit _brain/wiki/chaingpt-org-topmenu-qa-2026-07.md
+     Paste into: Webflow > coingpt.tech site > Site settings > Custom code > Head code
+     This is a client-side shim. Durable fixes belong in the Designer (see edit list).
+     Remove each rule once its Designer fix ships. -->
+<style>
+/* [P1] WCAG 2.4.7 --- visible keyboard focus on nav dropdown triggers */
+.w-dropdown-toggle:focus-visible{outline:2px solid #efefe5;outline-offset:3px}
+/* [P0] Coming-soon menu items (class .disabled) rendered identical to live links.
+   Gray them out; JS below also makes them inert. */
+.dd-main-menu-link-2.disabled{opacity:.45;cursor:default}
+/* [P1] Mobile announcement bar close button rendered 0x0 --- restore a 44px tap target */
+@media (max-width:767px){
+  .top-banner__close-btn--absolute{display:flex!important;align-items:center;justify-content:center;
+    width:44px;height:44px;position:absolute;right:0;top:50%;transform:translateY(-50%)}
+}
+</style>
+<script>
+(function(){
+  /* [P0/P2] Broken or dirty hrefs shipped in the nav (audit 2026-07-16) */
+  var MAP={
+    'https://pad.coingpt.tech/Saleium':'https://pad.coingpt.tech/saleium',            /* P0: 404 */
+    'https://tiktok.com/chain_gpt':'https://tiktok.com/@chain_gpt',                    /* P2: 404 */
+    'https://www.mexc.com/tr-TR/exchange/CGPT_USDT':'https://www.mexc.com/exchange/CGPT_USDT',
+    'https://www.htx.com/en-us/trade/cgpt_usdt?invite_code=865b8223':'https://www.htx.com/en-us/trade/cgpt_usdt',
+    'http://help.coingpt.tech':'https://help.coingpt.tech'
+  };
+  function fixLinks(){
+    document.querySelectorAll('a[href]').forEach(function(a){
+      var h=a.getAttribute('href');
+      if(MAP[h]){a.setAttribute('href',MAP[h]);return;}
+      /* strip stale hardcoded GA cross-domain tokens (12 links) --- GA's linker re-adds fresh ones at click time */
+      if(h&&h.indexOf('_gl=')>-1){
+        var c=h.replace(/([?&])_gl=[^&#]+&/,'$1').replace(/[?&]_gl=[^&#]+/,'');
+        a.setAttribute('href',c);
+      }
+    });
+    /* [P0] disabled/coming-soon items: without href they leave the tab order and stop opening dup tabs */
+    document.querySelectorAll('a.disabled[href="#"]').forEach(function(a){
+      a.removeAttribute('href');a.removeAttribute('target');a.setAttribute('aria-disabled','true');
+    });
+    /* [P0] "LEARN MORE" footer of the AIVM column (link-more-2) is also '#': send it to aivm.io.
+       Excludes the hide-on-prod draft menu, which never renders. */
+    document.querySelectorAll('.w-dropdown-list a[href="#"][target="_blank"]').forEach(function(a){
+      if(!a.closest('.hide-on-prod'))a.setAttribute('href','https://aivm.io/');
+    });
+  }
+  /* [P0] $CGPT "MORE ACTIONS" column clips 110px off-screen at 1440w:
+     when a dropdown opens, shift its panel left by however much it overflows. */
+  function clamp(){
+    document.querySelectorAll('.w-dropdown-list.w--open').forEach(function(list){
+      list.style.transform='';
+      var over=0;
+      list.querySelectorAll('a').forEach(function(a){
+        var r=a.getBoundingClientRect();
+        if(r.width&&r.right-window.innerWidth>over)over=r.right-window.innerWidth;
+      });
+      if(over>0)list.style.transform='translateX('+(-Math.ceil(over+8))+'px)';
+    });
+  }
+  var mo=new MutationObserver(function(){requestAnimationFrame(clamp);setTimeout(clamp,180);});
+  function init(){
+    fixLinks();
+    document.querySelectorAll('.w-dropdown-list').forEach(function(el){
+      mo.observe(el,{attributes:true,attributeFilter:['class']});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+})();
+</script>
+<!-- NOT fixable here:
+     - c.staging.cookie3.co beacon: find where the cookie3 snippet is loaded (this same custom-code
+       box, or GTM) and change staging -> production endpoint; gate on consent.
+     - web-assets.coingpt.tech: DNS record is gone; restore it at the DNS provider or repoint the
+       Designer embeds that reference it.
+     - Duplicate navs with divergent URLs + "About AI Hub" vs "Solutions" IA: Designer restructure. -->
+<script>
+/* cookie3 kill switch (2026-07-16): site opted out of cookie3 analytics entirely.
+   The loader snippet lives in per-page footer settings across ~40 pages; this head-level
+   switch neutralizes it site-wide until those snippets are deleted page by page.
+   Remove this block once the page-level snippets are gone. */
+(function(){
+  try{Object.defineProperty(window,'cookie3Options',{value:undefined,writable:false,configurable:false});}catch(e){}
+  var stub={push:function(){}};
+  try{Object.defineProperty(window,'_paq',{get:function(){return stub;},set:function(){},configurable:false});}catch(e){}
+  new MutationObserver(function(muts){muts.forEach(function(r){r.addedNodes.forEach(function(n){
+    if(n.tagName==='SCRIPT'&&n.src&&n.src.indexOf('cookie3')>-1){n.remove();}
+  });});}).observe(document.documentElement,{childList:true,subtree:true});
+})();
+</script><script type="text/javascript">window.__WEBFLOW_CURRENCY_SETTINGS = {"currencyCode":"USD","symbol":"$","decimal":".","fractionDigits":2,"group":",","template":"{{wf {\"path\":\"symbol\",\"type\":\"PlainText\"} }} {{wf {\"path\":\"amount\",\"type\":\"CommercePrice\"} }} {{wf {\"path\":\"currencyCode\",\"type\":\"PlainText\"} }}","hideDecimalForWholeNumbers":false};</script><link href="vector-nav.css" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Roboto+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/></head><body class="landing-body"><header class="vs-navbar" id="vs-header">
+<div class="vs-nav-container">
+<a aria-label="Vector Studioz Home" class="vs-brand" href="index.html">
+<div class="vs-brand-logo" style="display:flex;align-items:center;justify-content:center;">
+<svg fill="none" height="34" viewbox="0 0 36 36" width="34" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="vs-grad1" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#ff007a"></stop>
+<stop offset="50%" stop-color="#7928ca"></stop>
+<stop offset="100%" stop-color="#00e1ff"></stop>
+</lineargradient>
+<lineargradient id="vs-grad2" x1="100%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#00e1ff"></stop>
+<stop offset="50%" stop-color="#00ffa3"></stop>
+<stop offset="100%" stop-color="#ffe600"></stop>
+</lineargradient>
+<filter height="140%" id="vs-glow" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="blur" stddeviation="2"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
+</filter>
+</defs>
+<!-- Geometric Multi-Faceted Vector Monogram -->
+<path d="M4 8L18 32L32 8L24 8L18 21L12 8L4 8Z" fill="url(#vs-grad1)" filter="url(#vs-glow)"></path>
+<path d="M12 8L18 20L24 8H28L18 27L8 8H12Z" fill="url(#vs-grad2)"></path>
+<circle cx="18" cy="14" fill="#ffffff" r="2.5"></circle>
+</svg>
+</div>
+<div class="vs-brand-text" style="font-family:'Inter',sans-serif;font-weight:800;font-size:21px;letter-spacing:-0.5px;color:#ffffff;display:flex;align-items:center;gap:3px;">
+        Vector Studioz<span style="color:#00e1ff;font-size:12px;font-weight:700;margin-left:4px;background:rgba(0,225,255,0.1);padding:2px 7px;border-radius:4px;border:1px solid rgba(0,225,255,0.3);letter-spacing:0.06em;text-transform:uppercase;">Agency</span>
+</div>
+</a>
+<ul class="vs-nav-menu">
+<!-- Capabilities Dropdown -->
+<li class="vs-nav-item">
+<a class="vs-nav-link" href="javascript:void(0);">
+          Services
+          <svg class="vs-nav-arrow" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg>
+</a>
+<div class="vs-dropdown-menu vs-mega-menu">
+<!-- Item 1: Web Design & UI/UX -->
+<a class="vs-dropdown-item" href="web-design.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Web Design &amp; UI/UX <span class="vs-dropdown-badge">Bespoke</span></div>
+<div class="vs-dropdown-desc">Scalable Figma design systems, interactive prototypes &amp; premium UX</div>
+</div>
+</a>
+<!-- Item 2: 3D & WebGL Studio -->
+<a class="vs-dropdown-item" href="webgl-3d.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">3D &amp; WebGL Studio <span class="vs-dropdown-badge">Spatial</span></div>
+<div class="vs-dropdown-desc">Interactive Three.js graphics, custom shaders &amp; 3D models</div>
+</div>
+</a>
+<!-- Item 3: Full-Stack Web Development -->
+<a class="vs-dropdown-item" href="web-development.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Full-Stack Web Development <span class="vs-dropdown-badge">High-Speed</span></div>
+<div class="vs-dropdown-desc">Ultra-fast web applications built on Next.js, React, Node &amp; Webflow</div>
+</div>
+</a>
+<!-- Item 4: Custom Software Engineering -->
+<a class="vs-dropdown-item" href="software-engineering.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Custom Software Engineering <span class="vs-dropdown-badge">Scalable</span></div>
+<div class="vs-dropdown-desc">Enterprise software architectures, robust APIs &amp; cloud systems</div>
+</div>
+</a>
+<!-- Item 5: AI Automation & Workflows -->
+<a class="vs-dropdown-item" href="ai-automation.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">AI Automation &amp; Workflows <span class="vs-dropdown-badge">Autonomous</span></div>
+<div class="vs-dropdown-desc">Intelligent agent workflows, custom LLM fine-tuning &amp; smart pipelines</div>
+</div>
+</a>
+<!-- Item 6: Mobile App Development -->
+<a class="vs-dropdown-item" href="mobile-development.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Mobile App Development <span class="vs-dropdown-badge">Cross-Platform</span></div>
+<div class="vs-dropdown-desc">Native performance iOS &amp; Android applications built with Flutter &amp; React Native</div>
+</div>
+</a>
+</div>
+</li>
+<!-- Projects -->
+<li class="vs-nav-item">
+<a class="vs-nav-link" href="projects.html">Projects</a>
+</li>
+<!-- Company Dropdown -->
+<li class="vs-nav-item">
+<a class="vs-nav-link" href="javascript:void(0);">
+          Company
+          <svg class="vs-nav-arrow" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg>
+</a>
+<div class="vs-dropdown-menu vs-standard-dropdown">
+<a class="vs-dropdown-item" href="about.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">About Studio</div>
+<div class="vs-dropdown-desc">Our mission, leadership, and craft philosophy</div>
+</div>
+</a>
+<a class="vs-dropdown-item" href="careers.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Careers <span class="vs-dropdown-badge">We're Hiring</span></div>
+<div class="vs-dropdown-desc">Join our distributed design &amp; engineering team</div>
+</div>
+</a>
+<a class="vs-dropdown-item" href="contact-us.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Contact Us</div>
+<div class="vs-dropdown-desc">Start a project or book a discovery call</div>
+</div>
+</a>
+</div>
+</li>
+<!-- Resources Dropdown -->
+<li class="vs-nav-item">
+<a class="vs-nav-link" href="javascript:void(0);">
+          Resources
+          <svg class="vs-nav-arrow" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg>
+</a>
+<div class="vs-dropdown-menu vs-standard-dropdown">
+<a class="vs-dropdown-item" href="blog.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Design &amp; Tech Blog</div>
+<div class="vs-dropdown-desc">Articles on UI/UX, WebGL, AI automation &amp; code</div>
+</div>
+</a>
+<a class="vs-dropdown-item" href="brand-kit.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Brand Assets</div>
+<div class="vs-dropdown-desc">Logos, color palettes, and press guidelines</div>
+</div>
+</a>
+<a class="vs-dropdown-item" href="videos.html">
+<div class="vs-dropdown-info">
+<div class="vs-dropdown-title">Video Showcase</div>
+<div class="vs-dropdown-desc">Interactive product demos and design walkthroughs</div>
+</div>
+</a>
+</div>
+</li>
+</ul>
+<!-- Header Actions with Rainbow CTA Button -->
+<div class="vs-nav-actions">
+<a class="btn-primary ml-auto w-inline-block" href="contact-us.html" scramble-link="">
+<div class="btn-primary-lines btn-primary-lines-1">
+<div class="btn-primary-lines btn-primary-lines-2">
+<div class="btn-primary-text" scramble-text="">SUBMIT PROJECT BRIEF ↓</div>
+</div>
+</div>
+</a>
+<button aria-label="Toggle navigation menu" class="vs-mobile-toggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</div>
+<!-- Mobile Drawer Menu -->
+<div class="vs-mobile-drawer">
+<div class="vs-mobile-drawer-content">
+<div class="vs-mobile-section">
+<div class="vs-mobile-section-title">Capabilities</div>
+<div class="vs-mobile-accordion">
+<button class="vs-mobile-header-btn">
+            Services &amp; Solutions
+            <svg class="vs-nav-arrow" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg>
+</button>
+<div class="vs-mobile-subitems">
+<a class="vs-mobile-sublink" href="web-design.html">Web Design &amp; UI/UX</a>
+<a class="vs-mobile-sublink" href="webgl-3d.html">3D &amp; WebGL Studio</a>
+<a class="vs-mobile-sublink" href="web-development.html">Full-Stack Web Development</a>
+<a class="vs-mobile-sublink" href="software-engineering.html">Custom Software Engineering</a>
+<a class="vs-mobile-sublink" href="ai-automation.html">AI Automation &amp; Workflows</a>
+<a class="vs-mobile-sublink" href="mobile-development.html">Mobile App Development</a>
+</div>
+</div>
+</div>
+<div class="vs-mobile-section">
+<div class="vs-mobile-section-title">Quick Links</div>
+<a class="vs-mobile-single-link" href="projects.html">Projects</a>
+<a class="vs-mobile-single-link" href="about.html">About Studio</a>
+<a class="vs-mobile-single-link" href="careers.html">Careers (Hiring)</a>
+<a class="vs-mobile-single-link" href="blog.html">Blog &amp; Insights</a>
+<a class="vs-mobile-single-link" href="contact-us.html">Contact Us</a>
+</div>
+<div class="vs-mobile-cta-wrapper" style="padding: 24px 0;">
+<a class="btn-primary w-inline-block" href="contact-us.html" scramble-link="" style="width: 100%;">
+<div class="btn-primary-lines btn-primary-lines-1" style="width: 100%;">
+<div class="btn-primary-lines btn-primary-lines-2" style="width: 100%; justify-content: center;">
+<div class="btn-primary-text" scramble-text="" style="width: 100%; text-align: center; justify-content: center;">SUBMIT PROJECT BRIEF ↓</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+</header><div class="landing-landing-line landing-body-left"></div><div class="landing-landing-line body-right"></div><section class="landing-hero-2 landing-hero-dots-top-left landing-hero-columns"><div class="landing-dark-gradient"></div><div class="landing-dark-gradient landing-gradient-bottom landing-mobile-show"></div><div class="landing-dark-gradient landing-gradient-left"></div><div class="landing-dark-gradient landing-gradient-right"></div><div class="landing-container landing-mobile-full-height"><div class="landing-hero-wrapper landing-columns"><div class="landing-hero-title-wrapper landing-column"><h1 class="landing-ai-alerts-heading">AI Crypto Compliance Assistant</h1><div class="landing-hero-description landing-hero-column">Your AI Compliance Assistant for crypto, built to help you navigate global crypto compliance with confidence.<br/></div><div class="landing-hero-description landing-hero-column">A specialized AI legal &amp; compliance assistant trained on up-to-date blockchain compliance rules, AML/KYC standards, and crypto regulations across 100+ countries so you can move faster without flying blind.</div><div class="landing-hero-button-wrapper landing-hero-column landing-mobile-hidden"><a class="btn-primary-4 ml-auto custom-button w-inline-block" href="https://app.coingpt.tech/crypto-compliance-assistant" rel="noopener noreferrer" scramble-link="" target="_blank"><div class="btn-primary-wrapper" data-scramble-text=""><div class="btn-primary-text-3" scramble-text="">Launch Compliance Assistant</div></div></a></div></div><div class="landing-hero-asset-wrapper hero-column"><div class="hero-assets-container w-embed"><video autoplay="" class="landing-hero-asset landing-hero-column" loop="" muted="" playsinline="">
+<source src="https://static.coingpt.tech/assets/Videos/ai-crypto-compliance.mp4" type="video/mp4; codecs=hvc1"/>
+<source src="https://static.coingpt.tech/assets/Videos/ai-crypto-compliance.webm" type="video/webm"/>
+</video></div></div><div class="landing-hero-button-wrapper landing-hero-column desktop-hidden"><a class="btn-primary-4 ml-auto custom-button w-inline-block" href="https://app.coingpt.tech/crypto-compliance-assistant" rel="noopener noreferrer" scramble-link="" target="_blank"><div class="btn-primary-wrapper" data-scramble-text=""><div class="btn-primary-text-3" scramble-text="">Audit a Smart Contract</div></div></a></div></div><div class="landing-hero-features"><div class="landing-section-border landing-border-top"></div><div class="landing-section-border"></div><div class="landing-hero-features-list"><div class="landing-hero-features-item"><img alt="" class="landing-hero-features-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a818f151d79fc314e3f50_hero%20features%20icon.svg"/><div class="landing-hero-features-text">Jurisdiction-specific crypto compliance guidance</div></div><div class="landing-hero-features-item"><img alt="" class="landing-hero-features-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a818f151d79fc314e3f50_hero%20features%20icon.svg"/><div class="landing-hero-features-text">Coverage across 100+ countries &amp; regions</div></div><div class="landing-hero-features-item"><img alt="" class="landing-hero-features-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a818f151d79fc314e3f50_hero%20features%20icon.svg"/><div class="landing-hero-features-text">Answers tailored to entity type (exchange, protocol, DAO, fund, etc.)</div></div><div class="landing-hero-features-item"><img alt="" class="landing-hero-features-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a818f151d79fc314e3f50_hero%20features%20icon.svg"/><div class="landing-hero-features-text">Source-backed responses citing regulators &amp; official documents</div></div></div></div></div></section><section class="landing-why"><div class="landing-container"><div class="landing-why-wrapper"><div class="landing-why-title-wrapper"><h2 class="landing-why-title">Why Crypto Teams Need an AI Compliance Assistant Now</h2></div><div class="landing-why-list"><div class="landing-section-border landing-border-top"></div><div class="landing-why-item"><div class="landing-gradient-icon-wrapper"><div class="landing-gradient-icon-container"><img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c06fce37580c4fedd6c48_1.svg"/></div></div><div class="landing-why-item-title-wrapper"><h3 class="landing-why-item-title">Fragmented Global Regulations</h3></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Crypto regulations vary widely across countries, making global compliance complex.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Compliance requirements change based on your entity type, location, and user base.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Rules evolve quickly, making manual tracking slow, risky, and inefficient without AI.</div></div></div><div class="landing-why-item item-middle"><div class="landing-gradient-icon-wrapper"><div class="landing-gradient-icon-container"><img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c072233691160b79946bc_cca.svg"/></div></div><div class="landing-why-item-title-wrapper"><h3 class="landing-why-item-title">Constantly  Changing Rules</h3></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">New guidance and enforcement actions roll out regularly<br/></div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">AML/KYC standards (e.g., FATF travel rule) and tax regimes evolve</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Keeping up manually is slow and error-prone</div></div></div><div class="landing-why-item"><div class="landing-gradient-icon-wrapper"><div class="landing-gradient-icon-container"><img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0736fde529757dde4d85_cca1.svg"/></div></div><div class="landing-why-item-title-wrapper"><h3 class="landing-why-item-title">High Cost &amp; Bottlenecks of Traditional Legal Research</h3></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Traditional legal research is expensive, with law firms charging $500–$1,000+ per hour.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Answers often take days or weeks and come as generic memos.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Early-stage teams can’t afford constant legal consultations.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">The CoinGPT AI Compliance Assistant bridges the gap between limited legal resources and real-time crypto compliance insights.</div></div></div><div class="landing-section-border mobile-hidden"></div></div></div></div><div class="landing-dark-gradient"></div><div class="landing-dark-gradient landing-gradient-bottom"></div><div class="landing-dark-gradient landing-gradient-right"></div><div class="landing-dark-gradient landing-gradient-left"></div></section><section class="landing-features" id="landing-features"><div class="landing-featured-navigation-wrapper"><div class="landing-featured-navigation"><div class="landing-features-navigation-text" id="landing-navigation-text">01</div><div class="landing-features-navigation-line"><div class="landing-line-gradient"></div></div><div class="landing-features-navigation-text">04<br/></div></div></div><div class="w-layout-blockcontainer landing-container w-container"><div class="landing-features-wrapper"><div class="landing-features-title-wrapper"><h2 class="landing-features-title">Key Advantages </h2><div class="landing-features-desc-wrapper"><div class="landing-features-title-desc">The CoinGPT AI Crypto Compliance Assistant is an AI-powered legal &amp; compliance assistant specialized in crypto compliance and blockchain regulation. Explore key features below and see what you can unlock.</div><a class="btn-primary-4 ml-auto custom-button w-inline-block" href="https://app.coingpt.tech/crypto-compliance-assistant" rel="noopener noreferrer" scramble-link="" target="_blank"><div class="btn-primary-wrapper btn-features" data-scramble-text=""><div class="btn-primary-text-3" scramble-text="">try tool now</div><img alt="" class="btn-primary-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a8238e7f07a24a861ed19_Icon16.svg"/></div></a></div></div><div class="landing-features-list"><div class="landing-features-list-item"><div class="landing-features-item-wrapper"><div class="landing-features-content-wrapper"><div class="landing-features-icon-wrapper"><div class="landing-features-mobile-nav landing-nav-full-width"><div class="landing-features-navigation-text">01</div><div class="landing-features-navigation-line"><div class="landing-line-gradient _33"></div></div><div class="landing-features-navigation-text">03</div></div></div><h3 class="landing-features-item-title">Jurisdiction-Specific Crypto Compliance</h3><div class="landing-features-desc-list"><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Answers tailored to country or region.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Supports 100+ jurisdictions with a roadmap to 120+.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Understands local licensing, AML/KYC, securities, and tax rules.</div></div></div></div><div class="landing-features-banner-wrapper"><img alt="" class="landing-features-banner landing-desktop" loading="lazy" sizes="594.234375px" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aededc06ce63a0de71a_Features%20CCA%20Desk%201.png" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aededc06ce63a0de71a_Features%20CCA%20Desk%201-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aededc06ce63a0de71a_Features%20CCA%20Desk%201-p-800.png 800w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aededc06ce63a0de71a_Features%20CCA%20Desk%201-p-1080.png 1080w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aededc06ce63a0de71a_Features%20CCA%20Desk%201.png 1238w"/><img alt="" class="landing-features-banner landing-mobile" loading="lazy" sizes="(max-width: 479px) 100vw, 239.9921875px" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693bfc5ebcb7ebfcde6884be_AITA%20Features%20Mob%201.png" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693bfc5ebcb7ebfcde6884be_AITA%20Features%20Mob%201-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693bfc5ebcb7ebfcde6884be_AITA%20Features%20Mob%201.png 654w"/></div></div></div><div class="landing-features-list-item"><div class="landing-features-item-wrapper"><div class="landing-features-content-wrapper"><div class="landing-features-icon-wrapper"><div class="landing-features-mobile-nav landing-nav-full-width"><div class="landing-features-navigation-text">02</div><div class="landing-features-navigation-line"><div class="landing-line-gradient _66"></div></div><div class="landing-features-navigation-text">03</div></div></div><h3 class="landing-features-item-title">Entity-Aware Legal Context</h3><div class="features-description">Customize your questions by:</div><div class="landing-features-desc-list"><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Entity type: exchange, DAO, NFT issuer, DeFi protocol, wallet, fund, etc.<br/></div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Operating jurisdictions &amp; user locations.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Business model (e.g., spot, derivatives, staking, lending).</div></div></div><div class="features-description">Your Crypto Compliance Assistant responds with context that reflects who you are and where you operate.</div></div><div class="landing-features-banner-wrapper"><img alt="" class="landing-features-banner landing-desktop" loading="lazy" sizes="594.234375px" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aec2b31e0caa6fd47db_Features%20CCA%20Desk%202.png" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aec2b31e0caa6fd47db_Features%20CCA%20Desk%202-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aec2b31e0caa6fd47db_Features%20CCA%20Desk%202-p-800.png 800w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aec2b31e0caa6fd47db_Features%20CCA%20Desk%202-p-1080.png 1080w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aec2b31e0caa6fd47db_Features%20CCA%20Desk%202.png 1238w"/><img alt="" class="landing-features-banner landing-mobile" loading="lazy" sizes="(max-width: 479px) 100vw, 239.9921875px" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693bfc5d6ba0f2a772947ebc_AITA%20Features%20Mob%202.png" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693bfc5d6ba0f2a772947ebc_AITA%20Features%20Mob%202-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693bfc5d6ba0f2a772947ebc_AITA%20Features%20Mob%202.png 654w"/></div></div></div><div class="landing-features-list-item"><div class="landing-features-item-wrapper"><div class="landing-features-content-wrapper"><div class="landing-features-icon-wrapper"><div class="landing-features-mobile-nav landing-nav-full-width"><div class="landing-features-navigation-text">01</div><div class="landing-features-navigation-line"><div class="landing-line-gradient _33"></div></div><div class="landing-features-navigation-text">03</div></div></div><h3 class="landing-features-item-title">Source-Backed, Transparent Answers</h3><div class="landing-features-desc-list"><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Responses cite regulators, official laws, and guidance.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Links to documents from FATF, OECD, SEC, EU, MAS, FCA, and more.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Ideal for internal compliance notes and initial risk assessments.</div></div></div></div><div class="landing-features-banner-wrapper"><img alt="" class="landing-features-banner landing-desktop" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/694014bb908231505bdaed83_ccs-item-fix.svg"/><img alt="" class="landing-features-banner landing-mobile" loading="lazy" sizes="(max-width: 479px) 100vw, 239.9921875px" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693bfc5e2c269cd3f722de15_AITA%20Features%20Mob%203.png" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693bfc5e2c269cd3f722de15_AITA%20Features%20Mob%203-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693bfc5e2c269cd3f722de15_AITA%20Features%20Mob%203.png 654w"/></div></div></div><div class="landing-features-list-item"><div class="landing-features-item-wrapper"><div class="landing-features-content-wrapper"><div class="landing-features-icon-wrapper"><div class="landing-features-mobile-nav landing-nav-full-width"><div class="landing-features-navigation-text">02</div><div class="landing-features-navigation-line"><div class="landing-line-gradient _66"></div></div><div class="landing-features-navigation-text">03</div></div></div><h3 class="landing-features-item-title">Faster Than Traditional Research</h3><div class="landing-features-desc-list"><div class="features-description">See which narratives are heating up before price-only tools notice.</div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Get structured, context-rich summaries in seconds.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Use the AI to narrow down the scope before talking to a law firm.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Reduce hours of manual reading and document hunting.</div></div></div></div><div class="landing-features-banner-wrapper"><img alt="" class="landing-features-banner landing-desktop" loading="lazy" sizes="594.234375px, 100vw" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aeddf47c9d8654f2b3e_Features%20CCA%20Desk%204.png" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aeddf47c9d8654f2b3e_Features%20CCA%20Desk%204-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aeddf47c9d8654f2b3e_Features%20CCA%20Desk%204-p-800.png 800w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aeddf47c9d8654f2b3e_Features%20CCA%20Desk%204-p-1080.png 1080w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c0aeddf47c9d8654f2b3e_Features%20CCA%20Desk%204.png 1238w"/><img alt="" class="landing-features-banner landing-mobile" loading="lazy" sizes="(max-width: 479px) 100vw, 239.9921875px" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693bfc5e2c269cd3f722de15_AITA%20Features%20Mob%203.png" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693bfc5e2c269cd3f722de15_AITA%20Features%20Mob%203-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693bfc5e2c269cd3f722de15_AITA%20Features%20Mob%203.png 654w"/></div></div></div><div class="landing-section-border landing-border-top"></div><div class="landing-section-border"></div></div></div></div><div class="landing-dark-gradient"></div><div class="landing-dark-gradient landing-gradient-bottom"></div><div class="landing-dark-gradient landing-gradient-left"></div><div class="landing-dark-gradient landing-gradient-right"></div></section><section class="landing-why"><div class="landing-container"><div class="landing-why-wrapper"><div class="landing-why-title-wrapper"><h2 class="landing-why-title">What the AI Crypto Compliance Can Help You With</h2></div><div class="landing-why-list why-list-wrap"><div class="landing-section-border landing-border-top"></div><div class="landing-why-item why-item-33"><div class="landing-gradient-icon-wrapper"><div class="landing-gradient-icon-container"><img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c1008502323bceca84060_cca-icon-1.svg"/></div></div><div class="landing-why-item-title-wrapper"><h3 class="landing-why-item-title">Licensing &amp; Registration Requirements</h3></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Do we need a VASP license, exchange license, or custodial license?</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Are we considered a payments institution, broker-dealer, or something else?<br/></div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">What registrations or filings are expected before launch?</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Example prompts:<br/><br/>“What licenses are required to operate a crypto exchange in the UK?”<br/>“Does a DeFi protocol with a governance token need a license in Switzerland?”</div></div></div><div class="landing-why-item item-middle whi-item-33"><div class="landing-gradient-icon-wrapper"><div class="landing-gradient-icon-container"><img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c104989b3731c792ca3e6_cca-icon-2.svg"/></div></div><div class="landing-why-item-title-wrapper"><h3 class="landing-why-item-title">AML / KYC &amp; Travel Rule Compliance</h3></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Understand core AML/KYC obligations for crypto compliance.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Get clarity on customer due diligence, record-keeping, and reporting.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Navigate FATF travel rule expectations across jurisdictions.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Example prompts:<br/><br/>“What KYC requirements apply to a crypto wallet provider in Singapore?”<br/>“How does the FATF travel rule apply to our exchange in the EU?”</div></div></div><div class="landing-why-item why-item-33"><div class="landing-gradient-icon-wrapper"><div class="landing-gradient-icon-container"><img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c104989b3731c792ca3e6_cca-icon-2.svg"/></div></div><div class="landing-why-item-title-wrapper"><h3 class="landing-why-item-title">Taxation &amp;  Reporting</h3></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Learn how staking, yield, airdrops, and trading are treated from a tax perspective.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Understand reporting obligations for users and entities.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Identify when to seek specialized tax counsel based on AI findings.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Example prompts:<br/><br/>“Is staking income taxable for retail users in Germany?”<br/>“What are the reporting requirements for a crypto fund in Canada?”</div></div></div><div class="landing-why-item why-item-33"><div class="landing-gradient-icon-wrapper"><div class="landing-gradient-icon-container"><img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c108cafc4c9512f466164_cca-icon-4.svg"/></div></div><div class="landing-why-item-title-wrapper"><h3 class="landing-why-item-title">Securities &amp; Token Classification</h3></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Explore the likelihood of a token being viewed as a security vs utility.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Understand high-level frameworks used by regulators.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Get pointers to relevant guidance, rulings, and case references.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Example prompts:<br/><br/>“How might US regulators view this governance token that shares protocol revenue?”<br/>“What factors affect whether a token is considered a security in the EU under MiCA?”</div></div></div><div class="landing-why-item why-item-33"><div class="landing-gradient-icon-wrapper"><div class="landing-gradient-icon-container"><img alt="" class="landing-why-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c10c2daa991b4ff7d05be_cca-icon-5.svg"/></div></div><div class="landing-why-item-title-wrapper"><h3 class="landing-why-item-title">Cross-Border &amp; Multi-Jurisdiction Operations</h3></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Compare obligations across multiple countries.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Understand when you might trigger obligations in user jurisdictions.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Get a map of where you face the highest compliance risk.</div></div><div class="landing-why-desc-wrapper"><div class="landing-col-row-gradient"></div><div class="landing-why-desc">Example prompts:<br/><br/>“We’re a DeFi protocol with users in the US, EU, and Japan. What should we be aware of?”<br/>“If our DAO has US-based contributors, what extra risks are there?”</div></div></div><div class="landing-section-border mobile-hidden"></div></div><div class="landing-why-summury-wrapper"><img alt="" class="landing-why-summury-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c1cbd056c7d11c903934c_warning--filled%201.svg"/><div class="landing-secondary-desc-text landing-no-padding">Classification analysis is informational and risk-oriented. Final determinations must be made with qualified legal counsel.</div><div class="landing-section-border"></div><div class="landing-section-border landing-border-top"></div></div></div></div><div class="landing-dark-gradient"></div><div class="landing-dark-gradient landing-gradient-bottom"></div><div class="landing-dark-gradient landing-gradient-right"></div><div class="landing-dark-gradient landing-gradient-left"></div></section><section class="landing-who-for"><div class="landing-container"><div class="landing-who-for-wrapper landing-crypto-alert"><div class="landing-who-for-item landing-item-title landing-item-title-1-row" id="w-node-_609d7000-1921-5729-0342-df2854e0d3c8-80c4a510"><div class="landing-who-for-title-wrapper"><h2 class="landing-heading">Who CoinGPT Compliance Assistant Is For</h2></div><div class="landing-landing-line landing-section-line landing-right"></div><div class="landing-landing-line landing-section-line"></div></div><div class="landing-who-for-item"><img alt="" class="landing-who-for-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c201efebd91cec66fc823_cca-icon%20-%20Who%20For1.svg"/><h3 class="landing-who-tor-item-title">Startup Founders &amp; Protocol Teams</h3><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Validate whether you need licenses, registrations, or specific approvals.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Get initial clarity on jurisdiction choices and risk areas.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Use AI outputs to have more informed conversations with lawyers.</div></div></div><div class="landing-who-for-item"><img alt="" class="landing-who-for-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c201efb8947f82d37aba5_cca-icon%20-%20Who%20For%20-%202.svg"/><h3 class="landing-who-tor-item-title">Legal &amp; Compliance Teams</h3><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Use the AI Crypto Compliance Assistant as a research accelerator, not a replacement.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Get faster overviews of new regulations, guidance, and enforcement trends.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Free up time for interpretation, strategy, and high-impact advisory.</div></div><div class="landing-col-row-gradient desktop-hidden"></div></div><div class="landing-who-for-item"><img alt="" class="landing-who-for-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c201eec770153f04258d3_cca-icon-Who%20For-3.svg"/><h3 class="landing-who-tor-item-title">Exchanges, Wallets &amp; Custodians</h3><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Assess crypto compliance obligations in each operating region.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">See whether moves are driven by fundamentals, risk, or hype.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Decide when to rebalance or de-risk based on structured signals.</div></div><div class="landing-col-row-gradient"></div></div><div class="landing-who-for-item"><img alt="" class="landing-who-for-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693abce6109ac59f8c14faee_icon_Founders.svg"/><h3 class="landing-who-tor-item-title">DAOs &amp; Global Web3 Communities</h3><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Understand obligations when contributors and users are global<br/></div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Map risks around treasury management, token distributions, and governance.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Provide community members with better awareness of regulatory climate.</div></div><div class="landing-col-row-gradient"></div><div class="landing-col-row-gradient desktop-hidden row-bottom"></div><div class="landing-landing-line landing-section-line"></div><div class="landing-landing-line landing-section-line landing-right"></div></div><div class="landing-who-for-item"><img alt="" class="landing-who-for-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c20217bdc5a0bbea613b1_cca-icon%20-%20Who%20For-5.svg"/><h3 class="landing-who-tor-item-title">Investors, Funds &amp; VCs</h3><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Strengthen due diligence on projects and protocols.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Ensure portfolio companies have considered blockchain compliance.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Quickly identify red flags requiring specialized legal review.</div></div><div class="landing-col-row-gradient"></div><div class="landing-col-row-gradient desktop-hidden row-bottom"></div></div><div class="landing-section-border"></div><div class="landing-section-border landing-border-top"></div></div></div><div class="landing-dark-gradient"></div><div class="landing-dark-gradient landing-gradient-bottom"></div><div class="landing-dark-gradient landing-gradient-left"></div><div class="landing-dark-gradient landing-gradient-right"></div></section><section class="landing-hiw"><div class="landing-container"><div class="landing-hiw-wrapper"><div class="landing-hiw-title-wrapper"><h2 class="landing-hiw-title">How the Crypto Compliance Assistant Works</h2><div class="landing-hiw-desc-wrapper"><div class="landing-desc-color">The CoinGPT AI Crypto Compliance Assistant is designed to make complex crypto compliance questions feel manageable and structured.</div></div></div><div class="landing-hiw-list-wrapper cca-hiw-list"><div class="landing-hiw-item-wrapper landing-item-first cca-hiw" id="w-node-_0add4a09-8ce7-164a-9190-3626ebd48ec1-80c4a510"><div class="landing-hiw-item sca-hiw-item-1-mob cca-hiw-item"><div class="landing-hiw-item-content"><div class="landing-hiw-item-title-wrapper"><div class="landing-gradient-icon-wrapper landing-hiw-icon"><div class="landing-gradient-icon-container landing-hiw-icon-container"><div class="landing-hiw-number-text">1</div></div></div><h2 class="landing-hiw-item-title">Ingest – Listen to Official &amp; Curated Sources</h2></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Project &amp; foundation X/Twitter accounts;</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Exchange listing &amp; delisting feeds;</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Security advisories &amp; audit channels;</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Curated InfoFi news sources.</div></div><div class="landing-secondary-desc-text landing-no-padding">Signals are deduped, cleaned, and normalized in real time.</div></div><div class="landing-hiw-item-banner"><img alt="" class="landing-hiw-banner landing-banner-first landing-desktop-hidden" loading="lazy" sizes="(max-width: 479px) 100vw, 313.9140625px, 100vw" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c3c62ef9825bbe0144da5_cca%20hiw%20banner%20mob%201.png" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c3c62ef9825bbe0144da5_cca%20hiw%20banner%20mob%201-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c3c62ef9825bbe0144da5_cca%20hiw%20banner%20mob%201.png 654w"/><img alt="" class="landing-hiw-banner landing-banner-first landing-mobile-hidden" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693aebcdb478a8e427e3b3b4_HIW%20SC%20Desk%201.png"/></div></div></div><div class="landing-hiw-item-wrapper landing-item-second cca-hiw" id="w-node-_0add4a09-8ce7-164a-9190-3626ebd48ee2-80c4a510"><div class="landing-hiw-item landing-vertical sca-hiw"><div class="landing-hiw-item-content hiw-item-vertical"><div class="landing-hiw-item-title-wrapper"><div class="landing-gradient-icon-wrapper landing-hiw-icon"><div class="landing-gradient-icon-container landing-hiw-icon-container"><div class="landing-hiw-number-text">2</div></div></div><h2 class="landing-hiw-item-title">Ask Compliance &amp; Legal Questions</h2></div><div class="landing-secondary-desc-text landing-no-padding"><span class="landing-color-primary">Use natural language and the AI Crypto Compliance Assistant then:</span></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Interprets your context;</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Pulls from up-to-date regulatory sources;</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Returns a structured, explanatory answer.</div></div></div><div class="landing-hiw-item-banner hiw-item-banner-vertical cca-hiw-tiem"><img alt="" class="landing-hiw-banner landing-mobile-hidden" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c2248cc751f82c455163a_CCA%20HIW%20Desk%202.png"/><img alt="" class="landing-hiw-banner landing-desktop-hidden" loading="lazy" sizes="100vw" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c3c61f6ffcb0fe4ffcd0d_cca%20hiw%20banner%20mob%202.png" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c3c61f6ffcb0fe4ffcd0d_cca%20hiw%20banner%20mob%202-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c3c61f6ffcb0fe4ffcd0d_cca%20hiw%20banner%20mob%202.png 654w"/></div></div></div><div class="landing-hiw-item-wrapper landing-item-third cca-hiw-item-3"><div class="landing-hiw-item" id="w-node-_0add4a09-8ce7-164a-9190-3626ebd48f1c-80c4a510"><div class="landing-hiw-item-content"><div class="landing-hiw-item-title-wrapper"><div class="landing-gradient-icon-wrapper landing-hiw-icon"><div class="landing-gradient-icon-container landing-hiw-icon-container"><div class="landing-hiw-number-text">3</div></div></div><h2 class="landing-hiw-item-title">AI Analysis &amp; Multi-Pass Testing</h2></div><div class="landing-secondary-desc-text landing-no-padding"><span class="landing-color-primary">The smart contract auditor then:</span></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Parses your contract structure and dependencies;</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Runs multiple AI-driven checks across:</div><div class="landing-secondary-desc-item sub-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Security &amp; vulnerabilities;</div></div><div class="landing-secondary-desc-item sub-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Logic &amp; centralization;</div></div><div class="landing-secondary-desc-item sub-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Gas &amp; performance;</div></div><div class="landing-secondary-desc-item sub-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Standards &amp; best practices.</div></div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Aggregates findings into a consistent severity model.</div></div></div><div class="landing-hiw-item-banner"><img alt="" class="landing-hiw-banner hiw-banner-third mobile-hidden" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/694017081b8d4f3c58dea70b_cca-hiww0fix.png"/><img alt="" class="landing-hiw-banner hiw-banner-third desktop-hidden" loading="lazy" sizes="100vw" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c3c62650c8405551bd140_cca%20hiw%20banner%20mob%203.png" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c3c62650c8405551bd140_cca%20hiw%20banner%20mob%203-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c3c62650c8405551bd140_cca%20hiw%20banner%20mob%203.png 652w"/></div></div></div><div class="landing-hiw-item-wrapper landing-item-fourth cca-hiw" id="w-node-_0add4a09-8ce7-164a-9190-3626ebd48f80-80c4a510"><div class="landing-hiw-item landing-last-item cca-hiw-item" id="w-node-_0add4a09-8ce7-164a-9190-3626ebd48f81-80c4a510"><div class="landing-hiw-item-content landing-item-fourt-content cca-hiw-content"><div class="landing-hiw-item-title-wrapper"><div class="landing-gradient-icon-wrapper landing-hiw-icon"><div class="landing-gradient-icon-container landing-hiw-icon-container"><div class="landing-hiw-number-text">4<br/></div></div></div><h2 class="landing-hiw-item-title">Iterate &amp; Refine With Follow-Up Questions</h2></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob"><span class="landing-color-primary">You receive:</span></div><div class="landing-secondary-desc-item sub-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">High-level summary and security score;</div></div><div class="landing-secondary-desc-item sub-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Full Audit (In-Depth Report);</div></div><div class="landing-secondary-desc-item sub-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Detailed per-issue pages with impact &amp; remediation;</div></div><div class="landing-secondary-desc-item sub-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text landing-p-24-mob">Viewable as a shareable web report (and via API/JSON for dev tooling);</div></div></div></div><div class="landing-hiw-item-banner hiw-banner-4"><img alt="" class="landing-hiw-banner hiw-banner-last mobile-hidden cca-hiw-item-4" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c244e1c7e851ae02cc7eb_CCA%20HIW%20Desk%204.png"/><img alt="" class="landing-hiw-banner hiw-banner-last desktop-hidden" loading="lazy" sizes="(max-width: 479px) 100vw, 239.9921875px, 100vw" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/69524164ce68db24df7f00f6_crypto-c-mob-4.png" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/69524164ce68db24df7f00f6_crypto-c-mob-4-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/69524164ce68db24df7f00f6_crypto-c-mob-4.png 686w"/></div></div></div><div class="landing-section-border landing-border-top"></div><div class="landing-section-border"></div></div></div></div><div class="landing-dark-gradient"></div><div class="landing-dark-gradient landing-gradient-bottom"></div><div class="landing-dark-gradient landing-gradient-left"></div><div class="landing-dark-gradient landing-gradient-right"></div></section><section class="landing-comparison"><div class="landing-container"><h2 class="landing-comparison-title width-80">Crypto Compliance Assistant vs Manual Legal Research</h2><div class="landing-comparison-table"><div class="landing-comparison-table-row"><div class="landing-comparison-table-text landing-table-title">Feature / <br/>Experience</div></div><div class="landing-comparison-table-row"><div class="landing-comparison-table-text landing-table-title">Manual <br/>Legal Research</div></div><div class="landing-comparison-table-row landing-br-none"><div class="landing-comparison-table-text landing-table-title">CoinGPT Crypto Compliance Assistant</div></div><div class="landing-comparison-table-row"><div class="landing-comparison-table-text">Speed</div></div><div class="landing-comparison-table-row"><div class="landing-comparison-table-text landing-text-secondary">Days or weeks</div></div><div class="landing-comparison-table-row landing-br-none"><div class="landing-comparison-table-text">Seconds to minutes</div></div><div class="landing-comparison-table-row"><div class="landing-comparison-table-text">Cost</div></div><div class="landing-comparison-table-row"><div class="landing-comparison-table-text landing-text-secondary">$500–$1,000/hr for law firms</div></div><div class="landing-comparison-table-row landing-br-none"><div class="landing-comparison-table-text">Fraction of the cost for ongoing access</div></div><div class="landing-comparison-table-row"><div class="landing-comparison-table-text">Coverage</div></div><div class="landing-comparison-table-row"><div class="landing-comparison-table-text landing-text-secondary">Limited jurisdictions per engagement</div></div><div class="landing-comparison-table-row landing-br-none"><div class="landing-comparison-table-text">100+ countries and regions</div></div><div class="landing-comparison-table-row"><div class="landing-comparison-table-text">Crypto-Specific Focus</div></div><div class="landing-comparison-table-row"><div class="landing-comparison-table-text landing-text-secondary">Depends on firm expertise</div></div><div class="landing-comparison-table-row landing-br-none"><div class="landing-comparison-table-text">Built specifically for crypto compliance &amp; blockchain laws</div></div><div class="landing-comparison-table-row"><div class="landing-comparison-table-text">Source Citations</div></div><div class="landing-comparison-table-row"><div class="landing-comparison-table-text landing-text-secondary">Often buried in long memos</div></div><div class="landing-comparison-table-row landing-br-none"><div class="landing-comparison-table-text">Explicit links to regulators and legal documents</div></div><div class="landing-section-border landing-border-top"></div><div class="landing-section-border"></div><div class="landing-comparison-table-row"><div class="landing-comparison-table-text">Best Use</div></div><div class="landing-comparison-table-row"><div class="landing-comparison-table-text landing-text-secondary">Final opinions, complex negotiations</div></div><div class="landing-comparison-table-row landing-br-none"><div class="landing-comparison-table-text">First-pass guidance, scoping, research acceleration</div></div></div></div><div class="landing-dark-gradient"></div><div class="landing-dark-gradient landing-gradient-left"></div><div class="landing-dark-gradient landing-gradient-right"></div></section><section class="landing-launch"><div class="w-layout-blockcontainer landing-container w-container"><div class="landing-launch-wrapper"><div class="landing-section-border landing-border-top"></div><div class="landing-section-border"></div><div class="landing-launch-container"><h2 class="landing-launch-title">Turn regulatory uncertainty into AI-powered compliance clarity you can trust.</h2><a class="btn-primary-4 ml-auto custom-button w-inline-block" href="https://app.coingpt.tech/crypto-compliance-assistant" rel="noopener noreferrer" scramble-link="" target="_blank"><div class="btn-primary-wrapper btn-features" data-scramble-text=""><div class="btn-primary-text-3" scramble-text="">Launch Crypto Compliance Assistant</div></div></a></div></div></div><div class="landing-dark-gradient landing-gradient-left"></div><div class="landing-dark-gradient landing-gradient-right"></div></section><section class="landing-group"><div class="landing-container"><div class="landing-group-wrapper"><h2 class="landing-group-title">Crypto Compliance Assistant vs “Generic AI” Tools</h2><div class="landing-group-list"><div class="landing-group-item-wrapper"><div class="landing-group-item"><div class="landing-group-item-title-wrapper"><img alt="" class="landing-group-item-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a83613f60ebaed5c9c7fe_group%20Icon%201.svg"/><div class="landing-group-item-title">“Generic AI” Tools</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Don’t track regulatory updates or enforcement in real time.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Don’t have structured jurisdiction + entity context.</div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Rarely provide verifiable citations to regulators or legal texts.</div></div></div><div class="landing-landing-line landing-section-line landing-right"></div></div><div class="landing-group-item-wrapper right"><div class="landing-group-item landing-right"><div class="landing-group-item-title-wrapper"><img alt="" class="landing-group-item-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a83613f60ebaed5c9c80b_grout%20Icon2.svg"/><div class="landing-group-item-title">CoinGPT Crypto Compliance Assistant </div></div><div class="landing-secondary-desc-item"><div class="landing-btn-dot-wrapper landing-dot-features"><div class="landing-btn-dot"></div><div class="landing-btn-dot"></div></div><div class="landing-secondary-desc-text">Purpose-built for crypto compliance and blockchain regulation, not general chat.</div></div></div><div class="landing-landing-line landing-section-line"></div></div></div></div></div><div class="landing-dark-gradient"></div><div class="landing-dark-gradient landing-gradient-bottom"></div></section><section class="landing-faq"><div class="landing-dark-gradient tablet-hidden"></div><div class="landing-dark-gradient landing-gradient-bottom tablet-hidden"></div><div class="landing-dark-gradient landing-gradient-left tablet-hidden"></div><div class="landing-dark-gradient landing-gradient-right tablet-hidden"></div><div class="landing-container"><div class="landing-faq-wrapper"><div class="landing-section-border tablet-hidden"></div><div class="landing-section-border landing-border-top tablet-hidden"></div><div class="landing-faq-content-wrapper"><div class="landing-faq-title-wrapper"><h2 class="landing-faq-title">F.A.Q.</h2><div class="landing-faq-desc">Can’t find an answer to your question? <br/>Feel free to <a href="#">contact us</a>.</div></div><div class="landing-faq-questions-list"><div class="landing-faq-question-item"><div class="landing-faq-question-title-wrapper" data-w-id="b1769abd-1ff1-c5e9-2d36-c420f0563d49"><div class="landing-faq-question">Is the CoinGPT Crypto Compliance Assistant a law firm or lawyer?</div><img alt="" class="landing-faq-question-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a836be9c7c929cdb9994d_faq-icon.svg"/></div><div class="landing-faq-answer-wrapper" style="height:0px"><div class="landing-faq-answer w-richtext"><p>No. The <strong>Crypto Compliance Assistant</strong> is an AI-powered information and research tool, not a law firm or licensed attorney. It helps you understand crypto compliance topics and regulatory frameworks, but it does not provide formal legal advice. You should always consult a qualified lawyer before making legal decisions.</p></div></div></div><div class="landing-faq-question-item"><div class="landing-faq-question-title-wrapper" data-w-id="b1769abd-1ff1-c5e9-2d36-c420f0563d51"><div class="landing-faq-question">How accurate is the AI Crypto Compliance Assistant?</div><img alt="" class="landing-faq-question-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a836be9c7c929cdb9994d_faq-icon.svg"/></div><div class="landing-faq-answer-wrapper" style="height:0px"><div class="landing-faq-answer w-richtext"><p>The<strong> Crypto Compliance Assistant </strong>is trained on up-to-date crypto and blockchain compliance data from regulators and official bodies. It aims to provide accurate, source-backed information, but no AI system is perfect. Use it as a research and scoping tool, then verify important matters with professional counsel.</p></div></div></div><div class="landing-faq-question-item"><div class="landing-faq-question-title-wrapper" data-w-id="b1769abd-1ff1-c5e9-2d36-c420f0563d5a"><div class="landing-faq-question">Which jurisdictions does it cover?</div><img alt="" class="landing-faq-question-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a836be9c7c929cdb9994d_faq-icon.svg"/></div><div class="landing-faq-answer-wrapper" style="height:0px"><div class="landing-faq-answer w-richtext"><p>The <strong>AI Crypto Compliance Assistant</strong> is designed to cover 100+ countries and regions, including major hubs like the EU, US, UK, Singapore, Switzerland, and more, with a roadmap toward 120+ jurisdictions. Coverage continues to expand as regulations evolve.</p></div></div></div><div class="landing-faq-question-item"><div class="landing-faq-question-title-wrapper" data-w-id="b1769abd-1ff1-c5e9-2d36-c420f0563d6a"><div class="landing-faq-question">What kind of questions can I ask?</div><img alt="" class="landing-faq-question-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a836be9c7c929cdb9994d_faq-icon.svg"/></div><div class="landing-faq-answer-wrapper" style="height:0px"><div class="landing-faq-answer w-richtext"><p>You can ask questions about:</p><ul role="list"><li>Licensing and registration requirements</li><li>AML/KYC and travel rule obligations</li><li>Tax treatment of crypto activities</li><li>Securities and token classification frameworks</li><li>Cross-border and multi-jurisdictional risk considerations</li></ul><p>The more clearly you specify your entity type and jurisdictions, the more tailored your answer will be.</p></div></div></div><div class="landing-faq-question-item"><div class="landing-faq-question-title-wrapper" data-w-id="b1769abd-1ff1-c5e9-2d36-c420f0563d7e"><div class="landing-faq-question">Does the Crypto Compliance Assistant give definitive legal answers?</div><img alt="" class="landing-faq-question-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a836be9c7c929cdb9994d_faq-icon.svg"/></div><div class="landing-faq-answer-wrapper" style="height:0px"><div class="landing-faq-answer w-richtext"><p>No. It provides informational, risk-oriented guidance and summaries of regulatory frameworks, not legally binding opinions. Use it to:</p><ul role="list"><li>Understand the landscape and terminology</li><li>Identify key issues and questions</li><li>Prepare for more productive discussions with legal counsel</li></ul></div></div></div><div class="landing-faq-question-item"><div class="landing-faq-question-title-wrapper" data-w-id="a4411a60-96fe-97c2-960c-ec911cf76bda"><div class="landing-faq-question">Who should use the Crypto Compliance Assistant?</div><img alt="" class="landing-faq-question-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a836be9c7c929cdb9994d_faq-icon.svg"/></div><div class="landing-faq-answer-wrapper" style="height:0px"><div class="landing-faq-answer w-richtext"><ul role="list"><li>Founders &amp; protocol teams</li><li>Exchanges, wallets &amp; custodians</li><li>Investors, funds &amp; VCs</li><li>In-house legal &amp; compliance teams</li><li>DAOs and global Web3 communities</li></ul><p>Anyone dealing with crypto compliance questions can benefit from it as a first-line research tool.</p></div></div></div><div class="landing-faq-question-item"><div class="landing-faq-question-title-wrapper" data-w-id="b2be965e-9c32-be6d-fbdf-4fe717557e92"><div class="landing-faq-question">How do I get started?</div><img alt="" class="landing-faq-question-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a836be9c7c929cdb9994d_faq-icon.svg"/></div><div class="landing-faq-answer-wrapper" style="height:0px"><div class="landing-faq-answer w-richtext"><p>Just go to coingpt.tech/ai-legal-advisor or open the tool inside the CoinGPT app. Set your entity type and jurisdictions, then start asking questions. You don’t need any special setup to start experimenting.</p></div></div></div></div></div></div></div><div class="landing-col-row-gradient desktop-hidden row-bottom"></div></section><section class="landing-cta landing-cta-with-desc"><div class="landing-dark-gradient"></div><div class="landing-dark-gradient landing-gradient-bottom"></div><div class="landing-dark-gradient landing-gradient-left"></div><div class="landing-dark-gradient landing-gradient-right"></div><div class="cta-asset-wrapper"><img alt="" class="cta-asset" loading="lazy" sizes="(max-width: 479px) 100vw, 239.984375px" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c399d86dcdef190ac8544_CTA%20CCA%20Baner.png" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c399d86dcdef190ac8544_CTA%20CCA%20Baner-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c399d86dcdef190ac8544_CTA%20CCA%20Baner-p-800.png 800w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c399d86dcdef190ac8544_CTA%20CCA%20Baner-p-1080.png 1080w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c399d86dcdef190ac8544_CTA%20CCA%20Baner-p-1600.png 1600w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c399d86dcdef190ac8544_CTA%20CCA%20Baner-p-2000.png 2000w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c399d86dcdef190ac8544_CTA%20CCA%20Baner-p-2600.png 2600w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693c399d86dcdef190ac8544_CTA%20CCA%20Baner.png 2880w"/></div><div class="landing-container full-height"><div class="cta-wrapper"><div class="landing-section-border landing-border-top"></div><div class="cta-title-wrapper"><h2 class="cta-title title-width-80">Unlock Smarter, Simpler Crypto Compliance Assistant</h2><div class="cta-desk desc-with-80">The CoinGPT AI Crypto Compliance Assistant gives you instant, AI-powered guidance on crypto regulations and on-chain compliance. </div><div class="cta-desk desc-with-80">If you want the Crypto Compliance Assistant inside your own exchange, wallet, or crypto platform, CoinGPT can provide API/SDK access and tailored solutions.</div><div class="landing-cta-button-wrapper"><a class="btn-primary-4 ml-auto custom-button w-inline-block" href="https://app.coingpt.tech/crypto-compliance-assistant" rel="noopener noreferrer" scramble-link="" target="_blank"><div class="btn-primary-wrapper" data-scramble-text=""><div class="btn-primary-text-3" scramble-text="">launch Crypto Compliance Assistant</div></div></a><a class="btn-secondary-4 w-inline-block" href="https://app.coingpt.tech/" target="_blank"><div class="btn-secondary-4-wrapper"><div class="btn-secondary-text-4" scramble-text="">Talk About Integration</div></div></a></div></div></div></div></section><footer class="footer site-footer" id="site-footer">
+<div class="footer-container" style="max-width:1400px;margin:0 auto;padding:60px 1.5rem 30px;font-family:'Inter',sans-serif;color:#9ca3af;">
+<div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;">
+<!-- Col 1: Brand & Mission -->
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+<div style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;">
+<svg fill="none" height="30" viewbox="0 0 36 36" width="30" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="vs-foot-grad1" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#ff007a"></stop>
+<stop offset="100%" stop-color="#00e1ff"></stop>
+</lineargradient>
+</defs>
+<path d="M4 8L18 32L32 8L24 8L18 21L12 8L4 8Z" fill="url(#vs-foot-grad1)"></path>
+</svg>
+</div>
+<span style="font-weight:800;font-size:20px;color:#ffffff;letter-spacing:-0.4px;">Vector Studioz</span>
+</div>
+<p style="font-size:14px;line-height:1.6;color:#9ca3af;max-width:320px;margin:0 0 20px;">
+          Elite digital experience agency crafting bespoke websites, scalable software architectures, and autonomous AI automation systems for ambitious global brands.
+        </p>
+<div style="display:flex;gap:12px;">
+<a aria-label="Twitter / X" href="https://x.com" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:#9ca3af;text-decoration:none;" target="_blank">
+<svg fill="currentColor" height="15" viewbox="0 0 24 24" width="15"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+</a>
+<a aria-label="GitHub" href="https://github.com" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:#9ca3af;text-decoration:none;" target="_blank">
+<svg fill="currentColor" height="16" viewbox="0 0 24 24" width="16"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+</a>
+<a aria-label="LinkedIn" href="https://linkedin.com" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:#9ca3af;text-decoration:none;" target="_blank">
+<svg fill="currentColor" height="15" viewbox="0 0 24 24" width="15"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2m1.4 9.74v-8.37H5.06v8.37h2.8z"></path></svg>
+</a>
+</div>
+</div>
+<!-- Col 2: Services -->
+<div>
+<div style="font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:#ffffff;margin-bottom:16px;">Capabilities</div>
+<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:14px;">
+<li><a href="web-design.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Web Design &amp; UI/UX</a></li>
+<li><a href="web-development.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Full-Stack Development</a></li>
+<li><a href="software-engineering.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Custom Software Engineering</a></li>
+<li><a href="ai-automation.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">AI Automation &amp; Workflows</a></li>
+<li><a href="webgl-3d.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">3D &amp; WebGL Studio</a></li>
+<li><a href="mobile-development.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Mobile App Development</a></li>
+</ul>
+</div>
+<!-- Col 3: Agency & Work -->
+<div>
+<div style="font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:#ffffff;margin-bottom:16px;">Studio</div>
+<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:14px;">
+<li><a href="about.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">About Studio</a></li>
+<li><a href="projects.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Projects</a></li>
+<li><a href="careers.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Careers (We're Hiring)</a></li>
+<li><a href="contact-us.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Start a Project</a></li>
+</ul>
+</div>
+<!-- Col 4: Resources & Legal -->
+<div>
+<div style="font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:#ffffff;margin-bottom:16px;">Resources</div>
+<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:14px;">
+<li><a href="blog.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Design &amp; Tech Blog</a></li>
+<li><a href="brand-kit.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Brand Assets</a></li>
+<li><a href="videos.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Showcase Demos</a></li>
+<li><a href="privacy-policy.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Privacy Policy</a></li>
+<li><a href="tos.html" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:13px;">
+<div>© 2026 Vector Studioz. All rights reserved. Crafted with precision for forward-thinking brands.</div>
+<div style="display:flex;gap:20px;">
+<a href="privacy-policy.html" style="color:#9ca3af;text-decoration:none;">Privacy</a>
+<a href="tos.html" style="color:#9ca3af;text-decoration:none;">Terms</a>
+<a href="cookies.html" style="color:#9ca3af;text-decoration:none;">Cookies</a>
+</div>
+</div>
+</div>
+</footer><script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=64354b8ce4872ad8cd1c7b04" type="text/javascript"></script><script crossorigin="anonymous" integrity="sha384-FY9kfDj44yFLv0P23e/NDMYcxb5toElf1lw0FzQa8aCFQBoGvTe1tifB8iRE+pl5" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/js/chain-gpt.schunk.32b28350b4117d0f.js" type="text/javascript"></script><script crossorigin="anonymous" integrity="sha384-IsJwQHiYLGi0QlHfqCt/I7xQWF/ZQZoc6sJZWkDg7XEvumbBfIX+5be2/qnhkJL9" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/js/chain-gpt.schunk.767d7edb931414d2.js" type="text/javascript"></script><script crossorigin="anonymous" integrity="sha384-0zUXOG8ohdFv9AWhcjAvo5ODzNzZ8PqHHXMR0DPw985+2xzbfCvov/e/IlCEy/d5" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/js/chain-gpt.98a31b15.d241037c1a56c92e.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/gsap/3.15.0/ScrollTrigger.min.js" type="text/javascript"></script><script type="text/javascript">gsap.registerPlugin(ScrollTrigger);</script><script crossorigin="anonymous" integrity="sha384-NXgwF8Kv9SSAr+jemKKcbvQsz+teULH/a5UNJvZc6kP47hZgl62M1vGnw6gHQhb1" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script defer="" src="https://unpkg.com/gsap@3.11.5/dist/ScrollTrigger.min.js"></script>
+<script defer="" src="https://unpkg.com/gsap@3.11.5/dist/gsap.min.js"></script>
+<script src="https://chaingpt-web.s3.us-east-2.amazonaws.com/assets/js/Update+02.08.24/ScrambleTextPlugin.min.js"></script>
+<!-- [Attributes by Finsweet] CMS Slider -->
+<script async="" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsslider@1/cmsslider.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.23/bundled/lenis.min.js"></script>
+<script src="https://chaingpt-web.s3.us-east-2.amazonaws.com/assets/js/Update+02.08.24/main-global.min.js"></script>
+<script>
+        var cookie3Options = {"siteId":214,"additionalTracking":true,"cookielessEnabled":true}
+        window._paq = window._paq || [];
+        (function () {
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.async = true; g.src = 'https://cdn.cookie3.co/scripts/analytics/latest/cookie3.analytics.min.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+<script>
+  	if(!checkIsEUCountry(localStorage.getItem('userCountry'))) {
+
+      function hideBanner() {
+        document.getElementById('cookie-consent-banner').style.display = 'none';
+      }
+      document.getElementById('btn-hide-banner').addEventListener('click', function() {
+        hideBanner();
+      });
+      document.getElementById('btn-hide-banner-mob').addEventListener('click', function() {
+        hideBanner();
+      });
+      if(localStorage.getItem('consentMode') === null) {
+        document.getElementById('btn-accept-all').addEventListener('click', function() {
+          setConsent({
+            necessary: true,
+            analytics: true,
+            preferences: true,
+            marketing: true,
+            userdata: true,
+            personalization: true
+          });
+          hideBanner();
+        });
+        document.getElementById('btn-reject-all').addEventListener('click', function() {
+          setConsent({
+            necessary: false,
+            analytics: false,
+            preferences: false,
+            marketing: false,
+            userdata: false,
+            personalization: false
+          });
+          hideBanner();
+        });
+        document.getElementById('cookie-consent-banner').style.display = 'flex';
+      }
+      function setConsent(consent) {
+        const consentMode = {
+          'ad_storage': consent.marketing ? 'granted' : 'denied',
+          'ad_user_data': consent.userdata ? 'granted' : 'denied',
+          'ad_personalization': consent.personalization ? 'granted' : 'denied',
+          'analytics_storage': consent.analytics ? 'granted' : 'denied',
+          'personalization_storage': consent.preferences ? 'granted' : 'denied',
+          'functionality_storage': consent.necessary ? 'granted' : 'denied',
+          'security_storage': consent.necessary ? 'granted' : 'denied',
+        };
+        gtag('consent', 'update', consentMode);
+        localStorage.setItem('consentMode', JSON.stringify(consentMode));
+      }
+    }
+  
+  	function CheckSiteVersion() {
+      const productionDomain = "www.coingpt.tech";
+      const stageDomain = "chain-gpt.webflow.io";
+      const currentDomain = window.location.hostname;
+      if (currentDomain === stageDomain) {
+          document.body.classList.add("stage-site");
+      }
+      if (currentDomain === productionDomain) {
+          document.body.classList.add("prod-site");
+      }
+      
+      const path = window.location.pathname;
+      if (path.startsWith('/ko') || path.startsWith('/ko/')) {
+          document.body.classList.add("korean-language");
+      }
+      
+      document.body.classList.add("page-ready");
+    }
+  	CheckSiteVersion();
+  	
+</script>
+<script>
+document.querySelectorAll('a[target="_blank"]').forEach(link => {
+    if (!link.rel.includes("noreferrer")) {
+        link.rel += " noreferrer";
+    }
+    if (!link.rel.includes("noopener")) {
+        link.rel += " noopener";
+    }
+});
+</script>
+<script>
+  $(document).ready(function () {
+    const $elementsToCopy = $('[data-copy-element]');
+
+    if ($elementsToCopy.length > 0) {
+      $elementsToCopy.each(function () {
+        const $original = $(this);
+        const $clone = $original.clone(true);
+        $original.parent().append($clone);
+        $original.parent().addClass('copied');
+      });
+    }
+    
+    if(checkIsEUCountry(localStorage.getItem('userCountry'))) {
+      if($('.cookie-modal').length) {
+
+        let storageCookieName = 'userCookieSetting';
+        let userCookieModel = localStorage.getItem(storageCookieName);
+        if(userCookieModel !== null) {
+          userCookieModel =  JSON.parse(userCookieModel);
+          gtag('consent', 'update', {
+            "event": "consent_updated",
+            "consent": {
+              "ad_storage": userCookieModel.marketing ? 'granted' : 'denied',
+              "ad_user_data":  userCookieModel.marketing ? 'granted' : 'denied',
+              "ad_personalization": userCookieModel.marketing ? 'granted' : 'denied',
+              "analytics_storage": userCookieModel.statistics ? 'granted' : 'denied',
+              "functionality_storage": userCookieModel.preferences ? 'granted' : 'denied',
+              "personalization_storage":  userCookieModel.marketing ? 'granted' : 'denied',
+              "security_storage": "granted",
+            }
+          });
+        } else {
+          userCookieModel = {
+            isset: false,
+            preferences: false,
+            statistics: false,
+            marketing: false,
+          };
+
+
+          setTimeout( () => {$('.cookie-modal-wrapper').fadeIn()}, 2000);
+        }
+
+
+
+        function saveCookiesSetting() {
+          Object.defineProperty(userCookieModel, 'isset', {value : true, configurable: true});
+          localStorage.setItem(storageCookieName, JSON.stringify(userCookieModel));
+          window.dataLayer = window.dataLayer || [];
+          let consentUpdateObj = {
+            "event": "consent_updated",
+            "consent": {
+              "ad_storage": userCookieModel.marketing ? 'granted' : 'denied',
+              "ad_user_data":  userCookieModel.marketing ? 'granted' : 'denied',
+              "ad_personalization": userCookieModel.marketing ? 'granted' : 'denied',
+              "analytics_storage": userCookieModel.statistics ? 'granted' : 'denied',
+              "functionality_storage": userCookieModel.preferences ? 'granted' : 'denied',
+              "personalization_storage":  userCookieModel.marketing ? 'granted' : 'denied',
+              "security_storage": "granted",
+            }
+          }
+          window.dataLayer.push(consentUpdateObj);
+          gtag('consent', 'update', consentUpdateObj);
+
+          updateCookieAcceptView();
+          $('.cookie-modal-wrapper').fadeOut();
+          updateCookieDetailsView();
+        }
+        function updateUserCookieModel() {
+          $('[data-cookie]').each( (i, e) => {
+            let currentCookieName = $(e).attr('data-cookie').toLowerCase()
+            let currentCookieValue = $(e).attr('data-cookie-value').toLowerCase() === 'true';
+            $(e).attr('data-cookie-value', currentCookieValue);
+            Object.defineProperty(userCookieModel, currentCookieName, {value : currentCookieValue});
+          });
+          saveCookiesSetting();
+        }
+        function updateCookieAcceptView() {
+          if(userCookieModel !== null) {
+            Object.entries(userCookieModel).forEach(([key, value]) => {
+              $(`[data-cookie-${key}]`).removeClass('true').removeClass('false').addClass(value.toString());
+            });
+          }
+        }
+        function updateCookieDetailsView() {
+          Object.entries(userCookieModel).forEach(([key, value]) => {
+            $(`[data-cookie="${key}"]`).attr('data-cookie-value', value.toString());
+          });
+        }
+
+        $(document).on('click', '[cookie-modal-open]', function(e){
+          if(userCookieModel !== null) {
+            if(userCookieModel.isset) {
+              $('.cookie-accept-wrapper').fadeIn(); 
+            } else {
+              $('.cookie-modal-wrapper').fadeIn(); 
+            }
+          } 
+        });
+
+        $(document).on('click', '[data-cookie]', function(e){
+          let currentCookieName = $(e.currentTarget).attr('data-cookie').toLowerCase()
+          let currentCookieValue = $(e.currentTarget).attr('data-cookie-value').toLowerCase() === 'true';
+          currentCookieValue = !currentCookieValue;
+          $(e.currentTarget).attr('data-cookie-value', currentCookieValue);
+          Object.defineProperty(userCookieModel, currentCookieName, {value : currentCookieValue, configurable: true});
+          updateCookieAcceptView();
+        })
+
+        $(document).on('click', '[cookie-modal-allow-section]', function() {
+          updateUserCookieModel();
+        });
+
+        $(document).on('click', '[cookie-modal-allow]', function() {
+          Object.defineProperty(userCookieModel, 'preferences', {value : true, configurable: true});
+          Object.defineProperty(userCookieModel, 'statistics', {value : true, configurable: true});
+          Object.defineProperty(userCookieModel, 'marketing', {value : true, configurable: true});
+          saveCookiesSetting();
+        });
+
+
+        $(document).on('click', '[cookie-details]', function(){
+          document.querySelector('[data-w-tab="Details"]').click()
+          $('[cookie-detail]').hide();
+          $('[cookie-modal-allow-section]').show();
+        });
+
+        $(document).on('click', '.cookie-tabs-link', function(e){
+          if($(e.currentTarget).attr('data-w-tab') === "Details") {
+            $('[cookie-details]').hide();
+            $('[cookie-modal-allow-section]').show();
+          } else {
+            $('[cookie-details]').show();
+            $('[cookie-modal-allow-section]').hide();
+          }
+        });
+
+        $(document).on('click', '[cookie-change-consent]', function(e){
+          $('.cookie-accept-wrapper').fadeOut();
+          $('.cookie-modal-wrapper').fadeIn();
+        });
+
+        $(document).on('click', '[cookie-modal-close]', function(e){
+          saveCookiesSetting();
+          $('.cookie-accept-wrapper').fadeOut();
+          $('.cookie-modal-wrapper').fadeOut();
+        });
+
+        $(document).on('click', '[cookie-modal-deny]', function(e){
+          Object.defineProperty(userCookieModel, 'preferences', {value : false, configurable: true});
+          Object.defineProperty(userCookieModel, 'statistics', {value : false, configurable: true});
+          Object.defineProperty(userCookieModel, 'marketing', {value : false, configurable: true});
+          saveCookiesSetting();
+          $('.cookie-accept-wrapper').fadeOut();
+          $('.cookie-modal-wrapper').fadeOut();
+        });
+
+
+        $(document).on('click', '[cookie-withdraw-consent]', function(e){
+          Object.defineProperty(userCookieModel, 'preferences', {value : false, configurable: true});
+          Object.defineProperty(userCookieModel, 'statistics', {value : false, configurable: true});
+          Object.defineProperty(userCookieModel, 'marketing', {value : false, configurable: true});
+          saveCookiesSetting();
+          $('.cookie-accept-wrapper').fadeOut();
+        });
+
+        updateCookieAcceptView();
+      }
+    }
+  });
+</script>
+<style>
+.article-content strong {
+    font-weight: 700;
+}
+  .stage-site .hide-on-stage {
+    display: none !important;
+  }
+  .prod-site .hide-on-prod {
+    display: none !important;
+  }
+  
+  .cookie-check-bg {
+    background: conic-gradient(from 148.85deg at 50% 36.76%, #724CE8 0deg, #26F4D0 119.73deg, #F8CF3E 228.48deg, #FC6756 360deg);
+  }
+  .cookie-check-wrapper[data-cookie-value="true"] .cookie-check-bg {
+  	opacity: 1;
+  }
+  .cookie-check-wrapper[data-cookie-value="true"] .cookie-check-round {
+  	left: 0.75rem;
+  }
+  .cookie-btn-with-icon:after {
+    content: '';
+    width: 1rem;
+    height: 1rem;
+	background-image: url('https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6878a8f2a3c6e71f6fe6f4eb_Chevron%20Icon.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  [cookie-modal-allow-section] {
+   	display: none; 
+  }
+  .landing-features-navigation-line .landing-line-gradient {
+    height: 0%;
+  }
+  @media(max-width: 767px) {
+    .desktop-show {
+      display: none !important;
+    }
+    .mobile-show {
+      display: block !important;
+    }
+    .cookie-check-wrapper[data-cookie-value="true"] .cookie-check-round {
+     	left: 11px; 
+    }
+  }
+  @keyframes verticalSlideAnimation {
+    from {
+      transform: translateY(0%);
+    }
+
+    to {
+      transform: translateY(-100%);
+    }
+  }
+  @keyframes horizontalSlideAnimation {
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const navLine = document.querySelector('.landing-features-navigation-line');
+    if (navLine) {
+      gsap.to(".landing-features-navigation-line .landing-line-gradient", {
+        height: "100%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".landing-features-list",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        }
+      });
+
+      const items = document.querySelectorAll(".landing-features-list-item");
+      const navText = document.getElementById("landing-navigation-text");
+
+      function formatNumber(num) {
+        return num < 10 ? `0${num}` : num;
+      }
+
+      items.forEach((item, index) => {
+        ScrollTrigger.create({
+          trigger: item,
+          start: "top 50%",
+          end: "bottom 50%",
+          onEnter: () => changeNumber(index + 1),
+          onEnterBack: () => changeNumber(index + 1),
+        });
+      });
+
+      function changeNumber(num) {
+        const formatted = formatNumber(num);
+
+        gsap.to(navText, {
+          opacity: 0,
+          y: -10,
+          duration: 0.2,
+          onComplete: () => {
+            navText.textContent = formatted;
+            gsap.to(navText, { opacity: 1, y: 0, duration: 0.2 });
+          }
+        });
+      }
+    }
+
+  });
+</script><script crossorigin="anonymous" data-cf-beacon='{"version":"2024.11.0","token":"efd0fa60fb88475f9ad30ba9a1a44c68","r":1,"spa":2}' integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" type="module"></script>
+<script src="vector-nav.js"></script></body></html>

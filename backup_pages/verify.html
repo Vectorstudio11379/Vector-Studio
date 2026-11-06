@@ -1,0 +1,1489 @@
+<!DOCTYPE html><!-- Last Published: Sat Aug 15 2026 00:15:09 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="www.coingpt.tech" data-wf-page="65ccceeff6c32297f42a1eef" data-wf-site="64354b8ce4872ad8cd1c7b04" lang="en"><head><meta charset="utf-8"/><link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous"/><title>Verify Your Identity on CoinGPT | CoinGPT</title><link rel="alternate" hrefLang="x-default" href="https://www.coingpt.tech/verify"/><link rel="alternate" hrefLang="en" href="https://www.coingpt.tech/verify"/><link rel="alternate" hrefLang="ko" href="https://www.coingpt.tech/ko/verify"/><meta content="Complete the verification process to unlock full access to CoinGPT’s AI tools and services. Secure your account and enhance your experience." name="description"/><meta content="Verify Your Identity on CoinGPT | CoinGPT" property="og:title"/><meta content="Complete the verification process to unlock full access to CoinGPT’s AI tools and services. Secure your account and enhance your experience." property="og:description"/><meta content="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64d9d5f89cc52bd948b9d53b_Chain-GPT.jpg" property="og:image"/><meta content="Verify Your Identity on CoinGPT | CoinGPT" name="twitter:title"/><meta content="Complete the verification process to unlock full access to CoinGPT’s AI tools and services. Secure your account and enhance your experience." name="twitter:description"/><meta content="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64d9d5f89cc52bd948b9d53b_Chain-GPT.jpg" name="twitter:image"/><meta property="og:type" content="website"/><meta content="summary_large_image" name="twitter:card"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="xDyyV48PXV5s0V2irP4_yitW5RSBkCHaCgLGz_UB4TY" name="google-site-verification"/><link href="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/css/chain-gpt.shared.a3558708c.min.css" rel="stylesheet" type="text/css" integrity="sha384-o1WHCMrnJbbS0LfUpKSZppAv4pAvYlNYeJKbMRQ8arxTAWf4irz+ALXOnFDpslf+" crossorigin="anonymous"/><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Inter:300,400,500,600,700","Roboto Mono:300,400,500,600,700","Roboto Mono:300,400,500,600,700"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/66e9a1b24861e4af25ba59f3_CGPT%20Favicon%2032x32.png" rel="shortcut icon" type="image/x-icon"/><link href="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/66e9a1933a2b2e8f0db816a5_CGPT%20Favicon%20256x256.png" rel="apple-touch-icon"/><link href="https://www.coingpt.tech/verify" rel="canonical"/><script>
+  
+  window.dataLayer = window.dataLayer || [];
+  
+  //User Country start
+  let userCountry = localStorage.getItem('userCountry');
+  const euCountries = new Set([
+    "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU",
+    "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES",
+    "SE", "IS", "LI", "NO", "GB"
+  ]);
+
+  function checkIsEUCountry(geoCountry) {
+    if (!geoCountry) return false;
+    return euCountries.has(geoCountry);
+  }
+
+  async function getUserCountry() {
+    let geoCountry = localStorage.getItem('userCountry');
+
+    if (!geoCountry) {
+      try {
+        const response = await fetch('https://ipinfo.io/json?token=4f0ee6fb59c3d1');
+        const data = await response.json();
+        geoCountry = data.country || null;
+
+        if (geoCountry) {
+          localStorage.setItem('userCountry', geoCountry);
+        } else {
+          return false;
+        }
+      } catch (error) {
+        console.error('Failed to fetch user country:', error);
+        return false;
+      }
+    }
+
+    return geoCountry;
+  }
+  function scriptEUModalPopup() {
+    let storageCookieName = 'userCookieSetting';
+    let userCookieModel = localStorage.getItem(storageCookieName);
+    if(userCookieModel === null){
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'personalization_storage': 'denied',
+        'functionality_storage': 'denied',
+        'security_storage': 'denied',
+      });
+    } else {
+      gtag('consent', 'update', {
+        "ad_storage": userCookieModel.marketing ? 'granted' : 'denied',
+        "ad_user_data":  userCookieModel.marketing ? 'granted' : 'denied',
+        "ad_personalization": userCookieModel.marketing ? 'granted' : 'denied',
+        "analytics_storage": userCookieModel.statistics ? 'granted' : 'denied',
+        "functionality_storage": userCookieModel.preferences ? 'granted' : 'denied',
+        "personalization_storage":  userCookieModel.marketing ? 'granted' : 'denied',
+        "security_storage": "granted",
+      });
+    }
+  }
+  
+  function scriptDefauldModalPopup() {
+    if(localStorage.getItem('consentMode') === null){
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'personalization_storage': 'denied',
+        'functionality_storage': 'denied',
+        'security_storage': 'denied',
+      });
+    } else {
+      gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+    }
+  }
+  //User Country End
+  
+  function gtag(){dataLayer.push(arguments);}
+  console.log(window.location.origin);
+  if(window.location.origin == 'https://chain-gpt.webflow.io') {
+    if(userCountry === null) {
+      console.log('line 87');
+        (async () => {
+          const country = await getUserCountry();
+          const isEU = checkIsEUCountry(country);
+          localStorage.setItem('userCountry', country);
+          console.log('isEU', isEU)
+          if(isEU) {
+            scriptEUModalPopup();
+          } else {
+            scriptDefauldModalPopup()
+          }
+        })();
+    } else {
+      if(checkIsEUCountry(userCountry)) {
+        scriptEUModalPopup();
+      } else {
+        scriptDefauldModalPopup();
+      }
+    }
+  } else {
+    if(localStorage.getItem('consentMode') === null){
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'personalization_storage': 'denied',
+        'functionality_storage': 'denied',
+        'security_storage': 'denied',
+      });
+    } else {
+      gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+    }
+  }
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K43K2ZQ');</script>
+<!-- End Google Tag Manager -->
+<meta name="robots" content="index, follow" />
+<meta name="robots" content="max-snippet:50, max-image-preview:large">
+<style>
+  /* hide body scroll */
+  body::-webkit-scrollbar {
+  width: 0;
+}
+body::-webkit-scrollbar-thumb {
+  width: 0;
+  background: #fff;
+  border-radius: 2px;
+}
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: 0;
+}
+  .overflow-ellipsis {text-overflow: ellipsis;}
+  /* Lenis */
+html.lenis {height: auto;}
+.lenis.lenis-smooth {scroll-behavior: auto;}
+.lenis.lenis-smooth [data-lenis-prevent] {overscroll-behavior: contain;}
+.lenis.lenis-stopped {overflow: hidden;}
+  /* usefull classes */
+  .pointer-events-none {pointer-events: none;}
+  /* fluid fonts */
+  
+  .footer.site-footer:before,
+  .footer.site-footer:after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -21px;
+    border-bottom: 1px solid var(--divider);
+    background-color: var(--bg-dark);
+  }
+  .footer.site-footer:before {
+    left: -20px;
+    transform: rotate(-45deg);
+  }
+  .footer.site-footer:after {
+    right: -20px;
+    transform: rotate(45deg);
+  }
+  .date-shown {
+   	display: block; 
+  }
+  .date-create {
+   	display: none; 
+  }
+  .date-shown.w-dyn-bind-empty {
+   	display: none; 
+  }
+  .date-shown.w-dyn-bind-empty + .date-create {
+   	display: block; 
+  }
+  [block-corners-top],
+  [block-corners-bottom]{
+   	position: relative;
+    overflow: hidden;
+  }
+  
+  [block-corners-bottom]:before,
+  [block-corners-bottom]:after,
+  [block-corners-top]:before,
+  [block-corners-top]:after {
+    content: '';
+   	position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: var(--bg-dark);
+    z-index: 1;
+  }
+  [block-corners-top]:before {
+    top: -21px;
+    transform: rotate(45deg);
+    left: -24px;
+    border-right: 1px solid var(--divider);
+  }
+  [block-corners-top]:after {
+    top: -21px;
+    transform: rotate(-45deg);
+    right: -24px;
+    border-left: 1px solid var(--divider);
+  }
+  [block-corners-bottom]:before {
+    bottom: -21px;
+    transform: rotate(45deg);
+    left: -24px;
+    border-top: 1px solid var(--divider);
+  }
+  [block-corners-bottom]:after {
+    bottom: -21px;
+    transform: rotate(-45deg);
+    right: -24px;
+    border-top: 1px solid var(--divider);
+  }
+@media screen and (min-width: 1440px) {
+	html {font-size: calc(16px + 6 * ((100vw - 1440px) / 720));}
+}
+@media screen and (min-width: 320px) and (max-width: 1439px) {
+  html {font-size: calc(14px + 2 * ((100vw - 320px) / 1000));}
+}
+  body {
+   -webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+  }
+  .explore-link:hover .explore-link-icon > img {transform: translate(0, 20%);}
+  /* heading with lines */
+.section-title-bordered {
+	display: inline-block;
+  	padding: 8px 1.3125rem 2px;
+	margin: 0 0 8px;
+	position: relative;
+}
+  @media screen and (max-width: 767px) {.section-title-bordered {padding: 8px 0.57rem 2px;}}
+  .section-title-bordered:before,
+  .section-title-bordered:after {
+  	position: absolute;
+    width: 18px;
+    height: 1px;
+    background: #807f85;
+    content: "";
+  }
+  .section-title-bordered.section-title-bordered--lg:before,
+  .section-title-bordered.section-title-bordered--lg:after {height: 2px;}
+  .section-title-bordered:before {
+  	top:0;
+    left: -5px;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+  }
+  .section-title-bordered--gradient.section-title-bordered:before {background: linear-gradient(to right, #28efce 0%, #2ce7d2 100%);}
+  .section-title-bordered:after {
+  	bottom:0;
+    right: -5px;
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+  }
+  .section-title-bordered--gradient.section-title-bordered:after {background: linear-gradient(to right, #fb7c4f 0%, #fa7952 100%);}
+  .section-title-bordered-line-1:before,
+  .section-title-bordered-line-1:after {
+    position: absolute;
+    width: calc(100% - 13px);
+    height: 1px;
+    background: #807f85;
+    content: "";
+  }
+  .section-title-bordered--lg .section-title-bordered-line-1:before,
+  .section-title-bordered--lg .section-title-bordered-line-1:after {height: 2px;}
+  .section-title-bordered-line-1:before {
+    top: 0;
+    left: 13px;
+  }
+  .section-title-bordered--gradient .section-title-bordered-line-1:before {background: linear-gradient(to right, #2be6d1 0%, #6a59e5 100%);}
+  .section-title-bordered-line-1:after {
+  	bottom: 0;
+    right: 13px;
+  }
+  .section-title-bordered--gradient .section-title-bordered-line-1:after {background: linear-gradient(to right, #fc914d 0%, #fb7c4f 100%);}
+  .section-title-bordered-line-2:before,
+  .section-title-bordered-line-2:after {
+    position: absolute;
+    width: 1px;
+    height: calc(100% - 13px);
+    background: #807f85;
+    content: "";
+  }
+  .section-title-bordered--gradient .section-title-bordered-line-2:before {background: linear-gradient(to bottom, #28efce 0%, #69e79e 100%);}
+  .section-title-bordered--gradient .section-title-bordered-line-2:after {background: linear-gradient(to bottom, #6a59e5 0%, #fb7a52 100%);}
+  .section-title-bordered--lg .section-title-bordered-line-2:before,
+  .section-title-bordered--lg .section-title-bordered-line-2:after {width: 2px;}
+  .section-title-bordered-line-2:before {
+    bottom: 0;
+    left: 0;
+  }
+  .section-title-bordered-line-2:after {
+  	top: 0;
+    right: 0;
+  }
+  .section-title-bordered--partial .section-title-bordered-line-1:after {width: 67%;}
+  .section-title-bordered--partial .section-title-bordered-line-2:before {
+    bottom: auto;
+    top: 13px;
+    left: 0;
+    height: calc(100% - 30px);
+  }
+  .section-title-bordered--partial .section-title-bordered-line-2:after {display: none;}
+  /* button additional styles */
+  .btn-primary:before,
+  .btn-primary:after {
+  	position: absolute;
+    width: 10px;
+    height: 1px;
+    content: "";
+  }
+  .btn-primary:before {
+  	top:0;
+    left: -3px;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+    background: linear-gradient(to right, #fb6e53 0%, #fb7454 100%); 
+  }
+  .btn-primary:after {
+  	bottom:0;
+    right: -3px;
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+    background: linear-gradient(to right, #74e79a 0%, #74e79a 100%); 
+  }
+  .btn-primary-lines-1:before,
+  .btn-primary-lines-1:after {
+    position: absolute;
+    width: calc(100% - 8px);
+    height: 1px;
+    content: "";
+  }
+  .btn-primary-lines-1:before {
+    top: 0;
+    left: 7px;
+    background: linear-gradient(to right, #fb7454 0%, #bcda68 100%); 
+  }
+  .btn-primary-lines-1:after {
+  	bottom: 0;
+    right: 7px;
+    background: linear-gradient(to right, #6072e2 0%, #74e79a 100%);
+  }
+  .btn-primary-lines-2:before,
+  .btn-primary-lines-2:after {
+    position: absolute;
+    width: 1px;
+    content: "";
+  }
+  .btn-primary-lines-2:before {
+    bottom: 0;
+    left: 0;
+    height: 56%;
+    background: linear-gradient(to bottom, #6e52e5 0%, #6072e2 100%);
+  }
+  .btn-primary-lines-2:after {
+  	top: 0;
+    right: 0;
+    height: calc(100% - 7px);
+    background: linear-gradient(to bottom, #bcda68 0%, #74e79a 100%);
+  }
+  .btn-primary--grey:before,
+  .btn-primary--grey:after,
+  .btn-primary--grey .btn-primary-lines-2:after,
+  .btn-primary--grey .btn-primary-lines-2:before,
+  .btn-primary--grey .btn-primary-lines-1:before,
+  .btn-primary--grey .btn-primary-lines-1:after {background: #595959;}
+  .btn-primary-text:before,
+  .btn-primary-text:after {
+  	position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    width: 0.25rem;
+    height: 0.25rem;
+    background-color: #efefe5;
+    border-radius: 50%;
+    content: "";
+  }
+  .btn-primary-text:before {left: 0;}
+  .btn-primary-text:after {left: 0.4375rem;}
+  .btn-primary--dropdown .btn-primary-text, .btn-primary--no-icon .btn-primary-text, .btn-primary--custom-icon .btn-primary-text {padding-left: 0;}
+  .btn-primary--dropdown .btn-primary-text:before, .btn-primary--dropdown .btn-primary-text:after,
+  .btn-primary--no-icon .btn-primary-text:before, .btn-primary--no-icon .btn-primary-text:after,
+  .btn-primary--custom-icon .btn-primary-text:before, .btn-primary--custom-icon .btn-primary-text:after {display: none;}
+  /* custom slider arrows */
+  .custom-slider-arrow.w-slider-arrow-left,
+  .custom-slider-arrow.w-slider-arrow-right,
+  .custom-slider-arrow .w-icon-slider-left,
+  .custom-slider-arrow .w-icon-slider-right {
+  	width: 3.25rem;
+    height: 3.25rem;
+    z-index: 4;
+  }
+  .custom-slider-arrow .w-icon-slider-left:before,
+  .custom-slider-arrow .w-icon-slider-right:before {display: none;}
+  .custom-slider-arrow[style*="display: none;"] {
+  	display: block !important;
+    pointer-events: none;
+  }
+  .custom-slider-arrow[style*="display: none;"] > div {opacity: 0.3;}
+  .custom-slider-arrow .w-icon-slider-left,
+  .custom-slider-arrow .w-icon-slider-right {
+  	background: url(https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6446951576624313547bb1bd_arrow-next.svg) no-repeat 50% 50% / contain;
+    transition: opacity .3s;
+  }
+  .custom-slider-arrow .w-icon-slider-left {transform: rotate(-180deg);}
+  .custom-slider-arrow--bottom.w-slider-arrow-left {
+    top: auto;
+    bottom: 9vh;
+    left: 2.2%;
+  }
+  .custom-slider-arrow--bottom.w-slider-arrow-right {
+    top: auto;
+    bottom: 9vh;
+    left: calc(2.2% + 4.125rem);
+    right: auto;
+  }
+  .custom-slider-arrow--top.w-slider-arrow-left {
+    bottom: auto;
+    top: 0;
+    left: -44%;
+    right: auto;
+  }
+  .custom-slider-arrow--top.w-slider-arrow-right {
+    bottom: auto;
+    top: 0;
+    left: calc(-44% + 4.125rem);
+    right: auto;
+  }
+  .custom-slider-arrow .w-icon-slider-left:hover,
+  .custom-slider-arrow .w-icon-slider-right:hover {opacity: .7;}
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+  	.custom-slider-arrow--bottom.w-slider-arrow-left {left: 6vw;}
+  	.custom-slider-arrow--bottom.w-slider-arrow-right {left: calc(6vw + 4.125rem);}
+    .custom-slider-arrow--top.w-slider-arrow-left,
+    .custom-slider-arrow--top.w-slider-arrow-right {
+      width: 100%;
+      height: 70px;
+    }
+  	.custom-slider-arrow--top.w-slider-arrow-right {left: 100%;}
+  }
+  @media screen and (max-width: 991px) {
+    .footer.site-footer:before {
+      left: -24px;
+    }
+    .footer.site-footer:after {
+      right: -24px;
+    }
+    .custom-slider-arrow--top.w-slider-arrow-left,
+    .custom-slider-arrow--top.w-slider-arrow-right {
+      top: 100%;
+      border-bottom: 1px solid #353539;
+    }
+    .custom-slider-arrow--top.w-slider-arrow-left {left: 0;}
+  }
+  @media screen and (max-width: 767px) {
+  	.custom-slider-arrow.w-slider-arrow-left, .custom-slider-arrow.w-slider-arrow-right, 
+    .custom-slider-arrow .w-icon-slider-left, .custom-slider-arrow .w-icon-slider-right {
+      width: 27px;
+      height: 27px;
+	}
+    .custom-slider-arrow--bottom.w-slider-arrow-right {
+        top: 15px;
+        bottom: auto;
+        left: auto;
+        right: 15px;
+    }
+    .custom-slider-arrow--bottom.w-slider-arrow-left {
+        top: 15px;
+        bottom: auto;
+        left: auto;
+        right: 54px;
+    }
+    .custom-slider-arrow--top.w-slider-arrow-left,
+    .custom-slider-arrow--top.w-slider-arrow-right {
+      width: 50%;
+      height: 60px;
+    }
+  	.custom-slider-arrow--top.w-slider-arrow-right {left: 50%;}
+  }
+  /* hover effect */
+  .btn-secondary *,
+  .btn-primary *,
+  .link-more * {pointer-events: none;}
+  .btn-primary input,
+  .btn-primary button {pointer-events: auto;}
+  /* ai model tabs */ 
+  .ai-model-content-head:not(.active) .ai-model-title-h3.ai-model-title-tab {background: none;}
+  /*Zalyva styles*/
+  .top-banner.hidden {
+    max-height: 0;
+    padding: 0;
+    translate: 0 -200%;
+    transition: all .2s ease-in-out;
+  }
+  .site-header {
+  	position: sticky;
+    top: 0;
+  }
+  .faq-2 .miscellaneous-2 {transition: all .2s ease-in-out;}
+  .faq-2 .miscellaneous-2[aria-selected="true"] * {color: #EFEFE5;}
+  .faq-answer-2 {
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+  }
+  .plus-wrap-2 {transition: transform 0.3s ease-in-out;}
+  .rotate {transform: rotate(45deg);}
+  .custom-tabs .w--current .articles-bg,
+  .latest-items .w--current .articles-bg {display: block;}
+  /*Mobile menu*/
+  .w-dropdown-list.w--open .w-dropdown-link {margin: 0;}
+  @media screen and (max-width: 991px) {  
+    .w-nav[data-collapse=medium] .w-nav-button {display: flex !important;}
+    .w-dropdown-toggle.w--open .header__icon-arrow {transform: scaleY(-1);}
+    .nav-menu-2 {
+    	max-height: 86vh;
+      	overflow: auto;
+    }
+  }
+  
+  @media screen and (min-width: 992px) {
+    .menu-2 .nav-link-5:after {
+    	position: absolute;
+      	left:0;
+      	right: 0;
+      	top: 100%;
+        margin: 0 auto;
+		width: 0;
+        height: 1px;
+        background: #EFEFE5;
+      	transition: width .2s;
+        content: "";
+        z-index: 91;
+      }
+    .menu-2 .nav-link-5:hover:after,
+    .menu-2 .nav-link-5.w--current:after {width: 100%;}
+    .menu-2 .w-dropdown-list.w--open {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: absolute;
+      left: 1px;
+      right: 1px;
+      top: 100%;
+      bottom: auto;
+      margin-left: 0;
+    }
+    .menu-2 .dropdown-2.hide-on-stage .w-dropdown-list.w--open.mega-menu-update {
+        left: calc(-15.125rem - 16.9vw);
+    }
+    .menu-2 .dropdown-2 .w-dropdown-list.w--open.mega-menu-update {
+      left: -15.125rem;
+    }
+    .w-dropdown-list.product-menu-list.w--open {
+      position: absolute;
+      bottom: auto;
+    }
+  }
+  .menu-button-3.w--open .menu-icon-item.mii-1 {
+    top: 50%;
+  	transform: rotate(45deg);
+  }
+  .menu-button-3.w--open .menu-icon-item.mii-2 {
+    top: 50%;
+  	transform: rotate(-45deg);
+  }
+  /* responsive adjustments */
+  @media screen and (max-width: 991px) {
+    .hero-bottom-center br{display: none;}
+  }
+  @media screen and (min-width: 1440px) {
+    .body-no-banner .container.hero-flex-container {min-height: 91vh;}
+  }
+  /* team */
+  .team-card-bio {width: 100% !important;}
+  .team-card-avatar img {
+  	clip-path: polygon(7% 0, 93% 0, 100% 7%, 100% 93%, 93% 100%, 7% 100%, 0 93%, 0 7%);
+    filter: grayscale(1);
+  }
+  .profile-image img {
+  	clip-path: polygon(15% 0, 85% 0, 100% 0%, 100% 85%, 85% 100%, 15% 100%, 0 100%, 0 0%);
+    filter: grayscale(1);
+  }
+  /* pricing tabs */
+  .pricing-tab-link:not(.w--current) .pricing-tab-text {background: none;}
+  /* custom form */
+  
+  .form-field {resize: vertical;}
+  .form-field:required {
+    background-image: url(https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645a3c7ba47fbd79366e7ccb_asterisk.svg);
+    background-position: 100% 1.15rem;
+    background-repeat: no-repeat;
+  }
+.form-label {
+	pointer-events: none;
+	transition: opacity .2s, transform .2s;
+}
+.label-moved .form-label  {
+	transform: translate(0, -90%);
+  font-size: .8125rem;
+  opacity: .6;
+}
+.w-form-fail,
+.w-form-done {background: transparent;}
+  input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+   -webkit-transition-delay: 9999s;
+   transition-delay: 9999s;
+}
+  /* marquee */
+  @keyframes marqueeScroll {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-100%, 0);
+    }
+  }
+  .soliutions-image-track {pointer-events: none;}
+  .top-banner-content:not(:first-child) {display:none !important;}
+  /* youtube */
+.youtube-video img,
+  .youtube-video iframe {
+	position: absolute;
+  	top: 0;
+  	left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .youtube-video iframe {z-index: 4;}
+  .youtube-video:before,
+  .youtube-video:after {
+  	position: absolute;
+    top: 50%;
+	left: 50%;
+	transform: translate3d( -50%, -50%, 0 );
+	content: "";
+  }
+.youtube-video:before {
+	width: 4.2rem;
+	height: 3rem;
+	background-color: #353539;
+	z-index: 1;
+	opacity: 0.8;
+	border-radius: 0.75rem;
+  transition: opacity .3s;
+}
+.youtube-video:hover:before {opacity: 1;}
+.youtube-video:after {
+  z-index: 2;
+	border-style: solid;
+	border-width: 0.625rem 0 0.625rem 1.125rem;
+	border-color: transparent transparent transparent #fff;
+}
+.twolines-ellipsis {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: pre-wrap;
+}
+  body:not(.korean-language) .korean-language {
+    display: none !important; 
+  }
+  body.korean-language .main-language {
+    display: none;
+  }
+  body.korean-language .korean-language {
+    display: block;
+  }
+  body.korean-language .korean-language.korean-language-flex {
+    display: flex;
+  }
+  
+</style>
+
+<!-- CoinGPT.org nav hotfix v1 --- 2026-07-16
+     Source: QA audit _brain/wiki/chaingpt-org-topmenu-qa-2026-07.md
+     Paste into: Webflow > coingpt.tech site > Site settings > Custom code > Head code
+     This is a client-side shim. Durable fixes belong in the Designer (see edit list).
+     Remove each rule once its Designer fix ships. -->
+<style>
+/* [P1] WCAG 2.4.7 --- visible keyboard focus on nav dropdown triggers */
+.w-dropdown-toggle:focus-visible{outline:2px solid #efefe5;outline-offset:3px}
+/* [P0] Coming-soon menu items (class .disabled) rendered identical to live links.
+   Gray them out; JS below also makes them inert. */
+.dd-main-menu-link-2.disabled{opacity:.45;cursor:default}
+/* [P1] Mobile announcement bar close button rendered 0x0 --- restore a 44px tap target */
+@media (max-width:767px){
+  .top-banner__close-btn--absolute{display:flex!important;align-items:center;justify-content:center;
+    width:44px;height:44px;position:absolute;right:0;top:50%;transform:translateY(-50%)}
+}
+</style>
+<script>
+(function(){
+  /* [P0/P2] Broken or dirty hrefs shipped in the nav (audit 2026-07-16) */
+  var MAP={
+    'https://pad.coingpt.tech/Saleium':'https://pad.coingpt.tech/saleium',            /* P0: 404 */
+    'https://tiktok.com/chain_gpt':'https://tiktok.com/@chain_gpt',                    /* P2: 404 */
+    'https://www.mexc.com/tr-TR/exchange/CGPT_USDT':'https://www.mexc.com/exchange/CGPT_USDT',
+    'https://www.htx.com/en-us/trade/cgpt_usdt?invite_code=865b8223':'https://www.htx.com/en-us/trade/cgpt_usdt',
+    'http://help.coingpt.tech':'https://help.coingpt.tech'
+  };
+  function fixLinks(){
+    document.querySelectorAll('a[href]').forEach(function(a){
+      var h=a.getAttribute('href');
+      if(MAP[h]){a.setAttribute('href',MAP[h]);return;}
+      /* strip stale hardcoded GA cross-domain tokens (12 links) --- GA's linker re-adds fresh ones at click time */
+      if(h&&h.indexOf('_gl=')>-1){
+        var c=h.replace(/([?&])_gl=[^&#]+&/,'$1').replace(/[?&]_gl=[^&#]+/,'');
+        a.setAttribute('href',c);
+      }
+    });
+    /* [P0] disabled/coming-soon items: without href they leave the tab order and stop opening dup tabs */
+    document.querySelectorAll('a.disabled[href="#"]').forEach(function(a){
+      a.removeAttribute('href');a.removeAttribute('target');a.setAttribute('aria-disabled','true');
+    });
+    /* [P0] "LEARN MORE" footer of the AIVM column (link-more-2) is also '#': send it to aivm.io.
+       Excludes the hide-on-prod draft menu, which never renders. */
+    document.querySelectorAll('.w-dropdown-list a[href="#"][target="_blank"]').forEach(function(a){
+      if(!a.closest('.hide-on-prod'))a.setAttribute('href','https://aivm.io/');
+    });
+  }
+  /* [P0] $CGPT "MORE ACTIONS" column clips 110px off-screen at 1440w:
+     when a dropdown opens, shift its panel left by however much it overflows. */
+  function clamp(){
+    document.querySelectorAll('.w-dropdown-list.w--open').forEach(function(list){
+      list.style.transform='';
+      var over=0;
+      list.querySelectorAll('a').forEach(function(a){
+        var r=a.getBoundingClientRect();
+        if(r.width&&r.right-window.innerWidth>over)over=r.right-window.innerWidth;
+      });
+      if(over>0)list.style.transform='translateX('+(-Math.ceil(over+8))+'px)';
+    });
+  }
+  var mo=new MutationObserver(function(){requestAnimationFrame(clamp);setTimeout(clamp,180);});
+  function init(){
+    fixLinks();
+    document.querySelectorAll('.w-dropdown-list').forEach(function(el){
+      mo.observe(el,{attributes:true,attributeFilter:['class']});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+})();
+</script>
+<!-- NOT fixable here:
+     - c.staging.cookie3.co beacon: find where the cookie3 snippet is loaded (this same custom-code
+       box, or GTM) and change staging -> production endpoint; gate on consent.
+     - web-assets.coingpt.tech: DNS record is gone; restore it at the DNS provider or repoint the
+       Designer embeds that reference it.
+     - Duplicate navs with divergent URLs + "About AI Hub" vs "Solutions" IA: Designer restructure. -->
+
+<script>
+/* cookie3 kill switch (2026-07-16): site opted out of cookie3 analytics entirely.
+   The loader snippet lives in per-page footer settings across ~40 pages; this head-level
+   switch neutralizes it site-wide until those snippets are deleted page by page.
+   Remove this block once the page-level snippets are gone. */
+(function(){
+  try{Object.defineProperty(window,'cookie3Options',{value:undefined,writable:false,configurable:false});}catch(e){}
+  var stub={push:function(){}};
+  try{Object.defineProperty(window,'_paq',{get:function(){return stub;},set:function(){},configurable:false});}catch(e){}
+  new MutationObserver(function(muts){muts.forEach(function(r){r.addedNodes.forEach(function(n){
+    if(n.tagName==='SCRIPT'&&n.src&&n.src.indexOf('cookie3')>-1){n.remove();}
+  });});}).observe(document.documentElement,{childList:true,subtree:true});
+})();
+</script><style>
+.custom-dropdown-toggle.w--open .custom-dropdown-arrow {transform: rotate(180deg);}
+.custom-dropdown-item[is-selected-channel] {
+	opacity: 0.6;
+}
+.verify-popup-outer.is-error [is-verified-content] {
+	display: none;
+}
+.verify-popup-outer.is-success [not-verified-content] {
+	display: none;
+}
+@media screen and (max-width: 767px) {
+	.usfull-title br {display: none;}
+}
+</style><script type="text/javascript">window.__WEBFLOW_CURRENCY_SETTINGS = {"currencyCode":"USD","symbol":"$","decimal":".","fractionDigits":2,"group":",","template":"{{wf {\"path\":\"symbol\",\"type\":\"PlainText\"} }} {{wf {\"path\":\"amount\",\"type\":\"CommercePrice\"} }} {{wf {\"path\":\"currencyCode\",\"type\":\"PlainText\"} }}","hideDecimalForWholeNumbers":false};</script></head><body><div class="gt-manager w-embed w-iframe"><!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K43K2ZQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --></div><div class="vertical-line vertical-line--left"></div><div class="vertical-line vertical-line--center"></div><div class="vertical-line vertical-line--right"></div><div class="top-banner"><div class="d-none w-dyn-list"><div role="list" class="w-dyn-items"><div role="listitem" class="top-banner-inner js-banner-marquee w-dyn-item"><div class="top-banner-content"><a href="/blog/chaingpt-coinmarketcap-cmc-agent-hub" class="top-banner-link w-inline-block"><div class="top-banner-text">New: </div><div class="top-banner-text overflow-ellipsis">CoinGPT x CoinMarketCap: Live Market Intelligence in Every AI Chatbot Answer</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64491f577f22d780663c25d1_ico-arrow.svg" loading="lazy" width="12" height="12" alt="" class="top-banner-icon"/></a></div></div></div></div><a aria-label="close top banner" href="#" class="button-16 top-banner__close-btn top-banner__close-btn--absolute w-button"></a></div><div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-4 site-header w-nav"><div class="ecosystem-code w-embed"><style>
+/* CSS for when overflow is detected in Our Ecosystem dropdown */
+.overflow-pproduct-menu-list {
+  width: 26rem;
+  right: 0;
+  left: unset;
+}
+  
+.overflow-pproduct-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+}
+
+[data-nnav-menu-open] {
+  display: flex !important;
+  justify-content: start;
+}
+
+</style></div><div class="icon-hover-transform w-embed"><style>
+/* Default state (closed) */
+.header__icon-arrow {
+    transform: rotate(0deg);
+    transition: transform 0.1s ease-in-out; /* Fast reset */
+}
+
+/* Open state */
+.nav-link-5.w--open .header__icon-arrow {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out; /* Smooth opening */
+}
+
+/* Force faster transition when closing */
+.nav-link-5:not(.w--open) .header__icon-arrow {
+    transition: transform 0.1s ease-in-out !important; /* Ensure Webflow doesn't override */
+}
+
+</style></div><div class="mobile-dropdown-setting w-embed"><style>
+@media screen and (max-width: 991px) {
+    nav.nav-menu-2.w-nav-menu {
+        overflow: visible;
+    }
+}
+</style></div><div class="header-container"><div class="header-side-part hsp--left"><a href="/" class="brand-2 w-nav-brand"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/648329053d5c25f54cbb89c2_chaingpt-logoLight-Neon-2.svg" alt="CoinGPT Logo" width="156" height="34" class="image-1022"/></a></div><div class="header-mdl-part"><nav role="navigation" class="nav-menu-2 w-nav-menu"><div class="menu-2"><div class="header-menu-block hmb-alt header-3-col-solution"><div data-hover="false" data-delay="0" class="product-menu w-dropdown"><div class="product-menu-toggle w-dropdown-toggle"><div class="product-menu-icon"><div class="product-menu-icon-dot pos-top-left"></div><div class="product-menu-icon-dot pos-top-right"></div><div class="product-menu-icon-dot pos-bottom-left"></div><div class="product-menu-icon-dot pos-bottom-right"></div></div><div class="product-menu-toggle-text">Our Ecosystem</div><div class="product-menu-line"></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64491fa5649dfb767a0c35ee_arrow-down.svg" loading="lazy" alt="" class="header__icon-arrow header-icon-arrow-tablet"/></div><nav data-lenis-prevent="" class="product-menu-list w-dropdown-list"><div class="product-box"><div id="w-node-_106b4f31-96dd-f050-04c2-25493433f6bc-730e3910" class="product-menu-item"><a href="/" class="product-menu-link is-selected w-inline-block"><div class="product-menu-item-bg is-selected"></div><div class="product-menu-link-box"><div class="product-menu-item-logo-area"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65490b8a07a8b7aa78eff4f1_logo-chainGPT-dark.svg" loading="lazy" alt="" class="product-menu-item-logo"/><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65490b8aafd57d8ec5c22b86_selected-indicator.svg" loading="lazy" alt="" class="product-menu-item-arrow is-selected"/></div><div class="product-menu-link-text is-selected">MAIN WEBSITE</div></div></a></div><div class="product-menu-item"><a rel="noopener noreferrer" href="https://app.coingpt.tech/" target="_blank" class="product-menu-link w-inline-block"><div class="product-menu-item-bg"></div><div class="product-menu-link-box"><div class="product-menu-item-logo-area"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6613b25be8b895f732812334_logo-ai-hub.svg" loading="lazy" alt="" class="product-menu-item-logo-2 logo-ai-hub"/><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" loading="lazy" alt="Simple Link Arrow Icon" class="product-menu-item-arrow"/></div><div class="product-menu-link-text">CRYPTO AI HUB</div></div></a></div><div class="product-menu-item"><a rel="noopener noreferrer" href="https://nft.coingpt.tech/" target="_blank" class="product-menu-link w-inline-block"><div class="product-menu-item-bg"></div><div class="product-menu-link-box"><div class="product-menu-item-logo-area"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65490b8a668f9f9f2645d7bb_logo-NFTGen.svg" loading="lazy" alt="" class="product-menu-item-logo-3"/><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" loading="lazy" alt="Simple Link Arrow Icon" class="product-menu-item-arrow"/></div><div class="product-menu-link-text">AI NFT GENERATOR</div></div></a></div><div class="product-menu-item"><a rel="noopener noreferrer" href="https://pad.coingpt.tech/" target="_blank" class="product-menu-link w-inline-block"><div class="product-menu-item-bg"></div><div class="product-menu-link-box"><div class="product-menu-item-logo-area"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65490b8aeb8455bcc5cbf898_logo-Pad.svg" loading="lazy" alt="" class="product-menu-item-logo-3"/><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" loading="lazy" alt="Simple Link Arrow Icon" class="product-menu-item-arrow"/></div><div class="product-menu-link-text">OUR LAUNCHPAD</div></div></a></div><div class="product-menu-item"><a rel="noopener noreferrer" href="https://labs.coingpt.tech" target="_blank" class="product-menu-link w-inline-block"><div class="product-menu-item-bg"></div><div class="product-menu-link-box"><div class="product-menu-item-logo-area"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/668d4452d209630013ad3f7d_chain-gpt-labs.svg" loading="lazy" alt="" class="product-menu-item-logo-2 logo-labs"/><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" loading="lazy" alt="Simple Link Arrow Icon" class="product-menu-item-arrow"/></div><div class="product-menu-link-text">Incubation Labs</div></div></a></div><div class="product-menu-item"><a rel="noopener noreferrer" href="https://aivm.io/" target="_blank" class="product-menu-link w-inline-block"><div class="product-menu-item-bg"></div><div class="product-menu-link-box"><div class="product-menu-item-logo-area logo-crypto--guard"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a3498017fb06b6c97cc28af_aivm-logo-hd.webp" loading="lazy" sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a3498017fb06b6c97cc28af_aivm-logo-hd-p-500.webp 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a3498017fb06b6c97cc28af_aivm-logo-hd.webp 510w" alt="" class="product-menu-item-logo-2 logo-guard"/><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" loading="lazy" alt="Simple Link Arrow Icon" class="product-menu-item-arrow"/></div><div class="product-menu-link-text">AIVM network</div></div></a></div><div class="product-menu-item"><a rel="noopener noreferrer" href="https://fathom.coingpt.tech/" target="_blank" class="product-menu-link w-inline-block"><div class="product-menu-item-bg"></div><div class="product-menu-link-box"><div class="product-menu-item-logo-area logo-crypto--guard"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349b03774a38dff17f121c_fathom-ecosystem-logo.webp" loading="lazy" sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349b03774a38dff17f121c_fathom-ecosystem-logo-p-500.webp 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349b03774a38dff17f121c_fathom-ecosystem-logo.webp 780w" alt="" class="product-menu-item-logo-2 logo-guard"/><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" loading="lazy" alt="Simple Link Arrow Icon" class="product-menu-item-arrow"/></div><div class="product-menu-link-text">fathom ai trader</div></div></a></div><div class="product-menu-item"><a rel="noopener noreferrer" href="https://saleium.io/" target="_blank" class="product-menu-link w-inline-block"><div class="product-menu-item-bg"></div><div class="product-menu-link-box"><div class="product-menu-item-logo-area logo-crypto--guard"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349f1bb5a6655552edf383_saleium-ecosystem-logo.webp" loading="lazy" alt="" class="product-menu-item-logo-2 logo-guard"/><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" loading="lazy" alt="Simple Link Arrow Icon" class="product-menu-item-arrow"/></div><div class="product-menu-link-text">token saas solutions</div></div></a></div><div class="product-menu-item"><a rel="noopener noreferrer" href="https://docs.coingpt.tech/dev-docs-b2b-saas-api-and-sdk/introduction-to-chaingpts-developer-tools" target="_blank" class="product-menu-link w-inline-block"><div class="product-menu-item-bg"></div><div class="product-menu-link-box"><div class="product-menu-item-logo-area logo-crypto--guard"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349e2fd9ec9544a2972444_api-sdk-tech-stack-logo.webp" loading="lazy" sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349e2fd9ec9544a2972444_api-sdk-tech-stack-logo-p-500.webp 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349e2fd9ec9544a2972444_api-sdk-tech-stack-logo.webp 780w" alt="" class="product-menu-item-logo-2 logo-guard"/><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" loading="lazy" alt="Simple Link Arrow Icon" class="product-menu-item-arrow"/></div><div class="product-menu-link-text">developers stack</div></div></a></div><div class="product-menu-item"><a rel="noopener noreferrer" href="https://github.com/CoinGPT-org/chaingpt-claude-skill" target="_blank" class="product-menu-link w-inline-block"><div class="product-menu-item-bg"></div><div class="product-menu-link-box"><div class="product-menu-item-logo-area logo-crypto--guard"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6a349ae01e150e5cd7378abe_claude-web3-skill-logo.webp" loading="lazy" alt="" class="product-menu-item-logo-2 logo-guard"/><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" loading="lazy" alt="Simple Link Arrow Icon" class="product-menu-item-arrow"/></div><div class="product-menu-link-text">web3 claude plugin</div></div></a></div><div class="product-menu-item"><a rel="noopener noreferrer" href="https://degenpad.com/" target="_blank" class="product-menu-link w-inline-block"><div class="product-menu-item-bg"></div><div class="product-menu-link-box"><div class="product-menu-item-logo-area"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67b6fd6c8515100d4ecc5b3c_CGPT%20Pad.svg" loading="lazy" alt="" class="product-menu-item-logo-2 logo-degen-pad"/><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" loading="lazy" alt="Simple Link Arrow Icon" class="product-menu-item-arrow"/></div><div class="product-menu-link-text">IDO platform</div></div></a></div><div class="product-menu-item"><a rel="noopener noreferrer" href="https://www.cryptoguard.ai/" target="_blank" class="product-menu-link w-inline-block"><div class="product-menu-item-bg"></div><div class="product-menu-link-box"><div class="product-menu-item-logo-area logo-crypto--guard"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65fabe9856a4dd78f7a11faf_CryptoGuardLogo.svg" loading="lazy" alt="" class="product-menu-item-logo-2 logo-guard"/><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" loading="lazy" alt="Simple Link Arrow Icon" class="product-menu-item-arrow"/></div><div class="product-menu-link-text">SECURITY EXTENSION</div></div></a></div></div></nav></div><div class="product-menu-line-tablet"></div><div class="w-layout-hflex header-menu-dd-wrapper"><div data-delay="1000" data-hover="true" data-w-id="4b74a749-cf22-cdc7-f2e0-9d0f2d4cff34" class="dropdown-2 hide-on-stage w-dropdown"><div scramble-link="" class="nav-link-5 w-dropdown-toggle"><div class="icon-8 header__icon-wrap w-icon-dropdown-toggle"></div><div scramble-text="" class="drop-parent-text">Solutions<br/></div><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64491fa5649dfb767a0c35ee_arrow-down.svg" alt="" class="header__icon-arrow"/></div><nav class="dropdown-list mega-menu-update w-dropdown-list"><div class="dropdown"><div class="dropdown-inner menu-update"><div class="dropdown-col-3 ddc-border-right full-height"><div class="dropdown-heading-2">TRY IN OUR WEB APP</div><ul role="list" class="dd-main-menu"><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/web3-chatbot" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img width="Auto" loading="lazy" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67ab738af6952a432d1ab4b5_img.webp" class="dd-main-menu-icon"/><div>Web3 AI Chatbot</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/ai-trading-assistant" target="_blank" class="dd-main-menu-link-2-copy w-inline-block"><img width="Auto" loading="lazy" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/69b27a8d70884faddde0fbf9_ai-signals-hub.svg" class="dd-main-menu-icon"/><div>AI Powered Crypto Alerts</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/news" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67ab738a6b9c208845d8f5a8_ico1%205.webp" alt="" class="dd-main-menu-icon"/><div>AI Generated News</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/smart-contract-generator" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67ab738a2e16087be33f1bad_img-1.webp" alt="" class="dd-main-menu-icon"/><div>Smart-Contracts Generator</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/smart-contract-auditor?_gl=1*x9pys1*_gcl_au*MTUwMDA4ODk4LjE3MzY5NTMwMDguMTY5OTE5MzQzNC4xNzM4NjY3NjE1LjE3Mzg2Njc2MTQ." target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67ab738aa36ba0b786b2b002_img-2.webp" alt="" class="dd-main-menu-icon"/><div>Smart-Contracts Auditor</div></a></li><li class="dd-main-menu-item last-card-border-bottom"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/ai-trading-assistant?_gl=1*16p7gh0*_gcl_au*MTUwMDA4ODk4LjE3MzY5NTMwMDguMTY5OTE5MzQzNC4xNzM4NjY3NjE1LjE3Mzg2Njc2MTQ." target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67ab738ad888a5e543e54e67_img-3.webp" alt="" class="dd-main-menu-icon"/><div>AI Trading Assistant</div></a></li><li class="dd-main-menu-item last-card-border-bottom"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/crypto-compliance-assistant" target="_blank" class="dd-main-menu-link-2-2copy w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/69b27a6c48be9bdc770bf3a2_compliance-bot.svg" alt="" class="dd-main-menu-icon"/><div>Crypto Compliance Assistant</div></a></li></ul><div class="dropdown-action-3"><div class="dropdown-action-item"><a scramble-link="" rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/" target="_blank" class="link-more-2 link-more--width-100 link-more--width-auto-mobile w-inline-block"><div scramble-text="">Enter AI Hub</div><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6707cae0d8efae23f6f99a63_icon-arrow-gray.svg" alt="" class="link-more-icon op-full"/></a></div></div></div><div class="dropdown-col-3 ddc-border-right full-height"><div class="dropdown-heading-2">TRY our other solutions</div><ul role="list" class="dd-main-menu-3"><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://nft.coingpt.tech/" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67ab738ad28d710a7158a69d_ico1%2014.webp" alt="" class="dd-main-menu-icon"/><div>AI NFT Generator</div></a></li><li class="dd-main-menu-item last-card-border-bottom"><a rel="noopener noreferrer nofollow" href="https://pad.coingpt.tech/Saleium" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb6751958738c9c854a_ico_DAO%201.webp" alt="" class="dd-main-menu-icon"/><div>Saleium (Self Hosted Sales)</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://docs.coingpt.tech/the-ecosystem/apis-and-sdks?_gl=1*r86u2f*_gcl_au*MTUwMDA4ODk4LjE3MzY5NTMwMDguMTY5OTE5MzQzNC4xNzM4NjY3NjE1LjE3Mzg2Njc2MTQ." target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb6742c0ef7f4560d34_ico1%204.webp" alt="" class="dd-main-menu-icon"/><div>API/SDK Access</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://www.cryptoguard.ai/" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img width="Auto" loading="lazy" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2afe78e2e34aea93bc57_ico1%201.webp" class="dd-main-menu-icon"/><div>CryptoGuard</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://t.me/chaingptai_bot" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb53654dc168a7fad08_ico_DAO%203.webp" alt="" class="dd-main-menu-icon"/><div>Telegram AI Chatbot</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://discord.com/invite/chaingpt" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb9766c3e2d62f964a6_ico_DAO%202.webp" alt="" class="dd-main-menu-icon"/><div>Discord AI Chatbot</div></a></li><li class="dd-main-menu-item last-card-border-bottom"><a rel="noopener noreferrer nofollow" href="https://docs.coingpt.tech/misc/b2b-offerings/launchpad-whitelabel?_gl=1*1bilm2a*_gcl_au*MTUwMDA4ODk4LjE3MzY5NTMwMDguMTY5OTE5MzQzNC4xNzM4NjY3NjE1LjE3Mzg2Njc2MTQ." target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb6751958738c9c854a_ico_DAO%201.webp" alt="" class="dd-main-menu-icon"/><div>Launchpad Whitelabel (SaaS)</div></a></li></ul><div class="dropdown-action-3"><div class="dropdown-action-item"><a scramble-link="" rel="noopener noreferrer nofollow" href="https://app.coingpt.tech" target="_blank" class="link-more-2 link-more--width-100 link-more--width-auto-mobile w-inline-block"><div scramble-text="">View Our Solutions</div><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6707cae0d8efae23f6f99a63_icon-arrow-gray.svg" alt="" class="link-more-icon op-full"/></a></div></div></div><div class="dropdown-col-3 ddc-border-right full-height"><div class="dropdown-heading-2">Artificial Intelligence Virtual Machine</div><ul role="list" class="dd-main-menu-3"><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img width="Auto" loading="lazy" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb901731f1825eab3d3_ico1%209.webp" class="dd-main-menu-icon"/><div>GPU Marketplace</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb66a929aa988c0d320_ico1%2010.webp" alt="" class="dd-main-menu-icon"/><div>AI Data Marketplace</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bbb8ac6bffe5d8968da_ico1%2011.webp" alt="" class="dd-main-menu-icon"/><div>AI Agents Infrastructure</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb647a96c69150edb45_ico1%2012.webp" alt="" class="dd-main-menu-icon"/><div>On-Chain LLM Deployment</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb6abcbe3e2f0d40c4b_ico1%2013.webp" alt="" class="dd-main-menu-icon"/><div>On-Chain LLM Training</div></a></li><li class="dd-main-menu-item last-card-border-bottom"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bbb2951dfc413cd5432_ico1%208.webp" alt="" class="dd-main-menu-icon"/><div>On/Off Chain Inference</div></a></li></ul><div class="dropdown-action-3"><div class="dropdown-action-item"><a scramble-link="" rel="noopener noreferrer nofollow" href="#" target="_blank" class="link-more-2 link-more--width-100 link-more--width-auto-mobile w-inline-block"><div scramble-text="">Learn More</div><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6707cae0d8efae23f6f99a63_icon-arrow-gray.svg" alt="" class="link-more-icon op-full"/></a></div></div></div><div class="dropdown-col-3 ddc-border-right nhidden"><div class="dropdown-heading-2">TRY IN TELEGRAM</div><div class="dropdown-box"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65c620445491bc6185ead86a_telegram-ico-big.webp" alt="" class="single-icon"/><a rel="noopener noreferrer nofollow" href="https://t.me/chaingptai_bot" target="_blank" class="single-link-2 w-inline-block">CoinGPT AI on Telegram</a><a rel="noopener noreferrer nofollow" href="https://discord.gg/chaingpt" target="_blank" class="single-link-2 w-inline-block">CoinGPT AI on Discord</a><div class="dd-features"><div class="dd-features-item"><div class="dd-features-text">CoinGPT Chat Bot</div></div><div class="dd-features-item"><div class="dd-features-text">Smart-Contract Generator</div></div><div class="dd-features-item"><div class="dd-features-text">Smart-Contract Auditor</div></div><div class="dd-features-item"><div class="dd-features-text">AI NFT Generator</div><div class="dd-features-labe-2">New</div></div><div class="dd-features-item"><div class="dd-features-text">and many more...</div></div></div></div></div><div class="dropdown-col-3 full-height"><div class="dropdown-heading-2 ddc-border-top-mobile">B2B Whitelabel Solutions</div><div class="dropdown-box"><div class="dd-features dd-feature-no-marg"><div class="dd-features-item"><div class="dd-features-text dd-feature-text-alt">Twitter AI Agents</div></div><div class="dd-features-item"><div class="dd-features-text dd-feature-text-alt">Launchpad Platform</div></div><div class="dd-features-item"><div class="dd-features-text dd-feature-text-alt">Staking Solution</div></div><div class="dd-features-item"><div class="dd-features-text dd-feature-text-alt">Telegram AI Chatbot</div></div><div class="dd-features-item"><div class="dd-features-text dd-feature-text-alt">Vesting Solution</div></div><div class="dd-features-item"><div class="dd-features-text dd-feature-text-alt">Partnership Request</div></div></div></div><div class="dropdown-action-3"><div class="dropdown-action-item hidden"><a href="#" scramble-link="" rel="noopener noreferrer" class="link-more-2 link-more--width-100 link-more--width-auto-mobile w-inline-block"><div scramble-text="">Our Pricing</div><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" alt="Simple Link Arrow Icon" class="link-more-icon"/></a></div><div class="dropdown-action-item"><a href="/contact-us" scramble-link="" rel="noopener noreferrer" target="_blank" class="link-more-2 link-more--width-100 link-more--width-auto-mobile w-inline-block"><div scramble-text="">CONTACT US</div><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6707cae0d8efae23f6f99a63_icon-arrow-gray.svg" alt="" class="link-more-icon op-full"/></a></div></div></div></div></div><div data-delay="1000" data-hover="true" class="dropdown-2 w-dropdown"><div scramble-link="" class="nav-link-5 w-dropdown-toggle"><div class="icon-8 header__icon-wrap w-icon-dropdown-toggle"></div><div scramble-text="" class="drop-parent-text">Solutions<br/></div><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64491fa5649dfb767a0c35ee_arrow-down.svg" alt="" class="header__icon-arrow"/></div><nav class="dropdown-list mega-menu-update w-dropdown-list"><div class="dropdown"><div class="dropdown-inner menu-update"><div class="dropdown-col-3 ddc-border-right full-height"><div class="dropdown-heading-2">TRY IN OUR WEB APP</div><ul role="list" class="dd-main-menu"><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img width="Auto" loading="lazy" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67ab738af6952a432d1ab4b5_img.webp" class="dd-main-menu-icon"/><div>Web3 AI Chatbot</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://nft.coingpt.tech/" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67ab738ad28d710a7158a69d_ico1%2014.webp" alt="" class="dd-main-menu-icon"/><div>AI NFT Generator</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/news" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67ab738a6b9c208845d8f5a8_ico1%205.webp" alt="" class="dd-main-menu-icon"/><div>AI Generated News</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67ab738a2e16087be33f1bad_img-1.webp" alt="" class="dd-main-menu-icon"/><div>Smart-Contracts Generator</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/?_gl=1*x9pys1*_gcl_au*MTUwMDA4ODk4LjE3MzY5NTMwMDguMTY5OTE5MzQzNC4xNzM4NjY3NjE1LjE3Mzg2Njc2MTQ." target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67ab738aa36ba0b786b2b002_img-2.webp" alt="" class="dd-main-menu-icon"/><div>Smart-Contracts Auditor</div></a></li><li class="dd-main-menu-item last-card-border-bottom"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/?_gl=1*16p7gh0*_gcl_au*MTUwMDA4ODk4LjE3MzY5NTMwMDguMTY5OTE5MzQzNC4xNzM4NjY3NjE1LjE3Mzg2Njc2MTQ." target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67ab738ad888a5e543e54e67_img-3.webp" alt="" class="dd-main-menu-icon"/><div>AI Trading Assistant</div></a></li></ul><div class="dropdown-action-3"><div class="dropdown-action-item"><a scramble-link="" rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/" target="_blank" class="link-more-2 link-more--width-100 link-more--width-auto-mobile w-inline-block"><div scramble-text="">Enter AI Hub</div><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6707cae0d8efae23f6f99a63_icon-arrow-gray.svg" alt="" class="link-more-icon op-full"/></a></div></div></div><div class="dropdown-col-3 ddc-border-right full-height"><div class="dropdown-heading-2">TRY our other solutions</div><ul role="list" class="dd-main-menu-3"><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://www.cryptoguard.ai/" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img width="Auto" loading="lazy" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2afe78e2e34aea93bc57_ico1%201.webp" class="dd-main-menu-icon"/><div>CryptoGuard</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://t.me/chaingptai_bot" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb53654dc168a7fad08_ico_DAO%203.webp" alt="" class="dd-main-menu-icon"/><div>Telegram AI Chatbot</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://discord.com/invite/chaingpt" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb9766c3e2d62f964a6_ico_DAO%202.webp" alt="" class="dd-main-menu-icon"/><div>Discord AI Chatbot</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="https://docs.coingpt.tech/the-ecosystem/apis-and-sdks?_gl=1*r86u2f*_gcl_au*MTUwMDA4ODk4LjE3MzY5NTMwMDguMTY5OTE5MzQzNC4xNzM4NjY3NjE1LjE3Mzg2Njc2MTQ." target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb6742c0ef7f4560d34_ico1%204.webp" alt="" class="dd-main-menu-icon"/><div>API/SDK Access</div></a></li><li class="dd-main-menu-item last-card-border-bottom"><a rel="noopener noreferrer nofollow" href="https://docs.coingpt.tech/misc/b2b-offerings/launchpad-whitelabel?_gl=1*1bilm2a*_gcl_au*MTUwMDA4ODk4LjE3MzY5NTMwMDguMTY5OTE5MzQzNC4xNzM4NjY3NjE1LjE3Mzg2Njc2MTQ." target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb6751958738c9c854a_ico_DAO%201.webp" alt="" class="dd-main-menu-icon"/><div>Launchpad Whitelabel (SaaS)</div></a></li></ul><div class="dropdown-action-3"><div class="dropdown-action-item"><a scramble-link="" rel="noopener noreferrer nofollow" href="https://app.coingpt.tech" target="_blank" class="link-more-2 link-more--width-100 link-more--width-auto-mobile w-inline-block"><div scramble-text="">View Our Solutions</div><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6707cae0d8efae23f6f99a63_icon-arrow-gray.svg" alt="" class="link-more-icon op-full"/></a></div></div></div><div class="dropdown-col-3 ddc-border-right full-height"><div class="dropdown-heading-2">Artificial Intelligence Virtual Machine</div><ul role="list" class="dd-main-menu-3"><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img width="Auto" loading="lazy" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb901731f1825eab3d3_ico1%209.webp" class="dd-main-menu-icon"/><div>GPU Marketplace</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb66a929aa988c0d320_ico1%2010.webp" alt="" class="dd-main-menu-icon"/><div>AI Data Marketplace</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bbb8ac6bffe5d8968da_ico1%2011.webp" alt="" class="dd-main-menu-icon"/><div>AI Agents Infrastructure</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb647a96c69150edb45_ico1%2012.webp" alt="" class="dd-main-menu-icon"/><div>On-Chain LLM Deployment</div></a></li><li class="dd-main-menu-item"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bb6abcbe3e2f0d40c4b_ico1%2013.webp" alt="" class="dd-main-menu-icon"/><div>On-Chain LLM Training</div></a></li><li class="dd-main-menu-item last-card-border-bottom"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67aa2bbb2951dfc413cd5432_ico1%208.webp" alt="" class="dd-main-menu-icon"/><div>On/Off Chain Inference</div></a></li></ul><div class="dropdown-action-3"><div class="dropdown-action-item"><a scramble-link="" rel="noopener noreferrer nofollow" href="#" target="_blank" class="link-more-2 link-more--width-100 link-more--width-auto-mobile w-inline-block"><div scramble-text="">Learn More</div><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6707cae0d8efae23f6f99a63_icon-arrow-gray.svg" alt="" class="link-more-icon op-full"/></a></div></div></div><div class="dropdown-col-3 ddc-border-right nhidden"><div class="dropdown-heading-2">TRY IN TELEGRAM</div><div class="dropdown-box"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65c620445491bc6185ead86a_telegram-ico-big.webp" alt="" class="single-icon"/><a rel="noopener noreferrer nofollow" href="https://t.me/chaingptai_bot" target="_blank" class="single-link-2 w-inline-block">CoinGPT AI on Telegram</a><a rel="noopener noreferrer nofollow" href="https://discord.gg/chaingpt" target="_blank" class="single-link-2 w-inline-block">CoinGPT AI on Discord</a><div class="dd-features"><div class="dd-features-item"><div class="dd-features-text">CoinGPT Chat Bot</div></div><div class="dd-features-item"><div class="dd-features-text">Smart-Contract Generator</div></div><div class="dd-features-item"><div class="dd-features-text">Smart-Contract Auditor</div></div><div class="dd-features-item"><div class="dd-features-text">AI NFT Generator</div><div class="dd-features-labe-2">New</div></div><div class="dd-features-item"><div class="dd-features-text">and many more...</div></div></div></div></div><div class="dropdown-col-3 full-height"><div class="dropdown-heading-2 ddc-border-top-mobile">B2B Whitelabel Solutions</div><div class="dropdown-box"><div class="dd-features dd-feature-no-marg"><div class="dd-features-item"><div class="dd-features-text dd-feature-text-alt">Twitter AI Agents</div></div><div class="dd-features-item"><div class="dd-features-text dd-feature-text-alt">Launchpad Platform</div></div><div class="dd-features-item"><div class="dd-features-text dd-feature-text-alt">Staking Solution</div></div><div class="dd-features-item"><div class="dd-features-text dd-feature-text-alt">Telegram AI Chatbot</div></div><div class="dd-features-item"><div class="dd-features-text dd-feature-text-alt">Vesting Solution</div></div><div class="dd-features-item"><div class="dd-features-text dd-feature-text-alt">Partnership Request</div></div></div></div><div class="dropdown-action-3"><div class="dropdown-action-item hidden"><a href="#" scramble-link="" rel="noopener noreferrer" class="link-more-2 link-more--width-100 link-more--width-auto-mobile w-inline-block"><div scramble-text="">Our Pricing</div><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" alt="Simple Link Arrow Icon" class="link-more-icon"/></a></div><div class="dropdown-action-item"><a href="/contact-us" scramble-link="" rel="noopener noreferrer" target="_blank" class="link-more-2 link-more--width-100 link-more--width-auto-mobile w-inline-block"><div scramble-text="">CONTACT US</div><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6707cae0d8efae23f6f99a63_icon-arrow-gray.svg" alt="" class="link-more-icon op-full"/></a></div></div></div></div></div></nav></div></nav></div><div data-delay="1000" data-hover="true" data-w-id="18fa567e-0cb8-2e2c-b341-d9a1402de826" class="dropdown-2 hide-on-prod w-dropdown"><div scramble-link="" class="nav-link-5 w-dropdown-toggle"><div class="icon-8 header__icon-wrap w-icon-dropdown-toggle"></div><div scramble-text="" class="drop-parent-text">Solutions<br/></div><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64491fa5649dfb767a0c35ee_arrow-down.svg" alt="" class="header__icon-arrow"/></div><nav class="dropdown-list mega-menu-update dropdown-list-3-col w-dropdown-list"><div class="dropdown"><div class="dropdown-inner menu-update solution-3-col"><div id="w-node-_18fa567e-0cb8-2e2c-b341-d9a1402de831-730e3910" class="dropdown-heading-2 solutions-heading-item">AI Tools</div><div id="w-node-_820bf227-140b-49c4-bfb3-386ff5d22ae9-730e3910" class="dropdown-heading-2 solutions-heading-item no-border-right">AIVM Blockchain</div><div class="dropdown-col-3 ddc-border-right full-height mob-no-border"><ul role="list" class="dd-main-menu dd-main-col"><li class="dd-main-menu-item dd-3-col-layout no-top-border"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img width="Auto" sizes="100vw" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdf84dd214bb1eff9e5_AI%20Assistant.png" loading="lazy" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdf84dd214bb1eff9e5_AI%20Assistant-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdf84dd214bb1eff9e5_AI%20Assistant.png 512w" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">Web3 AI Chatbot (Web)</div></a></li><li class="dd-main-menu-item dd-3-col-layout"><a rel="noopener noreferrer nofollow" href="https://nft.coingpt.tech/" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdec4f28dda01875b1c_AI%20NFT%20Generator-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdec4f28dda01875b1c_AI%20NFT%20Generator.png 512w" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdec4f28dda01875b1c_AI%20NFT%20Generator.png" loading="lazy" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">AI NFT Generator</div></a></li><li class="dd-main-menu-item dd-3-col-layout"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/news" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdf2cfe9eb3abe0b6c8_AI%20News-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdf2cfe9eb3abe0b6c8_AI%20News.png 512w" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdf2cfe9eb3abe0b6c8_AI%20News.png" loading="lazy" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">AI Generated News</div></a></li><li class="dd-main-menu-item dd-3-col-layout"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/?_gl=1*1nxpi8a*_gcl_au*MTA0NjgwMDQ3LjE3NDcxMjgxNDE." target="_blank" class="dd-main-menu-link-2 w-inline-block"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe3b1b1f69db1754e03_Contract%20Generator-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe3b1b1f69db1754e03_Contract%20Generator.png 512w" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe3b1b1f69db1754e03_Contract%20Generator.png" loading="lazy" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">Smart-Contracts Generator</div></a></li><li class="dd-main-menu-item dd-3-col-layout"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/?_gl=1*1nxpi8a*_gcl_au*MTA0NjgwMDQ3LjE3NDcxMjgxNDE." target="_blank" class="dd-main-menu-link-2 w-inline-block"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdf806ddae7e1e0097d_AI%20Smart%20Contract-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdf806ddae7e1e0097d_AI%20Smart%20Contract.png 512w" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdf806ddae7e1e0097d_AI%20Smart%20Contract.png" loading="lazy" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">Smart-Contracts Auditor</div></a></li><li class="dd-main-menu-item dd-3-col-layout"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/?_gl=1*1nxpi8a*_gcl_au*MTA0NjgwMDQ3LjE3NDcxMjgxNDE." target="_blank" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67ab738ad888a5e543e54e67_img-3.webp" alt="" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">AI Trading Assistant</div></a></li><li class="dd-main-menu-item dd-3-col-layout"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/?_gl=1*16p7gh0*_gcl_au*MTUwMDA4ODk4LjE3MzY5NTMwMDguMTY5OTE5MzQzNC4xNzM4NjY3NjE1LjE3Mzg2Njc2MTQ." target="_blank" class="dd-main-menu-link-2 w-inline-block"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe3c3acc215419edf7e_Swap-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe3c3acc215419edf7e_Swap.png 542w" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe3c3acc215419edf7e_Swap.png" loading="lazy" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">Cross-Chain Swap</div></a></li></ul></div><div class="dropdown-col-3 ddc-border-right full-height"><ul role="list" class="dd-main-menu dd-main-col"><li class="dd-main-menu-item dd-3-col-layout no-top-border"><a rel="noopener noreferrer nofollow" href="https://www.cryptoguard.ai/" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img width="Auto" sizes="100vw" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe32a235d4c896bbbb4_Crypto%20Guard.png" loading="lazy" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe32a235d4c896bbbb4_Crypto%20Guard-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe32a235d4c896bbbb4_Crypto%20Guard.png 512w" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">CryptoGuard</div></a></li><li class="dd-main-menu-item dd-3-col-layout"><a rel="noopener noreferrer nofollow" href="https://t.me/chaingptai_bot" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe39eebc8c4deb6d2ff_Telegram-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe39eebc8c4deb6d2ff_Telegram.png 512w" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe39eebc8c4deb6d2ff_Telegram.png" loading="lazy" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">Web3 AI Telegram Chatbot</div></a></li><li class="dd-main-menu-item dd-3-col-layout"><a rel="noopener noreferrer nofollow" href="https://x.com/CoinGPTAINews" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdfba8c57cd7d5c3d17_AI%20Agent-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdfba8c57cd7d5c3d17_AI%20Agent.png 512w" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfdfba8c57cd7d5c3d17_AI%20Agent.png" loading="lazy" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">NOVA AI Agent on X</div></a></li><li class="dd-main-menu-item dd-3-col-layout"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions.png 513w" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions.png" loading="lazy" class="dd-main-menu-icon _3-col-icon"/><div class="w-layout-vflex dd-menu-text-wrapper"><div class="dd-main-item-text">AI Crypto Signals</div><div class="dd-menu-text-secondary">coming soon</div></div></a></li><li class="dd-main-menu-item dd-3-col-layout border-bottom"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions.png 513w" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions.png" loading="lazy" class="dd-main-menu-icon _3-col-icon"/><div class="w-layout-vflex dd-menu-text-wrapper"><div class="dd-main-item-text">AI Crypto Compliance Assistant</div><div class="dd-menu-text-secondary">coming soon</div></div></a></li></ul></div><div class="dropdown-col-3 ddc-border-right full-height last-col"><ul role="list" class="dd-main-menu dd-main-col"><li class="dd-main-menu-item dd-3-col-layout no-top-border"><a rel="noopener noreferrer nofollow" href="https://docs.coingpt.tech/ai-tools-and-applications/aivm-blockchain-whitepaper" target="_blank" class="dd-main-menu-link-2 w-inline-block"><img width="Auto" sizes="100vw" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe076b9d8c969e47323_AIVM.png" loading="lazy" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe076b9d8c969e47323_AIVM-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cbfe076b9d8c969e47323_AIVM.png 512w" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">AIVM Whitepaper</div></a></li><li class="dd-main-menu-item dd-3-col-layout"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions.png 513w" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions.png" loading="lazy" class="dd-main-menu-icon _3-col-icon"/><div class="w-layout-vflex dd-menu-text-wrapper"><div class="dd-main-item-text">GPU Marketplace</div><div class="dd-menu-text-secondary">coming soon</div></div></a></li><li class="dd-main-menu-item dd-3-col-layout"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions.png 513w" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions.png" loading="lazy" class="dd-main-menu-icon _3-col-icon"/><div class="w-layout-vflex dd-menu-text-wrapper"><div class="dd-main-item-text">AI Data Marketplace</div><div class="dd-menu-text-secondary">coming soon</div></div></a></li><li class="dd-main-menu-item dd-3-col-layout"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions.png 513w" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions.png" loading="lazy" class="dd-main-menu-icon _3-col-icon"/><div class="w-layout-vflex dd-menu-text-wrapper"><div class="dd-main-item-text">AIVM Explorer</div><div class="dd-menu-text-secondary">coming soon</div></div></a></li><li class="dd-main-menu-item dd-3-col-layout border-bottom"><a rel="noopener noreferrer nofollow" href="#" target="_blank" class="dd-main-menu-link-2 disabled w-inline-block"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions-p-500.png 500w, https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions.png 513w" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/688cc1f10c29d70afa1fc869_solutions.png" loading="lazy" class="dd-main-menu-icon _3-col-icon"/><div class="w-layout-vflex dd-menu-text-wrapper"><div class="dd-main-item-text">Inference SDK</div><div class="dd-menu-text-secondary">coming soon</div></div></a></li></ul></div><div class="dropdown-col-3 ddc-border-right nhidden"><div class="dropdown-heading-2">TRY IN TELEGRAM</div><div class="dropdown-box"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65c620445491bc6185ead86a_telegram-ico-big.webp" alt="" class="single-icon"/><a rel="noopener noreferrer nofollow" href="https://t.me/chaingptai_bot" target="_blank" class="single-link-2 w-inline-block">CoinGPT AI on Telegram</a><a rel="noopener noreferrer nofollow" href="https://discord.gg/chaingpt" target="_blank" class="single-link-2 w-inline-block">CoinGPT AI on Discord</a><div class="dd-features"><div class="dd-features-item"><div class="dd-features-text">CoinGPT Chat Bot</div></div><div class="dd-features-item"><div class="dd-features-text">Smart-Contract Generator</div></div><div class="dd-features-item"><div class="dd-features-text">Smart-Contract Auditor</div></div><div class="dd-features-item"><div class="dd-features-text">AI NFT Generator</div><div class="dd-features-labe-2">New</div></div><div class="dd-features-item"><div class="dd-features-text">and many more...</div></div></div></div></div></div></div></nav></div><div data-hover="true" data-delay="1000" data-w-id="6f2e4b16-50ec-822b-bc06-eb5ef75daf86" class="dropdown-2 hide-on-prod w-dropdown"><div scramble-link="" class="nav-link-5 w-dropdown-toggle"><div class="icon-8 w-icon-dropdown-toggle"></div><div scramble-text="" class="drop-parent-text">Developers</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64491fa5649dfb767a0c35ee_arrow-down.svg" loading="lazy" alt="" class="header__icon-arrow"/></div><nav class="dropdown-list w-dropdown-list"><div class="dropdown"><div class="dropdown-inner"><div class="dropdown-col"><ul role="list" class="dd-secondary-menu dd-image-menu"><li data-w-id="0a827436-1db0-13ce-c893-06b1d195aeaa" class="dd-main-menu-item dd-3-col-layout has-children no-top-border"><div class="dd-main-menu-link-2"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6867bd602305f3c3e93dfad9_DevelopersTools.png" alt="" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">Developers Tools</div></div><ul role="list" class="dd-child-menu"><li class="dd-child-item"><a href="#" target="_blank" class="dd-child-link w-inline-block"><div class="dd-child-text">API Pricing</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="#" target="_blank" class="dd-child-link w-inline-block"><div class="dd-child-text">API Dashboard &amp; Playground</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="#" target="_blank" class="dd-child-link w-inline-block"><div class="dd-child-text">Purchase API Credits</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="#" target="_blank" class="dd-child-link w-inline-block"><div class="dd-child-text">Grant Program</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li></ul><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/686bdaad2eac88a665ab78a8_nav-ico-arrow.svg" loading="lazy" alt="" class="has-child-nav-icon"/></li><li data-w-id="6f470486-6172-07e6-27bf-2a8e1d14ed6f" class="dd-main-menu-item dd-3-col-layout has-children"><div class="dd-main-menu-link-2"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6867bf9adb3dd62be6fa2b93_DevDocs.png" alt="" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">Tech Stack (Dev Docs)</div></div><ul role="list" class="dd-child-menu"><li class="dd-child-item"><a href="#" target="_blank" class="dd-child-link w-inline-block"><div class="dd-child-text">Introduction</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="#" target="_blank" class="dd-child-link w-inline-block"><div class="dd-child-text">Case Studies</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="#" target="_blank" class="dd-child-link w-inline-block"><div class="dd-child-text">Global QuickStart Guide</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="https://docs.coingpt.tech/dev-docs-b2b-saas-api-and-sdk/grant-program-and-co-marketing/application" target="_blank" class="dd-child-link w-inline-block"><div class="dd-child-text">Grant Program &amp; Co-Marketing (API &amp; SDK)</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="#" target="_blank" class="dd-child-link w-inline-block"><div class="dd-child-text">AI NFT Generator (API &amp; SDK)</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="https://docs.coingpt.tech/dev-docs-b2b-saas-api-and-sdk/smart-contracts-generator-api-and-sdk" target="_blank" class="dd-child-link w-inline-block"><div class="dd-child-text">Smart-Contracts Generator (API &amp; SDK)</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="#" target="_blank" class="dd-child-link w-inline-block"><div class="dd-child-text">Smart-Contracts Auditor (API &amp; SDK)</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="https://docs.coingpt.tech/dev-docs-b2b-saas-api-and-sdk/ai-crypto-news-api-and-sdk-and-rss" class="dd-child-link w-inline-block"><div class="dd-child-text">AI Crypto News (RSS, API &amp; SDK)</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="#" target="_blank" class="dd-child-link w-inline-block"><div class="dd-child-text">AgenticOS Framework</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li></ul><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/686bdaad2eac88a665ab78a8_nav-ico-arrow.svg" loading="lazy" alt="" class="has-child-nav-icon"/></li><li data-w-id="a70214cb-c9cc-c8db-35aa-847a997e9c87" class="dd-main-menu-item dd-3-col-layout has-children"><div class="dd-main-menu-link-2"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6867bf9a9b5aeeeb46517bf1_Open-SourceLibrary.png" alt="" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">Open-Source Library</div></div><ul role="list" class="dd-child-menu"><li class="dd-child-item"><a href="#" class="dd-child-link w-inline-block"><div class="dd-child-text">Solidity LLM</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="https://docs.coingpt.tech/dev-docs-b2b-saas-api-and-sdk/agenticos-framework-web3-ai-agent-on-x-open-source" target="_blank" class="dd-child-link w-inline-block"><div class="dd-child-text">AgenticOS</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li></ul><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/686bdaad2eac88a665ab78a8_nav-ico-arrow.svg" loading="lazy" alt="" class="has-child-nav-icon"/></li><li data-w-id="a826d32e-297f-4d04-8f72-3dace1d9a1c1" class="dd-main-menu-item dd-3-col-layout has-children"><div class="dd-main-menu-link-2"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6867bf9ac38d98db10fe21e7_Whitelabel%20Solutions.png" alt="" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">Whitelabel Solutions</div></div><ul role="list" class="dd-child-menu"><li class="dd-child-item"><a href="#" target="_blank" class="dd-child-link w-inline-block"><div class="dd-child-text">IDO Launchpad</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="#" class="dd-child-link w-inline-block"><div class="dd-child-text">AI Agents Launcher</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="#" class="dd-child-link w-inline-block"><div class="dd-child-text">Staking Portal</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="#" class="dd-child-link w-inline-block"><div class="dd-child-text">Claim / Vesting Portal</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="#" class="dd-child-link w-inline-block"><div class="dd-child-text">Branded AI Discord Bot</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li><li class="dd-child-item"><a href="#" class="dd-child-link w-inline-block"><div class="dd-child-text">Branded AI Telegram Bot</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="dd-child-icon"/></a></li></ul><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/686bdaad2eac88a665ab78a8_nav-ico-arrow.svg" loading="lazy" alt="" class="has-child-nav-icon"/></li><li class="dd-main-menu-item dd-3-col-layout"><a rel="noopener noreferrer nofollow" href="#" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6867bf9aa808f10bc9eecec5_Grant%20Program.png" alt="" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">Grant Program</div></a><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="link-arrow-mob"/></li><li class="dd-main-menu-item dd-3-col-layout"><a rel="noopener noreferrer nofollow" href="/case-studies" class="dd-main-menu-link-2 w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6867bf9a6199e4ba6616d783_Case%20Studies.png" alt="" class="dd-main-menu-icon _3-col-icon"/><div class="dd-main-item-text">Case Studies</div></a><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/68667358281ae8306141cf7e_arrow.svg" loading="lazy" alt="" class="link-arrow-mob"/></li></ul></div></div></div></nav></div><div data-hover="true" data-delay="1000" data-w-id="2d48c7ae-d657-229f-93f5-1e58ef235ccc" class="dropdown-2 hide-on-stage w-dropdown"><div scramble-link="" class="nav-link-5 w-dropdown-toggle"><div class="icon-8 w-icon-dropdown-toggle"></div><div scramble-text="" class="drop-parent-text">Developers</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64491fa5649dfb767a0c35ee_arrow-down.svg" loading="lazy" alt="" class="header__icon-arrow"/></div><nav class="dropdown-list w-dropdown-list"><div class="dropdown"><div class="dropdown-inner"><div class="dropdown-col"><ul role="list" class="dd-secondary-menu"><li class="dd-secondary-menu-item"><a href="/web3-ai-grant" rel="noopener noreferrer nofollow" class="dd-secondary-menu-link dd-menu-icon grant-icon w-dropdown-link">$1m Web3-AI Grant</a></li><li class="dd-secondary-menu-item"><a href="https://docs.coingpt.tech/dev-docs-b2b-api-sdk/introduction-to-chaingpts-developer-tools" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon dev-docs-icon w-dropdown-link">Dev Docs</a></li><li class="dd-secondary-menu-item"><a href="https://app.coingpt.tech/apidashboard" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon dashboard-icon w-dropdown-link">API Dashboard</a></li><li class="dd-secondary-menu-item"><a href="https://app.coingpt.tech/pricing" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon price-icon w-dropdown-link">API Pricing</a></li><li class="dd-secondary-menu-item"><a href="https://discord.com/invite/chaingpt" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon discord-icon w-dropdown-link">Discord Dev Chat</a></li><li class="dd-secondary-menu-item"><a href="https://docs.coingpt.tech/misc/b2b-offerings/launchpad-whitelabel" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon launchpad-icon w-dropdown-link">Launchpad Whitelabel</a></li><li class="dd-secondary-menu-item"><a href="https://www.coingpt.tech/case-studies" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon case-studies-icon w-dropdown-link">Case Studies</a></li></ul></div></div></div></nav></div><div data-hover="true" data-delay="1000" data-w-id="a1869d73-6030-d42c-ec98-4c3dfc76c07b" class="dropdown-2 w-dropdown"><div scramble-link="" class="nav-link-5 w-dropdown-toggle"><div class="icon-8 w-icon-dropdown-toggle"></div><div scramble-text="" class="drop-parent-text">About AI Hub</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64491fa5649dfb767a0c35ee_arrow-down.svg" loading="lazy" alt="" class="header__icon-arrow"/></div><nav class="dropdown-list w-dropdown-list"><div class="dropdown"><div class="dropdown-inner"><div class="dropdown-col"><ul role="list" class="dd-secondary-menu"><li class="dd-secondary-menu-item"><a href="/crypto-ai-hub" rel="noopener noreferrer nofollow" class="dd-secondary-menu-link w-dropdown-link">AI Hub Overview</a></li><li class="dd-secondary-menu-item"><a href="/web3-chatbot" rel="noopener noreferrer nofollow" class="dd-secondary-menu-link w-dropdown-link">Crypto AI Chatbot</a></li><li class="dd-secondary-menu-item"><a href="/smart-contract-auditor" rel="noopener noreferrer nofollow" class="dd-secondary-menu-link w-dropdown-link">Smart Contract Auditor</a></li><li class="dd-secondary-menu-item"><a href="/smart-contract-generator" rel="noopener noreferrer nofollow" class="dd-secondary-menu-link w-dropdown-link">Smart Contract Generator</a></li><li class="dd-secondary-menu-item"><a href="/ai-crypto-alerts" rel="noopener noreferrer nofollow" class="dd-secondary-menu-link w-dropdown-link">AI Crypto Alerts</a></li><li class="dd-secondary-menu-item"><a href="/ai-trading-assistant" rel="noopener noreferrer nofollow" class="dd-secondary-menu-link w-dropdown-link">AI Trading Assistant</a></li><li class="dd-secondary-menu-item"><a href="/crypto-compliance-assistant" rel="noopener noreferrer nofollow" class="dd-secondary-menu-link w-dropdown-link">AI Crypto Compliance Assistant</a></li><li class="dd-secondary-menu-item"><a href="/ai-web3-news" rel="noopener noreferrer nofollow" class="dd-secondary-menu-link w-dropdown-link">CoinGPT Web3 News</a></li></ul></div></div></div></nav></div><div data-hover="true" data-delay="1000" data-w-id="8f1a4a72-5096-00ae-52a9-882da251645d" class="dropdown-2 w-dropdown"><div scramble-link="" class="nav-link-5 w-dropdown-toggle"><div class="icon-8 w-icon-dropdown-toggle"></div><div scramble-text="" class="drop-parent-text">Learn</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64491fa5649dfb767a0c35ee_arrow-down.svg" loading="lazy" alt="" class="header__icon-arrow"/></div><nav class="dropdown-list w-dropdown-list"><div class="dropdown"><div class="dropdown-inner"><div class="dropdown-col"><ul role="list" class="dd-secondary-menu"><li class="dd-secondary-menu-item"><a href="https://docs.coingpt.tech" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon docs-icon w-dropdown-link">Docs</a></li><li class="dd-secondary-menu-item"><a href="http://help.coingpt.tech" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon help-icon w-dropdown-link">Help Center</a></li><li class="dd-secondary-menu-item"><a href="/blog" rel="noopener noreferrer nofollow" class="dd-secondary-menu-link dd-menu-icon blog-icon w-dropdown-link">Blog</a></li><li class="dd-secondary-menu-item"><a href="/videos" rel="noopener noreferrer nofollow" class="dd-secondary-menu-link dd-menu-icon youtube-icon w-dropdown-link">Video Feed</a></li><li class="dd-secondary-menu-item"><a href="https://news.google.com/publications/CAAqBwgKMPWDzwswpJ_mAw?ceid=IL:en&amp;oc=3" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon google-news-icon w-dropdown-link">Google News</a></li><li class="dd-secondary-menu-item"><a href="/brand-kit" rel="noopener noreferrer nofollow" class="dd-secondary-menu-link dd-menu-icon brand-kit-icon w-dropdown-link">Brand Kit</a><a href="https://docs.coingpt.tech/overview/road-map" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon brand-kit-icon w-dropdown-link">Roadmap</a></li></ul></div></div></div></nav></div><div data-hover="true" data-delay="1000" scramble-link="" data-w-id="66ad4e0a-99e8-e64a-c62a-e522b455194a" class="dropdown-2 w-dropdown"><div class="nav-link-5 w-dropdown-toggle"><div class="icon-8 w-icon-dropdown-toggle"></div><div scramble-text="" class="drop-parent-text">$CGPT</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64491fa5649dfb767a0c35ee_arrow-down.svg" loading="lazy" alt="Dropdown Arrow Icon" class="header__icon-arrow"/></div><nav class="dropdown-list w-dropdown-list"><div class="dropdown"><div class="dropdown-inner"><div class="dropdown-col ddc-border-right"><div class="dropdown-heading"><div class="dropdown-heading-flex"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65c6203d80823e54f25ed2eb_cgpt_coin.webp" loading="lazy" alt="" class="dd-heading-icon"/><div class="tt-normal">Buy CGPT</div></div></div><div class="dropdown-inner-cols"><div class="dropdown-inner-col dic-border-right"><div class="dropdown-heading-sub mobile-left-no-gape">CEX</div><ul role="list" class="dd-secondary-menu size-sm"><li class="dd-secondary-menu-item"><a href="https://www.binance.com/en/trade/CGPT_USDT?type=spot" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">Binance</a></li><li class="dd-secondary-menu-item"><a href="https://www.kucoin.com/trade/CGPT-USDT" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">KuCoin</a></li><li class="dd-secondary-menu-item"><a href="https://www.bybit.com/en-US/trade/spot/CGPT/USDT" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">ByBit</a></li><li class="dd-secondary-menu-item"><a href="https://www.gate.io/trade/CGPT_USDT" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">Gate.io</a></li><li class="dd-secondary-menu-item"><a href="https://www.mexc.com/tr-TR/exchange/CGPT_USDT" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">MEXC</a></li><li class="dd-secondary-menu-item"><a href="https://www.bitget.com/en/spot/CGPTUSDT_SPBL?type=spot" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">Bitget</a></li><li class="dd-secondary-menu-item"><a href="https://www.htx.com/en-us/trade/cgpt_usdt?invite_code=865b8223" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">HTX (Huobi)</a></li><li class="dd-secondary-menu-item"><a href="https://www.bitpanda.com/en/prices/chaingpt-cgpt" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">Bitpanda</a></li></ul></div><div class="dropdown-inner-col"><div class="dropdown-heading-sub">DEX</div><ul role="list" class="dd-secondary-menu size-sm mobile-left-with-gape"><li class="dd-secondary-menu-item"><a href="https://pancakeswap.finance/swap?outputCurrency=0x9840652DC04fb9db2C43853633f0F62BE6f00f98&amp;inputCurrency=0x55d398326f99059fF775485246999027B3197955" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">PancakeSwap</a></li><li class="dd-secondary-menu-item"><a href="https://app.uniswap.org/swap?inputCurrency=0xdAC17F958D2ee523a2206206994597C13D831ec7&amp;outputCurrency=0x25931894a86d47441213199621f1f2994e1c39aa&amp;chain=mainnet" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">Uniswap</a></li><li class="dd-secondary-menu-item"></li><li class="dd-secondary-menu-item"></li></ul></div></div></div><div class="dropdown-col"><div class="dropdown-heading">MORE ACTIONS</div><ul role="list" class="dd-secondary-menu"><li class="dd-secondary-menu-item"><a href="https://app.coingpt.tech/staking" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">$CGPT Staking</a></li><li class="dd-secondary-menu-item"><a href="https://app.coingpt.tech/dao" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">DAO Governance</a></li><li class="dd-secondary-menu-item"><a href="https://www.certik.com/projects/chaingpt" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">CertiK Audit Report</a></li><li class="dd-secondary-menu-item"><a href="https://hacken.io/audits/chaingpt/" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">Hacken Audit Report</a></li><li class="dd-secondary-menu-item"><a href="https://coinmarketcap.com/currencies/chaingpt/" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">CoinMarketCap Page</a></li><li class="dd-secondary-menu-item"><a href="https://dexcheck.io/app/bsc/chart/0xcfe847aae922cbe3dcbba61dbb1ed97d2124d322" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">DEXCheck Page</a></li><li class="dd-secondary-menu-item"><a href="https://app.coingpt.tech/supplydashboard" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">Supply Dashboard</a></li><li class="dd-secondary-menu-item"><a href="https://app.coingpt.tech/burndashboard" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link w-dropdown-link">Burn Dashboard</a></li><li class="dd-secondary-menu-item"></li><li class="dd-secondary-menu-item"></li></ul></div></div></div></nav></div><div data-hover="true" data-delay="1000" data-w-id="1f735402-0583-473b-3676-a2bc730e3926" class="dropdown-2 w-dropdown"><div scramble-link="" class="nav-link-5 w-dropdown-toggle"><div class="icon-8 w-icon-dropdown-toggle"></div><div scramble-text="" class="drop-parent-text">Community</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64491fa5649dfb767a0c35ee_arrow-down.svg" loading="lazy" alt="" class="header__icon-arrow"/></div><nav class="dropdown-list w-dropdown-list"><div class="dropdown"><div class="dropdown-inner"><div class="dropdown-col"><ul role="list" class="dd-secondary-menu"><li class="dd-secondary-menu-item"><a href="https://t.me/CoinGPT" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon telegram-icon w-dropdown-link">Telegram Chat</a></li><li class="dd-secondary-menu-item"><a href="https://t.me/CoinGPTNews" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon telegram-icon w-dropdown-link">Telegram News</a></li><li class="dd-secondary-menu-item"><a href="https://discord.gg/chaingpt" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon discord-icon w-dropdown-link">Discord</a></li><li class="dd-secondary-menu-item"><a href="https://facebook.com/CoinGPT" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon facebook-icon w-dropdown-link">Facebook</a></li><li class="dd-secondary-menu-item"><a href="https://twitter.com/CoinGPT_tech" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon twitter-icon w-dropdown-link">Twitter</a></li><li class="dd-secondary-menu-item"><a href="https://www.youtube.com/@CoinGPT" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon youtube-icon w-dropdown-link">Youtube</a></li><li class="dd-secondary-menu-item"><a href="https://instagram.com/CoinGPTAI" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon instagram-icon w-dropdown-link">Instagram</a></li><li class="dd-secondary-menu-item"><a href="https://medium.com/@chaingpt" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon medium-icon w-dropdown-link">Medium</a></li><li class="dd-secondary-menu-item"><a href="https://www.linkedin.com/company/chaingpt" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon linkedin-icon w-dropdown-link">Linkedin</a></li><li class="dd-secondary-menu-item"><a href="https://tiktok.com/@chain_gpt" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon tiktok-icon w-dropdown-link">TikTok</a></li><li class="dd-secondary-menu-item"><a href="https://coinmarketcap.com/community/profile/CoinGPT/" rel="noopener noreferrer nofollow" target="_blank" class="dd-secondary-menu-link dd-menu-icon coin-market-icon w-dropdown-link">CoinMarketCap</a></li></ul></div></div></div></nav></div></div></div></div><div class="email-div-4"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64354b8ce4872a4f4e1c7c21_botty.png" loading="lazy" alt=""/><a rel="noopener noreferrer" href="https://app.coingpt.tech" class="link-5">Try Our Prototype</a></div></nav><div class="menu-button-3 w-nav-button"><div class="icon-9 w-icon-nav-menu"></div><div class="menu-icon-wrapper"><div class="menu-icon-item mii-1"></div><div class="menu-icon-item mii-2"></div></div></div></div><div class="header-side-part"><a scramble-link="" rel="noopener noreferrer" href="https://app.coingpt.tech/" target="_blank" class="btn-primary ml-auto w-inline-block"><div class="btn-primary-lines btn-primary-lines-1"><div class="btn-primary-lines btn-primary-lines-2"><div scramble-text="" class="btn-primary-text">launch dapp</div></div></div></a></div><div class="vertical-line vertical-line--left vertical-line-header"></div><div class="vertical-line vertical-line--right vertical-line-header"></div></div><div class="additional-page-styles w-embed"><style>
+.product-menu-toggle.w--open .product-menu-icon {transform: rotate(45deg);}
+.product-menu-toggle.w--open .product-menu-icon .product-menu-icon-dot {
+transform: translate(0,0);
+}
+
+@media screen and (min-width: 1280px) {
+.product-menu-toggle:hover .product-menu-icon {transform: rotate(45deg);}
+.product-menu-toggle:hover .product-menu-icon .product-menu-icon-dot {
+transform: translate(0,0);
+}
+}
+
+@media screen and (min-width: 992px) {
+.w-dropdown-list.product-menu-list.w--open {
+    left: 0;
+}
+}
+.product-menu-link:hover .product-menu-item-bg,
+.product-menu-link:hover .product-menu-item-arrow,
+.product-menu-link:hover .product-menu-link-text {opacity: 1;}
+@media screen and (max-width: 767px) {
+.product-menu-list.w--open {
+    grid-column-gap: 2% !important;
+    grid-row-gap: 0.4375rem !important;
+}
+}
+</style></div></div><div class="pricing-hero"><div class="container"><div class="section-head-cols"><div class="section-head-col section-head-col--left"><div class="section-heading"><div class="section-heading-dot section-heading-dot-1"></div><div class="section-heading-dot section-heading-dot-2"></div><div class="w-embed"><h1 class="section-title">
+Verify CoinGPT <br> Official
+<span class="section-title-bordered" >
+	<span class="section-title-bordered-line section-title-bordered-line-1 stbl-verify">
+  	<span class="section-title-bordered-line section-title-bordered-line-2" >Accounts</span>
+  </span>
+</span>
+</h1>
+<style>
+.section-title-bordered-line-1.stbl-verify:after {
+    left: 0;
+    width: 60%;
+}
+</style></div></div></div><div class="section-head-col section-head-col--right"><div class="section-head-descr">Verify any Website, SM account, Email, or Telegram in the search field to ensure it belongs to the CoinGPT team.</div></div></div></div></div><div class="container"><div class="container-middle"><div class="verify-block"><h2 class="verify-title">Check Links</h2><div class="verify-form-wrap"><div class="verify-row"><div class="verify-dropdown-wrap"><div data-delay="0" data-hover="false" data-channels="" class="custom-dropdown w-dropdown"><div class="custom-dropdown-toggle w-dropdown-toggle"><img data-current-icon="" loading="lazy" alt="" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65ccdcc874bef18365364209_icon-m-website.svg" class="custom-dropdown-icon"/><div data-current-channel="" class="custom-dropdown-text">Website</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64491fa5649dfb767a0c35ee_arrow-down.svg" loading="lazy" alt="Dropdown Arrow Icon" class="custom-dropdown-arrow"/></div><div class="custom-dropdown-list w-dropdown-list"><a is-selected-channel="" data-channel="website" href="#" class="custom-dropdown-item w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65ccdcc874bef18365364209_icon-m-website.svg" alt="" class="custom-dropdown-icon"/><div class="custom-dropdown-item-text">Website</div></a><a data-channel="email" href="#" class="custom-dropdown-item w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65ccdcc6992d597b3c7c013c_icon-m-email.svg" alt="" class="custom-dropdown-icon"/><div class="custom-dropdown-item-text">Email</div></a><a data-channel="telegram" href="#" class="custom-dropdown-item w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65ccdcc749241724e3466713_icon-m-telegram.svg" alt="" class="custom-dropdown-icon"/><div class="custom-dropdown-item-text">Telegram</div></a><a data-channel="twitter" href="#" class="custom-dropdown-item w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65ccdcc63ecfffa29cd382de_icon-m-twitter.svg" alt="" class="custom-dropdown-icon"/><div class="custom-dropdown-item-text">Twitter</div></a><a data-channel="youtube" href="#" class="custom-dropdown-item w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65ccdcc8474d3839332d4958_icon-m-youtube.svg" alt="" class="custom-dropdown-icon"/><div class="custom-dropdown-item-text">YouTube</div></a><a data-channel="instagram" href="#" class="custom-dropdown-item w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65ccdcc88a2ef210d40ebb85_icon-m-instagram.svg" alt="" class="custom-dropdown-icon"/><div class="custom-dropdown-item-text">Instagram</div></a><a data-channel="facebook" href="#" class="custom-dropdown-item w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65ccdcc6f1b2de1edfc2fe57_icon-m-facebook.svg" alt="" class="custom-dropdown-icon"/><div class="custom-dropdown-item-text">Facebook</div></a><a data-channel="linkedin" href="#" class="custom-dropdown-item w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65ccdcc7855ba7f75cecdf6e_icon-m-linkedin.svg" alt="" class="custom-dropdown-icon"/><div class="custom-dropdown-item-text">LinkedIn</div></a><a data-channel="tiktok" href="#" class="custom-dropdown-item w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65ccdcc6363626f913855bf9_icon-m-tiktok.svg" alt="" class="custom-dropdown-icon"/><div class="custom-dropdown-item-text">TikTok</div></a><a data-channel="other" href="#" class="custom-dropdown-item w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65ccdcc6482b12afb49a5a87_icon-m-other.svg" alt="" class="custom-dropdown-icon"/><div class="custom-dropdown-item-text">Other</div></a></div></div></div><div class="verify-input-wrap"><div class="verify-input-holder w-embed"><input class="verify-input w-input" maxlength="256" name="name" data-name="Name" placeholder="Account link for verification" type="text" id="name" data-input-verify="" required=""></div><a scramble-link="" data-verify-submit="" href="#" class="btn-primary btn-primary--no-icon btn-verify w-inline-block"><div class="btn-primary-lines btn-primary-lines-1"><div class="btn-primary-lines btn-primary-lines-2"><div scramble-text="" class="btn-primary-text">verify</div></div></div></a><div verify-error="" class="verify-input-error">Please fill the field</div></div></div></div></div></div></div><div class="usfull-section"><div class="container"><div class="grid-columns va-top"><div class="grid-column-pre hide-in-tablet"><div class="pre-heading pre-head--alt-mobile">useful information:</div></div><div class="grid-column--mdl"><div class="usfull-list"><a href="https://docs.coingpt.tech/the-ecosystem/ai-tools-and-applications/cryptoguard-extension-your-web3-shield/recognizing-and-avoiding-scams-in-web3" target="_blank" class="usfull-item w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65d73c7e8d8945a6d929132d_Recognizing-an-%20Avoiding-Scams.webp" loading="lazy" alt="" class="usfull-thumb"/><div class="usfull-title"><div>Recognizing and Avoiding Scams</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" loading="lazy" alt="Simple Link Arrow Icon" class="usfull-item-arrow"/></a><a href="https://docs.coingpt.tech/the-ecosystem/ai-tools-and-applications/cryptoguard-extension-your-web3-shield/web3-safety-toolkit" target="_blank" class="usfull-item w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65d73c7d80929cd21ca6bb5d_ResponDING-to-Compromised-Accounts%C2%A0.webp" loading="lazy" alt="" class="usfull-thumb"/><div class="usfull-title"><div>Web3 Safety Toolkit<br/></div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" loading="lazy" alt="Simple Link Arrow Icon" class="usfull-item-arrow"/></a><a href="https://docs.coingpt.tech/the-ecosystem/ai-tools-and-applications/cryptoguard-extension-your-web3-shield/crypto-wallet-security-101" target="_blank" class="usfull-item w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65d73c7d97fefb3c37e8ab5e_Crypto-Wallet-Security-101.webp" loading="lazy" alt="" class="usfull-thumb"/><div class="usfull-title"><div>Crypto Wallet Security 101</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" loading="lazy" alt="Simple Link Arrow Icon" class="usfull-item-arrow"/></a></div></div></div></div></div><div id="ai-revolution" class="revolution"><div data-w-id="2c637d4c-6ff6-030c-ec33-d4e427892bd9" class="container-middle"><div class="div-block-366"><div><div anim-trigger="" class="div-block-364 main-language"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/646201707951b1100b67ddfd_double-dots.svg" alt="Robot Eyes"/><div anim-trigger-text="" class="text-block-134">join the</div></div><div class="div-block-365"><div anim-trigger="" class="revolution__title-wrap"><h2 anim-trigger-text="" class="section-title section-title--lg">AI</h2><div class="embed-svg-stroke w-embed"><svg class="svg-stroke-left" width="116" height="96" viewBox="0 0 116 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="path-anim path-anim-left-1 path-anim-delay-8" d="M62 94H19.2426C18.447 94 17.6839 93.6839 17.1213 93.1213L2.87868 78.8787C2.31607 78.3161 2 77.553 2 76.7574V5C2 3.34315 3.33144 2 4.9883 2C12.1553 2 30.7121 2 44 2" stroke="url(#paint0_linear_2353_8410)" stroke-width="2.5" stroke-linecap="round"/>
+<path class="path-anim path-anim-right-2 path-anim-delay-105" d="M62 94H111C112.657 94 114 92.6569 114 91V19.2426C114 18.447 113.684 17.6839 113.121 17.1213L101.5 5.5" stroke="url(#paint1_linear_2353_8410)" stroke-width="2.5" stroke-linecap="round"/>
+<defs>
+<linearGradient id="paint0_linear_2353_8410" x1="2" y1="5" x2="123" y2="94" gradientUnits="userSpaceOnUse">
+<stop stop-color="#26F4D0"/>
+<stop offset="0.634676" stop-color="#F8CF3E"/>
+</linearGradient>
+<linearGradient id="paint1_linear_2353_8410" x1="45" y1="89.5" x2="120" y2="27" gradientUnits="userSpaceOnUse">
+<stop offset="0.436639" stop-color="#F8CF3E"/>
+<stop offset="1" stop-color="#FC6756"/>
+</linearGradient>
+</defs>
+</svg>
+
+<style>
+.svg-stroke-left {
+	width: 5.9rem;
+  height: auto;
+}
+@media screen and (max-width: 991px) {
+  .svg-stroke-left {
+    width: 4.7rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .svg-stroke-left {
+    width: 7.125rem;
+  }
+}
+</style></div></div><div anim-trigger="" class="revolution__title-wrap"><h2 anim-trigger-text="" class="section-title section-title--lg">Revolution</h2><div class="embed-svg-stroke w-embed"><svg class="svg-stroke-right" width="411" height="96" viewBox="0 0 411 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="path-anim path-anim-2 path-anim-delay-1-1" d="M263.5 94H18.7426C17.947 94 17.1839 93.6839 16.6213 93.1213L2 78.5" stroke="url(#paint0_linear_2353_8412)" stroke-width="2.5" stroke-linecap="round"/>
+<path class="path-anim path-anim-1 path-anim-delay-95" d="M409 77V19.2426C409 18.447 408.684 17.6839 408.121 17.1213L393.879 2.87868C393.316 2.31607 392.553 2 391.757 2H4" stroke="url(#paint1_linear_2353_8412)" stroke-width="2.5" stroke-linecap="round"/>
+<defs>
+<linearGradient id="paint0_linear_2353_8412" x1="353.5" y1="101" x2="-7.5" y2="75" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F8CF3E"/>
+<stop offset="1" stop-color="#FC6756"/>
+<stop offset="1" stop-color="#FC6756"/>
+</linearGradient>
+<linearGradient id="paint1_linear_2353_8412" x1="-6.49989" y1="-9.50001" x2="384.234" y2="-140.863" gradientUnits="userSpaceOnUse">
+<stop offset="0.236372" stop-color="#724CE8"/>
+<stop offset="1" stop-color="#26F4D0"/>
+</linearGradient>
+</defs>
+</svg>
+
+<style>
+.svg-stroke-right {
+	width: 21rem;
+  height: auto;
+}
+@media screen and (max-width: 991px) {
+  .svg-stroke-right {
+    width: 16.7142rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .svg-stroke-right {
+    width: 25.6875rem;
+  }
+}
+</style></div></div></div><div anim-trigger="" class="div-block-364 korean-language korean-language-flex"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/646201707951b1100b67ddfd_double-dots.svg" alt="Robot Eyes"/><div anim-trigger-text="" class="text-block-134">join the</div></div></div></div></div><div class="container"><div data-w-id="e57b3432-959e-efcc-8541-ef6ad74b7636" class="marquee-block"><div class="marquee-heading hide-in-tablet mb-auto"><div class="marquee-title">AS SEEN ON:</div></div><div class="marquee-frame"><div class="marquee-frame-shadows pointer-events-none"></div><div class="marquee-frame-shadows marquee-frame-shadows--right pointer-events-none"></div><div class="tweets-marqee-settings w-embed"><style>
+  .page-ready .tweets-marquee-content {
+    animation: marqueeScroll 44s linear infinite;
+  }
+  .tweets-profile-image {filter: grayscale(1);}
+  .tweets-marquee-text p {color: rgba(239,239,229,.6);}
+</style></div><div class="tweets-marquee"><div class="tweets-marquee-content w-dyn-list"><div role="list" class="tweets-marqee-list w-dyn-items"><div role="listitem" class="tweets-marquee-item w-dyn-item"><div class="tweets-marquee-head"><div class="tweets-profile-photo"><img src="https://cdn.prod.website-files.com/64354b8ce4872a52ac1c7b06/6825e9c95b81d916af0f5ea4_img%402x.png" loading="lazy" width="56" alt="Alibaba Cloud" class="tweets-profile-image"/><div class="tweets-profile-corner-left"></div><div class="tweets-profile-corner-right"></div></div><div class="tweets-profile-heading"><div class="tweets-profile-name">Alibaba Cloud</div><div class="tweets-profile-account">@alibaba_cloud</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65253abefb080a7f70032ab6_twitter-x.svg" loading="lazy" width="26" height="26" alt="Twitter X Logo" class="tweets-marquee-logo"/></div><div class="tweets-marquee-text w-richtext"><p>Proud to collaborate with <a href="https://x.com/CoinGPT_tech">@CoinGPT_tech</a> to advance AI development with powerful infrastructure and open innovation.</p><p>Together, we&#x27;re open-sourcing CoinGPT&#x27;s Solidity LLM for broader developer access, hosting and accelerating the model with our high-performance GPUs, and looking forward to enhancing decentralized AI infrastructure via the AIVM Network.</p></div><a href="https://x.com/alibaba_cloud/status/1922963995629404599" rel="noopener noreferrer nofollow" target="_blank" class="tweets-marquee-link">View Post</a></div><div role="listitem" class="tweets-marquee-item w-dyn-item"><div class="tweets-marquee-head"><div class="tweets-profile-photo"><img src="https://cdn.prod.website-files.com/64354b8ce4872a52ac1c7b06/658012ea6f74b290df4f5ffd_bnb-chain.webp" loading="lazy" width="56" alt="BNB Chain" class="tweets-profile-image"/><div class="tweets-profile-corner-left"></div><div class="tweets-profile-corner-right"></div></div><div class="tweets-profile-heading"><div class="tweets-profile-name">BNB Chain</div><div class="tweets-profile-account">@BNBCHAIN</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65253abefb080a7f70032ab6_twitter-x.svg" loading="lazy" width="26" height="26" alt="Twitter X Logo" class="tweets-marquee-logo"/></div><div class="tweets-marquee-text w-richtext"><p>Amazing progress from <a href="https://twitter.com/CoinGPT_tech" target="_blank">@CoinGPT_tech</a>!<br/><br/>Let&#x27;s keep building the strongest platform for decentralized A.I on BNB Chain!</p></div><a href="https://twitter.com/bnbchain/status/1734770117513543825" rel="noopener noreferrer nofollow" target="_blank" class="tweets-marquee-link">View Post</a></div><div role="listitem" class="tweets-marquee-item w-dyn-item"><div class="tweets-marquee-head"><div class="tweets-profile-photo"><img src="https://cdn.prod.website-files.com/64354b8ce4872a52ac1c7b06/658006db6df9d43070ebedd8_certik-logo-200.jpg" loading="lazy" width="56" alt="CertiK Security Leaderboard" class="tweets-profile-image"/><div class="tweets-profile-corner-left"></div><div class="tweets-profile-corner-right"></div></div><div class="tweets-profile-heading"><div class="tweets-profile-name">CertiK Security Leaderboard</div><div class="tweets-profile-account">@CertiKCommunity</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65253abefb080a7f70032ab6_twitter-x.svg" loading="lazy" width="26" height="26" alt="Twitter X Logo" class="tweets-marquee-logo"/></div><div class="tweets-marquee-text w-richtext"><p>Proud to see <a href="https://twitter.com/CoinGPT_tech" target="_blank">@CoinGPT_tech</a>  at a stellar #47 on CertiK&#x27;s Skynet rankings. Their commitment to robust security through collaboration with us showcases their dedication to a safer Web3 ecosystem.</p></div><a href="https://twitter.com/CertiKCommunity/status/1734155671484989567?s=20" rel="noopener noreferrer nofollow" target="_blank" class="tweets-marquee-link">View Post</a></div><div role="listitem" class="tweets-marquee-item w-dyn-item"><div class="tweets-marquee-head"><div class="tweets-profile-photo"><img src="https://cdn.prod.website-files.com/64354b8ce4872a52ac1c7b06/655b2abf12446684feb0e5d5_chainlink.jpg" loading="lazy" width="56" alt="Chainlink" class="tweets-profile-image"/><div class="tweets-profile-corner-left"></div><div class="tweets-profile-corner-right"></div></div><div class="tweets-profile-heading"><div class="tweets-profile-name">Chainlink</div><div class="tweets-profile-account">@chainlink</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65253abefb080a7f70032ab6_twitter-x.svg" loading="lazy" width="26" height="26" alt="Twitter X Logo" class="tweets-marquee-logo"/></div><div class="tweets-marquee-text w-richtext"><p><a href="https://twitter.com/CoinGPT_tech" target="_blank">@CoinGPT_tech </a>has integrated <a href="https://twitter.com/hashtag/Chainlink?src=hashtag_click" target="_blank">#Chainlink</a> CCIP across <a href="https://twitter.com/ethereum" target="_blank">@Ethereum </a>and <a href="https://twitter.com/0xPolygon" target="_blank">@0xPolygon </a>to help unlock its cross-chain AI Hub.</p><p>Discover how CCIP unlocks access to users on other blockchains while minimizing overhead.</p></div><a href="https://twitter.com/chainlink/status/1725169961797140735?s=20" rel="noopener noreferrer nofollow" target="_blank" class="tweets-marquee-link">View Post</a></div><div role="listitem" class="tweets-marquee-item w-dyn-item"><div class="tweets-marquee-head"><div class="tweets-profile-photo"><img src="https://cdn.prod.website-files.com/64354b8ce4872a52ac1c7b06/655b264c63c953059344975e_polygon-labs.jpg" loading="lazy" width="56" alt="Polygon (Labs)" class="tweets-profile-image"/><div class="tweets-profile-corner-left"></div><div class="tweets-profile-corner-right"></div></div><div class="tweets-profile-heading"><div class="tweets-profile-name">Polygon (Labs)</div><div class="tweets-profile-account">@0xPolygonLabs</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65253abefb080a7f70032ab6_twitter-x.svg" loading="lazy" width="26" height="26" alt="Twitter X Logo" class="tweets-marquee-logo"/></div><div class="tweets-marquee-text w-richtext"><p>CoinGPT is unlocking cross-chain functionality with <a target="_blank" href="https://twitter.com/0xPolygon">@0xPolygon</a>, after its recent integration with Chainlink CCIP.</p><p>Meaning seamless connectively and enhanced experiences within web3 AI.</p></div><a href="https://twitter.com/0xPolygonLabs/status/1725255013545705823?s=20" rel="noopener noreferrer nofollow" target="_blank" class="tweets-marquee-link">View Post</a></div><div role="listitem" class="tweets-marquee-item w-dyn-item"><div class="tweets-marquee-head"><div class="tweets-profile-photo"><img src="https://cdn.prod.website-files.com/64354b8ce4872a52ac1c7b06/6525367ca098ee06589adf4c_bnb-chain.png" loading="lazy" width="56" alt="BNB Chain" class="tweets-profile-image"/><div class="tweets-profile-corner-left"></div><div class="tweets-profile-corner-right"></div></div><div class="tweets-profile-heading"><div class="tweets-profile-name">BNB Chain</div><div class="tweets-profile-account">@BNBCHAIN</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65253abefb080a7f70032ab6_twitter-x.svg" loading="lazy" width="26" height="26" alt="Twitter X Logo" class="tweets-marquee-logo"/></div><div class="tweets-marquee-text w-richtext"><p>We asked <a href="https://twitter.com/CoinGPT_tech">@CoinGPT_tech</a>&#x27;s A.I to explain Merkle Trees:&quot;A Merkle tree is a cryptographic data structure that verifies large amounts of data. This enables fast verification by comparing only a few hashes instead of an entire data set.&quot;How would you add to this?</p></div><a href="https://twitter.com/BNBCHAIN/status/1700962350487195904" rel="noopener noreferrer nofollow" target="_blank" class="tweets-marquee-link">View Post</a></div><div role="listitem" class="tweets-marquee-item w-dyn-item"><div class="tweets-marquee-head"><div class="tweets-profile-photo"><img src="https://cdn.prod.website-files.com/64354b8ce4872a52ac1c7b06/6525368aa3ea2c2af637818e_Tron-dao.jpg" loading="lazy" width="56" alt="Tron Dao" class="tweets-profile-image"/><div class="tweets-profile-corner-left"></div><div class="tweets-profile-corner-right"></div></div><div class="tweets-profile-heading"><div class="tweets-profile-name">Tron Dao</div><div class="tweets-profile-account">@trondao</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65253abefb080a7f70032ab6_twitter-x.svg" loading="lazy" width="26" height="26" alt="Twitter X Logo" class="tweets-marquee-logo"/></div><div class="tweets-marquee-text w-richtext"><p>This collaboration with <a href="https://twitter.com/CoinGPT_tech">@CoinGPT_tech</a> is a game-changer for the <a href="https://twitter.com/hashtag/TRON?src=hashtag_click">#TRON</a> community!Together, we usher in a new era of <a href="https://twitter.com/hashtag/AI?src=hashtag_click">#AI</a> accessibility and flexibility on the <a href="https://twitter.com/hashtag/TRON?src=hashtag_click">#TRON</a> network.</p><p> From minting <a href="https://twitter.com/hashtag/NFTs?src=hashtag_click">#NFTs</a> to deploying and auditing smart contracts, there&#x27;s so much you can do!</p></div><a href="https://twitter.com/trondao/status/1706790975438524529" rel="noopener noreferrer nofollow" target="_blank" class="tweets-marquee-link">View Post</a></div></div></div><div class="tweets-marquee-content w-dyn-list"><div role="list" class="tweets-marqee-list w-dyn-items"><div role="listitem" class="tweets-marquee-item w-dyn-item"><div class="tweets-marquee-head"><div class="tweets-profile-photo"><img src="https://cdn.prod.website-files.com/64354b8ce4872a52ac1c7b06/6825e9c95b81d916af0f5ea4_img%402x.png" loading="lazy" alt="" class="tweets-profile-image"/><div class="tweets-profile-corner-left"></div><div class="tweets-profile-corner-right"></div></div><div class="tweets-profile-heading"><div class="tweets-profile-name">Alibaba Cloud</div><div class="tweets-profile-account">@alibaba_cloud</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65253abefb080a7f70032ab6_twitter-x.svg" loading="lazy" alt="" class="tweets-marquee-logo"/></div><div class="tweets-marquee-text w-richtext"><p>Proud to collaborate with <a href="https://x.com/CoinGPT_tech">@CoinGPT_tech</a> to advance AI development with powerful infrastructure and open innovation.</p><p>Together, we&#x27;re open-sourcing CoinGPT&#x27;s Solidity LLM for broader developer access, hosting and accelerating the model with our high-performance GPUs, and looking forward to enhancing decentralized AI infrastructure via the AIVM Network.</p></div><a href="https://x.com/alibaba_cloud/status/1922963995629404599" target="_blank" class="tweets-marquee-link">View Post</a></div><div role="listitem" class="tweets-marquee-item w-dyn-item"><div class="tweets-marquee-head"><div class="tweets-profile-photo"><img src="https://cdn.prod.website-files.com/64354b8ce4872a52ac1c7b06/658012ea6f74b290df4f5ffd_bnb-chain.webp" loading="lazy" alt="" class="tweets-profile-image"/><div class="tweets-profile-corner-left"></div><div class="tweets-profile-corner-right"></div></div><div class="tweets-profile-heading"><div class="tweets-profile-name">BNB Chain</div><div class="tweets-profile-account">@BNBCHAIN</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65253abefb080a7f70032ab6_twitter-x.svg" loading="lazy" alt="" class="tweets-marquee-logo"/></div><div class="tweets-marquee-text w-richtext"><p>Amazing progress from <a href="https://twitter.com/CoinGPT_tech" target="_blank">@CoinGPT_tech</a>!<br/><br/>Let&#x27;s keep building the strongest platform for decentralized A.I on BNB Chain!</p></div><a href="https://twitter.com/bnbchain/status/1734770117513543825" target="_blank" class="tweets-marquee-link">View Post</a></div><div role="listitem" class="tweets-marquee-item w-dyn-item"><div class="tweets-marquee-head"><div class="tweets-profile-photo"><img src="https://cdn.prod.website-files.com/64354b8ce4872a52ac1c7b06/658006db6df9d43070ebedd8_certik-logo-200.jpg" loading="lazy" alt="" class="tweets-profile-image"/><div class="tweets-profile-corner-left"></div><div class="tweets-profile-corner-right"></div></div><div class="tweets-profile-heading"><div class="tweets-profile-name">CertiK Security Leaderboard</div><div class="tweets-profile-account">@CertiKCommunity</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65253abefb080a7f70032ab6_twitter-x.svg" loading="lazy" alt="" class="tweets-marquee-logo"/></div><div class="tweets-marquee-text w-richtext"><p>Proud to see <a href="https://twitter.com/CoinGPT_tech" target="_blank">@CoinGPT_tech</a>  at a stellar #47 on CertiK&#x27;s Skynet rankings. Their commitment to robust security through collaboration with us showcases their dedication to a safer Web3 ecosystem.</p></div><a href="https://twitter.com/CertiKCommunity/status/1734155671484989567?s=20" target="_blank" class="tweets-marquee-link">View Post</a></div><div role="listitem" class="tweets-marquee-item w-dyn-item"><div class="tweets-marquee-head"><div class="tweets-profile-photo"><img src="https://cdn.prod.website-files.com/64354b8ce4872a52ac1c7b06/655b2abf12446684feb0e5d5_chainlink.jpg" loading="lazy" alt="" class="tweets-profile-image"/><div class="tweets-profile-corner-left"></div><div class="tweets-profile-corner-right"></div></div><div class="tweets-profile-heading"><div class="tweets-profile-name">Chainlink</div><div class="tweets-profile-account">@chainlink</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65253abefb080a7f70032ab6_twitter-x.svg" loading="lazy" alt="" class="tweets-marquee-logo"/></div><div class="tweets-marquee-text w-richtext"><p><a href="https://twitter.com/CoinGPT_tech" target="_blank">@CoinGPT_tech </a>has integrated <a href="https://twitter.com/hashtag/Chainlink?src=hashtag_click" target="_blank">#Chainlink</a> CCIP across <a href="https://twitter.com/ethereum" target="_blank">@Ethereum </a>and <a href="https://twitter.com/0xPolygon" target="_blank">@0xPolygon </a>to help unlock its cross-chain AI Hub.</p><p>Discover how CCIP unlocks access to users on other blockchains while minimizing overhead.</p></div><a href="https://twitter.com/chainlink/status/1725169961797140735?s=20" target="_blank" class="tweets-marquee-link">View Post</a></div><div role="listitem" class="tweets-marquee-item w-dyn-item"><div class="tweets-marquee-head"><div class="tweets-profile-photo"><img src="https://cdn.prod.website-files.com/64354b8ce4872a52ac1c7b06/655b264c63c953059344975e_polygon-labs.jpg" loading="lazy" alt="" class="tweets-profile-image"/><div class="tweets-profile-corner-left"></div><div class="tweets-profile-corner-right"></div></div><div class="tweets-profile-heading"><div class="tweets-profile-name">Polygon (Labs)</div><div class="tweets-profile-account">@0xPolygonLabs</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65253abefb080a7f70032ab6_twitter-x.svg" loading="lazy" alt="" class="tweets-marquee-logo"/></div><div class="tweets-marquee-text w-richtext"><p>CoinGPT is unlocking cross-chain functionality with <a target="_blank" href="https://twitter.com/0xPolygon">@0xPolygon</a>, after its recent integration with Chainlink CCIP.</p><p>Meaning seamless connectively and enhanced experiences within web3 AI.</p></div><a href="https://twitter.com/0xPolygonLabs/status/1725255013545705823?s=20" target="_blank" class="tweets-marquee-link">View Post</a></div><div role="listitem" class="tweets-marquee-item w-dyn-item"><div class="tweets-marquee-head"><div class="tweets-profile-photo"><img src="https://cdn.prod.website-files.com/64354b8ce4872a52ac1c7b06/6525367ca098ee06589adf4c_bnb-chain.png" loading="lazy" alt="" class="tweets-profile-image"/><div class="tweets-profile-corner-left"></div><div class="tweets-profile-corner-right"></div></div><div class="tweets-profile-heading"><div class="tweets-profile-name">BNB Chain</div><div class="tweets-profile-account">@BNBCHAIN</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65253abefb080a7f70032ab6_twitter-x.svg" loading="lazy" alt="" class="tweets-marquee-logo"/></div><div class="tweets-marquee-text w-richtext"><p>We asked <a href="https://twitter.com/CoinGPT_tech">@CoinGPT_tech</a>&#x27;s A.I to explain Merkle Trees:&quot;A Merkle tree is a cryptographic data structure that verifies large amounts of data. This enables fast verification by comparing only a few hashes instead of an entire data set.&quot;How would you add to this?</p></div><a href="https://twitter.com/BNBCHAIN/status/1700962350487195904" target="_blank" class="tweets-marquee-link">View Post</a></div><div role="listitem" class="tweets-marquee-item w-dyn-item"><div class="tweets-marquee-head"><div class="tweets-profile-photo"><img src="https://cdn.prod.website-files.com/64354b8ce4872a52ac1c7b06/6525368aa3ea2c2af637818e_Tron-dao.jpg" loading="lazy" alt="" class="tweets-profile-image"/><div class="tweets-profile-corner-left"></div><div class="tweets-profile-corner-right"></div></div><div class="tweets-profile-heading"><div class="tweets-profile-name">Tron Dao</div><div class="tweets-profile-account">@trondao</div></div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65253abefb080a7f70032ab6_twitter-x.svg" loading="lazy" alt="" class="tweets-marquee-logo"/></div><div class="tweets-marquee-text w-richtext"><p>This collaboration with <a href="https://twitter.com/CoinGPT_tech">@CoinGPT_tech</a> is a game-changer for the <a href="https://twitter.com/hashtag/TRON?src=hashtag_click">#TRON</a> community!Together, we usher in a new era of <a href="https://twitter.com/hashtag/AI?src=hashtag_click">#AI</a> accessibility and flexibility on the <a href="https://twitter.com/hashtag/TRON?src=hashtag_click">#TRON</a> network.</p><p> From minting <a href="https://twitter.com/hashtag/NFTs?src=hashtag_click">#NFTs</a> to deploying and auditing smart contracts, there&#x27;s so much you can do!</p></div><a href="https://twitter.com/trondao/status/1706790975438524529" target="_blank" class="tweets-marquee-link">View Post</a></div></div></div></div><div class="marqee-settings w-embed"><style>
+  .page-ready .revolution .copied .marquee-content {
+    animation: marqueeScroll 30s linear infinite;
+  }
+  .page-ready .revolution .copied .marquee-content.reverse {
+    animation-direction: reverse;
+  }
+</style></div><div class="js-marquee-revolution-clone"><div class="marquee-content reverse"><a rel="noopener noreferrer nofollow" href="https://news.bitcoin.com/introducing-chaingpt-pad-an-ai-focused-launchpad-released-by-chaingpt/" target="_blank" class="marquee-item w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64f5be10721a160927924692_bitcoin.com.svg" loading="lazy" width="179" height="50" alt="Bitcoin.com Logo"/></a><a rel="noopener noreferrer nofollow" href="https://www.bsc.news/post/battle-of-the-dapps-concludes-with-chaingpt-as-champions" target="_blank" class="marquee-item w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64f5be108d243931917384eb_bsc-news.svg" loading="lazy" width="79" height="50" alt="Bsc News Logo"/></a><a rel="noopener noreferrer nofollow" href="https://beincrypto.com/chaingpt-v1-the-ai-powered-dashboard-for-web3/" target="_blank" class="marquee-item w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64f5be10f6f2d9b891ecefab_beincrypto.svg" loading="lazy" width="140" height="50" alt="Be in crypto Logo"/></a><a rel="noopener noreferrer nofollow" href="https://cryptopotato.com/chaingpt-launches-v1-the-ai-powered-dashboard-for-navigating-web3/" target="_blank" class="marquee-item w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64f5be104d54783a3395ebb6_cryptopotato.svg" loading="lazy" width="185" height="50" alt="Crypto Potato Logo"/></a><a rel="noopener noreferrer nofollow" href="https://ambcrypto.com/chaingpt-is-launching-dexcheck-an-ai-powered-crypto-web3-platform/" target="_blank" class="marquee-item w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64f5be0c6921a8f135842031_ambcrypto.svg" loading="lazy" width="117" height="50" alt="Amb Crypto Logo"/></a><a rel="noopener noreferrer nofollow" href="https://blockonomi.com/chaingpt-token-cgpt-is-launching-on-ethereum-bridging-web3-ai/" target="_blank" class="marquee-item w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64f5be11ef4abb8f61dd8bca_blockonomi.svg" loading="lazy" width="196" height="50" alt="Blockonomi Logo"/></a><a rel="noopener noreferrer nofollow" href="https://cryptodaily.co.uk/2023/8/the-only-nft-generator-of-its-kind-chaingpts-ai-prototype" target="_blank" class="marquee-item w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64f5be10bc77c145a449727c_cryptodaily.svg" loading="lazy" width="150" height="50" alt="Crypto Daily Logo"/></a><a rel="noopener noreferrer nofollow" href="https://cryptonews.net/editorial/press-releases/chaingpt-is-launching-solidus-ai-tech-the-web3-infrastructure-as-a-service-provider/" target="_blank" class="marquee-item w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64f5be10a3b8835d0faf74fc_cryptonews.svg" loading="lazy" width="162" height="50" alt="Crypto News Logo"/></a><a rel="noopener noreferrer nofollow" href="https://finbold.com/review/chaingpt-review/" target="_blank" class="marquee-item w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64f5be15ccdbbce5cc2d49c2_finbold.svg" loading="lazy" width="123" height="50" alt="FinBold Logo"/></a><a rel="noopener noreferrer nofollow" href="https://finance.yahoo.com/news/flash-news-okx-wallet-now-114500081.html?guccounter=1" target="_blank" class="marquee-item w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/644921afb8d66809f9f93ad2_logoNews.svg" loading="lazy" width="110" height="50" alt="Yahoo Finance Logo"/></a><a rel="noopener noreferrer nofollow" href="https://www.kriptoskop.com/analiz/chaingpt-launchpad-nedir/" target="_blank" class="marquee-item w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/67ae28089bdbe28e32ef841f_logo.svg" loading="lazy" width="110" height="50" alt="Yahoo Finance Logo"/></a></div><div class="marquee-divider"></div></div></div></div></div><div data-w-id="2c637d4c-6ff6-030c-ec33-d4e427892c00" class="container-middle revolution__items"><div id="w-node-_2c637d4c-6ff6-030c-ec33-d4e427892c01-27892bd8" class="revolution__item"><div class="revolution__item-subtitle main-language">JOIN OUR</div><a rel="noopener noreferrer nofollow" href="https://t.me/chaingpt" target="_blank" class="link-block-15 w-inline-block"><h3 class="heading-8">Telegram</h3><div class="w-embed"><svg class="revolution-ico-link" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.71869 1.51632L9.37756 1.58317C11.2354 1.55428 12.3974 1.2358 13.5785 0.523391C14.2138 0.140181 15.0737 0.186111 15.6444 0.757756C16.298 1.41241 16.383 2.46284 15.7039 3.14306C15.0248 3.82327 0.0102084 18.8624 0.0102084 18.8624C-0.00340314 18.876 -0.00340224 18.8981 0.0102077 18.9118L1.08646 19.9898C1.10007 20.0034 1.12213 20.0034 1.13575 19.9898L16.8294 4.27043C18.2107 2.88692 20.4276 4.78085 19.4373 6.40414C18.696 7.61924 18.3559 8.82359 18.3568 10.8318L18.4499 17.277C18.4501 17.2959 18.4654 17.3111 18.4842 17.3114L19.9304 17.3323C19.9502 17.3326 19.9662 17.3165 19.9658 17.2967L20 0.0342172C19.9996 0.0154551 19.9845 0.000344554 19.9658 5.81168e-06L2.69877 5.81167e-06C2.67908 -0.000350137 2.66301 0.0156907 2.66329 0.0354147L2.68419 1.48192C2.68446 1.50086 2.69977 1.51613 2.71869 1.51632Z" fill="currentColor"/>
+</svg></div></a><div class="revolution__item-subtitle korean-language">JOIN OUR</div><div class="social-info-block"><p class="info-text-big">195K+</p><p class="info-text-small">MEMBERS</p></div></div><div id="w-node-_2c637d4c-6ff6-030c-ec33-d4e427892c08-27892bd8" class="revolution__item align-right"><div class="revolution__item-subtitle main-language">HOP INTO</div><a rel="noopener noreferrer nofollow" href="https://discord.gg/chaingpt" target="_blank" class="link-block-15 w-inline-block"><h3 class="heading-8">Discord</h3><div class="w-embed"><svg class="revolution-ico-link" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.71869 1.51632L9.37756 1.58317C11.2354 1.55428 12.3974 1.2358 13.5785 0.523391C14.2138 0.140181 15.0737 0.186111 15.6444 0.757756C16.298 1.41241 16.383 2.46284 15.7039 3.14306C15.0248 3.82327 0.0102084 18.8624 0.0102084 18.8624C-0.00340314 18.876 -0.00340224 18.8981 0.0102077 18.9118L1.08646 19.9898C1.10007 20.0034 1.12213 20.0034 1.13575 19.9898L16.8294 4.27043C18.2107 2.88692 20.4276 4.78085 19.4373 6.40414C18.696 7.61924 18.3559 8.82359 18.3568 10.8318L18.4499 17.277C18.4501 17.2959 18.4654 17.3111 18.4842 17.3114L19.9304 17.3323C19.9502 17.3326 19.9662 17.3165 19.9658 17.2967L20 0.0342172C19.9996 0.0154551 19.9845 0.000344554 19.9658 5.81168e-06L2.69877 5.81167e-06C2.67908 -0.000350137 2.66301 0.0156907 2.66329 0.0354147L2.68419 1.48192C2.68446 1.50086 2.69977 1.51613 2.71869 1.51632Z" fill="currentColor"/>
+</svg></div></a><div class="revolution__item-subtitle korean-language">HOP INTO</div><div class="social-info-block"><p class="info-text-big">45K+</p><p class="info-text-small">MEMBERS</p></div></div><div id="w-node-_2c637d4c-6ff6-030c-ec33-d4e427892c0f-27892bd8" class="revolution__item border-top"><div class="revolution__item-subtitle main-language">FOLLOW OUR</div><a rel="noopener noreferrer nofollow" href="https://twitter.com/chain_gpt" target="_blank" class="link-block-15 w-inline-block"><h3 class="heading-8">Twitter</h3><div class="code-embed w-embed"><svg class="revolution-ico-link" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.71869 1.51632L9.37756 1.58317C11.2354 1.55428 12.3974 1.2358 13.5785 0.523391C14.2138 0.140181 15.0737 0.186111 15.6444 0.757756C16.298 1.41241 16.383 2.46284 15.7039 3.14306C15.0248 3.82327 0.0102084 18.8624 0.0102084 18.8624C-0.00340314 18.876 -0.00340224 18.8981 0.0102077 18.9118L1.08646 19.9898C1.10007 20.0034 1.12213 20.0034 1.13575 19.9898L16.8294 4.27043C18.2107 2.88692 20.4276 4.78085 19.4373 6.40414C18.696 7.61924 18.3559 8.82359 18.3568 10.8318L18.4499 17.277C18.4501 17.2959 18.4654 17.3111 18.4842 17.3114L19.9304 17.3323C19.9502 17.3326 19.9662 17.3165 19.9658 17.2967L20 0.0342172C19.9996 0.0154551 19.9845 0.000344554 19.9658 5.81168e-06L2.69877 5.81167e-06C2.67908 -0.000350137 2.66301 0.0156907 2.66329 0.0354147L2.68419 1.48192C2.68446 1.50086 2.69977 1.51613 2.71869 1.51632Z" fill="currentColor"/>
+</svg></div></a><div class="revolution__item-subtitle korean-language">FOLLOW OUR</div><div class="social-info-block"><p class="info-text-big">1M+</p><p class="info-text-small">followers</p></div></div><div id="w-node-_2c637d4c-6ff6-030c-ec33-d4e427892c16-27892bd8" class="revolution__item border-top align-right"><div class="revolution__item-subtitle main-language">drop us a message</div><a rel="noopener noreferrer nofollow" href="/contact-us" class="link-block-15 w-inline-block"><h3 class="heading-8">Contact</h3><div class="w-embed"><svg class="revolution-ico-link" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.71869 1.51632L9.37756 1.58317C11.2354 1.55428 12.3974 1.2358 13.5785 0.523391C14.2138 0.140181 15.0737 0.186111 15.6444 0.757756C16.298 1.41241 16.383 2.46284 15.7039 3.14306C15.0248 3.82327 0.0102084 18.8624 0.0102084 18.8624C-0.00340314 18.876 -0.00340224 18.8981 0.0102077 18.9118L1.08646 19.9898C1.10007 20.0034 1.12213 20.0034 1.13575 19.9898L16.8294 4.27043C18.2107 2.88692 20.4276 4.78085 19.4373 6.40414C18.696 7.61924 18.3559 8.82359 18.3568 10.8318L18.4499 17.277C18.4501 17.2959 18.4654 17.3111 18.4842 17.3114L19.9304 17.3323C19.9502 17.3326 19.9662 17.3165 19.9658 17.2967L20 0.0342172C19.9996 0.0154551 19.9845 0.000344554 19.9658 5.81168e-06L2.69877 5.81167e-06C2.67908 -0.000350137 2.66301 0.0156907 2.66329 0.0354147L2.68419 1.48192C2.68446 1.50086 2.69977 1.51613 2.71869 1.51632Z" fill="currentColor"/>
+</svg></div></a><div class="revolution__item-subtitle korean-language">drop us a message</div><div class="social-info-block"><p class="info-text-small">Let’s talk!</p></div></div><div id="w-node-_2c637d4c-6ff6-030c-ec33-d4e427892c1d-27892bd8" class="revoultion-image-wrapper"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/64832a17a867450f10eaafb2_chainGPT_face_footer.svg" loading="lazy" width="274" height="244" alt="CoinGPT Blank Face 274 x 244" id="w-node-_2c637d4c-6ff6-030c-ec33-d4e427892c1e-27892bd8" class="revolution__image"/><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/644ba7fbbe660b5379568438_chainGPT_eyes_footer.png" loading="lazy" alt="CoinGPT Robot Eyes" class="pupils"/></div></div></div><footer class="footer-2"><div class="footer container site-footer"><div class="footer__top"><div class="footer-logo-col"><a rel="noopener noreferrer" href="/" class="w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6483293322613c6de68e41b9_chaingpt-logoLight-Mono-2.svg" alt="CoinGPT Mono Icon 34 x 34" width="34" height="34"/></a></div><div class="div-block-378 footer__content container-middle"><div class="div-block-374"><p class="paragraph-8">Subscribe to be in touch*</p><p class="text-small-2">*Only valuable resources.</p></div><div class="form-block-4 w-form"><form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="post" class="footer__form" data-wf-page-id="65ccceeff6c32297f42a1eef" data-wf-element-id="8d354d54-e907-8f5b-e8f9-8af2dcc1ae31"><input class="text-field-4 w-input" maxlength="128" name="email-2" data-name="Email 2" placeholder="Your e-mail" type="email" id="email-2" required=""/><input type="submit" data-wait="Please wait..." class="submit-button-3 w-button" value="SUBSCRIBE"/></form><div class="success-message w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div><div class="div-block-356 footer__nav"><div class="footer__menus"><div class="footer__nav-col first"><p class="footer__nav-head">AI Solutions</p><div class="footer__nav-links"><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/" target="_blank" class="footer__nav-link">CoinGPT Chat Bot</a><a rel="noopener noreferrer nofollow" href="/ai-agents" class="footer__nav-link">CoinGPT AI Agents</a><a rel="noopener noreferrer nofollow" href="https://nft.coingpt.tech/" target="_blank" class="footer__nav-link">AI NFT Generator</a><a rel="noopener noreferrer nofollow" href="https://t.me/chaingptai_bot" target="_blank" class="footer__nav-link">CoinGPT on Telegram</a><a rel="noopener noreferrer nofollow" href="https://discord.gg/chaingpt" target="_blank" class="footer__nav-link">CoinGPT on Discord</a><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/" target="_blank" class="footer__nav-link">Smart Contract Generator</a><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/" target="_blank" class="footer__nav-link">Smart Contract Auditor</a><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/news" target="_blank" class="footer__nav-link">AI Generated News</a><a rel="noopener noreferrer nofollow" href="https://app.coingpt.tech/" target="_blank" class="footer__nav-link">AI Trading Assistant</a><a rel="noopener noreferrer nofollow" href="https://docs.coingpt.tech/the-ecosystem/apis-and-sdks" target="_blank" class="footer__nav-link">API/SDK Access</a><a rel="noopener noreferrer nofollow" href="https://www.cryptoguard.ai/" target="_blank" class="footer__nav-link">CryptoGuard</a></div></div><div id="w-node-_8d354d54-e907-8f5b-e8f9-8af2dcc1ae46-dcc1ae25" class="footer__nav-col second"><p class="footer__nav-head">Quick Links</p><div class="footer__nav-links"><a rel="noopener noreferrer" href="https://pad.coingpt.tech" target="_blank" class="footer__nav-link">CoinGPT Pad</a><a rel="noopener noreferrer" href="/blog" target="_blank" class="footer__nav-link">CoinGPT Blog</a><a rel="noopener noreferrer" href="https://docs.coingpt.tech" target="_blank" class="footer__nav-link">Documentation</a><a href="https://app.coingpt.tech/staking" rel="noopener noreferrer nofollow" target="_blank" class="footer__nav-link">$CGPT Staking</a><a href="https://app.coingpt.tech/dao" rel="noopener noreferrer nofollow" target="_blank" class="footer__nav-link">DAO Governance</a><a rel="noopener noreferrer" href="https://app.coingpt.tech/pricing" target="_blank" class="footer__nav-link">Pricing Page</a><a rel="noopener noreferrer" href="#" class="footer__nav-link">Help Center</a><a rel="noopener noreferrer" href="/brand-kit" class="footer__nav-link">Brand Kit</a><a rel="noopener noreferrer" href="https://docs.coingpt.tech/misc/work-with-us" target="_blank" class="footer__nav-link">Careers</a><a rel="noopener noreferrer" href="https://saleium.io" target="_blank" class="footer__nav-link">Saleium Token SaaS</a><a rel="noopener noreferrer" href="https://splitshot.finance/" target="_blank" class="footer__nav-link">Robinhood DEX Swap</a><a rel="noopener noreferrer" href="http://help.coingpt.tech" target="_blank" class="footer__nav-link">Help Center</a></div></div><div class="footer__nav-col third"><p class="footer__nav-head">legal</p><div class="footer__nav-links"><a rel="noopener noreferrer" href="/verify" aria-current="page" class="footer__nav-link w--current">Official verification</a><a rel="noopener noreferrer" href="/privacy-policy" class="footer__nav-link">Privacy Policy</a><a rel="noopener noreferrer" href="/tos" class="footer__nav-link">Terms of Service</a><a rel="noopener noreferrer" href="/cookies" class="footer__nav-link">Cookies Policy</a><a rel="noopener noreferrer" href="/eligibility-policy" class="footer__nav-link">Eligibility Policy</a><div cookie-modal-open="" class="footer__nav-link hide-on-prod">Manage Cookies</div></div></div><div class="div-block-373"><a rel="noopener noreferrer nofollow" href="https://t.me/chaingpt" target="_blank" class="footer__social-link w-inline-block"><div class="footer__social-link-text">TELEGRAM</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" alt="" width="20" height="20" class="footer-social-arrow"/></a><a rel="noopener noreferrer nofollow" href="https://discord.com/invite/sv2NfqSgVW" target="_blank" class="footer__social-link w-inline-block"><div class="footer__social-link-text">DISCORD</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" alt="" width="20" height="20" class="footer-social-arrow"/></a><a rel="noopener noreferrer nofollow" href="https://www.youtube.com/@CoinGPT" target="_blank" class="footer__social-link w-inline-block"><div class="footer__social-link-text">YOUTUBE</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" alt="" width="20" height="20" class="footer-social-arrow"/></a><a rel="noopener noreferrer nofollow" href="https://medium.com/@chaingpt" target="_blank" class="footer__social-link w-inline-block"><div class="footer__social-link-text">MEDIUM</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" alt="" width="20" height="20" class="footer-social-arrow"/></a><a rel="noopener noreferrer nofollow" href="https://www.linkedin.com/company/chaingpt" target="_blank" class="footer__social-link w-inline-block"><div class="footer__social-link-text">LINKEDIN</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" alt="" width="20" height="20" class="footer-social-arrow"/></a><a rel="noopener noreferrer nofollow" href="https://facebook.com/CoinGPT" target="_blank" class="footer__social-link w-inline-block"><div class="footer__social-link-text">FACEBOOK</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" alt="" width="20" height="20" class="footer-social-arrow"/></a><a rel="noopener noreferrer nofollow" href="https://twitter.com/chain_gpt" target="_blank" class="footer__social-link w-inline-block"><div class="footer__social-link-text">TWITTER</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" alt="" width="20" height="20" class="footer-social-arrow"/></a><a rel="noopener noreferrer nofollow" href="https://www.instagram.com/chaingptai/" target="_blank" class="footer__social-link w-inline-block"><div class="footer__social-link-text">INSTAGRAM</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" alt="" width="20" height="20" class="footer-social-arrow"/></a><a rel="noopener noreferrer nofollow" href="https://github.com/CoinGPT-org/" target="_blank" class="footer__social-link w-inline-block"><div class="footer__social-link-text">GITHUB</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/645e3d7ca7fd751544d4e7e8_icon-link-arrow-simple.svg" alt="" width="20" height="20" class="footer-social-arrow"/></a></div></div></div></div></div><div class="div-block-372"><div rel="noopener noreferrer nofollow" class="w-embed"><a href="https://www.producthunt.com/posts/chaingpt?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-chaingpt" target="_blank" rel="noopener noreferrer nofollow"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=378970&theme=dark" alt="CoinGPT - Unleash&#0032;the&#0032;power&#0032;of&#0032;Blockchain&#0032;AI&#0032;with&#0032;CoinGPT | Product Hunt" style="width: 205px; height: 44px;" width="205" height="44" /></a></div></div><div class="div-block-375"><div class="footer__logo"><p class="text-small-2 footer__text-copy">© 2025</p></div><div class="div-block-376"><div class="text-small-2">All rights reserved by CoinGPT.org.</div></div><div class="footer__dots"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/646201707951b1100b67ddfd_double-dots.svg" loading="lazy" alt="Robot Eyes" class="image-1027"/></div></div></div><div id="cookie-consent-banner" class="cookie-popup"><div class="cookie-popup-inner"><div class="cookie-popup-head"><h4 class="cookie-popup-title">Cookies</h4><a id="btn-hide-banner" fs-cc="close" href="#" class="cookie-close w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/644a7458b64f4040a7ca1446_ico-close.svg" loading="lazy" width="16" height="14" alt="Close Cookies Popup" class="cookie-close-icon"/></a></div><div class="cookie-popup-body"><p class="popup-cookie-p m-0">We use third-party cookies to personalize content, ads, and analyze website traffic.</p><a id="btn-hide-banner-mob" fs-cc="close" href="#" class="cookie-close-mobile w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/644a7458b64f4040a7ca1446_ico-close.svg" loading="lazy" width="16" height="16" alt="Icon Close Cookies Popup" class="cookie-close-icon"/></a></div><div class="cookie-popup-footer"><a id="btn-accept-all" fs-cc="allow" href="#" class="button-simple button-simple--white button-simple--md w-inline-block"><div>Accept</div></a><a id="btn-reject-all" fs-cc="deny" href="#" class="button-simple button-simple--md w-inline-block"><div>Reject</div></a></div></div></div><div class="cookie-modal hide-on-prod"><div class="cookie-modal-wrapper"><div class="cookie-modal-header"><div class="cookie-modal-title">Cookies</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/686f83efcea80ad7837a858e_Close%20Icon.svg" loading="lazy" cookie-modal-close="" alt="" class="cookie-modal-close"/></div><div class="cookie-modal-body"><div data-current="Consent" data-easing="ease" data-duration-in="300" data-duration-out="100" class="cookie-modal-tabs w-tabs"><div class="cookie-tabs-header w-tab-menu"><a data-w-tab="Consent" class="cookie-tabs-link w-inline-block w-tab-link w--current"><div class="cookie-tabs-link-title">Consent</div></a><a data-w-tab="Details" class="cookie-tabs-link w-inline-block w-tab-link"><div class="cookie-tabs-link-title">Details</div></a><a data-w-tab="About" class="cookie-tabs-link w-inline-block w-tab-link"><div class="cookie-tabs-link-title">About</div></a></div><div class="w-tab-content"><div data-w-tab="Consent" class="w-tab-pane w--tab-active"><div class="cookie-tab-body"><div class="cookie-body-title">This website uses cookies<br/></div><div class="cookie-body-content">We use cookies to personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners who may combine it with other information that you’ve provided to them or that they’ve collected from your use of their services.</div></div></div><div data-w-tab="Details" class="w-tab-pane"><div data-lenis-prevent="true" class="cookie-tab-body body-details"><div class="cookie-body-details-wrapper"><div data-cookie-value="true" class="cookie-check-wrapper active immutable"><div class="cookie-check"><div class="cookie-check-round"></div><div class="cookie-check-bg"></div></div><div class="cookie-check-text">Necessary</div></div><div class="cookie-body-content">We use cookies to personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners who may combine it with other information that you’ve provided to them or that they’ve collected from your use of their services.</div></div><div class="cookie-body-details-wrapper"><div data-cookie-value="false" data-cookie="preferences" class="cookie-check-wrapper"><div class="cookie-check"><div class="cookie-check-round"></div><div class="cookie-check-bg"></div></div><div class="cookie-check-text">Preferences</div></div><div class="cookie-body-content">Preference cookies enable a website to remember information that changes the way the website behaves or looks, like your preferred language or the region that you are in.</div></div><div class="cookie-body-details-wrapper"><div data-cookie-value="false" data-cookie="statistics" class="cookie-check-wrapper"><div class="cookie-check"><div class="cookie-check-round"></div><div class="cookie-check-bg"></div></div><div class="cookie-check-text">Statistics</div></div><div class="cookie-body-content">Statistic cookies help website owners to understand how visitors interact with websites by collecting and reporting information anonymously.</div></div><div class="cookie-body-details-wrapper"><div data-cookie-value="false" data-cookie="marketing" class="cookie-check-wrapper"><div class="cookie-check"><div class="cookie-check-round"></div><div class="cookie-check-bg"></div></div><div class="cookie-check-text">Marketing</div></div><div class="cookie-body-content">Marketing cookies are used to track visitors across websites. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third party advertisers.</div></div><div class="cookie-body-details-wrapper"><div class="cookie-check-wrapper"><div class="cookie-check-text">Cross-domain Consent</div></div><div class="cookie-body-content">Your consent applies to the following domains:</div><ul role="list" class="cookie-details-list"><li class="cookie-details-list-item">www.coingpt.tech</li><li class="cookie-details-list-item">www.coingpt.tech</li><li class="cookie-details-list-item">www.coingpt.tech</li><li class="cookie-details-list-item">www.coingpt.tech</li></ul></div></div><div class="cookie-body-gradient"></div></div><div data-w-tab="About" class="w-tab-pane"><div data-lenis-prevent="true" class="cookie-tab-body body-about"><div class="cookie-body-content mb-1rem">Cookies are small text files that can be used by websites to make a user&#x27;s experience more efficient.<br/>‍<br/>The law states that we can store cookies on your device if they are strictly necessary for the operation of this site. For all other types of cookies we need your permission. This means that cookies which are categorized as necessary, are processed based on GDPR Art. 6 (1) (f). All other cookies, meaning those from the categories preferences and marketing, are processed based on GDPR Art. 6 (1) (a) GDPR.<br/>‍<br/>This site uses different types of cookies. Some cookies are placed by third party services that appear on our pages.<br/>You can at any time change or withdraw your consent from the Cookie Declaration on our website.<br/>‍<br/>Learn more about who we are, how you can contact us and how we process personal data in our Privacy Policy.<br/>‍<br/>Please state your consent ID and date when you contact us regarding your consent.</div></div><div class="cookie-body-gradient"></div></div></div></div></div><div class="cookie-modal-footer"><div class="cookie-footer-wrapper"><div cookie-modal-deny="" class="cookie-btn cookie-btn-secondary"><div class="cookie-btn-text cookie-btn-secondary">Deny</div></div><div cookie-details="" class="cookie-btn cookie-btn-secondary"><div class="cookie-btn-text cookie-btn-secondary cookie-btn-with-icon">Customize</div></div><div cookie-modal-allow-section="" class="cookie-btn cookie-btn-secondary"><div class="cookie-btn-text cookie-btn-secondary">Allow Selection</div></div><div cookie-modal-allow="" class="cookie-btn btn-full-width"><div class="cookie-btn-text">Allow All<br/></div></div></div></div></div><div class="cookie-accept-wrapper"><div class="cookie-modal-header"><div class="cookie-modal-title">Cookies</div><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/686f83efcea80ad7837a858e_Close%20Icon.svg" loading="lazy" cookie-modal-close="" alt="" class="cookie-modal-close"/></div><div class="cookie-modal-body"><div class="cookie-accept-body-wrapper"><div class="cookie-accept-state-wrapper"><div class="cookie-body-title">Your current state<br/></div><div class="w-layout-hflex cookie-accept-list"><div data-cookie-necessary="true" class="cookie-accept-list-item true"><div class="cookie-accept-title">Necessary</div></div><div data-cookie-preferences="false" class="cookie-accept-list-item false"><div class="cookie-accept-title">Preferences</div></div><div data-cookie-statistics="false" class="cookie-accept-list-item false"><div class="cookie-accept-title">Statistics</div></div><div data-cookie-marketing="false" class="cookie-accept-list-item false"><div class="cookie-accept-title">Marketing</div></div></div></div></div></div><div class="cookie-modal-footer"><div class="cookie-footer-wrapper"><div cookie-withdraw-consent="" class="cookie-btn cookie-btn-secondary"><div class="cookie-btn-text cookie-btn-secondary">Withdraw your consent</div></div><div cookie-change-consent="" class="cookie-btn btn-full-width"><div class="cookie-btn-text">Change your consent</div></div></div></div></div></div></footer><div verify-popup="" class="verify-popup-outer"><div class="verify-popup-inner"><div class="verify-popup"><div class="verify-popup-head"><div is-verified-content="" class="verify-popup-head-gradient"></div><div not-verified-content="" class="verify-popup-head-gradient gradient-error"></div><h2 class="veriffy-popup-title">verification result</h2><a close-verify-popup="" href="#" class="verify-popup-close w-inline-block"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/644a7458b64f4040a7ca1446_ico-close.svg" loading="lazy" alt="IDO Closed Icon" class="verify-popup-close-icon"/></a></div><div class="verify-popup-body"><div class="verify-results-box"><div class="verify-results-head"><div class="verify-results-status"><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65ce44a09016d39d1e3b1967_ico-verified.svg" loading="lazy" is-verified-content="" alt="" class="verify-status-icon"/><img src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/65cf4eb7a1c8a8b2c0b22d4f_ico-not-verified.svg" loading="lazy" not-verified-content="" alt="" class="verify-status-icon"/></div><div class="verify-results-head-inner"><h3 verify-popup-title="" class="verify-results-title">Official site</h3></div></div><div class="verify-results-body"><div class="verify-results-pre-title">You entered:</div><div class="verify-results-content"><div verify-data-entered="" class="verify-results-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e4978087979e979c80878080a48389858d88ca878b89">[email&#160;protected]</a></div><div class="verify-results-description"><p is-verified-content="" class="verify-results-paragraph">This is coingpt.tech certification <span data-correct-channel="">channel</span>.  To ensure the safety of your assets, please proceed with caution.</p><p not-verified-content="" class="verify-results-paragraph">This is not a coingpt.tech certification <span data-wrong-channel="">channel</span>. To ensure the safety of your assets, please proceed with caution.</p></div></div></div><div class="verify-results-footer"><a href="#" close-verify-popup="" scramble-link="" class="btn-primary btn-primary--padding-lg btn-primary--grey btn-primary--no-icon mobile-w-100 w-inline-block"><div class="btn-primary-lines btn-primary-lines-1"><div class="btn-primary-lines btn-primary-lines-2"><div scramble-text="" class="btn-primary-text">return to verification</div></div></div></a></div></div></div></div><div close-verify-popup="" class="verify-popup-close-trigger"></div></div></div><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=64354b8ce4872ad8cd1c7b04" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/js/chain-gpt.schunk.32b28350b4117d0f.js" type="text/javascript" integrity="sha384-FY9kfDj44yFLv0P23e/NDMYcxb5toElf1lw0FzQa8aCFQBoGvTe1tifB8iRE+pl5" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/js/chain-gpt.schunk.767d7edb931414d2.js" type="text/javascript" integrity="sha384-IsJwQHiYLGi0QlHfqCt/I7xQWF/ZQZoc6sJZWkDg7XEvumbBfIX+5be2/qnhkJL9" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/js/chain-gpt.98a31b15.d241037c1a56c92e.js" type="text/javascript" integrity="sha384-0zUXOG8ohdFv9AWhcjAvo5ODzNzZ8PqHHXMR0DPw985+2xzbfCvov/e/IlCEy/d5" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/gsap/3.15.0/ScrollTrigger.min.js" type="text/javascript"></script><script type="text/javascript">gsap.registerPlugin(ScrollTrigger);</script><script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha384-NXgwF8Kv9SSAr+jemKKcbvQsz+teULH/a5UNJvZc6kP47hZgl62M1vGnw6gHQhb1" crossorigin="anonymous"></script>
+<script src='https://unpkg.com/gsap@3.11.5/dist/ScrollTrigger.min.js' defer></script>
+<script src='https://unpkg.com/gsap@3.11.5/dist/gsap.min.js' defer></script>
+<script src='https://chaingpt-web.s3.us-east-2.amazonaws.com/assets/js/Update+02.08.24/ScrambleTextPlugin.min.js'></script>
+<!-- [Attributes by Finsweet] CMS Slider -->
+<script async src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsslider@1/cmsslider.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.23/bundled/lenis.min.js"></script>
+<script src='https://chaingpt-web.s3.us-east-2.amazonaws.com/assets/js/Update+02.08.24/main-global.min.js'></script>
+<script>
+        var cookie3Options = {"siteId":214,"additionalTracking":true,"cookielessEnabled":true}
+        window._paq = window._paq || [];
+        (function () {
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.async = true; g.src = 'https://cdn.cookie3.co/scripts/analytics/latest/cookie3.analytics.min.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+<script>
+  	if(!checkIsEUCountry(localStorage.getItem('userCountry'))) {
+
+      function hideBanner() {
+        document.getElementById('cookie-consent-banner').style.display = 'none';
+      }
+      document.getElementById('btn-hide-banner').addEventListener('click', function() {
+        hideBanner();
+      });
+      document.getElementById('btn-hide-banner-mob').addEventListener('click', function() {
+        hideBanner();
+      });
+      if(localStorage.getItem('consentMode') === null) {
+        document.getElementById('btn-accept-all').addEventListener('click', function() {
+          setConsent({
+            necessary: true,
+            analytics: true,
+            preferences: true,
+            marketing: true,
+            userdata: true,
+            personalization: true
+          });
+          hideBanner();
+        });
+        document.getElementById('btn-reject-all').addEventListener('click', function() {
+          setConsent({
+            necessary: false,
+            analytics: false,
+            preferences: false,
+            marketing: false,
+            userdata: false,
+            personalization: false
+          });
+          hideBanner();
+        });
+        document.getElementById('cookie-consent-banner').style.display = 'flex';
+      }
+      function setConsent(consent) {
+        const consentMode = {
+          'ad_storage': consent.marketing ? 'granted' : 'denied',
+          'ad_user_data': consent.userdata ? 'granted' : 'denied',
+          'ad_personalization': consent.personalization ? 'granted' : 'denied',
+          'analytics_storage': consent.analytics ? 'granted' : 'denied',
+          'personalization_storage': consent.preferences ? 'granted' : 'denied',
+          'functionality_storage': consent.necessary ? 'granted' : 'denied',
+          'security_storage': consent.necessary ? 'granted' : 'denied',
+        };
+        gtag('consent', 'update', consentMode);
+        localStorage.setItem('consentMode', JSON.stringify(consentMode));
+      }
+    }
+  
+  	function CheckSiteVersion() {
+      const productionDomain = "www.coingpt.tech";
+      const stageDomain = "chain-gpt.webflow.io";
+      const currentDomain = window.location.hostname;
+      if (currentDomain === stageDomain) {
+          document.body.classList.add("stage-site");
+      }
+      if (currentDomain === productionDomain) {
+          document.body.classList.add("prod-site");
+      }
+      
+      const path = window.location.pathname;
+      if (path.startsWith('/ko') || path.startsWith('/ko/')) {
+          document.body.classList.add("korean-language");
+      }
+      
+      document.body.classList.add("page-ready");
+    }
+  	CheckSiteVersion();
+  	
+</script>
+<script>
+document.querySelectorAll('a[target="_blank"]').forEach(link => {
+    if (!link.rel.includes("noreferrer")) {
+        link.rel += " noreferrer";
+    }
+    if (!link.rel.includes("noopener")) {
+        link.rel += " noopener";
+    }
+});
+</script>
+<script>
+  $(document).ready(function () {
+    const $elementsToCopy = $('[data-copy-element]');
+
+    if ($elementsToCopy.length > 0) {
+      $elementsToCopy.each(function () {
+        const $original = $(this);
+        const $clone = $original.clone(true);
+        $original.parent().append($clone);
+        $original.parent().addClass('copied');
+      });
+    }
+    
+    if(checkIsEUCountry(localStorage.getItem('userCountry'))) {
+      if($('.cookie-modal').length) {
+
+        let storageCookieName = 'userCookieSetting';
+        let userCookieModel = localStorage.getItem(storageCookieName);
+        if(userCookieModel !== null) {
+          userCookieModel =  JSON.parse(userCookieModel);
+          gtag('consent', 'update', {
+            "event": "consent_updated",
+            "consent": {
+              "ad_storage": userCookieModel.marketing ? 'granted' : 'denied',
+              "ad_user_data":  userCookieModel.marketing ? 'granted' : 'denied',
+              "ad_personalization": userCookieModel.marketing ? 'granted' : 'denied',
+              "analytics_storage": userCookieModel.statistics ? 'granted' : 'denied',
+              "functionality_storage": userCookieModel.preferences ? 'granted' : 'denied',
+              "personalization_storage":  userCookieModel.marketing ? 'granted' : 'denied',
+              "security_storage": "granted",
+            }
+          });
+        } else {
+          userCookieModel = {
+            isset: false,
+            preferences: false,
+            statistics: false,
+            marketing: false,
+          };
+
+
+          setTimeout( () => {$('.cookie-modal-wrapper').fadeIn()}, 2000);
+        }
+
+
+
+        function saveCookiesSetting() {
+          Object.defineProperty(userCookieModel, 'isset', {value : true, configurable: true});
+          localStorage.setItem(storageCookieName, JSON.stringify(userCookieModel));
+          window.dataLayer = window.dataLayer || [];
+          let consentUpdateObj = {
+            "event": "consent_updated",
+            "consent": {
+              "ad_storage": userCookieModel.marketing ? 'granted' : 'denied',
+              "ad_user_data":  userCookieModel.marketing ? 'granted' : 'denied',
+              "ad_personalization": userCookieModel.marketing ? 'granted' : 'denied',
+              "analytics_storage": userCookieModel.statistics ? 'granted' : 'denied',
+              "functionality_storage": userCookieModel.preferences ? 'granted' : 'denied',
+              "personalization_storage":  userCookieModel.marketing ? 'granted' : 'denied',
+              "security_storage": "granted",
+            }
+          }
+          window.dataLayer.push(consentUpdateObj);
+          gtag('consent', 'update', consentUpdateObj);
+
+          updateCookieAcceptView();
+          $('.cookie-modal-wrapper').fadeOut();
+          updateCookieDetailsView();
+        }
+        function updateUserCookieModel() {
+          $('[data-cookie]').each( (i, e) => {
+            let currentCookieName = $(e).attr('data-cookie').toLowerCase()
+            let currentCookieValue = $(e).attr('data-cookie-value').toLowerCase() === 'true';
+            $(e).attr('data-cookie-value', currentCookieValue);
+            Object.defineProperty(userCookieModel, currentCookieName, {value : currentCookieValue});
+          });
+          saveCookiesSetting();
+        }
+        function updateCookieAcceptView() {
+          if(userCookieModel !== null) {
+            Object.entries(userCookieModel).forEach(([key, value]) => {
+              $(`[data-cookie-${key}]`).removeClass('true').removeClass('false').addClass(value.toString());
+            });
+          }
+        }
+        function updateCookieDetailsView() {
+          Object.entries(userCookieModel).forEach(([key, value]) => {
+            $(`[data-cookie="${key}"]`).attr('data-cookie-value', value.toString());
+          });
+        }
+
+        $(document).on('click', '[cookie-modal-open]', function(e){
+          if(userCookieModel !== null) {
+            if(userCookieModel.isset) {
+              $('.cookie-accept-wrapper').fadeIn(); 
+            } else {
+              $('.cookie-modal-wrapper').fadeIn(); 
+            }
+          } 
+        });
+
+        $(document).on('click', '[data-cookie]', function(e){
+          let currentCookieName = $(e.currentTarget).attr('data-cookie').toLowerCase()
+          let currentCookieValue = $(e.currentTarget).attr('data-cookie-value').toLowerCase() === 'true';
+          currentCookieValue = !currentCookieValue;
+          $(e.currentTarget).attr('data-cookie-value', currentCookieValue);
+          Object.defineProperty(userCookieModel, currentCookieName, {value : currentCookieValue, configurable: true});
+          updateCookieAcceptView();
+        })
+
+        $(document).on('click', '[cookie-modal-allow-section]', function() {
+          updateUserCookieModel();
+        });
+
+        $(document).on('click', '[cookie-modal-allow]', function() {
+          Object.defineProperty(userCookieModel, 'preferences', {value : true, configurable: true});
+          Object.defineProperty(userCookieModel, 'statistics', {value : true, configurable: true});
+          Object.defineProperty(userCookieModel, 'marketing', {value : true, configurable: true});
+          saveCookiesSetting();
+        });
+
+
+        $(document).on('click', '[cookie-details]', function(){
+          document.querySelector('[data-w-tab="Details"]').click()
+          $('[cookie-detail]').hide();
+          $('[cookie-modal-allow-section]').show();
+        });
+
+        $(document).on('click', '.cookie-tabs-link', function(e){
+          if($(e.currentTarget).attr('data-w-tab') === "Details") {
+            $('[cookie-details]').hide();
+            $('[cookie-modal-allow-section]').show();
+          } else {
+            $('[cookie-details]').show();
+            $('[cookie-modal-allow-section]').hide();
+          }
+        });
+
+        $(document).on('click', '[cookie-change-consent]', function(e){
+          $('.cookie-accept-wrapper').fadeOut();
+          $('.cookie-modal-wrapper').fadeIn();
+        });
+
+        $(document).on('click', '[cookie-modal-close]', function(e){
+          saveCookiesSetting();
+          $('.cookie-accept-wrapper').fadeOut();
+          $('.cookie-modal-wrapper').fadeOut();
+        });
+
+        $(document).on('click', '[cookie-modal-deny]', function(e){
+          Object.defineProperty(userCookieModel, 'preferences', {value : false, configurable: true});
+          Object.defineProperty(userCookieModel, 'statistics', {value : false, configurable: true});
+          Object.defineProperty(userCookieModel, 'marketing', {value : false, configurable: true});
+          saveCookiesSetting();
+          $('.cookie-accept-wrapper').fadeOut();
+          $('.cookie-modal-wrapper').fadeOut();
+        });
+
+
+        $(document).on('click', '[cookie-withdraw-consent]', function(e){
+          Object.defineProperty(userCookieModel, 'preferences', {value : false, configurable: true});
+          Object.defineProperty(userCookieModel, 'statistics', {value : false, configurable: true});
+          Object.defineProperty(userCookieModel, 'marketing', {value : false, configurable: true});
+          saveCookiesSetting();
+          $('.cookie-accept-wrapper').fadeOut();
+        });
+
+        updateCookieAcceptView();
+      }
+    }
+  });
+</script>
+<style>
+.article-content strong {
+    font-weight: 700;
+}
+  .stage-site .hide-on-stage {
+    display: none !important;
+  }
+  .prod-site .hide-on-prod {
+    display: none !important;
+  }
+  
+  .cookie-check-bg {
+    background: conic-gradient(from 148.85deg at 50% 36.76%, #724CE8 0deg, #26F4D0 119.73deg, #F8CF3E 228.48deg, #FC6756 360deg);
+  }
+  .cookie-check-wrapper[data-cookie-value="true"] .cookie-check-bg {
+  	opacity: 1;
+  }
+  .cookie-check-wrapper[data-cookie-value="true"] .cookie-check-round {
+  	left: 0.75rem;
+  }
+  .cookie-btn-with-icon:after {
+    content: '';
+    width: 1rem;
+    height: 1rem;
+	background-image: url('https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/6878a8f2a3c6e71f6fe6f4eb_Chevron%20Icon.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  [cookie-modal-allow-section] {
+   	display: none; 
+  }
+  .landing-features-navigation-line .landing-line-gradient {
+    height: 0%;
+  }
+  @media(max-width: 767px) {
+    .desktop-show {
+      display: none !important;
+    }
+    .mobile-show {
+      display: block !important;
+    }
+    .cookie-check-wrapper[data-cookie-value="true"] .cookie-check-round {
+     	left: 11px; 
+    }
+  }
+  @keyframes verticalSlideAnimation {
+    from {
+      transform: translateY(0%);
+    }
+
+    to {
+      transform: translateY(-100%);
+    }
+  }
+  @keyframes horizontalSlideAnimation {
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const navLine = document.querySelector('.landing-features-navigation-line');
+    if (navLine) {
+      gsap.to(".landing-features-navigation-line .landing-line-gradient", {
+        height: "100%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".landing-features-list",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        }
+      });
+
+      const items = document.querySelectorAll(".landing-features-list-item");
+      const navText = document.getElementById("landing-navigation-text");
+
+      function formatNumber(num) {
+        return num < 10 ? `0${num}` : num;
+      }
+
+      items.forEach((item, index) => {
+        ScrollTrigger.create({
+          trigger: item,
+          start: "top 50%",
+          end: "bottom 50%",
+          onEnter: () => changeNumber(index + 1),
+          onEnterBack: () => changeNumber(index + 1),
+        });
+      });
+
+      function changeNumber(num) {
+        const formatted = formatNumber(num);
+
+        gsap.to(navText, {
+          opacity: 0,
+          y: -10,
+          duration: 0.2,
+          onComplete: () => {
+            navText.textContent = formatted;
+            gsap.to(navText, { opacity: 1, y: 0, duration: 0.2 });
+          }
+        });
+      }
+    }
+
+  });
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  function verifyForm() {
+    /* Select channel */
+    document.querySelectorAll("[data-channel]").forEach((element) => {
+      element.addEventListener("click", function () {
+        let currentIcon = this.querySelector(".custom-dropdown-icon").getAttribute("src");
+        let currentChannel = this.querySelector(".custom-dropdown-item-text").textContent;
+
+        document.querySelectorAll("[data-channel]").forEach((el) => el.removeAttribute("is-selected-channel"));
+        this.setAttribute("is-selected-channel", "");
+        document.querySelector("[data-current-icon]").setAttribute("src", currentIcon);
+        document.querySelector("[data-current-channel]").textContent = currentChannel;
+
+        setTimeout(() => {
+          document.querySelector(".w-dropdown").dispatchEvent(new Event("w-close"));
+        }, 300);
+      });
+    });
+
+    /* Search functionality */
+    let sheetdata = [];
+    document.querySelector("[data-input-verify]").addEventListener("keypress", function (e) {
+      if (e.which === 13) searchChannels();
+    });
+
+    document.querySelector("[data-verify-submit]").addEventListener("click", function () {
+      searchChannels();
+    });
+
+    function makecall(initobj) {
+      let enteredName = sanitizeInput(initobj.searchedName);
+      let searchedName = sliceCall(initobj.searchedName, initobj.sheetName);
+      let verifyPopup = document.querySelector("[verify-popup]");
+      let verifyPopupTitle = document.querySelector("[verify-popup-title]");
+      let verifyDataEntered = document.querySelector("[verify-data-entered]");
+      let verifyCorrectChannel = document.querySelector("[data-correct-channel]");
+      let verifyWrongChannel = document.querySelector("[data-wrong-channel]");
+      let channelType = getChannelType(initobj.sheetName);
+
+      fetch(`https://sheets.googleapis.com/v4/spreadsheets/${initobj.sheetid}/values:batchGet?ranges=${initobj.sheetName}&key=${initobj.apikey}`)
+        .then((response) => response.json())
+        .then((res) => {
+          res.valueRanges.forEach((val) => {
+            val.values.forEach((singval) => {
+              let valueData = sliceCall(singval[0], initobj.sheetName);
+              sheetdata.push(valueData);
+            });
+          });
+
+          if (sheetdata.includes(searchedName)) {
+            verifyPopup.classList.add("is-success");
+            verifyPopupTitle.textContent = `Official ${channelType}`;
+            verifyCorrectChannel.textContent = channelType;
+          } else {
+            verifyPopup.classList.add("is-error");
+            verifyPopupTitle.textContent = `Unofficial ${channelType}`;
+            verifyWrongChannel.textContent = channelType;
+          }
+
+          verifyDataEntered.textContent = enteredName;
+          verifyPopup.style.display = "block";
+        });
+
+      function sliceCall(callName, callSheetName) {
+        if (!callName) return "";
+
+        let slicedName;
+        if (callSheetName === "website") {
+          if (callName.startsWith("http")) {
+            let split1 = callName.split("//")[1].split("/")[0];
+            slicedName = split1.startsWith("www.") ? split1.slice(4) : split1;
+          } else {
+            slicedName = callName.startsWith("www.") ? callName.slice(4).split("/")[0] : callName.split("/")[0];
+          }
+        } else {
+          slicedName = callName.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/^@/, "");
+        }
+
+        return slicedName.toLowerCase();
+      }
+
+      function getChannelType(sheetName) {
+        const types = {
+          website: "site",
+          email: "email account",
+          telegram: "telegram channel",
+          twitter: "twitter account",
+          youtube: "youtube channel",
+          instagram: "instagram account",
+          facebook: "facebook account",
+          linkedin: "linkedin account",
+          tiktok: "tiktok channel",
+        };
+        return types[sheetName] || "";
+      }
+
+      document.addEventListener("keyup", function (e) {
+        if (e.key === "Escape") {
+          verifyPopup.style.display = "none";
+          verifyPopup.classList.remove("is-success", "is-error");
+        }
+      });
+
+      document.querySelector("[close-verify-popup]").addEventListener("click", function () {
+        verifyPopup.style.display = "none";
+        verifyPopup.classList.remove("is-success", "is-error");
+      });
+    }
+
+    function searchChannels() {
+      sheetdata = [];
+      let selectedChannel = document.querySelector("[is-selected-channel]")?.getAttribute("data-channel")?.trim() || "";
+      let lookFor = document.querySelector("[data-input-verify]").value.trim();
+      let verifyError = document.querySelector("[verify-error]");
+
+      if (lookFor) {
+        verifyError.classList.remove("show-error");
+
+        makecall({
+          sheetid: "1EqgjJB0IYgCXl6g8PgnZe-zbDLFQPIkwgscRe0p62mU", // ⚠️ Store securely
+          apikey: "AIzaSyA_M4rFC9smRdnwCzoL6mWmL4wjTLnQSEk", // ⚠️ Store securely
+          sheetName: selectedChannel,
+          searchedName: sanitizeInput(lookFor),
+        });
+      } else {
+        verifyError.classList.add("show-error");
+      }
+    }
+  }
+
+  function sanitizeInput(input) {
+    let temp = document.createElement("div");
+    temp.textContent = input; // Prevents XSS
+    return temp.innerHTML;
+  }
+
+  verifyForm();
+});
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"efd0fa60fb88475f9ad30ba9a1a44c68","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body></html>

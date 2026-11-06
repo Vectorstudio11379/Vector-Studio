@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches and logs
+.pytest_cache/
+*.log
+
+# Backups and temporary test artifacts
+*.bak
+test_index.html
+test_mesuullogic.png
+crop1.png
+
+# Scratch and internal tools
+.superpowers/
+scratch/

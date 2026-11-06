@@ -1,0 +1,20 @@
+{
+  "name": "vector-studioz-agency",
+  "version": "1.0.0",
+  "description": "Vector Studioz — Premier Web Design Agency frontend with WebGL 3D Interactive Robot, Rive canvas, GSAP animations, and responsive UI",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve -p 3000 .",
+    "start": "npx serve -p 3000 .",
+    "preview": "npx serve -p 3000 ."
+  },
+  "keywords": [
+    "vector-studio",
+    "web-design",
+    "ai",
+    "threejs",
+    "rive",
+    "webflow"
+  ],
+  "license": "ISC"
+}
