@@ -994,5 +994,399 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+/* ==========================================================================
+   Brand Logo Image Component Styles
+   ========================================================================== */
+.vs-brand-logo-img {
+  height: 38px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.vs-brand:hover .vs-brand-logo-img {
+  opacity: 0.92;
+  transform: scale(1.02);
+}
+
+/* ==========================================================================
+   Ultra-Performance & Core Web Vitals Accelerators
+   ========================================================================== */
+/* Off-screen paint and layout isolation for 60fps scrolling */
+.landing-features-section,
+.solutions-section,
+.ecosystem-section,
+.token-section,
+.faq-2,
+.cta-banner-wrapper,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+
+/* GPU acceleration for smooth transitions */
+.vs-navbar,
+.top-banner,
+.cta-banner,
+.faq-wrap-2,
+.vs-dropdown-menu {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* ==========================================================================
+   Comprehensive Mobile Responsiveness & Device Fluidity Overhauls
+   ========================================================================== */
+
+/* Universal Fluid Scaling & Asset Boundaries */
+img, svg, video, canvas {
+  max-width: 100%;
+}
+
+/* Top Banner Mobile Optimization */
+.top-banner {
+  min-height: 40px !important;
+  padding: 8px 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #0f1117 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.top-banner-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  text-decoration: none !important;
+  font-family: var(--vs-mono) !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  color: #e2e8f0 !important;
+  max-width: 100% !important;
+}
+
+.top-banner-text {
+  font-size: 12px !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Header & Mobile Drawer Responsiveness */
+@media screen and (max-width: 768px) {
+  .vs-nav-container {
+    padding: 10px 16px !important;
+    height: 64px !important;
+  }
+
+  .vs-brand-logo-img {
+    height: 28px !important;
+    max-width: 145px !important;
+  }
+
+  .vs-mobile-toggle {
+    width: 44px !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .vs-nav-actions .btn-primary {
+    display: none !important;
+  }
+
+  .vs-mobile-drawer {
+    top: 64px !important;
+    height: calc(100vh - 64px) !important;
+    height: calc(100dvh - 64px) !important;
+    padding: 1.25rem 1.25rem 3rem !important;
+  }
+
+  .top-banner-link {
+    font-size: 11px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .vs-nav-container {
+    padding: 8px 12px !important;
+    height: 60px !important;
+  }
+
+  .vs-brand-logo-img {
+    height: 24px !important;
+    max-width: 125px !important;
+  }
+
+  .top-banner {
+    padding: 6px 12px !important;
+  }
+
+  .top-banner-text.overflow-ellipsis {
+    max-width: 250px !important;
+  }
+}
+
+/* Hero Section Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .hero {
+    padding-top: 20px !important;
+    padding-bottom: 40px !important;
+    min-height: auto !important;
+    overflow: hidden !important;
+  }
+
+  .hero-flex-container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .hero-info.home-page {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .hero-info-left {
+    width: 100% !important;
+  }
+
+  .hero-slider-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .hero-slider-inner {
+    width: 100% !important;
+  }
+
+  .hero-slide .paragraph-3 {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .hero-info-right {
+    display: none !important;
+  }
+
+  .hero-bottom {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    margin-top: 24px !important;
+    padding: 0 16px 30px !important;
+    width: 100% !important;
+  }
+
+  .hero-bottom-left {
+    width: 100% !important;
+  }
+
+  .hero-heading-top h1.heading-4 {
+    font-size: clamp(30px, 8vw, 44px) !important;
+    line-height: 1.15 !important;
+    word-break: break-word !important;
+  }
+
+  .hero-heding-top-stroke {
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .hero-heding-top-stroke svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .webgl canvas {
+    max-height: 50vh !important;
+    object-fit: contain !important;
+  }
+}
+
+/* Feature Slider & Cards Mobile */
+@media screen and (max-width: 768px) {
+  .hero-features-slide-wrapper {
+    padding: 16px 12px !important;
+  }
+
+  .hero-feature-score {
+    font-size: 12px !important;
+  }
+
+  .hero-features-list {
+    gap: 8px !important;
+  }
+
+  .hero-feature p {
+    font-size: 13px !important;
+  }
+
+  .solutions-row {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .section-title {
+    font-size: clamp(26px, 6vw, 36px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .section-head-cols {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+}
+
+/* Agency OS / Sprint Section on Mobile */
+@media screen and (max-width: 768px) {
+  .token-intro {
+    flex-direction: column !important;
+    gap: 28px !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .token-intro-col {
+    width: 100% !important;
+  }
+
+  .token-intro-descr {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin-top: 12px !important;
+  }
+
+  .token-intro-visual {
+    width: 100% !important;
+    max-width: 240px !important;
+    margin: 0 auto !important;
+  }
+
+  .token-features {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .token-feature {
+    width: 100% !important;
+    font-size: 13px !important;
+    padding: 10px 14px !important;
+  }
+
+  .grid-columns.grid-columns-footer {
+    flex-direction: column !important;
+    gap: 14px !important;
+    margin-top: 24px !important;
+  }
+
+  .grid-column--special {
+    width: 100% !important;
+  }
+
+  .empty-col {
+    display: none !important;
+  }
+}
+
+/* FAQ Section Mobile */
+@media screen and (max-width: 768px) {
+  .tabs-menu-3 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .tabs-menu-3 .miscellaneous-2 {
+    flex: 1 1 auto !important;
+    text-align: center !important;
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+  }
+
+  .faq-wrap-2 {
+    padding: 16px 14px !important;
+  }
+
+  .question-2 {
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+  }
+
+  .ans-2 {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+}
+
+/* CTA Banner Mobile */
+@media screen and (max-width: 768px) {
+  .cta-banner-wrapper {
+    padding: 40px 16px !important;
+  }
+
+  .cta-banner {
+    padding: 36px 18px !important;
+    border-radius: 18px !important;
+  }
+
+  .cta-banner h2 {
+    font-size: clamp(22px, 5.5vw, 32px) !important;
+  }
+
+  .cta-banner p {
+    font-size: 14px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .cta-banner > div:last-child {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  .cta-banner .btn-primary,
+  .cta-banner a {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+}
+
+/* Footer Mobile Grid Structure */
+@media screen and (max-width: 768px) {
+  .site-footer .footer-container {
+    padding: 40px 16px 24px !important;
+  }
+
+  .site-footer .footer-container > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    margin-bottom: 32px !important;
+  }
+
+  .site-footer .footer-container > div:last-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .site-footer .footer-container > div:first-child {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+
 
 

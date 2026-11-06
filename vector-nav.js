@@ -244,6 +244,41 @@
       window.addEventListener('scroll', updateAsideScrollSpy, { passive: true });
       updateAsideScrollSpy();
     }
+
+    // 8. Ultra-Fast Loader Safeguard & Instant Page Readiness
+    (function initFastLoader() {
+      function dismissLoader() {
+        document.body.classList.add('page-ready');
+        document.body.classList.add('loaded');
+        const loader = document.querySelector('.page-loader');
+        if (loader) {
+          loader.style.transition = 'opacity 0.25s ease';
+          loader.style.opacity = '0';
+          setTimeout(() => {
+            loader.style.display = 'none';
+          }, 250);
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        dismissLoader();
+      } else {
+        window.addEventListener('load', dismissLoader);
+        setTimeout(dismissLoader, 750); // Hard maximum 750ms so user never waits
+      }
+    })();
+
+    // 9. Brand Logo Subpath Resolution for Nested Subpages
+    const isSub = window.location.pathname.includes('/projects/');
+    const brandLogos = document.querySelectorAll('.vs-brand-logo-img');
+    if (isSub && brandLogos.length > 0) {
+      brandLogos.forEach(img => {
+        const src = img.getAttribute('src');
+        if (src && !src.startsWith('http') && !src.startsWith('../') && !src.startsWith('/')) {
+          img.setAttribute('src', `../${src}`);
+        }
+      });
+    }
   }
 
   if (window.__vectorNavInitialized) return;
