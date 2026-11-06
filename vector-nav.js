@@ -153,6 +153,97 @@
         el.innerHTML = 'SUBMIT PROJECT BRIEF &darr;';
       }
     });
+
+    // 7. Sticky Right-Side Rail (.aside-navbar) Handlers & Scroll-Spy
+    const asideNav = document.querySelector('.aside-navbar');
+    if (asideNav) {
+      const openBtn = asideNav.querySelector('.js-open-aside-menu');
+      const closeBtn = asideNav.querySelector('.js-close-aside-menu');
+      let overlay = asideNav.querySelector('.w-nav-overlay');
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'w-nav-overlay';
+        asideNav.appendChild(overlay);
+      }
+
+      function openAsideMenu(e) {
+        if (e) e.preventDefault();
+        document.body.classList.remove('aside-menu-is-closed');
+        document.body.classList.add('aside-menu-is-opened');
+        asideNav.classList.remove('short-mode');
+        asideNav.classList.add('full-mode');
+      }
+
+      function closeAsideMenu(e) {
+        if (e) e.preventDefault();
+        document.body.classList.remove('aside-menu-is-opened');
+        document.body.classList.add('aside-menu-is-closed');
+        setTimeout(() => {
+          asideNav.classList.remove('full-mode');
+          asideNav.classList.add('short-mode');
+        }, 750);
+      }
+
+      if (openBtn) {
+        openBtn.addEventListener('click', openAsideMenu);
+      }
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeAsideMenu);
+      }
+      overlay.addEventListener('click', closeAsideMenu);
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && asideNav.classList.contains('full-mode')) {
+          closeAsideMenu();
+        }
+      });
+
+      const asideItems = asideNav.querySelectorAll('.aside-nav-item');
+      asideItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            const target = document.querySelector(href);
+            if (target) {
+              e.preventDefault();
+              if (asideNav.classList.contains('full-mode')) {
+                closeAsideMenu();
+              }
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        });
+      });
+
+      // Scroll-Spy for aside navigation rail
+      const sectionIds = ['intro', 'unlimited-solutions', 'solutions', 'cases', 'ecosystem', 'our-token', 'faq', 'site-footer'];
+      function updateAsideScrollSpy() {
+        const scrollMid = window.scrollY + window.innerHeight * 0.35;
+        let activeId = 'intro';
+
+        for (const id of sectionIds) {
+          const el = document.getElementById(id);
+          if (el) {
+            const top = el.getBoundingClientRect().top + window.scrollY;
+            if (scrollMid >= top) {
+              activeId = id;
+            }
+          }
+        }
+
+        asideItems.forEach(item => {
+          const href = item.getAttribute('href');
+          if (href === `#${activeId}`) {
+            item.classList.add('w--current');
+          } else {
+            item.classList.remove('w--current');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateAsideScrollSpy, { passive: true });
+      updateAsideScrollSpy();
+    }
   }
 
   if (window.__vectorNavInitialized) return;
