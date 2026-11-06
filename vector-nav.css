@@ -872,15 +872,7 @@ body::-webkit-scrollbar-thumb {
   will-change: transform;
 }
 
-/* Isolate section paints to prevent composite jank */
-.media-section,
-.ecosystem-section,
-.pricing-section,
-.landing-features-section {
-  contain: layout paint;
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 800px;
-}
+/* Section isolation (content visibility optimizations removed to prevent mobile layout collapse) */
 
 /* Optimize canvas rendering in Rive */
 .rive-animation canvas {
@@ -987,7 +979,7 @@ body::-webkit-scrollbar-thumb {
   color: #888;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .short-mode.aside-navbar,
   .aside-navbar {
     display: none !important;
@@ -998,9 +990,9 @@ body::-webkit-scrollbar-thumb {
    Brand Logo Image Component Styles
    ========================================================================== */
 .vs-brand-logo-img {
-  height: 38px;
+  height: 34px;
   width: auto;
-  max-width: 180px;
+  max-width: 155px;
   object-fit: contain;
   display: block;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -1012,65 +1004,16 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* ==========================================================================
-   Ultra-Performance & Core Web Vitals Accelerators
+   Top Banner Component & Mobile Styling
    ========================================================================== */
-/* Off-screen paint and layout isolation for 60fps scrolling */
-.landing-features-section,
-.solutions-section,
-.ecosystem-section,
-.token-section,
-.faq-2,
-.cta-banner-wrapper,
-.site-footer {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 700px;
-}
-
-/* GPU acceleration for smooth transitions */
-.vs-navbar,
-.top-banner,
-.cta-banner,
-.faq-wrap-2,
-.vs-dropdown-menu {
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-}
-
-/* ==========================================================================
-   Comprehensive Mobile Responsiveness & Device Fluidity Overhauls
-   ========================================================================== */
-
-/* Failsafe: Never block mobile viewports with loader */
-@media screen and (max-width: 991px) {
-  .page-loader,
-  body:not(.loaded) .page-loader {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-    z-index: -9999 !important;
-  }
-}
-
-.hero-info-line-img {
-  max-width: 100% !important;
-  height: auto !important;
-}
-
-/* Universal Fluid Scaling & Asset Boundaries */
-img, svg, video, canvas {
-  max-width: 100%;
-}
-
-/* Top Banner Mobile Optimization */
 .top-banner {
-  min-height: 40px !important;
-  padding: 8px 16px !important;
+  min-height: 38px !important;
+  background: #0b0d13 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: #0f1117 !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-sizing: border-box !important;
 }
 
 .top-banner-link {
@@ -1091,16 +1034,18 @@ img, svg, video, canvas {
   letter-spacing: 0.02em !important;
 }
 
-/* Header & Mobile Drawer Responsiveness */
+/* ==========================================================================
+   Header & Mobile Navigation Drawer
+   ========================================================================== */
 @media screen and (max-width: 768px) {
   .vs-nav-container {
     padding: 10px 16px !important;
-    height: 64px !important;
+    height: 60px !important;
   }
 
   .vs-brand-logo-img {
-    height: 28px !important;
-    max-width: 145px !important;
+    height: 26px !important;
+    max-width: 120px !important;
   }
 
   .vs-mobile-toggle {
@@ -1116,56 +1061,147 @@ img, svg, video, canvas {
   }
 
   .vs-mobile-drawer {
-    top: 64px !important;
-    height: calc(100vh - 64px) !important;
-    height: calc(100dvh - 64px) !important;
+    top: 60px !important;
+    height: calc(100vh - 60px) !important;
+    height: calc(100dvh - 60px) !important;
     padding: 1.25rem 1.25rem 3rem !important;
+  }
+
+  .top-banner {
+    padding: 6px 12px !important;
+    min-height: 34px !important;
   }
 
   .top-banner-link {
     font-size: 11px !important;
   }
-}
 
-@media screen and (max-width: 480px) {
-  .vs-nav-container {
-    padding: 8px 12px !important;
-    height: 60px !important;
+  .top-banner-text {
+    font-size: 11px !important;
   }
 
-  .vs-brand-logo-img {
-    height: 24px !important;
-    max-width: 125px !important;
+  .top-banner__close-btn {
+    display: none !important;
   }
 
-  .top-banner {
-    padding: 6px 12px !important;
-  }
-
-  .top-banner-text.overflow-ellipsis {
-    max-width: 250px !important;
+  /* Never block mobile viewports with loader */
+  .page-loader,
+  body:not(.loaded) .page-loader {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    z-index: -9999 !important;
   }
 }
 
-/* Hero Section Mobile Responsiveness */
+/* ==========================================================================
+   Responsive Footer Grid
+   ========================================================================== */
+.vs-footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+@media screen and (max-width: 991px) {
+  .vs-footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .vs-footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    margin-bottom: 32px !important;
+  }
+
+  .footer.site-footer .footer-container {
+    padding: 40px 16px 24px !important;
+  }
+
+  .vs-footer-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+}
+
+/* ==========================================================================
+   Comprehensive Mobile Responsiveness & Vertical Spacing Normalization
+   Resolves excessive vertical gaps, black voids, and responsive scaling (360px - 430px)
+   ========================================================================== */
+
+/* 1. Global Viewport & Boundary Normalization */
+@media screen and (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    position: relative;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box !important;
+  }
+
+  img, svg, video, canvas {
+    max-width: 100% !important;
+    height: auto;
+  }
+
+  /* Force visible rendering for elements with Webflow desktop interaction inline opacity */
+  .section-heading,
+  .section-heading[style*="opacity:0"],
+  .section-heading[style*="opacity: 0"],
+  .solutions-row,
+  .solutions-row[style*="opacity:0.35"],
+  .solutions-row[style*="opacity: 0.35"],
+  .token-intro-col,
+  .token-intro-col[style*="opacity:0"],
+  .token-intro-col[style*="opacity: 0"],
+  .token-intro-visual,
+  .token-intro-visual[style*="opacity:0"],
+  .token-intro-visual[style*="opacity: 0"],
+  .grid-columns-footer,
+  .grid-columns-footer[style*="opacity:0"],
+  .grid-columns-footer[style*="opacity: 0"] {
+    opacity: 1 !important;
+  }
+
+  /* Prevent decorative background lines from intercepting touch events */
+  .vertical-line {
+    pointer-events: none !important;
+  }
+}
+
+/* 2. Hero Section Mobile Optimization */
 @media screen and (max-width: 768px) {
   .hero {
-    padding-top: 20px !important;
-    padding-bottom: 40px !important;
+    padding-top: 16px !important;
+    padding-bottom: 24px !important;
     min-height: auto !important;
+    height: auto !important;
     overflow: hidden !important;
   }
 
-  .hero-flex-container {
+  .container.hero-flex-container {
+    min-height: auto !important;
+    height: auto !important;
     padding-left: 16px !important;
     padding-right: 16px !important;
     flex-direction: column !important;
     align-items: center !important;
+    gap: 16px !important;
   }
 
   .hero-info.home-page {
     width: 100% !important;
     max-width: 100% !important;
+    margin: 0 !important;
   }
 
   .hero-info-left {
@@ -1184,53 +1220,15 @@ img, svg, video, canvas {
   .hero-slide .paragraph-3 {
     font-size: 13px !important;
     line-height: 1.5 !important;
-    letter-spacing: 0.04em !important;
+    letter-spacing: 0.03em !important;
   }
 
   .hero-info-right {
     display: none !important;
   }
 
-  .hero-bottom {
-    position: relative !important;
-    bottom: auto !important;
-    left: auto !important;
-    right: auto !important;
-    margin-top: 24px !important;
-    padding: 0 16px 30px !important;
-    width: 100% !important;
-  }
-
-  .hero-bottom-left {
-    width: 100% !important;
-  }
-
-  .hero-heading-top h1.heading-4 {
-    font-size: clamp(30px, 8vw, 44px) !important;
-    line-height: 1.15 !important;
-    word-break: break-word !important;
-  }
-
-  .hero-heding-top-stroke {
-    max-width: 100% !important;
-    overflow: hidden !important;
-  }
-
-  .hero-heding-top-stroke svg {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  .webgl canvas {
-    max-height: 50vh !important;
-    object-fit: contain !important;
-  }
-}
-
-/* Feature Slider & Cards Mobile */
-@media screen and (max-width: 768px) {
   .hero-features-slide-wrapper {
-    padding: 16px 12px !important;
+    padding: 16px 14px !important;
   }
 
   .hero-feature-score {
@@ -1245,66 +1243,412 @@ img, svg, video, canvas {
     font-size: 13px !important;
   }
 
-  .solutions-row {
+  .hero-bottom {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    margin-top: 16px !important;
+    padding: 0 16px 16px !important;
+    width: 100% !important;
+    display: flex !important;
     flex-direction: column !important;
-    gap: 20px !important;
-  }
-
-  .section-title {
-    font-size: clamp(26px, 6vw, 36px) !important;
-    line-height: 1.2 !important;
-  }
-
-  .section-head-cols {
-    flex-direction: column !important;
-    gap: 16px !important;
-  }
-}
-
-/* Agency OS / Sprint Section on Mobile */
-@media screen and (max-width: 768px) {
-  .token-intro {
-    flex-direction: column !important;
-    gap: 28px !important;
     align-items: center !important;
     text-align: center !important;
   }
 
+  .hero-bottom-left {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .hero-heading-top h1.heading-4 {
+    font-size: clamp(28px, 7.5vw, 40px) !important;
+    line-height: 1.15 !important;
+    word-break: break-word !important;
+  }
+
+  .hero-heding-top-stroke {
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .hero-heding-top-stroke svg {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .hero-heading-bottom-stroke svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .hero-bottom-center {
+    margin-top: 10px !important;
+  }
+
+  .hero-bottom-center p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  .hero-bottom-right {
+    margin-top: 14px !important;
+  }
+
+  .webgl canvas {
+    max-height: 40vh !important;
+    object-fit: contain !important;
+  }
+}
+
+/* 3. Unlimited Solutions & Awards Slider Mobile */
+@media screen and (max-width: 768px) {
+  .unlimited-solutions {
+    padding: 20px 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .product-track-descr {
+    padding: 20px 16px !important;
+    margin: 0 !important;
+  }
+
+  .product-descr-container {
+    padding: 0 !important;
+  }
+
+  .awards-section {
+    padding: 16px 16px !important;
+    margin: 0 !important;
+  }
+}
+
+/* 4. Solutions Section ("Our Services") Mobile — Eliminates Massive Voids */
+@media screen and (max-width: 768px) {
+  .solutions-section {
+    padding: 28px 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+    position: relative !important;
+  }
+
+  .solutions-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  .solutions-row {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 20px 16px !important;
+    opacity: 1 !important;
+    gap: 14px !important;
+    margin-bottom: 0 !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: rgba(14, 16, 22, 0.75) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .solutions-cols {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  .solutions-col {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .solutions-row-heading h3 {
+    font-size: 19px !important;
+    line-height: 1.3 !important;
+  }
+
+  .solutions-row-descr p {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  .solutions-feat-list {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .solutions-feat-item {
+    font-size: 12px !important;
+    padding: 6px 10px !important;
+  }
+
+  .solutions-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    opacity: 1 !important;
+    width: 100% !important;
+  }
+
+  .solutions-actions-row {
+    width: 100% !important;
+  }
+
+  .solutions-actions-row a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Reset number badge grayscale on mobile */
+  .nb-default {
+    filter: none !important;
+  }
+
+  /* Hide empty placeholder image and desktop-only sticky animation track */
+  .solutions-image-wrap-mobile {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .soliutions-image-track {
+    display: none !important;
+    height: 0 !important;
+  }
+}
+
+/* 5. Case Studies / Projects Slider Mobile */
+@media screen and (max-width: 768px) {
+  .latest-items {
+    padding: 28px 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .media-section {
+    padding: 12px 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .media-container {
+    padding: 0 16px !important;
+    max-width: 100% !important;
+  }
+
+  .media-slider-holder {
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .caselist-slider-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-right: 0 !important;
+  }
+
+  .vid_slide-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .article-slide {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .case-item-thmb {
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  .case-item-footer {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    padding: 14px 12px !important;
+  }
+
+  .caseitem-footer-text {
+    font-size: 14px !important;
+  }
+
+  .caseitem-footer-subtext {
+    font-size: 11px !important;
+  }
+}
+
+/* 6. Ecosystem Section Mobile — Eliminates 3,000px Black Voids */
+@media screen and (max-width: 768px) {
+  .ecosystem-section {
+    padding: 28px 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+    position: relative !important;
+  }
+
+  .ecosystem-rows,
+  .ecosystem-rows-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    height: auto !important;
+    min-height: auto !important;
+    position: relative !important;
+    width: 100% !important;
+  }
+
+  .ecosystem-row,
+  .ecosystem-row-layer {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 18px 16px !important;
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    margin-bottom: 0 !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: rgba(14, 16, 22, 0.75) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .ecosystem-row-item.ecosystem-row-layer {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+
+  .ecosystem-row.ecosystem-row-layer:not(:first-of-type)::before {
+    display: none !important;
+  }
+
+  .ecosystem-row-item {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    position: relative !important;
+  }
+
+  .layer-title {
+    font-size: 17px !important;
+    line-height: 1.35 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .ecosystem-layer-wrapper,
+  .layer-animation-wrapper {
+    height: auto !important;
+    min-height: 160px !important;
+    max-height: 280px !important;
+    position: relative !important;
+    margin-top: 12px !important;
+    overflow: hidden !important;
+  }
+
+  .rive-animation canvas {
+    max-height: 260px !important;
+    width: 100% !important;
+    object-fit: contain !important;
+  }
+}
+
+/* 7. Agency OS / Sprint Section Mobile */
+@media screen and (max-width: 768px) {
+  .token-section {
+    padding: 28px 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .token-intro {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
   .token-intro-col {
+    width: 100% !important;
+    opacity: 1 !important;
+  }
+
+  .section-title {
+    font-size: clamp(24px, 6.5vw, 34px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .section-head-cols {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
     width: 100% !important;
   }
 
   .token-intro-descr {
     font-size: 14px !important;
     line-height: 1.6 !important;
-    margin-top: 12px !important;
+    margin-top: 10px !important;
   }
 
   .token-intro-visual {
     width: 100% !important;
-    max-width: 240px !important;
+    max-width: 220px !important;
     margin: 0 auto !important;
+    opacity: 1 !important;
   }
 
   .token-features {
     display: flex !important;
     flex-direction: column !important;
     gap: 10px !important;
+    width: 100% !important;
   }
 
   .token-feature {
     width: 100% !important;
     font-size: 13px !important;
     padding: 10px 14px !important;
+    box-sizing: border-box !important;
   }
 
   .grid-columns.grid-columns-footer {
+    display: flex !important;
     flex-direction: column !important;
-    gap: 14px !important;
-    margin-top: 24px !important;
+    gap: 12px !important;
+    margin-top: 20px !important;
+    width: 100% !important;
+    opacity: 1 !important;
   }
 
   .grid-column--special {
+    width: 100% !important;
+  }
+
+  .grid-column--special a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     width: 100% !important;
   }
 
@@ -1313,20 +1657,31 @@ img, svg, video, canvas {
   }
 }
 
-/* FAQ Section Mobile */
+/* 8. FAQ Section Mobile */
 @media screen and (max-width: 768px) {
+  .faq-2 {
+    padding: 28px 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+
   .tabs-menu-3 {
     display: flex !important;
     flex-wrap: wrap !important;
     gap: 8px !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 18px !important;
+    width: 100% !important;
   }
 
   .tabs-menu-3 .miscellaneous-2 {
     flex: 1 1 auto !important;
     text-align: center !important;
-    padding: 10px 14px !important;
+    padding: 8px 12px !important;
     font-size: 13px !important;
+  }
+
+  .faq-container {
+    padding: 0 16px !important;
   }
 
   .faq-wrap-2 {
@@ -1339,29 +1694,33 @@ img, svg, video, canvas {
   }
 
   .ans-2 {
-    font-size: 14px !important;
+    font-size: 13.5px !important;
     line-height: 1.6 !important;
   }
 }
 
-/* CTA Banner Mobile */
+/* 9. CTA Banner Mobile */
 @media screen and (max-width: 768px) {
   .cta-banner-wrapper {
-    padding: 40px 16px !important;
+    padding: 28px 16px !important;
+    min-height: auto !important;
+    height: auto !important;
   }
 
   .cta-banner {
-    padding: 36px 18px !important;
+    padding: 28px 18px !important;
     border-radius: 18px !important;
   }
 
   .cta-banner h2 {
-    font-size: clamp(22px, 5.5vw, 32px) !important;
+    font-size: clamp(20px, 5.5vw, 30px) !important;
+    line-height: 1.25 !important;
   }
 
   .cta-banner p {
-    font-size: 14px !important;
-    margin-bottom: 24px !important;
+    font-size: 13.5px !important;
+    margin-bottom: 18px !important;
+    line-height: 1.5 !important;
   }
 
   .cta-banner > div:last-child {
@@ -1378,32 +1737,154 @@ img, svg, video, canvas {
   }
 }
 
-/* Footer Mobile Grid Structure */
+/* 10. Secondary Pages Card Grids (about, projects, careers, contact, etc.) */
 @media screen and (max-width: 768px) {
-  .site-footer .footer-container {
-    padding: 40px 16px 24px !important;
-  }
-
-  .site-footer .footer-container > div:first-child {
+  .articles-list {
+    display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 32px !important;
-    margin-bottom: 32px !important;
+    gap: 20px !important;
+    padding: 0 16px !important;
+    width: 100% !important;
   }
 
-  .site-footer .footer-container > div:last-child {
-    flex-direction: column !important;
-    align-items: flex-start !important;
+  .articles-item,
+  .article-card,
+  .case-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .filters-panel {
+    padding: 0 16px !important;
+    gap: 8px !important;
+  }
+
+  .filter-search-field {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .landing-features-grid,
+  .landing-group-grid,
+  .landing-who-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
     gap: 16px !important;
+    width: 100% !important;
+  }
+
+  .landing-hero-2,
+  .landing-why,
+  .landing-features,
+  .landing-who-for,
+  .landing-faq,
+  .landing-cta {
+    padding: 32px 16px !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  /* Form controls responsive stacking */
+  #contact-form div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .form-input-webflow {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Verify page controls responsive stacking */
+  .verify-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .verify-dropdown-wrap,
+  .verify-input-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .verify-input-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .verify-input-holder,
+  .verify-input {
+    width: 100% !important;
+  }
+
+  .btn-verify {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Slider and marquee bounds */
+  .learn-more-box {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .marquee-frame,
+  .marquee-block,
+  .w-slider {
+    max-width: 100% !important;
+    overflow: hidden !important;
   }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .site-footer .footer-container > div:first-child {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 32px !important;
+/* 11. Extra Small Mobile Devices (360px - 430px Viewport Scaling) */
+@media screen and (max-width: 430px) {
+  .section-title {
+    font-size: clamp(20px, 6vw, 26px) !important;
+  }
+
+  .section-title-bordered {
+    font-size: 11px !important;
+    padding: 4px 10px !important;
+  }
+
+  .top-banner {
+    padding: 6px 10px !important;
+  }
+
+  .top-banner-link {
+    font-size: 10.5px !important;
+    gap: 6px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .top-banner-text.overflow-ellipsis {
+    max-width: 210px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .vs-nav-container {
+    padding: 8px 12px !important;
+  }
+
+  .hero-bottom-left h1.heading-4 {
+    font-size: 26px !important;
+  }
+
+  .hero-heding-top-stroke svg {
+    max-width: 90vw !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .vs-footer-grid {
+    gap: 24px !important;
   }
 }
-
-
-
 
