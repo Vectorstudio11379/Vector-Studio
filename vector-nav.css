@@ -1040,6 +1040,23 @@ body::-webkit-scrollbar-thumb {
    Comprehensive Mobile Responsiveness & Device Fluidity Overhauls
    ========================================================================== */
 
+/* Failsafe: Never block mobile viewports with loader */
+@media screen and (max-width: 991px) {
+  .page-loader,
+  body:not(.loaded) .page-loader {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    z-index: -9999 !important;
+  }
+}
+
+.hero-info-line-img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
 /* Universal Fluid Scaling & Asset Boundaries */
 img, svg, video, canvas {
   max-width: 100%;

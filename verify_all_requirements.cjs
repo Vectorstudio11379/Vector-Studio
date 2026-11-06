@@ -120,7 +120,18 @@ function runTests() {
     throw new Error("Favicon missing from index.html");
   }
 
-  console.log("ALL 14 VERIFICATION CHECKS PASSED PERFECTLY!");
+  // 15. Mobile critical inline style & body loaded
+  if (!indexHtml.includes('id="vs-critical-mobile-fix"')) {
+    throw new Error("Critical mobile fix style missing from index.html");
+  }
+  if (!indexHtml.includes('<body class="home-page loaded page-ready">')) {
+    throw new Error("Body not pre-marked loaded and page-ready in index.html");
+  }
+  if (!indexHtml.includes('width="155" height="34"')) {
+    throw new Error("Brand logo missing explicit HTML width/height constraints in index.html");
+  }
+
+  console.log("ALL 15 VERIFICATION CHECKS PASSED PERFECTLY!");
 }
 
 runTests();

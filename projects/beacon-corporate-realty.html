@@ -19,7 +19,7 @@
 <!-- Core Webflow & Component Stylesheet -->
 <link crossorigin="anonymous" href="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/css/chain-gpt.shared.a3558708c.min.css" integrity="sha384-o1WHCMrnJbbS0LfUpKSZppAv4pAvYlNYeJKbMRQ8arxTAWf4irz+ALXOnFDpslf+" rel="stylesheet" type="text/css"/>
 <!-- Global Vector Studioz Styling -->
-<link href="../vector-nav.css" rel="stylesheet"/>
+<link href="../vector-nav.css?v=2.2.0" rel="stylesheet"/>
 <style>
     :root {
       --vs-bg: #07070a;
@@ -551,12 +551,20 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png"/>
   <link rel="shortcut icon" href="../favicon.png" type="image/png"/>
+<style>
+.vs-brand-logo-img { height: 34px !important; width: auto !important; max-width: 155px !important; object-fit: contain !important; display: block !important; }
+@media screen and (max-width: 767px) {
+  .vs-brand-logo-img { height: 26px !important; max-width: 120px !important; }
+  .vs-navbar { padding: 8px 16px !important; min-height: 52px !important; height: auto !important; }
+  .page-loader, body:not(.loaded) .page-loader { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+}
+</style>
 </head>
 <body class="home-page landing-body">
 <header class="vs-navbar" id="vs-header">
 <div class="vs-nav-container">
 <a aria-label="Vector Studioz Home" class="vs-brand" href="../index.html">
-      <img src="../images/branding/vector-studioz-logo.png" alt="Vector Studioz" class="vs-brand-logo-img" />
+      <img src="../images/branding/vector-studioz-logo.png" alt="Vector Studioz" class="vs-brand-logo-img" width="155" height="34" style="height:34px;width:auto;max-width:155px;object-fit:contain;display:block;" />
     </a>
 <ul class="vs-nav-menu">
 <!-- Capabilities Dropdown -->
@@ -882,7 +890,7 @@
 <div>
 <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
           <a href="../index.html" aria-label="Vector Studioz Home" style="display:inline-block;text-decoration:none;">
-            <img src="../images/branding/vector-studioz-logo.png" alt="Vector Studioz" class="vs-brand-logo-img" style="height:32px;width:auto;object-fit:contain;" />
+            <img src="../images/branding/vector-studioz-logo.png" alt="Vector Studioz" class="vs-brand-logo-img" width="145" height="32" style="height:32px;width:auto;max-width:145px;object-fit:contain;display:block;" />
           </a>
         </div>
 <p style="font-size:14px;line-height:1.6;color:#9ca3af;max-width:320px;margin:0 0 20px;">
@@ -943,6 +951,6 @@
 </div>
 </div>
 </footer>
-<script src="../vector-nav.js"></script>
+<script src="../vector-nav.js?v=2.2.0"></script>
 </body>
 </html>
