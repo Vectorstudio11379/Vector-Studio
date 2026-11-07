@@ -245,27 +245,50 @@
       updateAsideScrollSpy();
     }
 
-    // 8. Ultra-Fast Loader Safeguard & Instant Page Readiness
-    (function initFastLoader() {
-      function dismissLoader() {
-        document.body.classList.add('page-ready');
-        document.body.classList.add('loaded');
-        const loader = document.querySelector('.page-loader');
-        if (loader) {
-          loader.style.transition = 'opacity 0.25s ease';
-          loader.style.opacity = '0';
-          setTimeout(() => {
-            loader.style.display = 'none';
-          }, 250);
-        }
+    // 8. Page loader
+    // The homepage loader must stay up until the 3D robot is in the scene: the
+    // robot script adds body.loaded at that moment, which also starts the hero
+    // text animations. Dismissing earlier shows a blank hero, then the robot
+    // and text pop in. This only steps in if loading genuinely stalls (slow
+    // network, WebGL unavailable, a CDN failing), so nobody is ever stuck.
+    (function initPageLoader() {
+      const body = document.body;
+      const loader = document.querySelector('.page-loader');
+
+      if (!loader) {
+        body.classList.add('page-ready', 'loaded');
+        return;
       }
 
-      if (document.readyState === 'complete') {
-        dismissLoader();
-      } else {
-        window.addEventListener('load', dismissLoader);
-        setTimeout(dismissLoader, 750); // Hard maximum 750ms so user never waits
+      const AFTER_WINDOW_LOAD_MS = 4000; // robot still missing after every asset finished
+      const HARD_CAP_MS = 15000;         // absolute worst case on a very slow connection
+      let finished = false;
+
+      function hideLoader() {
+        if (finished) return;
+        finished = true;
+        body.classList.add('page-ready', 'loaded');
+        body.classList.add('vs-loader-done');
+        // Remove from layout after the CSS fade (see .vs-loader-done in vector-nav.css).
+        setTimeout(() => { loader.style.display = 'none'; }, 700);
       }
+
+      if (body.classList.contains('loaded')) {
+        hideLoader();
+        return;
+      }
+
+      new MutationObserver((_, observer) => {
+        if (body.classList.contains('loaded')) {
+          observer.disconnect();
+          hideLoader();
+        }
+      }).observe(body, { attributes: true, attributeFilter: ['class'] });
+
+      const fallback = () => setTimeout(hideLoader, AFTER_WINDOW_LOAD_MS);
+      if (document.readyState === 'complete') fallback();
+      else window.addEventListener('load', fallback, { once: true });
+      setTimeout(hideLoader, HARD_CAP_MS);
     })();
 
     // 9. Brand Logo Subpath Resolution for Nested Subpages
@@ -279,6 +302,29 @@
         }
       });
     }
+
+    // 10. Media that can't load: collapse its wrapper instead of leaving a
+    // blank box. A <video> reports networkState NETWORK_NO_SOURCE (3) once
+    // every <source> has failed; the last source's error event fires then.
+    (function initMediaFallback() {
+      const WRAPPER = '.landing-hero-asset-wrapper, .hero-assets-container, .w-embed';
+
+      function collapseIfDead(video) {
+        if (video.networkState !== HTMLMediaElement.NETWORK_NO_SOURCE) return;
+        const wrapper = video.closest(WRAPPER) || video;
+        wrapper.classList.add('vs-media-missing');
+      }
+
+      document.querySelectorAll('video').forEach(video => {
+        // The robot's hidden eye/touch videos are WebGL textures, not visible media.
+        if (video.closest('.eye-video, .touch-video')) return;
+        const sources = video.querySelectorAll('source');
+        const last = sources[sources.length - 1];
+        if (last) last.addEventListener('error', () => collapseIfDead(video));
+        video.addEventListener('error', () => collapseIfDead(video));
+        collapseIfDead(video); // may already have failed before this ran
+      });
+    })();
   }
 
   if (window.__vectorNavInitialized) return;
