@@ -4,8 +4,9 @@
 - Every page gets a full Open Graph + Twitter card set with an absolute image URL.
 - Leftover template pages (CoinGPT crypto tools and legal copy) are noindex,follow
   until they're rewritten for Vector Studioz, and are excluded from the sitemap.
-- The template's Google Tag Manager container (GTM-K43K2ZQ, owned by ChainGPT)
-  is removed so visitor data isn't sent to a third party's analytics.
+- The template's Google Tag Manager container (GTM-K43K2ZQ), Gleam airdrop
+  widget and Cookie3 analytics (all ChainGPT accounts) are removed so visitor
+  data isn't sent to a third party.
 - Writes sitemap.xml and robots.txt.
 
 The homepage head is maintained by hand in index.html; this script only strips
@@ -22,11 +23,10 @@ SITE = 'https://vectorstudioz.uk'
 DEFAULT_IMAGE = f'{SITE}/images/og-vector-studioz-hero.jpg'
 SKIP_PREFIXES = ('test_', 'navbar_', 'template_')
 
-# Template leftovers: CoinGPT product pages and CoinGPT legal text.
+# Template leftovers: CoinGPT product pages.
 NOINDEX = {
     'ai-crypto-alerts.html', 'ai-web3-news.html', 'crypto-compliance-assistant.html',
     'eligibility-policy.html', 'verify.html', 'web3-ai-grant.html',
-    'privacy-policy.html', 'tos.html', 'cookies.html',
 }
 
 SITEMAP = [  # (path, changefreq, priority)
@@ -41,12 +41,18 @@ SITEMAP = [  # (path, changefreq, priority)
     ('about.html', 'monthly', '0.7'),
     ('contact-us.html', 'yearly', '0.7'),
     ('careers.html', 'monthly', '0.5'),
+    ('privacy-policy.html', 'yearly', '0.3'),
+    ('tos.html', 'yearly', '0.3'),
+    ('cookies.html', 'yearly', '0.3'),
 ]
 
 GTM_SCRIPT = re.compile(
     r"(<!-- Google Tag Manager -->\s*)?<script>\(function\(w,d,s,l,i\)[\s\S]*?GTM-K43K2ZQ'\);</script>(\s*<!-- End Google Tag Manager -->)?\n?")
 GTM_NOSCRIPT = re.compile(
     r"(<!-- Google Tag Manager \(noscript\) -->\s*)?<noscript><iframe[^>]*GTM-K43K2ZQ[^>]*>\s*</iframe></noscript>(\s*<!-- End Google Tag Manager \(noscript\) -->)?\n?")
+# ChainGPT's Gleam airdrop widget and Cookie3 analytics account, left over from the template.
+GLEAM = re.compile(r"<script type=\"text/javascript\">\(function\(d, t\)\{\s*if\(window\.location\.hash!='#Airdrop'[\s\S]*?widget\.gleamjs\.io[\s\S]*?</script>\n?")
+COOKIE3 = re.compile(r"<script>\s*var cookie3Options[\s\S]*?cookie3\.analytics\.min\.js[\s\S]*?</script>\n?")
 SOCIAL_META = re.compile(r'<meta\b[^>]*\b(?:property|name)="(?:og|twitter):[^"]*"[^>]*/?>\n?')
 ROBOTS_META = re.compile(r'<meta\b[^>]*\bname="robots"[^>]*/?>\n?')
 CANONICAL = re.compile(r'<link\b[^>]*\brel="canonical"[^>]*/?>')
@@ -59,6 +65,8 @@ def attr(tag, name):
 
 def strip_gtm(s):
     s = GTM_SCRIPT.sub('', s)
+    s = GLEAM.sub('', s)
+    s = COOKIE3.sub('', s)
     return GTM_NOSCRIPT.sub('', s)
 
 
@@ -90,7 +98,9 @@ def normalise(rel):
 
     s = SOCIAL_META.sub('', s)
     s = ROBOTS_META.sub('', s)
-    s = CANONICAL.sub('', s, count=1) if canon_m else s
+    s = re.sub(CANONICAL.pattern + r'\n?', '', s, count=1) if canon_m else s
+    # Removed tags can leave blank lines behind; drop them so reruns are stable.
+    s = re.sub(r'(<title>[^<]*</title>)\n(?:[ \t]*\n)+', r'\1\n', s, count=1)
 
     robots = 'noindex, follow' if rel in NOINDEX else \
         'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'

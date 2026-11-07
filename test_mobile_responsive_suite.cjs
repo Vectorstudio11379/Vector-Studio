@@ -155,6 +155,18 @@ check(badOg.length === 0, `Every page has an absolute og:image on vectorstudioz.
 check(fs.existsSync('sitemap.xml') && /Sitemap: https:\/\/vectorstudioz\.uk\/sitemap\.xml/.test(fs.existsSync('robots.txt') ? fs.readFileSync('robots.txt', 'utf8') : ''),
   'robots.txt points at sitemap.xml');
 
+console.log('\n-- Legal pages --');
+for (const f of ['privacy-policy.html', 'tos.html', 'cookies.html']) {
+  const s = fs.readFileSync(f, 'utf8');
+  check(!/chaingpt|coingpt/i.test(s.replace(/chain-gpt\.[a-z0-9.]+\.(css|js)|chaingpt-web\.s3/g, '')),
+    `${f} contains no ChainGPT / CoinGPT text`);
+  check(/name="robots" content="index/.test(s) && s.includes('class="legal-page"') && s.includes('Last updated:'),
+    `${f} is the indexable Vector Studioz legal page`);
+}
+const allPages = seoPages.map(p => fs.readFileSync(p, 'utf8')).join('\n');
+check(!/widget\.gleamjs\.io|cookie3\.analytics|GTM-K43K2ZQ/.test(allPages),
+  'No ChainGPT trackers (GTM, Gleam, Cookie3) on any page, so the Cookie Policy stays accurate');
+
 console.log('\n-- Stylesheet versions --');
 const pages = fs.readdirSync('.').filter(f => f.endsWith('.html') && f !== 'test_index.html')
   .concat(fs.readdirSync('projects').filter(f => f.endsWith('.html')).map(f => path.join('projects', f)));
