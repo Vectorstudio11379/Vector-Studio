@@ -136,6 +136,8 @@ check(clientLinks.length === 15, `Strip lists all 15 clients (found ${clientLink
 check(clientLinks.every(h => fs.existsSync(h)), 'Every client links to an existing project page');
 check(clientLogos.length > 0 && clientLogos.every(p => fs.existsSync(p)), 'Every client logo file exists');
 check(!/awards-nvidia|grant from|AWS Credits|Awwwards Site of the Day/i.test(awardsSection), 'No leftover template award claims');
+check(/initClientStripReveal/.test(navJs) && /product-track-descr/.test(navJs) && /html\.vs-reveal-ready \.awards-section/.test(cssNoComments),
+  'Mobile strip reveal waits for the pinned "Your Gateway" heading, then shows (no overlap, no late fade)');
 
 console.log('\n-- Stylesheet versions --');
 const pages = fs.readdirSync('.').filter(f => f.endsWith('.html') && f !== 'test_index.html')

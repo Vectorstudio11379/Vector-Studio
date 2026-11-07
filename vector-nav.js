@@ -303,6 +303,52 @@
       });
     }
 
+    // 10a. "Trusted by" strip: on phones/tablets the template only fades it in
+    // once it is ~80px from the top of the screen, so quick scrollers miss it.
+    // It can't simply show on entry either: the pinned "Your Gateway" heading
+    // (.product-track-descr, position:fixed) covers the bottom of the screen
+    // until it fades out. So: show the strip as soon as it is on screen AND that
+    // heading is gone; hide it again if the user scrolls back into the heading.
+    (function initClientStripReveal() {
+      const strip = document.querySelector('.awards-section');
+      if (!strip) return;
+      const pinnedHeading = document.querySelector('.unlimited-solutions .product-track-descr');
+      const mobile = window.matchMedia('(max-width: 991px)');
+      document.documentElement.classList.add('vs-reveal-ready');
+
+      function effectiveOpacity(el) {
+        let op = 1;
+        for (let n = el; n && n !== document.body; n = n.parentElement) {
+          op *= parseFloat(getComputedStyle(n).opacity) || 0;
+          if (op < 0.05) break;
+        }
+        return op;
+      }
+
+      function update() {
+        if (!mobile.matches) return;
+        const r = strip.getBoundingClientRect();
+        const onScreen = r.top < window.innerHeight * 0.9 && r.bottom > 0;
+        const headingGone = !pinnedHeading || effectiveOpacity(pinnedHeading) < 0.05 ||
+          pinnedHeading.getBoundingClientRect().top >= r.bottom;
+        strip.classList.toggle('vs-in-view', onScreen && headingGone);
+      }
+
+      let queued = false;
+      const schedule = () => {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(() => { queued = false; update(); });
+      };
+      window.addEventListener('scroll', schedule, { passive: true });
+      window.addEventListener('resize', schedule);
+      // The heading fades via Webflow interactions on its own timing, so
+      // re-check briefly after scrolling settles too.
+      window.addEventListener('scrollend', schedule);
+      setInterval(() => { if (mobile.matches) update(); }, 400);
+      update();
+    })();
+
     // 10. Media that can't load: collapse its wrapper instead of leaving a
     // blank box. A <video> reports networkState NETWORK_NO_SOURCE (3) once
     // every <source> has failed; the last source's error event fires then.

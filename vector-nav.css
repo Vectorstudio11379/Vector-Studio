@@ -1386,3 +1386,19 @@ body.vs-loader-done .page-loader {
     font-size: 15px;
   }
 }
+
+/* "Trusted by" strip reveal on phones/tablets (see initClientStripReveal in
+   vector-nav.js): shown as soon as it is on screen and the pinned "Your
+   Gateway" heading has faded. Overrides the template's much later scroll
+   fade; only hides the strip once the script is running. */
+@media screen and (max-width: 991px) {
+  html.vs-reveal-ready .awards-section {
+    opacity: 0 !important;
+    transition: opacity 0.6s ease !important;
+  }
+
+  html.vs-reveal-ready .awards-section.vs-in-view,
+  .awards-section.vs-in-view {
+    opacity: 1 !important;
+  }
+}
