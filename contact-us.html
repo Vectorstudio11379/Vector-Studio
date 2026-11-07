@@ -862,7 +862,11 @@
 <img alt="" class="landing-group-item-icon" loading="lazy" src="https://cdn.prod.website-files.com/64354b8ce4872ad8cd1c7b04/693a83613f60ebaed5c9c80b_grout%20Icon2.svg"/>
 <div class="landing-group-item-title">Project Discovery Brief</div>
 </div>
-<form action="#" id="contact-form" method="POST" onsubmit="event.preventDefault(); document.getElementById('contact-success').style.display='block'; this.style.display='none';">
+<form action="https://formsubmit.co/admin.vectorstudioz@gmail.com" data-ajax-action="https://formsubmit.co/ajax/admin.vectorstudioz@gmail.com" id="contact-form" method="POST">
+<input name="_subject" type="hidden" value="New project brief from vectorstudioz.uk"/>
+<input name="_template" type="hidden" value="table"/>
+<input name="_next" type="hidden" value="https://vectorstudioz.uk/contact-us.html?sent=1"/>
+<input aria-hidden="true" autocomplete="off" name="_honey" style="display:none" tabindex="-1" type="text"/>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
 <div>
 <label class="form-label" for="full-name">Full Name *</label>
@@ -915,7 +919,8 @@
 </button>
 </div>
 </form>
-<div id="contact-success" style="display:none;padding:24px;background:rgba(0,255,163,0.08);border:1px solid rgba(0,255,163,0.3);border-radius:8px;text-align:center;">
+<div id="contact-error" role="alert" style="display:none;margin-top:12px;padding:14px 16px;background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.35);border-radius:8px;color:#fca5a5;font-size:13px;line-height:1.5;">Sorry, your brief couldn’t be sent. Please try again, or email us at <a href="mailto:admin.vectorstudioz@gmail.com" style="color:#fecaca;">admin.vectorstudioz@gmail.com</a>.</div>
+<div id="contact-success" role="status" style="display:none;padding:24px;background:rgba(0,255,163,0.08);border:1px solid rgba(0,255,163,0.3);border-radius:8px;text-align:center;">
 <div style="font-size:24px;margin-bottom:8px;">✓</div>
 <h3 style="color:#00ffa3;font-size:16px;margin:0 0 6px;">Brief Received Successfully</h3>
 <p style="color:#94a3b8;font-size:13px;margin:0;">A senior partner will review your project brief and follow up within 24 hours.</p>
@@ -1101,6 +1106,7 @@
 </footer>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="vector-nav.js?v=2.4.1"></script>
+<script src="js/contact-form.js?v=1.0.0"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
       const faqTitles = document.querySelectorAll('.landing-faq-question-title-wrapper');
