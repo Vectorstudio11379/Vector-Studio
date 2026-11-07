@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /backup_pages/
+Disallow: /scratch/
+Disallow: /tools/
+Disallow: /test_index.html
+Disallow: /navbar_current.html
+Disallow: /template_header.html
+Disallow: /template_footer.html
+
+Sitemap: https://vectorstudioz.uk/sitemap.xml

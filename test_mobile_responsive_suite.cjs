@@ -139,6 +139,22 @@ check(!/awards-nvidia|grant from|AWS Credits|Awwwards Site of the Day/i.test(awa
 check(/initClientStripReveal/.test(navJs) && /product-track-descr/.test(navJs) && /html\.vs-reveal-ready \.awards-section/.test(cssNoComments),
   'Mobile strip reveal waits for the pinned "Your Gateway" heading, then shows (no overlap, no late fade)');
 
+console.log('\n-- SEO & social sharing --');
+const ogImg = (indexHtml.match(/property="og:image" content="([^"]+)"/) || [])[1] || '';
+check(ogImg.startsWith('https://vectorstudioz.uk/') && fs.existsSync(ogImg.replace('https://vectorstudioz.uk/', '')),
+  `Homepage og:image is an absolute URL to a file in the repo (${ogImg})`);
+check((indexHtml.match(/name="robots"/g) || []).length === 1, 'Homepage has exactly one robots meta (no max-snippet:50 cap)');
+check(!/coingpt\.tech|GTM-K43K2ZQ/.test(indexHtml.slice(0, indexHtml.indexOf('</head>'))) && !indexHtml.includes('GTM-K43K2ZQ'),
+  'Homepage carries no CoinGPT canonical or tag manager');
+const seoPages = fs.readdirSync('.').filter(f => f.endsWith('.html') && !/^(test_|navbar_|template_)/.test(f))
+  .concat(fs.readdirSync('projects').filter(f => f.endsWith('.html')).map(f => 'projects/' + f));
+const badCanon = seoPages.filter(p => !/rel="canonical" href="https:\/\/vectorstudioz\.uk\//.test(fs.readFileSync(p, 'utf8')));
+check(badCanon.length === 0, `Every page's canonical stays on vectorstudioz.uk${badCanon.length ? ' (bad: ' + badCanon.join(', ') + ')' : ''}`);
+const badOg = seoPages.filter(p => !/property="og:image" content="https:\/\/vectorstudioz\.uk\//.test(fs.readFileSync(p, 'utf8')));
+check(badOg.length === 0, `Every page has an absolute og:image on vectorstudioz.uk${badOg.length ? ' (bad: ' + badOg.join(', ') + ')' : ''}`);
+check(fs.existsSync('sitemap.xml') && /Sitemap: https:\/\/vectorstudioz\.uk\/sitemap\.xml/.test(fs.existsSync('robots.txt') ? fs.readFileSync('robots.txt', 'utf8') : ''),
+  'robots.txt points at sitemap.xml');
+
 console.log('\n-- Stylesheet versions --');
 const pages = fs.readdirSync('.').filter(f => f.endsWith('.html') && f !== 'test_index.html')
   .concat(fs.readdirSync('projects').filter(f => f.endsWith('.html')).map(f => path.join('projects', f)));
